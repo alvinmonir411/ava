@@ -6,6 +6,30 @@ import { usePathname } from 'next/navigation';
 import { Phone, Mail, Clock, MapPin, Menu, X, ChevronDown, Scale } from 'lucide-react';
 import WhatsAppButton from '../common/WhatsAppButton';
 
+const PRIMARY_PRACTICES = [
+  { href: '/practices/legal-advice-consultation', label: 'Legal Advice & General Consultation' },
+  { href: '/practices/property-conveyancing', label: 'Property & Conveyancing Law' },
+  { href: '/practices/family-divorce', label: 'Family & Divorce Matters' },
+  { href: '/practices/dispute-resolution-claims', label: 'Dispute Resolution & Bodily Injury' },
+  { href: '/practices/will-estate-distribution', label: 'Will Writing & Estate Distribution' },
+  { href: '/practices/company-matters-agreements', label: 'Company Matters & Commercial Law' },
+];
+
+const SERVICE_OFFERINGS = [
+  { href: '/practices/bodily-injury-claims', label: 'Bodily Injury Claims' },
+  { href: '/practices/medical-negligence-claims', label: 'Medical Negligence Claims' },
+  { href: '/practices/letter-writing-lods', label: 'Letter Writing & LODs' },
+  { href: '/practices/employment-labour-claims', label: 'Employment & Labour Claims' },
+  { href: '/practices/defamation-claims-justification', label: 'Defamation Claims & Justification' },
+  { href: '/practices/will-writing-probate-advice', label: 'Will Writing & Probate Advice' },
+  { href: '/practices/tenancy-agreement-disputes', label: 'Tenancy Agreement Disputes' },
+  { href: '/practices/business-negotiations', label: 'Business Negotiations' },
+  { href: '/practices/small-claims-assistance', label: 'Small Claims Assistance' },
+  { href: '/practices/professional-negligence', label: 'Professional Negligence' },
+  { href: '/practices/contractor-negligence-claims', label: 'Contractor Negligence Claims' },
+  { href: '/practices/debt-recovery-winding-up', label: 'Debt Recovery & Winding Up' },
+];
+
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About Us' },
@@ -13,20 +37,6 @@ const NAV_LINKS = [
     href: '/practices',
     label: 'Practice Areas',
     hasDropdown: true,
-    subLinks: [
-      { href: '/practices/bodily-injury-claims', label: 'Bodily Injury Claims' },
-      { href: '/practices/medical-negligence-claims', label: 'Medical Negligence Claims' },
-      { href: '/practices/letter-writing-lods', label: 'Letter Writing & LODs' },
-      { href: '/practices/employment-labour-claims', label: 'Employment & Labour Claims' },
-      { href: '/practices/defamation-claims-justification', label: 'Defamation & Justification' },
-      { href: '/practices/will-writing-probate-advice', label: 'Will Writing & Probate' },
-      { href: '/practices/tenancy-agreement-disputes', label: 'Tenancy Agreement Disputes' },
-      { href: '/practices/business-negotiations', label: 'Business Negotiations' },
-      { href: '/practices/small-claims-assistance', label: 'Small Claims Assistance' },
-      { href: '/practices/professional-negligence', label: 'Professional Negligence' },
-      { href: '/practices/contractor-negligence-claims', label: 'Contractor Negligence' },
-      { href: '/practices/debt-recovery-winding-up', label: 'Debt Recovery & Winding Up' },
-    ],
   },
   { href: '/our-team', label: 'Our Team' },
   { href: '/articles', label: 'Articles' },
@@ -118,7 +128,7 @@ export default function Header() {
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-1 xl:gap-2">
             {NAV_LINKS.map((link, index) => {
-              const isActive = pathname === link.href || (link.subLinks && pathname.startsWith('/practices'));
+              const isActive = pathname === link.href || (link.hasDropdown && pathname.startsWith('/practices'));
 
               if (link.hasDropdown) {
                 return (
@@ -142,31 +152,59 @@ export default function Header() {
 
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-0 w-[540px] bg-[#0A1529] border border-[#B8935A]/35 rounded-xl shadow-2xl p-3 transition-all duration-200 z-50 ${
+                      className={`absolute top-full left-0 w-[740px] bg-[#0A1529] border border-[#B8935A]/40 rounded-2xl shadow-2xl p-4 transition-all duration-200 z-50 ${
                         practicesDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
-                      <div className="px-3 py-1.5 border-b border-[#B8935A]/15 mb-2 flex items-center justify-between">
-                        <span className="text-[10px] uppercase font-bold tracking-wider text-[#CFA76F]">
-                          Service Offerings & Areas of Scope
+                      {/* Top Bar */}
+                      <div className="px-3 py-1.5 border-b border-[#B8935A]/20 mb-3 flex items-center justify-between">
+                        <span className="text-[11px] uppercase font-bold tracking-wider text-[#CFA76F] flex items-center gap-1.5">
+                          <Scale className="w-3.5 h-3.5 text-[#CFA76F]" />
+                          <span>Practice Areas & Disciplines</span>
                         </span>
                         <Link
                           href="/practices"
-                          className="text-[11px] text-[#B8935A] hover:text-[#CFA76F] font-semibold hover:underline"
+                          className="text-xs text-[#B8935A] hover:text-[#CFA76F] font-semibold hover:underline"
                         >
-                          All Practices →
+                          View All 18 Practices →
                         </Link>
                       </div>
-                      <div className="grid grid-cols-2 gap-1">
-                        {link.subLinks?.map((sub, sIndex) => (
-                          <Link
-                            key={sIndex}
-                            href={sub.href}
-                            className="block px-3 py-2 rounded-lg text-xs text-white/90 hover:text-[#CFA76F] hover:bg-[#1B2F57]/80 transition-colors font-medium truncate"
-                          >
-                            • {sub.label}
-                          </Link>
-                        ))}
+
+                      {/* 1. Primary Practice Disciplines (Top / First) */}
+                      <div className="mb-3">
+                        <span className="text-[10px] uppercase font-bold tracking-wider text-white/60 block px-2 mb-1.5">
+                          Core Practice Disciplines
+                        </span>
+                        <div className="grid grid-cols-2 gap-1.5">
+                          {PRIMARY_PRACTICES.map((p, pIdx) => (
+                            <Link
+                              key={pIdx}
+                              href={p.href}
+                              className="px-3 py-2 rounded-lg text-xs text-white font-semibold hover:text-[#CFA76F] bg-[#0F1F3D]/90 hover:bg-[#1B2F57] border border-[#B8935A]/25 hover:border-[#CFA76F]/50 transition-all flex items-center justify-between"
+                            >
+                              <span>{p.label}</span>
+                              <span className="text-[#CFA76F] text-[10px]">→</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* 2. Specialized Service Offerings & Scope (Second / After) */}
+                      <div className="pt-2 border-t border-[#B8935A]/20">
+                        <span className="text-[10px] uppercase font-bold tracking-wider text-white/60 block px-2 mb-1.5">
+                          Specialized Service Offerings & Areas of Scope
+                        </span>
+                        <div className="grid grid-cols-2 gap-1">
+                          {SERVICE_OFFERINGS.map((sub, sIndex) => (
+                            <Link
+                              key={sIndex}
+                              href={sub.href}
+                              className="block px-2.5 py-1.5 rounded-md text-xs text-white/80 hover:text-[#CFA76F] hover:bg-[#1B2F57]/80 transition-colors font-medium truncate"
+                            >
+                              • {sub.label}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -242,16 +280,40 @@ export default function Header() {
                         </button>
                       </div>
                       {practicesDropdownOpen && (
-                        <div className="pl-6 pr-2 py-1 space-y-1 bg-[#0F1F3D]/80 rounded-lg border-l-2 border-[#B8935A] ml-3">
-                          {link.subLinks?.map((sub, sIdx) => (
-                            <Link
-                              key={sIdx}
-                              href={sub.href}
-                              className="block py-2 text-xs text-white/90 hover:text-[#CFA76F]"
-                            >
-                              {sub.label}
-                            </Link>
-                          ))}
+                        <div className="pl-4 pr-2 py-2 space-y-3 bg-[#0F1F3D]/90 rounded-lg border-l-2 border-[#B8935A] ml-2">
+                          <div>
+                            <span className="text-[10px] uppercase font-bold tracking-wider text-[#CFA76F] block mb-1">
+                              Core Practice Disciplines
+                            </span>
+                            <div className="space-y-1">
+                              {PRIMARY_PRACTICES.map((p, pIdx) => (
+                                <Link
+                                  key={pIdx}
+                                  href={p.href}
+                                  className="block py-1 text-xs text-white font-semibold hover:text-[#CFA76F]"
+                                >
+                                  → {p.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div className="pt-2 border-t border-[#B8935A]/20">
+                            <span className="text-[10px] uppercase font-bold tracking-wider text-[#CFA76F] block mb-1">
+                              Service Offerings & Scope
+                            </span>
+                            <div className="space-y-1">
+                              {SERVICE_OFFERINGS.map((sub, sIdx) => (
+                                <Link
+                                  key={sIdx}
+                                  href={sub.href}
+                                  className="block py-1 text-xs text-white/80 hover:text-[#CFA76F]"
+                                >
+                                  • {sub.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
                         </div>
                       )}
                     </div>
