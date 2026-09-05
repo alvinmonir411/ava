@@ -2,6 +2,274 @@ import { PracticeArea, Article, TeamMember, Testimonial, FaqItem } from '@/types
 
 export const PRACTICE_AREAS: PracticeArea[] = [
   {
+    slug: 'legal-advice-consultation',
+    title: 'Legal Advice & General Consultation',
+    tagline: 'Strategic Legal Guidance Across Business & Personal Spheres',
+    shortDescription: 'Clear, direct, and actionable legal opinions for individuals and businesses navigating regulatory hurdles, disputes, and compliance.',
+    seoTitle: 'Legal Advice & Consultation Lawyer in Kuala Lumpur | LWCCO',
+    seoDescription: 'Consult experienced Advocates & Solicitors at LWCCO in Kuala Lumpur for confidential legal advice, legal notices, dispute risk assessments, and compliance.',
+    heroImage: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'Scale',
+    fullDescription: `At Messrs. Low Wah Chin & Co. (LWCCO), our General Legal Advice & Consultation practice is founded upon the principle of providing sensible, realistic, and unvarnished legal counsel. Whether you are facing an impending dispute, seeking to safeguard personal rights, or requiring preliminary legal opinions before signing major commitments, our team offers prompt, confidential, and comprehensive legal reviews.
+
+With over 15 years of continuous legal experience in the High Court of Malaya and Appellate Courts, Ms. Ava Rachel Low and the legal team evaluate your situation not only from strict statutory perspectives, but also with practical business acumen and commercial foresight. We analyze potential liabilities, cost-benefit ratios of litigation versus settlement, and immediate legal remedies available under Malaysian law.
+
+Our consultation practice avoids legal jargon. We present your options with absolute clarity, outlining the exact legal steps, timeframes, and anticipated costs so that you can make informed, confident decisions.`,
+    whatWeHandle: [
+      'Preliminary legal risk assessments and formal legal opinions',
+      'Drafting and responding to formal Letters of Demand (LOD)',
+      'Pre-litigation dispute evaluation and evidence appraisal',
+      'Small claims advice and procedural assistance in Malaysian subordinate courts',
+      'Defamation claims, justification defenses, and cease-and-desist notices',
+      'Statutory compliance reviews and regulatory advisory for SMEs',
+      'Mediation and amicable out-of-court dispute settlement negotiations'
+    ],
+    keyBenefits: [
+      'Direct partner-level legal review from senior counsel',
+      'Transparent, upfront fee schedule with no surprise disbursements',
+      'Fast 24-hour turnaround for urgent legal notices and advice',
+      'Human-centric approach focused on pragmatic dispute resolution'
+    ],
+    faqs: [
+      {
+        question: 'What happens during an initial legal consultation with LWCCO?',
+        answer: 'During your consultation, our senior legal counsel will review all relevant documentation, analyze the facts of your situation, identify potential legal claims or liabilities, and provide a clear, actionable roadmap of your options under Malaysian law.'
+      },
+      {
+        question: 'How quickly can you issue a formal Letter of Demand (LOD)?',
+        answer: 'Upon receiving all relevant proof and instructions, our firm can prepare and serve a formal Letter of Demand within 24 to 48 hours for urgent commercial or personal debt matters.'
+      },
+      {
+        question: 'Do you offer consultations via video call or phone?',
+        answer: 'Yes. While we welcome clients to our offices at Colony @ KLCC, we frequently conduct secure virtual consultations via Zoom, Google Meet, and phone calls for clients across Malaysia and abroad.'
+      },
+      {
+        question: 'What documents should I prepare before our consultation?',
+        answer: 'Please prepare all relevant contracts, correspondence (WhatsApp/emails), invoices, bank transaction slips, police reports (if applicable), and any formal notices received.'
+      }
+    ]
+  },
+  {
+    slug: 'property-conveyancing',
+    title: 'Property & Conveyancing Law',
+    tagline: 'Securing Your Real Estate Transactions & Land Rights with Precision',
+    shortDescription: 'Comprehensive legal representation for Sale and Purchase Agreements (SPA), property transfers, loan documentation, tenancy disputes, and land trespass.',
+    seoTitle: 'Property & Conveyancing Lawyer in Kuala Lumpur | LWCCO',
+    seoDescription: 'Expert real estate conveyancing, SPA drafting, property title transfers, and tenancy dispute resolution in Kuala Lumpur & Selangor by LWCCO Advocates & Solicitors.',
+    heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'Building2',
+    fullDescription: `Real estate transactions represent some of the most substantial financial commitments in an individual's or corporation's lifespan. Messrs. Low Wah Chin & Co. provides meticulous conveyancing and property law representation in Kuala Lumpur and throughout Peninsular Malaysia, protecting your ownership rights against encumbrances, title defects, and contractual breaches.
+
+Ms. Ava Rachel Low built foundational conveyancing expertise with esteemed legal firms including Raja Eleena, Siew Ang & Associates in 2012, advising property developers, individual buyers, commercial landlords, and institutional lenders. We handle the entire transaction continuum—from conducting comprehensive land searches at Land Offices (Pejabat Tanah dan Galian), drafting customized Sale & Purchase Agreements (SPA), managing stamp duty adjudications with LHDN, to securing perfection of transfer and charge (Borang 14A & 16A).
+
+In addition to transactional conveyancing, our litigation wing represents clients in land-related disputes including illegal land trespass, boundary disagreements, caveats lodgement and removal, and complex commercial/residential tenancy disputes.`,
+    whatWeHandle: [
+      'Drafting & reviewing Sale and Purchase Agreements (SPA) for sub-sale and direct developer properties',
+      'Deeds of Assignment, Perfection of Transfer (Form 14A) & Perfection of Charge (Form 16A)',
+      'Entry and removal of Private Caveats and Registrar Caveats at Land Registries',
+      'Commercial and residential Tenancy Agreements & Lease crafting',
+      'Landlord-tenant disputes, recovery of rental arrears, and distress proceedings',
+      'Land trespass claims, encroachment disputes, and easement applications',
+      'Property title conversions, Malay Reserve Land advice, and estate land transfers'
+    ],
+    keyBenefits: [
+      'Meticulous title due diligence preventing hidden liens and caveats',
+      'Expedited stamping with LHDN and registration with Land Offices',
+      'Direct handling of high-value commercial leases and sub-sale transactions',
+      'Prompt legal intervention for defaulting tenants and trespassers'
+    ],
+    faqs: [
+      {
+        question: 'How long does a sub-sale property transfer take in Malaysia?',
+        answer: 'For freehold properties with individual or strata titles already issued, a standard sub-sale transaction takes approximately 3 months from the date of the signed SPA. For leasehold properties requiring state consent, it typically takes 6 to 9 months.'
+      },
+      {
+        question: 'Can a landlord forcefully evict a defaulting tenant without a court order?',
+        answer: 'No. Under Section 7(2) of the Specific Relief Act 1950, a landlord cannot take the law into their own hands or change the locks forcefully without obtaining an eviction order from the court. LWCCO assists landlords in issuing statutory notices and obtaining court possession orders lawfully.'
+      },
+      {
+        question: 'What is a Private Caveat and when should I lodge one?',
+        answer: 'A Private Caveat is a formal notice entered onto a land title at the Land Registry to protect your caveatable interest (e.g. as a purchaser who paid a deposit) and prevent the registered owner from selling or mortgaging the property to another party.'
+      }
+    ]
+  },
+  {
+    slug: 'family-divorce',
+    title: 'Family & Divorce Law',
+    tagline: 'Compassionate Guidance & Steadfast Protection Through Matrimonial Matters',
+    shortDescription: 'Dedicated legal counsel for mutual consent and contested divorces, child custody, spousal/child maintenance, and division of matrimonial assets.',
+    seoTitle: 'Family & Divorce Lawyer in Kuala Lumpur | LWCCO',
+    seoDescription: 'Compassionate, discreet divorce and family lawyers in KL. Joint petitions, contested divorce proceedings, child custody, and matrimonial asset division.',
+    heroImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'HeartHandshake',
+    fullDescription: `Family disputes and marital breakdown are emotionally demanding experiences that require not only sharp legal acumen, but also genuine empathy, discretion, and diplomatic negotiation. At Low Wah Chin & Co., we prioritize the protection of your family's future, ensuring fair asset distribution and securing the best welfare interests of your children.
+
+Under the Law Reform (Marriage and Divorce) Act 1976 (LRA 1976) for non-Muslim civil marriages in Malaysia, our firm represents clients through both amicable Joint Petitions (mutual consent divorces) and rigorous Single Petitions (contested divorce proceedings). Ms. Ava Rachel Low has extensive experience dealing with high-conflict marital breakdowns, tracing concealed matrimonial assets, and arguing for equitable spousal maintenance and child guardianship.
+
+We understand that prolonged litigation can drain both financial and emotional resources. Whenever possible, we endeavor to reach fair settlements through structured mediation; however, when your rights or children's wellbeing are threatened, we advocate vigorously on your behalf in the High Court.`,
+    whatWeHandle: [
+      'Joint Petitions for Mutual Consent Divorce (fast-track dissolution)',
+      'Single Petitions for Contested Divorce based on breakdown of marriage, adultery, or cruelty',
+      'Applications for Child Custody, Care & Control, and Access Rights',
+      'Child and Spousal Maintenance (alimony) applications and enforcement',
+      'Valuation and equitable Division of Matrimonial Assets and properties',
+      'Injunctions to prevent dissipation of matrimonial assets during proceedings',
+      'Pre-nuptial agreements and post-nuptial financial settlements'
+    ],
+    keyBenefits: [
+      'Strict client confidentiality and empathetic, discreet consultations',
+      'Fast-track mutual consent divorce filings (completed within 3-4 months)',
+      'Strategic child custody protection prioritizing the welfare of children',
+      'Tenacious asset tracing and forensic financial examination'
+    ],
+    faqs: [
+      {
+        question: 'How long does a mutual consent (Joint Petition) divorce take in Malaysia?',
+        answer: 'A Joint Petition divorce typically takes 3 to 4 months from filing the petition in the High Court to obtaining the Decree Nisi, and another 3 months for the Decree Nisi to become absolute.'
+      },
+      {
+        question: 'How is child custody determined by the Malaysian High Court?',
+        answer: 'Under Section 88 of the LRA 1976, the paramount consideration of the court is the welfare of the child. The court takes into account the wishes of the parents and the child (if mature enough), preserving the child’s stable environment, education, and moral upbringing.'
+      },
+      {
+        question: 'Can I file for divorce if I have been married for less than two years?',
+        answer: 'Generally, under Section 51 of the LRA 1976, a couple must be married for at least 2 years before filing a divorce petition. However, exceptions can be granted by the High Court under exceptional circumstances or hardship.'
+      }
+    ]
+  },
+  {
+    slug: 'dispute-resolution-claims',
+    title: 'Dispute Resolution, Accident & Bodily Injury Claims',
+    tagline: 'Tenacious Advocacy for Maximum Compensation & Fair Justice',
+    shortDescription: 'Recognized by Trusted Malaysia as a top Personal Injury practice in KL. Expert handling of motor accidents, medical negligence, and contractor negligence.',
+    seoTitle: 'Personal Injury & Dispute Resolution Lawyer in Kuala Lumpur | LWCCO',
+    seoDescription: 'Award-winning personal injury, motor accident compensation, and medical negligence lawyers in KL. Trusted Malaysia Top 6 Personal Injury practice.',
+    heroImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'ShieldAlert',
+    fullDescription: `When an accident or professional failure turns your life upside down, securing fair financial recovery is essential for your rehabilitation and family's future. Messrs. Low Wah Chin & Co. is widely recognized across Kuala Lumpur and Selangor for its robust tort law and bodily injury practice, having been featured on Trusted Malaysia as one of the Top 6 Personal Injury Law Firms in Malaysia.
+
+Ms. Ava Rachel Low possesses deep, specialized litigation experience gained from managing complex insurance litigation, professional indemnity insurance, and medical negligence portfolios with premier litigation firms including Azim, Tunku Farik & Wong and Murali B. Pillai & Associates. We understand the precise defense tactics and actuarial models employed by major insurance companies and medical defense organizations.
+
+We vigorously pursue both General Damages (for pain, suffering, and loss of amenities) and Special Damages (for medical expenses, nursing care costs, vehicle damage, and future loss of earnings). From the initial police and hospital report analysis through trial in the Sessions Court and High Court, we champion your right to complete restitution.`,
+    whatWeHandle: [
+      'Motor Vehicle & Road Traffic Accident Bodily Injury Claims',
+      'Medical Negligence & Surgical Malpractice claims against healthcare providers',
+      'Legal Professional Negligence and Accountant Malpractice claims',
+      'Contractor & Construction Site Negligence causing physical damage or injury',
+      'Fatal Accident & Dependency Claims under Section 7 of the Civil Law Act 1956',
+      'Slip, trip, and fall claims on commercial premises (Occupiers’ Liability)',
+      'Insurance policy repudiation disputes and non-motor insurance claims'
+    ],
+    keyBenefits: [
+      'Recognized Top 6 Personal Injury Practice by Trusted Malaysia',
+      'Extensive insurer defense background allowing us to outmaneuver insurance adjusters',
+      'Comprehensive claim quantification ensuring no heads of damage are omitted',
+      'Contingency and flexible fee structures tailored to injured victims'
+    ],
+    faqs: [
+      {
+        question: 'What is the time limit (Limitation Period) to file a personal injury claim in Malaysia?',
+        answer: 'Under the Limitation Act 1953, the limitation period for bringing a tort claim for personal injury in Peninsular Malaysia is 6 years from the date of the accident or cause of action. However, it is crucial to consult a lawyer immediately to preserve critical evidence.'
+      },
+      {
+        question: 'What compensation can I claim for a motor vehicle accident injury?',
+        answer: 'You can claim General Damages (for pain, suffering, loss of limbs/faculties), Special Damages (hospital bills, medications, transport costs, damaged belongings), and Loss of Earnings (both past earnings and future loss of earnings or earning capacity).'
+      },
+      {
+        question: 'How do I prove medical negligence against a hospital or doctor in Malaysia?',
+        answer: 'To establish medical negligence under the Bolam and Rogers v Whitaker principles, you must prove the medical practitioner owed you a duty of care, breached the accepted professional standard of care, and that this breach directly caused your physical injury or loss.'
+      }
+    ]
+  },
+  {
+    slug: 'will-estate-distribution',
+    title: 'Will Writing & Estate Distribution',
+    tagline: 'Preserving Generational Wealth & Facilitating Seamless Estate Administration',
+    shortDescription: 'Professional will drafting, Grant of Probate, Letters of Administration (LA), Small Estate distribution, and contentious probate litigation.',
+    seoTitle: 'Will Writing & Estate Distribution Lawyer in Malaysia | LWCCO',
+    seoDescription: 'Professional will writing, Grant of Probate, Letters of Administration, and Land Office estate transmission in Kuala Lumpur by LWCCO Advocates & Solicitors.',
+    heroImage: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'ScrollText',
+    fullDescription: `A comprehensive estate plan guarantees that your hard-earned assets are seamlessly transmitted to your loved ones without costly court delays, family disputes, or estate freezes. Low Wah Chin & Co. provides end-to-end estate planning and probate services under the Wills Act 1959 and the Probate and Administration Act 1959.
+
+Whether you are crafting a structured Will to appoint trusted executors and guardians for minor children, or navigating the administration of a deceased relative's estate, our firm ensures absolute legal compliance. When a person passes away leaving a valid Will, we expedite petitions for the Grant of Probate in the High Court. If the deceased passed away without a Will (intestate), we assist families in applying for Letters of Administration (LA) or facilitating distributions through the District Land Office under the Small Estates (Distribution) Act 1955.
+
+Our team also handles contentious probate proceedings, including challenges to will validity, testamentary capacity disputes, allegations of undue influence, and claims under the Inheritance (Family Provision) Act 1971.`,
+    whatWeHandle: [
+      'Customized Will Drafting with testamentary trusts and guardian appointments',
+      'High Court Petitions for Grant of Probate (where a valid Will exists)',
+      'Petitions for Letters of Administration (LA) for intestate estates',
+      'Small Estate Distribution proceedings with District Land Offices (JKPTG)',
+      'Transmission and transfer of real estate titles and bank accounts to beneficiaries',
+      'Contentious probate litigation, will challenges, and executor removal applications',
+      'Deeds of Family Arrangement and mutual estate distribution settlements'
+    ],
+    keyBenefits: [
+      'Ironclad will structuring preventing future family disputes and challenges',
+      'Expedited High Court probate orders releasing frozen bank accounts and assets',
+      'Complete handling of Land Office title transmissions across all states',
+      'Sensible dispute mediation between estranged beneficiaries'
+    ],
+    faqs: [
+      {
+        question: 'What is the difference between Grant of Probate and Letters of Administration?',
+        answer: 'A Grant of Probate is issued when the deceased left a valid Will appointing an executor; it is faster and does not require two administrative sureties. Letters of Administration (LA) are required when a person dies intestate (without a Will), which often involves a longer process and sureties.'
+      },
+      {
+        question: 'What happens to my assets if I pass away without a Will in Malaysia?',
+        answer: 'If you die intestate, your estate will be distributed strictly according to the statutory formulas set out in the Distribution Act 1958 (e.g. fixed shares among surviving spouse, children, and parents), which may not reflect your actual wishes.'
+      },
+      {
+        question: 'Can a Will made in Malaysia cover assets located overseas?',
+        answer: 'Yes, a Malaysian Will can be drafted to cover worldwide assets; however, depending on the foreign jurisdiction, the Grant of Probate may need to be resealed in that country’s courts, or separate foreign wills may be recommended.'
+      }
+    ]
+  },
+  {
+    slug: 'company-matters-agreements',
+    title: 'Company Matters, Commercial Agreements & Litigation',
+    tagline: 'Safeguarding Corporate Interests, Commercial Value & Shareholder Rights',
+    shortDescription: 'Tailored commercial contract drafting, shareholder agreements, corporate governance advisory, debt recovery, and commercial litigation in Malaysian courts.',
+    seoTitle: 'Corporate & Commercial Lawyer in Kuala Lumpur | LWCCO',
+    seoDescription: 'Expert corporate contract drafting, shareholder dispute resolution, commercial litigation, debt recovery, and winding-up proceedings in KL by LWCCO.',
+    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'Briefcase',
+    fullDescription: `In today’s fast-evolving commercial landscape, businesses require agile, proactive legal counsel that protects bottom-line profitability while minimizing regulatory and contractual vulnerabilities. Messrs. Low Wah Chin & Co. acts as a trusted legal advisor and litigation counsel to corporations, SMEs, tech startups, and individual entrepreneurs across Malaysia.
+
+Drawing on Ms. Ava Rachel Low’s experience serving in-house for procurement and risk management with public listed corporation KNM Group Berhad in 2016, alongside years of commercial litigation in Malaysian courts, our firm bridges commercial deal-making with aggressive courtroom protection. We draft bespoke commercial agreements tailored to your specific operations rather than relying on generic templates that fail during disputes.
+
+When commercial disputes arise—such as breaches of contract, non-payment of trade debts, shareholder oppression, or construction licensing conflicts—we execute targeted legal strategies ranging from injunctive relief (Mareva injunctions, Anton Piller orders) to statutory Section 466 winding-up petitions and civil recovery actions.`,
+    whatWeHandle: [
+      'Drafting & reviewing Commercial Contracts, Supply Agreements, and Service Level Agreements (SLA)',
+      'Shareholders’ Agreements, Joint Venture Agreements, and Partnership Deeds',
+      'Corporate Debt Recovery and enforcement of judgments against defaulting debtors',
+      'Section 466 Companies Act 2016 Statutory Notices and Winding-Up Petitions',
+      'Shareholder oppression claims, directors’ fiduciary duty disputes, and boardroom conflicts',
+      'Employment contracts, non-disclosure agreements (NDA), and non-compete covenants',
+      'Engineering, construction contract disputes, and performance bond litigation'
+    ],
+    keyBenefits: [
+      'In-house listed corporate experience combined with aggressive courtroom litigation',
+      'Bespoke contracts drafted to eliminate commercial loopholes and payment delays',
+      'High-velocity corporate debt recovery utilizing statutory winding-up mechanisms',
+      'Strategic risk management preserving vital business relationships'
+    ],
+    faqs: [
+      {
+        question: 'How do I recover an unpaid commercial debt from a defaulting company in Malaysia?',
+        answer: 'Our firm issues a formal Letter of Demand followed, where appropriate, by a statutory notice of demand under Section 466 of the Companies Act 2016. If the company fails to pay within 21 days, we can initiate winding-up proceedings in the High Court or file a civil debt recovery lawsuit.'
+      },
+      {
+        question: 'Why is a customized Shareholders’ Agreement critical for our company?',
+        answer: 'A Shareholders’ Agreement establishes clear rules regarding voting rights, dividend policies, share transfer restrictions, dispute deadlock resolutions, and exit mechanisms, preventing catastrophic corporate deadlocks if partners disagree.'
+      },
+      {
+        question: 'What is a Performance Bond dispute in construction contracts?',
+        answer: 'A Performance Bond dispute arises when an employer seeks to call upon a financial guarantee issued by a bank or insurance company. LWCCO advises contractors and employers on restraining or executing bond calls in accordance with Malaysian judicial standards.'
+      }
+    ]
+  },
+  {
     slug: 'bodily-injury-claims',
     title: 'Bodily Injury Claims',
     tagline: 'Tenacious Advocacy for Maximum Compensation & Complete Financial Recovery',
@@ -526,274 +794,6 @@ Our strategic approach begins with a stern Advocate & Solicitor Letter of Demand
       {
         question: 'What is the minimum debt threshold for corporate winding up and individual bankruptcy?',
         answer: 'Under the current Malaysian statutory limits, the threshold for corporate winding up under the Companies Act 2016 is an indebtedness exceeding RM50,000, while the threshold for individual bankruptcy under the Insolvency Act 1967 is RM100,000.'
-      }
-    ]
-  },
-  {
-    slug: 'property-conveyancing',
-    title: 'Property & Conveyancing Law',
-    tagline: 'Securing Your Real Estate Transactions & Land Rights with Precision',
-    shortDescription: 'Comprehensive legal representation for Sale and Purchase Agreements (SPA), property transfers, loan documentation, tenancy disputes, and land trespass.',
-    seoTitle: 'Property & Conveyancing Lawyer in Kuala Lumpur | LWCCO',
-    seoDescription: 'Expert real estate conveyancing, SPA drafting, property title transfers, and tenancy dispute resolution in Kuala Lumpur & Selangor by LWCCO Advocates & Solicitors.',
-    heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
-    iconName: 'Building2',
-    fullDescription: `Real estate transactions represent some of the most substantial financial commitments in an individual's or corporation's lifespan. Messrs. Low Wah Chin & Co. provides meticulous conveyancing and property law representation in Kuala Lumpur and throughout Peninsular Malaysia, protecting your ownership rights against encumbrances, title defects, and contractual breaches.
-
-Ms. Ava Rachel Low built foundational conveyancing expertise with esteemed legal firms including Raja Eleena, Siew Ang & Associates in 2012, advising property developers, individual buyers, commercial landlords, and institutional lenders. We handle the entire transaction continuum—from conducting comprehensive land searches at Land Offices (Pejabat Tanah dan Galian), drafting customized Sale & Purchase Agreements (SPA), managing stamp duty adjudications with LHDN, to securing perfection of transfer and charge (Borang 14A & 16A).
-
-In addition to transactional conveyancing, our litigation wing represents clients in land-related disputes including illegal land trespass, boundary disagreements, caveats lodgement and removal, and complex commercial/residential tenancy disputes.`,
-    whatWeHandle: [
-      'Drafting & reviewing Sale and Purchase Agreements (SPA) for sub-sale and direct developer properties',
-      'Deeds of Assignment, Perfection of Transfer (Form 14A) & Perfection of Charge (Form 16A)',
-      'Entry and removal of Private Caveats and Registrar Caveats at Land Registries',
-      'Commercial and residential Tenancy Agreements & Lease crafting',
-      'Landlord-tenant disputes, recovery of rental arrears, and distress proceedings',
-      'Land trespass claims, encroachment disputes, and easement applications',
-      'Property title conversions, Malay Reserve Land advice, and estate land transfers'
-    ],
-    keyBenefits: [
-      'Meticulous title due diligence preventing hidden liens and caveats',
-      'Expedited stamping with LHDN and registration with Land Offices',
-      'Direct handling of high-value commercial leases and sub-sale transactions',
-      'Prompt legal intervention for defaulting tenants and trespassers'
-    ],
-    faqs: [
-      {
-        question: 'How long does a sub-sale property transfer take in Malaysia?',
-        answer: 'For freehold properties with individual or strata titles already issued, a standard sub-sale transaction takes approximately 3 months from the date of the signed SPA. For leasehold properties requiring state consent, it typically takes 6 to 9 months.'
-      },
-      {
-        question: 'Can a landlord forcefully evict a defaulting tenant without a court order?',
-        answer: 'No. Under Section 7(2) of the Specific Relief Act 1950, a landlord cannot take the law into their own hands or change the locks forcefully without obtaining an eviction order from the court. LWCCO assists landlords in issuing statutory notices and obtaining court possession orders lawfully.'
-      },
-      {
-        question: 'What is a Private Caveat and when should I lodge one?',
-        answer: 'A Private Caveat is a formal notice entered onto a land title at the Land Registry to protect your caveatable interest (e.g. as a purchaser who paid a deposit) and prevent the registered owner from selling or mortgaging the property to another party.'
-      }
-    ]
-  },
-  {
-    slug: 'family-divorce',
-    title: 'Family & Divorce Law',
-    tagline: 'Compassionate Guidance & Steadfast Protection Through Matrimonial Matters',
-    shortDescription: 'Dedicated legal counsel for mutual consent and contested divorces, child custody, spousal/child maintenance, and division of matrimonial assets.',
-    seoTitle: 'Family & Divorce Lawyer in Kuala Lumpur | LWCCO',
-    seoDescription: 'Compassionate, discreet divorce and family lawyers in KL. Joint petitions, contested divorce proceedings, child custody, and matrimonial asset division.',
-    heroImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80',
-    iconName: 'HeartHandshake',
-    fullDescription: `Family disputes and marital breakdown are emotionally demanding experiences that require not only sharp legal acumen, but also genuine empathy, discretion, and diplomatic negotiation. At Low Wah Chin & Co., we prioritize the protection of your family's future, ensuring fair asset distribution and securing the best welfare interests of your children.
-
-Under the Law Reform (Marriage and Divorce) Act 1976 (LRA 1976) for non-Muslim civil marriages in Malaysia, our firm represents clients through both amicable Joint Petitions (mutual consent divorces) and rigorous Single Petitions (contested divorce proceedings). Ms. Ava Rachel Low has extensive experience dealing with high-conflict marital breakdowns, tracing concealed matrimonial assets, and arguing for equitable spousal maintenance and child guardianship.
-
-We understand that prolonged litigation can drain both financial and emotional resources. Whenever possible, we endeavor to reach fair settlements through structured mediation; however, when your rights or children's wellbeing are threatened, we advocate vigorously on your behalf in the High Court.`,
-    whatWeHandle: [
-      'Joint Petitions for Mutual Consent Divorce (fast-track dissolution)',
-      'Single Petitions for Contested Divorce based on breakdown of marriage, adultery, or cruelty',
-      'Applications for Child Custody, Care & Control, and Access Rights',
-      'Child and Spousal Maintenance (alimony) applications and enforcement',
-      'Valuation and equitable Division of Matrimonial Assets and properties',
-      'Injunctions to prevent dissipation of matrimonial assets during proceedings',
-      'Pre-nuptial agreements and post-nuptial financial settlements'
-    ],
-    keyBenefits: [
-      'Strict client confidentiality and empathetic, discreet consultations',
-      'Fast-track mutual consent divorce filings (completed within 3-4 months)',
-      'Strategic child custody protection prioritizing the welfare of children',
-      'Tenacious asset tracing and forensic financial examination'
-    ],
-    faqs: [
-      {
-        question: 'How long does a mutual consent (Joint Petition) divorce take in Malaysia?',
-        answer: 'A Joint Petition divorce typically takes 3 to 4 months from filing the petition in the High Court to obtaining the Decree Nisi, and another 3 months for the Decree Nisi to become absolute.'
-      },
-      {
-        question: 'How is child custody determined by the Malaysian High Court?',
-        answer: 'Under Section 88 of the LRA 1976, the paramount consideration of the court is the welfare of the child. The court takes into account the wishes of the parents and the child (if mature enough), preserving the child’s stable environment, education, and moral upbringing.'
-      },
-      {
-        question: 'Can I file for divorce if I have been married for less than two years?',
-        answer: 'Generally, under Section 51 of the LRA 1976, a couple must be married for at least 2 years before filing a divorce petition. However, exceptions can be granted by the High Court under exceptional circumstances or hardship.'
-      }
-    ]
-  },
-  {
-    slug: 'legal-advice-consultation',
-    title: 'Legal Advice & General Consultation',
-    tagline: 'Strategic Legal Guidance Across Business & Personal Spheres',
-    shortDescription: 'Clear, direct, and actionable legal opinions for individuals and businesses navigating regulatory hurdles, disputes, and compliance.',
-    seoTitle: 'Legal Advice & Consultation Lawyer in Kuala Lumpur | LWCCO',
-    seoDescription: 'Consult experienced Advocates & Solicitors at LWCCO in Kuala Lumpur for confidential legal advice, legal notices, dispute risk assessments, and compliance.',
-    heroImage: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1600&q=80',
-    iconName: 'Scale',
-    fullDescription: `At Messrs. Low Wah Chin & Co. (LWCCO), our General Legal Advice & Consultation practice is founded upon the principle of providing sensible, realistic, and unvarnished legal counsel. Whether you are facing an impending dispute, seeking to safeguard personal rights, or requiring preliminary legal opinions before signing major commitments, our team offers prompt, confidential, and comprehensive legal reviews.
-
-With over 15 years of continuous legal experience in the High Court of Malaya and Appellate Courts, Ms. Ava Rachel Low and the legal team evaluate your situation not only from strict statutory perspectives, but also with practical business acumen and commercial foresight. We analyze potential liabilities, cost-benefit ratios of litigation versus settlement, and immediate legal remedies available under Malaysian law.
-
-Our consultation practice avoids legal jargon. We present your options with absolute clarity, outlining the exact legal steps, timeframes, and anticipated costs so that you can make informed, confident decisions.`,
-    whatWeHandle: [
-      'Preliminary legal risk assessments and formal legal opinions',
-      'Drafting and responding to formal Letters of Demand (LOD)',
-      'Pre-litigation dispute evaluation and evidence appraisal',
-      'Small claims advice and procedural assistance in Malaysian subordinate courts',
-      'Defamation claims, justification defenses, and cease-and-desist notices',
-      'Statutory compliance reviews and regulatory advisory for SMEs',
-      'Mediation and amicable out-of-court dispute settlement negotiations'
-    ],
-    keyBenefits: [
-      'Direct partner-level legal review from senior counsel',
-      'Transparent, upfront fee schedule with no surprise disbursements',
-      'Fast 24-hour turnaround for urgent legal notices and advice',
-      'Human-centric approach focused on pragmatic dispute resolution'
-    ],
-    faqs: [
-      {
-        question: 'What happens during an initial legal consultation with LWCCO?',
-        answer: 'During your consultation, our senior legal counsel will review all relevant documentation, analyze the facts of your situation, identify potential legal claims or liabilities, and provide a clear, actionable roadmap of your options under Malaysian law.'
-      },
-      {
-        question: 'How quickly can you issue a formal Letter of Demand (LOD)?',
-        answer: 'Upon receiving all relevant proof and instructions, our firm can prepare and serve a formal Letter of Demand within 24 to 48 hours for urgent commercial or personal debt matters.'
-      },
-      {
-        question: 'Do you offer consultations via video call or phone?',
-        answer: 'Yes. While we welcome clients to our offices at Colony @ KLCC, we frequently conduct secure virtual consultations via Zoom, Google Meet, and phone calls for clients across Malaysia and abroad.'
-      },
-      {
-        question: 'What documents should I prepare before our consultation?',
-        answer: 'Please prepare all relevant contracts, correspondence (WhatsApp/emails), invoices, bank transaction slips, police reports (if applicable), and any formal notices received.'
-      }
-    ]
-  },
-  {
-    slug: 'company-matters-agreements',
-    title: 'Company Matters, Commercial Agreements & Litigation',
-    tagline: 'Safeguarding Corporate Interests, Commercial Value & Shareholder Rights',
-    shortDescription: 'Tailored commercial contract drafting, shareholder agreements, corporate governance advisory, debt recovery, and commercial litigation in Malaysian courts.',
-    seoTitle: 'Corporate & Commercial Lawyer in Kuala Lumpur | LWCCO',
-    seoDescription: 'Expert corporate contract drafting, shareholder dispute resolution, commercial litigation, debt recovery, and winding-up proceedings in KL by LWCCO.',
-    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80',
-    iconName: 'Briefcase',
-    fullDescription: `In today’s fast-evolving commercial landscape, businesses require agile, proactive legal counsel that protects bottom-line profitability while minimizing regulatory and contractual vulnerabilities. Messrs. Low Wah Chin & Co. acts as a trusted legal advisor and litigation counsel to corporations, SMEs, tech startups, and individual entrepreneurs across Malaysia.
-
-Drawing on Ms. Ava Rachel Low’s experience serving in-house for procurement and risk management with public listed corporation KNM Group Berhad in 2016, alongside years of commercial litigation in Malaysian courts, our firm bridges commercial deal-making with aggressive courtroom protection. We draft bespoke commercial agreements tailored to your specific operations rather than relying on generic templates that fail during disputes.
-
-When commercial disputes arise—such as breaches of contract, non-payment of trade debts, shareholder oppression, or construction licensing conflicts—we execute targeted legal strategies ranging from injunctive relief (Mareva injunctions, Anton Piller orders) to statutory Section 466 winding-up petitions and civil recovery actions.`,
-    whatWeHandle: [
-      'Drafting & reviewing Commercial Contracts, Supply Agreements, and Service Level Agreements (SLA)',
-      'Shareholders’ Agreements, Joint Venture Agreements, and Partnership Deeds',
-      'Corporate Debt Recovery and enforcement of judgments against defaulting debtors',
-      'Section 466 Companies Act 2016 Statutory Notices and Winding-Up Petitions',
-      'Shareholder oppression claims, directors’ fiduciary duty disputes, and boardroom conflicts',
-      'Employment contracts, non-disclosure agreements (NDA), and non-compete covenants',
-      'Engineering, construction contract disputes, and performance bond litigation'
-    ],
-    keyBenefits: [
-      'In-house listed corporate experience combined with aggressive courtroom litigation',
-      'Bespoke contracts drafted to eliminate commercial loopholes and payment delays',
-      'High-velocity corporate debt recovery utilizing statutory winding-up mechanisms',
-      'Strategic risk management preserving vital business relationships'
-    ],
-    faqs: [
-      {
-        question: 'How do I recover an unpaid commercial debt from a defaulting company in Malaysia?',
-        answer: 'Our firm issues a formal Letter of Demand followed, where appropriate, by a statutory notice of demand under Section 466 of the Companies Act 2016. If the company fails to pay within 21 days, we can initiate winding-up proceedings in the High Court or file a civil debt recovery lawsuit.'
-      },
-      {
-        question: 'Why is a customized Shareholders’ Agreement critical for our company?',
-        answer: 'A Shareholders’ Agreement establishes clear rules regarding voting rights, dividend policies, share transfer restrictions, dispute deadlock resolutions, and exit mechanisms, preventing catastrophic corporate deadlocks if partners disagree.'
-      },
-      {
-        question: 'What is a Performance Bond dispute in construction contracts?',
-        answer: 'A Performance Bond dispute arises when an employer seeks to call upon a financial guarantee issued by a bank or insurance company. LWCCO advises contractors and employers on restraining or executing bond calls in accordance with Malaysian judicial standards.'
-      }
-    ]
-  },
-  {
-    slug: 'dispute-resolution-claims',
-    title: 'Dispute Resolution, Accident & Bodily Injury Claims',
-    tagline: 'Tenacious Advocacy for Maximum Compensation & Fair Justice',
-    shortDescription: 'Recognized by Trusted Malaysia as a top Personal Injury practice in KL. Expert handling of motor accidents, medical negligence, and contractor negligence.',
-    seoTitle: 'Personal Injury & Dispute Resolution Lawyer in Kuala Lumpur | LWCCO',
-    seoDescription: 'Award-winning personal injury, motor accident compensation, and medical negligence lawyers in KL. Trusted Malaysia Top 6 Personal Injury practice.',
-    heroImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80',
-    iconName: 'ShieldAlert',
-    fullDescription: `When an accident or professional failure turns your life upside down, securing fair financial recovery is essential for your rehabilitation and family's future. Messrs. Low Wah Chin & Co. is widely recognized across Kuala Lumpur and Selangor for its robust tort law and bodily injury practice, having been featured on Trusted Malaysia as one of the Top 6 Personal Injury Law Firms in Malaysia.
-
-Ms. Ava Rachel Low possesses deep, specialized litigation experience gained from managing complex insurance litigation, professional indemnity insurance, and medical negligence portfolios with premier litigation firms including Azim, Tunku Farik & Wong and Murali B. Pillai & Associates. We understand the precise defense tactics and actuarial models employed by major insurance companies and medical defense organizations.
-
-We vigorously pursue both General Damages (for pain, suffering, and loss of amenities) and Special Damages (for medical expenses, nursing care costs, vehicle damage, and future loss of earnings). From the initial police and hospital report analysis through trial in the Sessions Court and High Court, we champion your right to complete restitution.`,
-    whatWeHandle: [
-      'Motor Vehicle & Road Traffic Accident Bodily Injury Claims',
-      'Medical Negligence & Surgical Malpractice claims against healthcare providers',
-      'Legal Professional Negligence and Accountant Malpractice claims',
-      'Contractor & Construction Site Negligence causing physical damage or injury',
-      'Fatal Accident & Dependency Claims under Section 7 of the Civil Law Act 1956',
-      'Slip, trip, and fall claims on commercial premises (Occupiers’ Liability)',
-      'Insurance policy repudiation disputes and non-motor insurance claims'
-    ],
-    keyBenefits: [
-      'Recognized Top 6 Personal Injury Practice by Trusted Malaysia',
-      'Extensive insurer defense background allowing us to outmaneuver insurance adjusters',
-      'Comprehensive claim quantification ensuring no heads of damage are omitted',
-      'Contingency and flexible fee structures tailored to injured victims'
-    ],
-    faqs: [
-      {
-        question: 'What is the time limit (Limitation Period) to file a personal injury claim in Malaysia?',
-        answer: 'Under the Limitation Act 1953, the limitation period for bringing a tort claim for personal injury in Peninsular Malaysia is 6 years from the date of the accident or cause of action. However, it is crucial to consult a lawyer immediately to preserve critical evidence.'
-      },
-      {
-        question: 'What compensation can I claim for a motor vehicle accident injury?',
-        answer: 'You can claim General Damages (for pain, suffering, loss of limbs/faculties), Special Damages (hospital bills, medications, transport costs, damaged belongings), and Loss of Earnings (both past earnings and future loss of earnings or earning capacity).'
-      },
-      {
-        question: 'How do I prove medical negligence against a hospital or doctor in Malaysia?',
-        answer: 'To establish medical negligence under the Bolam and Rogers v Whitaker principles, you must prove the medical practitioner owed you a duty of care, breached the accepted professional standard of care, and that this breach directly caused your physical injury or loss.'
-      }
-    ]
-  },
-  {
-    slug: 'will-estate-distribution',
-    title: 'Will Writing & Estate Distribution',
-    tagline: 'Preserving Generational Wealth & Facilitating Seamless Estate Administration',
-    shortDescription: 'Professional will drafting, Grant of Probate, Letters of Administration (LA), Small Estate distribution, and contentious probate litigation.',
-    seoTitle: 'Will Writing & Estate Distribution Lawyer in Malaysia | LWCCO',
-    seoDescription: 'Professional will writing, Grant of Probate, Letters of Administration, and Land Office estate transmission in Kuala Lumpur by LWCCO Advocates & Solicitors.',
-    heroImage: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1600&q=80',
-    iconName: 'ScrollText',
-    fullDescription: `A comprehensive estate plan guarantees that your hard-earned assets are seamlessly transmitted to your loved ones without costly court delays, family disputes, or estate freezes. Low Wah Chin & Co. provides end-to-end estate planning and probate services under the Wills Act 1959 and the Probate and Administration Act 1959.
-
-Whether you are crafting a structured Will to appoint trusted executors and guardians for minor children, or navigating the administration of a deceased relative's estate, our firm ensures absolute legal compliance. When a person passes away leaving a valid Will, we expedite petitions for the Grant of Probate in the High Court. If the deceased passed away without a Will (intestate), we assist families in applying for Letters of Administration (LA) or facilitating distributions through the District Land Office under the Small Estates (Distribution) Act 1955.
-
-Our team also handles contentious probate proceedings, including challenges to will validity, testamentary capacity disputes, allegations of undue influence, and claims under the Inheritance (Family Provision) Act 1971.`,
-    whatWeHandle: [
-      'Customized Will Drafting with testamentary trusts and guardian appointments',
-      'High Court Petitions for Grant of Probate (where a valid Will exists)',
-      'Petitions for Letters of Administration (LA) for intestate estates',
-      'Small Estate Distribution proceedings with District Land Offices (JKPTG)',
-      'Transmission and transfer of real estate titles and bank accounts to beneficiaries',
-      'Contentious probate litigation, will challenges, and executor removal applications',
-      'Deeds of Family Arrangement and mutual estate distribution settlements'
-    ],
-    keyBenefits: [
-      'Ironclad will structuring preventing future family disputes and challenges',
-      'Expedited High Court probate orders releasing frozen bank accounts and assets',
-      'Complete handling of Land Office title transmissions across all states',
-      'Sensible dispute mediation between estranged beneficiaries'
-    ],
-    faqs: [
-      {
-        question: 'What is the difference between Grant of Probate and Letters of Administration?',
-        answer: 'A Grant of Probate is issued when the deceased left a valid Will appointing an executor; it is faster and does not require two administrative sureties. Letters of Administration (LA) are required when a person dies intestate (without a Will), which often involves a longer process and sureties.'
-      },
-      {
-        question: 'What happens to my assets if I pass away without a Will in Malaysia?',
-        answer: 'If you die intestate, your estate will be distributed strictly according to the statutory formulas set out in the Distribution Act 1958 (e.g. fixed shares among surviving spouse, children, and parents), which may not reflect your actual wishes.'
-      },
-      {
-        question: 'Can a Will made in Malaysia cover assets located overseas?',
-        answer: 'Yes, a Malaysian Will can be drafted to cover worldwide assets; however, depending on the foreign jurisdiction, the Grant of Probate may need to be resealed in that country’s courts, or separate foreign wills may be recommended.'
       }
     ]
   }

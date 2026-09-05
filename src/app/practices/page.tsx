@@ -46,33 +46,50 @@ export default async function PracticesPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brass/20 text-brass-light border border-brass/30 text-xs font-bold uppercase tracking-wider mb-4">
             <Scale className="w-3.5 h-3.5" />
-            <span>Scope of Legal Representation</span>
+            <span>Advocates & Solicitors • Kuala Lumpur</span>
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-cream mb-4">
-            Service Offerings & Areas of Scope
+            Practice Areas & Service Offerings
           </h1>
           <p className="font-serif italic text-brass-light text-lg sm:text-xl mb-4">
             &ldquo;Comprehensive Legal Protection for Individuals, Families & Enterprises&rdquo;
           </p>
           <p className="text-cream/80 text-base sm:text-lg leading-relaxed font-light">
-            With over 15 years of courtroom diligence in the High Court of Malaya and Appellate Courts, Messrs. Low Wah Chin & Co. provides dedicated legal counsel across 12 specialized practice disciplines.
+            With over 15 years of courtroom diligence in the High Court of Malaya and Appellate Courts, Low Wah Chin & Co. provides dedicated legal counsel across 6 core practice disciplines and 12 specialized service scope areas.
           </p>
         </div>
       </section>
 
       <TrustBar />
 
-      {/* Practice Grid */}
-      <section className="py-20 md:py-28 bg-cream">
+      {/* 1. Core Practice Disciplines (Top 6) */}
+      <section className="py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            badge="Tailored Solutions"
-            title="Choose Your Area of Legal Need"
-            subtitle="Click on any practice area below to view the full scope of services, statutory procedures, FAQs, and consultation options."
+            badge="Foundational Practice"
+            title="Core Practice Disciplines"
+            subtitle="The 6 primary legal disciplines handled with deep appellate diligence by Low Wah Chin & Co."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {practiceAreas.map((practice) => (
+            {practiceAreas.slice(0, 6).map((practice) => (
+              <PracticeCard key={practice.slug} practice={practice} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Specialized Service Offerings & Scope (Following 12) */}
+      <section className="py-20 md:py-28 bg-[#FAF8F4] border-t border-[#B8935A]/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="Specialized Scope"
+            title="Specialized Service Offerings & Scope"
+            subtitle="Focused legal representation tailored for specific claims, dispute resolutions, and statutory procedures."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {practiceAreas.slice(6).map((practice) => (
               <PracticeCard key={practice.slug} practice={practice} />
             ))}
           </div>
