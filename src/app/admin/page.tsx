@@ -148,66 +148,80 @@ export default async function AdminDashboardPage() {
             </div>
 
             <div className="space-y-3">
-              {inquiries.slice(0, 5).map((inquiry) => {
-                const isNew = inquiry.status === 'new';
-                const cleanPhone = inquiry.phone.replace(/[^0-9+]/g, '');
-                const waLink = `https://wa.me/${cleanPhone.replace('+', '')}?text=${encodeURIComponent(
-                  `Hello ${inquiry.name}, this is Low Wah Chin & Co. regarding your consultation inquiry on ${inquiry.practice_area}.`
-                )}`;
-
-                return (
-                  <div
-                    key={inquiry.id}
-                    className="p-4 rounded-xl bg-[#0F1F3D] border border-[#B8935A]/20 hover:border-[#B8935A]/50 transition-all space-y-2.5"
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <strong className="text-sm font-bold text-white">
-                            {inquiry.name}
-                          </strong>
-                          {isNew && (
-                            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-rose-500/20 text-rose-300 border border-rose-500/40 animate-pulse">
-                              New Lead
-                            </span>
-                          )}
-                        </div>
-                        <span className="text-xs text-[#CFA76F] font-semibold block mt-0.5">
-                          {inquiry.practice_area}
-                        </span>
-                      </div>
-
-                      <div className="flex items-center gap-1.5 shrink-0">
-                        <a
-                          href={waLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-2 rounded-lg bg-[#25D366]/20 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors"
-                          title="Chat on WhatsApp"
-                        >
-                          <MessageCircle className="w-4 h-4" />
-                        </a>
-                        <a
-                          href={`tel:${inquiry.phone}`}
-                          className="p-2 rounded-lg bg-[#1B2F57] text-[#CFA76F] hover:bg-[#B8935A] hover:text-[#0F1F3D] transition-colors"
-                          title="Call Client"
-                        >
-                          <Phone className="w-4 h-4" />
-                        </a>
-                      </div>
-                    </div>
-
-                    <p className="text-xs text-white/75 line-clamp-2 leading-relaxed">
-                      {inquiry.message}
-                    </p>
-
-                    <div className="flex items-center justify-between text-[11px] text-white/50 pt-2 border-t border-white/5">
-                      <span>{inquiry.phone} • {inquiry.email}</span>
-                      <span>{new Date(inquiry.created_at).toLocaleDateString('en-MY')}</span>
-                    </div>
+              {inquiries.length === 0 ? (
+                <div className="p-8 rounded-xl bg-[#0F1F3D]/50 border border-dashed border-[#B8935A]/30 text-center space-y-2">
+                  <div className="w-10 h-10 rounded-full bg-[#B8935A]/20 text-[#CFA76F] mx-auto flex items-center justify-center">
+                    <Inbox className="w-5 h-5" />
                   </div>
-                );
-              })}
+                  <strong className="text-xs font-bold text-white block">
+                    No Pending Consultation Leads
+                  </strong>
+                  <p className="text-[11px] text-white/50 max-w-sm mx-auto">
+                    Client consultation inquiries submitted through your website booking forms will appear here in real-time.
+                  </p>
+                </div>
+              ) : (
+                inquiries.slice(0, 5).map((inquiry) => {
+                  const isNew = inquiry.status === 'new';
+                  const cleanPhone = inquiry.phone.replace(/[^0-9+]/g, '');
+                  const waLink = `https://wa.me/${cleanPhone.replace('+', '')}?text=${encodeURIComponent(
+                    `Hello ${inquiry.name}, this is Low Wah Chin & Co. regarding your consultation inquiry on ${inquiry.practice_area}.`
+                  )}`;
+
+                  return (
+                    <div
+                      key={inquiry.id}
+                      className="p-4 rounded-xl bg-[#0F1F3D] border border-[#B8935A]/20 hover:border-[#B8935A]/50 transition-all space-y-2.5"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <strong className="text-sm font-bold text-white">
+                              {inquiry.name}
+                            </strong>
+                            {isNew && (
+                              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-rose-500/20 text-rose-300 border border-rose-500/40 animate-pulse">
+                                New Lead
+                              </span>
+                            )}
+                          </div>
+                          <span className="text-xs text-[#CFA76F] font-semibold block mt-0.5">
+                            {inquiry.practice_area}
+                          </span>
+                        </div>
+
+                        <div className="flex items-center gap-1.5 shrink-0">
+                          <a
+                            href={waLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 rounded-lg bg-[#25D366]/20 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors"
+                            title="Chat on WhatsApp"
+                          >
+                            <MessageCircle className="w-4 h-4" />
+                          </a>
+                          <a
+                            href={`tel:${inquiry.phone}`}
+                            className="p-2 rounded-lg bg-[#1B2F57] text-[#CFA76F] hover:bg-[#B8935A] hover:text-[#0F1F3D] transition-colors"
+                            title="Call Client"
+                          >
+                            <Phone className="w-4 h-4" />
+                          </a>
+                        </div>
+                      </div>
+
+                      <p className="text-xs text-white/75 line-clamp-2 leading-relaxed">
+                        {inquiry.message}
+                      </p>
+
+                      <div className="flex items-center justify-between text-[11px] text-white/50 pt-2 border-t border-white/5">
+                        <span>{inquiry.phone} • {inquiry.email}</span>
+                        <span>{new Date(inquiry.created_at).toLocaleDateString('en-MY')}</span>
+                      </div>
+                    </div>
+                  );
+                })
+              )}
             </div>
           </div>
 

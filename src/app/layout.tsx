@@ -5,7 +5,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
 import { Toaster } from 'sonner';
-import { SITE_CONFIG } from '@/lib/metadata';
+import { SITE_CONFIG, getLegalServiceSchema } from '@/lib/metadata';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -51,8 +51,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = getLegalServiceSchema();
+
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-screen bg-cream text-charcoal flex flex-col font-sans selection:bg-brass selection:text-navy">
         <Header />
         <main className="flex-1">
@@ -76,3 +86,4 @@ export default function RootLayout({
     </html>
   );
 }
+

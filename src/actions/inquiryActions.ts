@@ -17,70 +17,14 @@ export interface InquiryItem {
   created_at: string;
 }
 
-// Fallback in-memory list for instant interactivity when DB is not configured
-let mockInquiries: InquiryItem[] = [
-  {
-    id: 101,
-    name: 'Dato’ Sri Michael Tan',
-    email: 'michael.tan@tancorp.com.my',
-    phone: '+60 12-334 8899',
-    practice_area: 'Property & Conveyancing Law',
-    preferred_date: 'Next Tuesday (Morning)',
-    message: 'We are acquiring a commercial building in Jalan Ampang worth RM12.5M. Need Low Wah Chin & Co. to review the SPA, conduct land title searches, and advise on stamp duty adjudication.',
-    status: 'new',
-    created_at: new Date(Date.now() - 1000 * 60 * 45).toISOString(),
-  },
-  {
-    id: 102,
-    name: 'Dr. Nurul Izzati',
-    email: 'nurul.izzati@healthnet.my',
-    phone: '+60 17-889 2211',
-    practice_area: 'Medical Negligence Claims',
-    preferred_date: 'This Friday (2:00 PM)',
-    message: 'Seeking legal representation regarding surgical error during orthopedic procedure at private hospital in Subang. Have hospital discharge summary and expert report ready for review.',
-    status: 'in_review',
-    created_at: new Date(Date.now() - 1000 * 60 * 60 * 4).toISOString(),
-  },
-  {
-    id: 103,
-    name: 'Kelvin Wong & Partners',
-    email: 'kelvin@wonglogistics.com',
-    phone: '+60 19-445 6789',
-    practice_area: 'Debt Recovery & Winding Up',
-    preferred_date: 'Urgent — ASAP',
-    message: 'Defaulting debtor company owes RM185,000 for freight forwarding services. We need a formal 21-Day Statutory Notice under Section 466 of Companies Act 2016 served immediately.',
-    status: 'scheduled',
-    created_at: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(),
-  },
-  {
-    id: 104,
-    name: 'Puan Siti Rahmah',
-    email: 'siti.rahmah88@gmail.com',
-    phone: '+60 16-554 1122',
-    practice_area: 'Family & Divorce Matters',
-    preferred_date: 'Next Monday',
-    message: 'Inquiring about fast-track Joint Petition mutual consent divorce and matrimonial property division advice. Both parties agree on general terms.',
-    status: 'contacted',
-    created_at: new Date(Date.now() - 1000 * 60 * 60 * 48).toISOString(),
-  },
-  {
-    id: 105,
-    name: 'Encik Ahmad Farhan',
-    email: 'farhan.ahmad@gmail.com',
-    phone: '+60 13-778 9900',
-    practice_area: 'Bodily Injury Claims',
-    preferred_date: 'Flexible',
-    message: 'Involved in a serious motorcycle accident along MEX Highway caused by negligent commercial lorry. Suffered compound fracture. Need advice on general and special damages claim.',
-    status: 'new',
-    created_at: new Date(Date.now() - 1000 * 60 * 60 * 72).toISOString(),
-  },
-];
+// In-memory runtime fallback for inquiries received during session
+let runtimeInquiries: InquiryItem[] = [];
 
 export async function getInquiriesAction(): Promise<InquiryItem[]> {
   if (db) {
     try {
       const rows = await db.select().from(inquiries).orderBy(desc(inquiries.created_at));
-      if (rows && rows.length > 0) {
+      if (rows) {
         return rows.map((r) => ({
           id: r.id,
           name: r.name,
@@ -94,10 +38,10 @@ export async function getInquiriesAction(): Promise<InquiryItem[]> {
         }));
       }
     } catch (e) {
-      console.warn('Could not query inquiries from DB, returning mock list:', e);
+      console.warn('[DB Error] Could not query inquiries from Neon DB:', e);
     }
   }
-  return mockInquiries;
+  return runtimeInquiries;
 }
 
 export async function updateInquiryStatusAction(id: number, newStatus: string): Promise<{ success: boolean }> {
@@ -105,12 +49,11 @@ export async function updateInquiryStatusAction(id: number, newStatus: string): 
     try {
       await db.update(inquiries).set({ status: newStatus }).where(eq(inquiries.id, id));
     } catch (e) {
-      console.error('DB update failed, updating mock:', e);
+      console.error('[DB Error] Failed to update inquiry status in DB:', e);
     }
   }
 
-  // Update in-memory fallback as well
-  mockInquiries = mockInquiries.map((item) =>
+  runtimeInquiries = runtimeInquiries.map((item) =>
     item.id === id ? { ...item, status: newStatus } : item
   );
 
@@ -124,11 +67,11 @@ export async function deleteInquiryAction(id: number): Promise<{ success: boolea
     try {
       await db.delete(inquiries).where(eq(inquiries.id, id));
     } catch (e) {
-      console.error('DB delete failed, deleting from mock:', e);
+      console.error('[DB Error] Failed to delete inquiry from DB:', e);
     }
   }
 
-  mockInquiries = mockInquiries.filter((item) => item.id !== id);
+  runtimeInquiries = runtimeInquiries.filter((item) => item.id !== id);
 
   revalidatePath('/admin');
   revalidatePath('/admin/inquiries');

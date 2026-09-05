@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   name: 'Low Wah Chin & Co. | Advocates & Solicitors',
   shortName: 'Low Wah Chin & Co.',
   description: 'Premier law firm in Kuala Lumpur, Malaysia. Low Wah Chin & Co. (Advocates & Solicitors), led by Lincoln’s Inn Barrister & High Court Advocate Low Wah Chin (Ava Rachel). Personal Injury, Property Conveyancing, Family Divorce, Corporate Law & Commercial Litigation.',
-  url: 'https://client-jet-delta-64.vercel.app', // Production URL
+  url: process.env.NEXT_PUBLIC_APP_URL || 'https://lowwahchin-co.vercel.app', // Production URL
   telephone: '+60175483157',
   email: 'lwclegal5@gmail.com',
   address: {
