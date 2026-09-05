@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/image';
+import Link from 'next/link';
 import { constructMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/metadata';
 import JsonLd from '@/components/common/JsonLd';
 import SectionHeading from '@/components/common/SectionHeading';
@@ -19,12 +19,12 @@ import {
   Heart,
   Briefcase,
   ArrowRight,
+  Globe2,
 } from 'lucide-react';
-import NextLink from 'next/link';
 
 export const metadata = constructMetadata({
   title: 'About the Firm & Senior Counsel Ava Rachel Low | LWCCO',
-  description: 'Learn about Messrs. Low Wah Chin & Co. (LWCCO), founded by Lincoln’s Inn Barrister & High Court Advocate Low Wah Chin (Ava Rachel). Dedicated to community-wide excellence and fearless advocacy.',
+  description: 'Learn about Messrs. Low Wah Chin & Co. (LWCCO), founded by Lincoln’s Inn Barrister & High Court Advocate Low Wah Chin (Ava Rachel). Member of Malaysian Bar Council No. BC/L/2019. Dedicated to community-wide excellence and fearless advocacy.',
   canonicalUrl: `${SITE_CONFIG.url}/about`,
 });
 
@@ -196,20 +196,33 @@ export default function AboutPage() {
                 </ul>
               </div>
 
-              <div className="pt-6 border-t border-cream-dark flex flex-wrap gap-4">
-                <NextLink
-                  href="/our-team"
-                  className="btn-brass px-6 py-3.5 rounded-xl font-bold text-sm inline-flex items-center gap-2 shadow-md"
-                >
-                  <span>View Detailed Team Profile & Appellate Experience</span>
-                  <ArrowRight className="w-4 h-4" />
-                </NextLink>
-                <WhatsAppButton variant="compact" label="Chat with Ava Rachel Low" />
+                <div className="p-6 bg-[#0F1F3D] text-white rounded-2xl border border-[#B8935A]/40 my-6 shadow-xl">
+                  <div className="flex items-center gap-2 text-[#CFA76F] text-xs font-bold uppercase tracking-wider mb-2">
+                    <Globe2 className="w-4 h-4" />
+                    <span>Mengenai Firma (Bahasa Melayu)</span>
+                  </div>
+                  <p className="text-white/90 text-sm sm:text-base leading-relaxed italic mb-3">
+                    &ldquo;Tetuan Low Wah Chin & Co. Peguambela & Peguamcara LWCCO yang berada di Kuala Lumpur Malaysia diasaskan oleh peguam Low Wah Chin (Ava Rachel). Ava Rachel Low membumikan amalannya dalam Litigasi Sivil dan Komersial dengan firma-firma yang ditubuhkan di kawasan Kuala Lumpur.&rdquo;
+                  </p>
+                  <p className="text-xs text-white/75 leading-relaxed">
+                    Matlamat firma adalah untuk berkhidmat kepada masyarakat dan menyediakan perkhidmatan yang paling waras dalam bidang nilai kemanusiaan, memastikan setiap lapisan komuniti dilayani dengan integriti dan kecemerlangan yang mendalam.
+                  </p>
+                </div>
+
+                <div className="pt-6 border-t border-cream-dark flex flex-wrap gap-4">
+                  <Link
+                    href="/our-team"
+                    className="btn-brass px-6 py-3.5 rounded-xl font-bold text-sm inline-flex items-center gap-2 shadow-md"
+                  >
+                    <span>View Detailed Team Profile & Appellate Experience</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <WhatsAppButton variant="compact" label="Chat with Ava Rachel Low" />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* 4 Core Pillars of Practice */}
       <section className="py-20 bg-cream">

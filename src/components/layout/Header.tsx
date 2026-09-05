@@ -86,7 +86,7 @@ export default function Header() {
               <span>Colony @ KLCC, Vipod Residences, KL</span>
             </span>
             <span className="text-brass/60">|</span>
-            <span className="text-brass-light font-semibold">Advocates & Solicitors</span>
+            <span className="text-brass-light font-semibold">Bar Council No. BC/L/2019</span>
           </div>
         </div>
       </div>
