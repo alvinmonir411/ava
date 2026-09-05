@@ -8,6 +8,7 @@ import {
 } from '@/actions/articleActions';
 import { Article } from '@/types';
 import AdminHeader from '@/components/admin/AdminHeader';
+import { toast } from 'sonner';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -56,11 +57,18 @@ export default function AdminArticlesPage() {
     });
   };
 
-  const handleDelete = (id: string | number) => {
-    if (!confirm('Are you sure you want to delete this article?')) return;
+  const [articleToDelete, setArticleToDelete] = useState<Article | null>(null);
+
+  const confirmDelete = () => {
+    if (!articleToDelete) return;
+    const id = articleToDelete.id;
+    const title = articleToDelete.title;
+
     startTransition(async () => {
       await deleteArticleAction(id);
       setArticles((prev) => prev.filter((a) => a.id !== id));
+      setArticleToDelete(null);
+      toast.success(`Deleted article: "${title}"`);
     });
   };
 
@@ -143,7 +151,7 @@ export default function AdminArticlesPage() {
                       </button>
 
                       <button
-                        onClick={() => handleDelete(article.id)}
+                        onClick={() => setArticleToDelete(article)}
                         className="p-1.5 rounded-lg bg-rose-950/40 text-rose-400 hover:bg-rose-900/60 transition-colors"
                         title="Delete Article"
                       >
@@ -322,6 +330,51 @@ export default function AdminArticlesPage() {
               </button>
             </div>
           </form>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {articleToDelete && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-150">
+          <div className="w-full max-w-md bg-[#0A1529] border-2 border-rose-500/50 rounded-3xl p-6 sm:p-7 shadow-2xl space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center shrink-0">
+                <Trash2 className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="font-serif text-lg font-bold text-white">
+                  Delete Article
+                </h3>
+                <p className="text-xs text-white/60">
+                  This action permanently removes the article from your website and Neon database.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-[#0F1F3D] border border-white/10 text-xs space-y-1">
+              <p className="text-white font-bold">{articleToDelete.title}</p>
+              <p className="text-[#CFA76F]">{articleToDelete.category} • {articleToDelete.author}</p>
+            </div>
+
+            <div className="flex items-center justify-end gap-3 pt-2">
+              <button
+                type="button"
+                onClick={() => setArticleToDelete(null)}
+                className="px-4 py-2 rounded-xl bg-[#1B2F57] text-white text-xs font-semibold hover:bg-[#1B2F57]/80"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                disabled={isPending}
+                onClick={confirmDelete}
+                className="px-5 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-lg disabled:opacity-50"
+              >
+                <Trash2 className="w-3.5 h-3.5" />
+                <span>{isPending ? 'Deleting...' : 'Confirm Delete'}</span>
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

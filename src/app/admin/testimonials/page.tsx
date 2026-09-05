@@ -8,13 +8,14 @@ import {
 } from '@/actions/testimonialActions';
 import { Testimonial } from '@/types';
 import AdminHeader from '@/components/admin/AdminHeader';
-import { Star, Plus, Edit, Trash2, Save, X, Quote } from 'lucide-react';
+import { toast } from 'sonner';
+import { Star, Plus, Edit, Trash2, Save, X, Quote, AlertTriangle } from 'lucide-react';
 
 export default function AdminTestimonialsPage() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [editingTestimonial, setEditingTestimonial] = useState<Partial<Testimonial> | null>(null);
+  const [testimonialToDelete, setTestimonialToDelete] = useState<Testimonial | null>(null);
   const [isPending, startTransition] = useTransition();
-  const [savedSuccess, setSavedSuccess] = useState(false);
 
   useEffect(() => {
     getAdminTestimonialsAction().then(setTestimonials);
@@ -34,20 +35,22 @@ export default function AdminTestimonialsPage() {
           }
           return [res.testimonial!, ...prev];
         });
-        setSavedSuccess(true);
-        setTimeout(() => {
-          setSavedSuccess(false);
-          setEditingTestimonial(null);
-        }, 1200);
+        toast.success(`Saved client review for ${res.testimonial.client_name}`);
+        setEditingTestimonial(null);
       }
     });
   };
 
-  const handleDelete = (id: string | number) => {
-    if (!confirm('Are you sure you want to delete this testimonial?')) return;
+  const confirmDelete = () => {
+    if (!testimonialToDelete) return;
+    const id = testimonialToDelete.id;
+    const name = testimonialToDelete.client_name;
+
     startTransition(async () => {
       await deleteTestimonialAction(id);
       setTestimonials((prev) => prev.filter((t) => t.id !== id));
+      setTestimonialToDelete(null);
+      toast.success(`Deleted testimonial from ${name}`);
     });
   };
 
@@ -122,7 +125,7 @@ export default function AdminTestimonialsPage() {
                     <Edit className="w-3.5 h-3.5" />
                   </button>
                   <button
-                    onClick={() => handleDelete(t.id)}
+                    onClick={() => setTestimonialToDelete(t)}
                     className="p-1.5 rounded-lg bg-rose-950/40 text-rose-400 hover:bg-rose-900/60 transition-colors"
                     title="Delete Review"
                   >
@@ -159,12 +162,6 @@ export default function AdminTestimonialsPage() {
                 <X className="w-5 h-5" />
               </button>
             </div>
-
-            {savedSuccess && (
-              <div className="p-3 bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 text-xs font-bold text-center rounded-xl">
-                ✓ Review Saved Successfully!
-              </div>
-            )}
 
             <div className="space-y-4 text-xs">
               <div className="grid grid-cols-2 gap-4">
@@ -261,13 +258,59 @@ export default function AdminTestimonialsPage() {
               <button
                 type="submit"
                 disabled={isPending}
-                className="btn-brass px-6 py-2 rounded-xl text-xs font-bold flex items-center gap-2"
+                className="btn-brass px-6 py-2 rounded-xl text-xs font-bold flex items-center gap-2 disabled:opacity-50"
               >
                 <Save className="w-4 h-4" />
-                <span>Save Review</span>
+                <span>{isPending ? 'Saving...' : 'Save Review'}</span>
               </button>
             </div>
           </form>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {testimonialToDelete && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-150">
+          <div className="w-full max-w-md bg-[#0A1529] border-2 border-rose-500/50 rounded-3xl p-6 sm:p-7 shadow-2xl space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center shrink-0">
+                <Trash2 className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="font-serif text-lg font-bold text-white">
+                  Delete Client Review
+                </h3>
+                <p className="text-xs text-white/60">
+                  This action permanently removes the review from your website and Neon database.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-[#0F1F3D] border border-white/10 text-xs space-y-1">
+              <p className="text-white font-bold">{testimonialToDelete.client_name}</p>
+              <p className="text-[#CFA76F]">{testimonialToDelete.practice_area}</p>
+              <p className="text-white/60 italic line-clamp-2">&ldquo;{testimonialToDelete.quote}&rdquo;</p>
+            </div>
+
+            <div className="flex items-center justify-end gap-3 pt-2">
+              <button
+                type="button"
+                onClick={() => setTestimonialToDelete(null)}
+                className="px-4 py-2 rounded-xl bg-[#1B2F57] text-white text-xs font-semibold hover:bg-[#1B2F57]/80"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                disabled={isPending}
+                onClick={confirmDelete}
+                className="px-5 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-lg disabled:opacity-50"
+              >
+                <Trash2 className="w-3.5 h-3.5" />
+                <span>{isPending ? 'Deleting...' : 'Confirm Delete'}</span>
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

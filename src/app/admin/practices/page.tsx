@@ -4,6 +4,7 @@ import React, { useState, useEffect, useTransition } from 'react';
 import { getAdminPracticesAction, updatePracticeAreaAction } from '@/actions/practiceActions';
 import { PracticeArea } from '@/types';
 import AdminHeader from '@/components/admin/AdminHeader';
+import { toast } from 'sonner';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -39,6 +40,7 @@ export default function AdminPracticesPage() {
         setPractices((prev) =>
           prev.map((p) => (p.slug === editingPractice.slug ? res.practice! : p))
         );
+        toast.success(`Practice area "${editingPractice.title}" updated successfully!`);
         setSavedSuccess(true);
         setTimeout(() => {
           setSavedSuccess(false);

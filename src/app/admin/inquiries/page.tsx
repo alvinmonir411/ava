@@ -8,22 +8,19 @@ import {
   InquiryItem,
 } from '@/actions/inquiryActions';
 import AdminHeader from '@/components/admin/AdminHeader';
+import { toast } from 'sonner';
 import {
   Inbox,
   Search,
-  Filter,
   Download,
   Phone,
-  Mail,
   MessageCircle,
   Trash2,
-  CheckCircle2,
-  Clock,
-  ChevronDown,
   Calendar,
   Eye,
   X,
-  Scale,
+  AlertTriangle,
+  RefreshCw,
 } from 'lucide-react';
 
 const STATUS_CONFIG: Record<string, { label: string; bg: string; text: string; border: string }> = {
@@ -39,10 +36,18 @@ export default function AdminInquiriesPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [selectedInquiry, setSelectedInquiry] = useState<InquiryItem | null>(null);
+  const [inquiryToDelete, setInquiryToDelete] = useState<InquiryItem | null>(null);
   const [isPending, startTransition] = useTransition();
 
+  const loadInquiries = () => {
+    startTransition(async () => {
+      const data = await getInquiriesAction();
+      setInquiries(data);
+    });
+  };
+
   useEffect(() => {
-    getInquiriesAction().then(setInquiries);
+    loadInquiries();
   }, []);
 
   const handleStatusChange = (id: number, newStatus: string) => {
@@ -54,19 +59,31 @@ export default function AdminInquiriesPage() {
       if (selectedInquiry?.id === id) {
         setSelectedInquiry((prev) => (prev ? { ...prev, status: newStatus } : null));
       }
+      const label = STATUS_CONFIG[newStatus]?.label || newStatus;
+      toast.success(`Inquiry status updated to "${label}"`);
     });
   };
 
-  const handleDelete = (id: number) => {
-    if (!confirm('Are you sure you want to delete this consultation record?')) return;
+  const confirmDelete = () => {
+    if (!inquiryToDelete) return;
+    const id = inquiryToDelete.id;
+    const clientName = inquiryToDelete.name;
+
     startTransition(async () => {
       await deleteInquiryAction(id);
       setInquiries((prev) => prev.filter((item) => item.id !== id));
       if (selectedInquiry?.id === id) setSelectedInquiry(null);
+      setInquiryToDelete(null);
+      toast.success(`Deleted consultation inquiry for ${clientName}`);
     });
   };
 
   const exportToCSV = () => {
+    if (filteredInquiries.length === 0) {
+      toast.info('No inquiries to export.');
+      return;
+    }
+
     const headers = ['ID', 'Client Name', 'Email', 'Phone', 'Practice Area', 'Preferred Date', 'Status', 'Date Submitted', 'Message'];
     const rows = filteredInquiries.map((i) => [
       i.id,
@@ -88,6 +105,8 @@ export default function AdminInquiriesPage() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+
+    toast.success(`Exported ${filteredInquiries.length} inquiries to CSV`);
   };
 
   const filteredInquiries = inquiries.filter((inquiry) => {
@@ -108,13 +127,25 @@ export default function AdminInquiriesPage() {
         title="Consultation Inquiries & Leads CRM"
         subtitle="Track incoming client booking requests, update case statuses, and communicate directly via WhatsApp."
         action={
-          <button
-            onClick={exportToCSV}
-            className="btn-brass px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-md"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span>Export CSV</span>
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => {
+                loadInquiries();
+                toast.info('Refreshed leads from Neon database');
+              }}
+              className="p-2 rounded-lg bg-[#0F1F3D] text-[#CFA76F] border border-[#B8935A]/30 hover:bg-[#1B2F57] transition-colors"
+              title="Refresh Database"
+            >
+              <RefreshCw className={`w-4 h-4 ${isPending ? 'animate-spin' : ''}`} />
+            </button>
+            <button
+              onClick={exportToCSV}
+              className="btn-brass px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-md"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Export CSV</span>
+            </button>
+          </div>
         }
       />
 
@@ -177,8 +208,16 @@ export default function AdminInquiriesPage() {
               <tbody className="divide-y divide-[#B8935A]/15 text-xs text-white/90">
                 {filteredInquiries.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="py-12 text-center text-white/50">
-                      No consultation inquiries matching your filter.
+                    <td colSpan={6} className="py-16 text-center text-white/50">
+                      <div className="w-12 h-12 rounded-2xl bg-[#0F1F3D] border border-[#B8935A]/30 text-[#CFA76F] mx-auto flex items-center justify-center mb-3">
+                        <Inbox className="w-6 h-6" />
+                      </div>
+                      <strong className="text-sm font-bold text-white block mb-1">
+                        No Consultation Inquiries Found
+                      </strong>
+                      <p className="text-xs text-white/50 max-w-sm mx-auto">
+                        New client consultation requests from your booking forms will appear here live.
+                      </p>
                     </td>
                   </tr>
                 ) : (
@@ -266,7 +305,7 @@ export default function AdminInquiriesPage() {
                             </a>
 
                             <button
-                              onClick={() => handleDelete(inquiry.id)}
+                              onClick={() => setInquiryToDelete(inquiry)}
                               className="p-1.5 rounded-lg bg-rose-950/40 text-rose-400 hover:bg-rose-900/60 transition-colors"
                               title="Delete Record"
                             >
@@ -283,6 +322,52 @@ export default function AdminInquiriesPage() {
           </div>
         </div>
       </div>
+
+      {/* Sleek Delete Confirmation Modal */}
+      {inquiryToDelete && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-150">
+          <div className="w-full max-w-md bg-[#0A1529] border-2 border-rose-500/50 rounded-3xl p-6 sm:p-7 shadow-2xl space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center shrink-0">
+                <AlertTriangle className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="font-serif text-lg font-bold text-white">
+                  Delete Consultation Record
+                </h3>
+                <p className="text-xs text-white/60">
+                  This action permanently removes the record from Neon database.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-[#0F1F3D] border border-white/10 text-xs space-y-1">
+              <p className="text-white font-bold">{inquiryToDelete.name}</p>
+              <p className="text-[#CFA76F]">{inquiryToDelete.practice_area}</p>
+              <p className="text-white/50">{inquiryToDelete.phone} • {inquiryToDelete.email}</p>
+            </div>
+
+            <div className="flex items-center justify-end gap-3 pt-2">
+              <button
+                type="button"
+                onClick={() => setInquiryToDelete(null)}
+                className="px-4 py-2 rounded-xl bg-[#1B2F57] text-white text-xs font-semibold hover:bg-[#1B2F57]/80"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                disabled={isPending}
+                onClick={confirmDelete}
+                className="px-5 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-lg disabled:opacity-50"
+              >
+                <Trash2 className="w-3.5 h-3.5" />
+                <span>{isPending ? 'Deleting...' : 'Confirm Delete'}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Inquiry Detail Modal */}
       {selectedInquiry && (

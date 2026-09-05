@@ -7,6 +7,7 @@ import {
   FirmSettings,
 } from '@/actions/settingsActions';
 import AdminHeader from '@/components/admin/AdminHeader';
+import { toast } from 'sonner';
 import { Settings, Save, ShieldCheck, MapPin, Phone, Mail, Clock, Scale } from 'lucide-react';
 
 export default function AdminSettingsPage() {
@@ -26,6 +27,7 @@ export default function AdminSettingsPage() {
       const res = await updateAdminSettingsAction(settings);
       if (res.success) {
         setSettings(res.settings);
+        toast.success('Firm Profile & Settings saved successfully!');
         setSavedSuccess(true);
         setTimeout(() => setSavedSuccess(false), 2000);
       }
