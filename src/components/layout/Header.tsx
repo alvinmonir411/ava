@@ -107,10 +107,10 @@ export default function Header() {
             </div>
             <div>
               <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-white group-hover:text-brass-light transition-colors block leading-tight">
-                Messrs. Low Wah Chin & Co.
+                Low Wah Chin & Co.
               </span>
               <span className="text-[10px] sm:text-[11px] font-sans tracking-widest text-[#CFA76F] font-semibold uppercase block leading-none mt-0.5">
-                Advocates & Solicitors • LWCCO
+                Advocates & Solicitors
               </span>
             </div>
           </Link>

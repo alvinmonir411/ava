@@ -21,6 +21,6 @@ export function formatPhoneNumber(phone: string): string {
 
 export function createWhatsAppLink(message?: string): string {
   const phone = '60175483157';
-  const defaultMsg = message || "Hello Messrs. Low Wah Chin & Co., I would like to inquire about legal consultation services.";
+  const defaultMsg = message || "Hello Low Wah Chin & Co., I would like to inquire about legal consultation services.";
   return `https://wa.me/${phone}?text=${encodeURIComponent(defaultMsg)}`;
 }

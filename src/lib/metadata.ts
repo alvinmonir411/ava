@@ -1,10 +1,12 @@
 import { Metadata } from 'next';
 
 export const SITE_CONFIG = {
-  name: 'Messrs. Low Wah Chin & Co. Advocates & Solicitors (LWCCO)',
-  shortName: 'Low Wah Chin & Co. (LWCCO)',
-  description: 'Premier law firm in Kuala Lumpur, Malaysia. Led by Lincoln’s Inn Barrister & High Court Advocate Low Wah Chin (Ava Rachel). Personal Injury, Property Conveyancing, Family Divorce, Corporate Law & Commercial Litigation.',
-  url: 'https://lwclegal5.wixsite.com/lwc-co', // Production URL
+  companyName: 'Low Wah Chin & Co.',
+  qualificationTitle: 'Advocates & Solicitors',
+  name: 'Low Wah Chin & Co. | Advocates & Solicitors',
+  shortName: 'Low Wah Chin & Co.',
+  description: 'Premier law firm in Kuala Lumpur, Malaysia. Low Wah Chin & Co. (Advocates & Solicitors), led by Lincoln’s Inn Barrister & High Court Advocate Low Wah Chin (Ava Rachel). Personal Injury, Property Conveyancing, Family Divorce, Corporate Law & Commercial Litigation.',
+  url: 'https://client-jet-delta-64.vercel.app', // Production URL
   telephone: '+60175483157',
   email: 'lwclegal5@gmail.com',
   address: {
@@ -80,8 +82,8 @@ export function getLegalServiceSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': ['LegalService', 'Attorney', 'LocalBusiness'],
-    name: 'Messrs. Low Wah Chin & Co. Advocates & Solicitors',
-    alternateName: 'LWCCO Law Firm',
+    name: 'Low Wah Chin & Co. (Advocates & Solicitors)',
+    alternateName: 'Low Wah Chin & Co.',
     url: SITE_CONFIG.url,
     telephone: SITE_CONFIG.telephone,
     email: SITE_CONFIG.email,

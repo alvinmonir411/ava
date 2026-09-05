@@ -43,10 +43,10 @@ export default function Footer() {
               </div>
               <div>
                 <span className="font-serif text-lg font-bold text-white block leading-tight">
-                  Messrs. Low Wah Chin & Co.
+                  Low Wah Chin & Co.
                 </span>
                 <span className="text-[10px] tracking-widest text-[#CFA76F] uppercase block mt-0.5 font-semibold">
-                  Advocates & Solicitors • LWCCO
+                  Advocates & Solicitors
                 </span>
               </div>
             </div>
@@ -197,7 +197,7 @@ export default function Footer() {
           </div>
 
           <p className="text-center md:text-right">
-            &copy; {currentYear} Messrs. Low Wah Chin & Co. (LWCCO). All Rights Reserved.
+            &copy; {currentYear} Low Wah Chin & Co. (Advocates & Solicitors). All Rights Reserved.
           </p>
         </div>
       </div>
