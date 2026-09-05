@@ -119,7 +119,7 @@ export default async function HomePage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#B8935A]/60 bg-[#0A1529]">
                 <div className="relative h-[440px] sm:h-[480px] w-full">
                   <Image
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=85"
+                    src="/profile-image.avif"
                     alt="Low Wah Chin (Ava Rachel) Advocate & Solicitor LWCCO Kuala Lumpur"
                     fill
                     priority
@@ -177,11 +177,11 @@ export default async function HomePage() {
             <div className="lg:col-span-5 relative">
               <div className="relative h-[420px] sm:h-[480px] w-full rounded-2xl overflow-hidden shadow-2xl border-2 border-[#B8935A]/40 bg-[#0F1F3D]">
                 <Image
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80"
+                  src="/profile-image.avif"
                   alt="Low Wah Chin (Ava Rachel) Advocate & Solicitor LWCCO Kuala Lumpur"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover object-top filter brightness-95 contrast-105"
+                  className="object-cover object-top filter brightness-100 contrast-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A1529]/95 via-transparent to-transparent" />
                 

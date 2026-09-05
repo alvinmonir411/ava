@@ -80,11 +80,11 @@ export default function AboutPage() {
             <div className="lg:col-span-5 sticky top-28 space-y-6">
               <div className="relative h-[480px] w-full rounded-2xl overflow-hidden shadow-2xl border-2 border-brass/40 bg-navy">
                 <Image
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80"
+                  src="/profile-image.avif"
                   alt="Low Wah Chin (Ava Rachel) Advocate and Solicitor LWCCO"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover object-top filter brightness-95"
+                  className="object-cover object-top filter brightness-100 contrast-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/95 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-navy/90 backdrop-blur-md border border-brass/30 text-cream">

@@ -963,7 +963,7 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
     name: 'Low Wah Chin (Ava Rachel)',
     role: 'Founder & Principal Counsel',
     title: 'Advocate & Solicitor, High Court of Malaya | Barrister-at-Law, Lincoln’s Inn, London',
-    photo_url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
+    photo_url: '/profile-image.avif',
     display_order: 1,
     credentials: [
       'Advocate & Solicitor of the High Court of Malaya (Admitted Nov 2011)',

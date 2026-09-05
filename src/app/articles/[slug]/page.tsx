@@ -214,11 +214,11 @@ export default async function IndividualArticlePage({ params }: Props) {
           <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-cream border border-brass/30 flex flex-col sm:flex-row items-center sm:items-start gap-6">
             <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shrink-0 border-2 border-brass">
               <Image
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80"
+                src="/profile-image.avif"
                 alt="Ava Rachel Low"
                 fill
                 sizes="100px"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
             <div className="text-center sm:text-left">

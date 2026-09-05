@@ -38,7 +38,7 @@ export default async function OurTeamPage() {
   const careerHistory = leader.careerHistory || TEAM_MEMBERS_DATA[0].careerHistory || [];
   const appellateExperience = leader.appellateExperience || TEAM_MEMBERS_DATA[0].appellateExperience || [];
   const bioParagraphs = Array.isArray(leader.bio) ? leader.bio : [leader.bio];
-  const photoUrl: string = leader.photo_url || TEAM_MEMBERS_DATA[0].photo_url || 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80';
+  const photoUrl: string = leader.photo_url || TEAM_MEMBERS_DATA[0].photo_url || '/profile-image.avif';
 
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: SITE_CONFIG.url },
