@@ -196,9 +196,18 @@ export default function Footer() {
             </span>
           </div>
 
-          <p className="text-center md:text-right">
-            &copy; {currentYear} Low Wah Chin & Co. (Advocates & Solicitors). All Rights Reserved.
-          </p>
+          <div className="flex items-center gap-3">
+            <p className="text-center md:text-right">
+              &copy; {currentYear} Low Wah Chin & Co. (Advocates & Solicitors). All Rights Reserved.
+            </p>
+            <span className="text-white/30">|</span>
+            <Link
+              href="/admin"
+              className="text-[#CFA76F]/80 hover:text-[#CFA76F] hover:underline font-semibold"
+            >
+              Admin Portal
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
