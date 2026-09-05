@@ -145,7 +145,7 @@ export default async function HomePage() {
                   <div className="relative rounded-3xl overflow-hidden border border-[#c6a052]/40 bg-[#22122b]/60 shadow-2xl">
                     <div className="relative h-[390px] sm:h-[460px] lg:h-[500px] w-full">
                       <Image
-                        src="/lawyer-hero.jpg"
+                        src="/lawyer-portrait-1.jpg"
                         alt="Ava Rachel Low (刘华律师) Advocate & Solicitor Low, Wah Chin & Co. Kuala Lumpur"
                         fill
                         priority
