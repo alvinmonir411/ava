@@ -82,7 +82,7 @@ export default async function IndividualPracticePage({ params }: Props) {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center opacity-20 mix-blend-luminosity"
+            className="object-cover object-center opacity-35 brightness-75 scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy/90 to-navy-dark/95" />
         </div>
@@ -141,6 +141,32 @@ export default async function IndividualPracticePage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Column: In-depth Legal Content (8 cols) */}
             <div className="lg:col-span-8 space-y-12">
+              {/* Featured Practice Photo Banner */}
+              <div className="relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden shadow-xl border-2 border-brass/30 bg-navy">
+                <Image
+                  src={practice.heroImage}
+                  alt={`${practice.title} Legal Counsel Kuala Lumpur`}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 65vw"
+                  className="object-cover object-center brightness-95"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-navy/85 backdrop-blur-sm border border-brass/30 text-cream flex items-center justify-between">
+                  <div>
+                    <span className="text-xs text-brass-light uppercase font-bold tracking-wider block">
+                      Advocates & Solicitors • High Court of Malaya
+                    </span>
+                    <span className="font-serif text-sm sm:text-base font-bold text-white">
+                      Messrs. Low Wah Chin & Co. — {practice.title}
+                    </span>
+                  </div>
+                  <span className="hidden sm:inline-block px-3 py-1 rounded-full bg-brass/20 text-brass-light border border-brass/30 text-xs font-semibold">
+                    Kuala Lumpur Chambers
+                  </span>
+                </div>
+              </div>
+
               {/* Comprehensive Overview */}
               <div>
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-navy mb-4">

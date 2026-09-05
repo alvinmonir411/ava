@@ -36,8 +36,8 @@ export default async function HomePage() {
       <JsonLd data={legalServiceSchema} />
 
       {/* Hero Section */}
-      <section className="relative bg-[#0F1F3D] text-white overflow-hidden min-h-[90vh] flex items-center justify-center py-20 lg:py-28">
-        {/* Background Image with Deep Overlay */}
+      <section className="relative bg-[#0F1F3D] text-white overflow-hidden min-h-[90vh] flex items-center justify-center py-16 lg:py-24">
+        {/* Background Image with Deep Gradient Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2000&q=85"
@@ -45,70 +45,122 @@ export default async function HomePage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center opacity-30 mix-blend-luminosity scale-105"
+            className="object-cover object-center opacity-40 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1529] via-[#0F1F3D]/95 to-[#0A1529]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1529]/95 via-[#0F1F3D]/85 to-[#0A1529]/90" />
           <div className="absolute inset-0 bg-[radial-gradient(#B8935A_1px,transparent_1px)] [background-size:32px_32px] opacity-15" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
-            {/* Authority Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#B8935A]/20 border border-[#B8935A]/50 text-[#CFA76F] text-xs font-bold tracking-wider uppercase mb-6 shadow-inner">
-              <Scale className="w-4 h-4 text-[#CFA76F]" />
-              <span>Advocates & Solicitors • High Court of Malaya</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+            {/* Left Column: Headline & Action (7 cols) */}
+            <div className="lg:col-span-7">
+              {/* Authority Badge */}
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#B8935A]/25 border border-[#B8935A]/60 text-[#CFA76F] text-xs font-bold tracking-wider uppercase mb-6 shadow-inner">
+                <Scale className="w-4 h-4 text-[#CFA76F]" />
+                <span>Advocates & Solicitors • High Court of Malaya</span>
+              </div>
+
+              {/* Main Headline */}
+              <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6">
+                Legal Expertise in All Areas of{' '}
+                <span className="text-[#CFA76F] italic underline decoration-[#B8935A]/60 underline-offset-8">
+                  Business & Private Life
+                </span>
+              </h1>
+
+              {/* Tagline & Subheading */}
+              <p className="font-serif italic text-lg sm:text-xl text-[#CFA76F] mb-4 font-medium">
+                &ldquo;Passion & Duty, Integrity & Care — To the Point.&rdquo;
+              </p>
+
+              <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl font-normal">
+                Founded by <strong className="text-white font-semibold">Low Wah Chin (Ava Rachel)</strong>, Barrister-at-Law (Lincoln’s Inn) and Advocate of the High Court of Malaya. Delivering relentless advocacy, high responsiveness, and human-centric legal solutions across Kuala Lumpur and Peninsular Malaysia.
+              </p>
+
+              {/* Hero CTAs */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
+                <Link
+                  href="/contact"
+                  className="btn-brass px-8 py-4 rounded-xl text-base font-bold text-center flex items-center justify-center gap-2 shadow-2xl hover:scale-105 transition-all"
+                >
+                  <span>Book a Free Consultation</span>
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+
+                <a
+                  href="tel:+60175483157"
+                  className="btn-navy px-6 py-4 rounded-xl text-base font-semibold text-center flex items-center justify-center gap-2 bg-[#1B2F57]/90 border-[#B8935A]/50 hover:border-[#B8935A] text-white transition-all shadow-md"
+                >
+                  <Phone className="w-5 h-5 text-[#CFA76F]" />
+                  <span>Call +60 17-548 3157</span>
+                </a>
+              </div>
+
+              {/* Fast Guarantees */}
+              <div className="pt-6 border-t border-[#B8935A]/25 flex flex-wrap items-center gap-6 text-xs sm:text-sm text-white/90">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#CFA76F]" />
+                  <span>100% Confidential Legal Privilege</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-[#CFA76F]" />
+                  <span>24-Hour Response Guarantee</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Award className="w-4 h-4 text-[#CFA76F]" />
+                  <span>Lincoln’s Inn Barrister Lead</span>
+                </div>
+              </div>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-6">
-              Legal Expertise in All Areas of{' '}
-              <span className="text-[#CFA76F] italic underline decoration-[#B8935A]/60 underline-offset-8">
-                Business & Private Life
-              </span>
-            </h1>
+            {/* Right Column: Hero Visual Card with High-Res Image (5 cols) */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#B8935A]/60 bg-[#0A1529]">
+                <div className="relative h-[440px] sm:h-[480px] w-full">
+                  <Image
+                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=85"
+                    alt="Low Wah Chin (Ava Rachel) Advocate & Solicitor LWCCO Kuala Lumpur"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover object-top filter brightness-100 contrast-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1529] via-[#0A1529]/20 to-transparent" />
+                </div>
 
-            {/* Tagline & Subheading */}
-            <p className="font-serif italic text-lg sm:text-xl text-[#CFA76F] mb-4 font-medium">
-              &ldquo;Passion & Duty, Integrity & Care — To the Point.&rdquo;
-            </p>
+                {/* Bottom Overlay Card */}
+                <div className="absolute bottom-4 left-4 right-4 p-5 rounded-xl bg-[#0F1F3D]/95 backdrop-blur-md border border-[#B8935A]/50 text-white">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <div>
+                      <h4 className="font-serif text-lg font-bold text-white leading-tight">
+                        Low Wah Chin (Ava Rachel)
+                      </h4>
+                      <p className="text-[#CFA76F] text-xs font-semibold">
+                        Founder & Managing Partner
+                      </p>
+                    </div>
+                    <div className="w-10 h-10 rounded-lg bg-[#B8935A] text-[#0F1F3D] flex items-center justify-center font-bold">
+                      <Scale className="w-5 h-5" />
+                    </div>
+                  </div>
+                  <p className="text-[11px] text-white/80 leading-relaxed border-t border-white/10 pt-2 mt-1">
+                    Lincoln’s Inn Barrister (UK) • High Court of Malaya • 15+ Years Courtroom Diligence
+                  </p>
+                </div>
 
-            <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-10 max-w-2xl font-normal">
-              Founded by <strong className="text-white font-semibold">Low Wah Chin (Ava Rachel)</strong>, Barrister-at-Law (Lincoln’s Inn) and Advocate of the High Court of Malaya. Delivering relentless advocacy, high responsiveness, and human-centric legal solutions across Kuala Lumpur and Peninsular Malaysia.
-            </p>
-
-            {/* Hero CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <Link
-                href="/contact"
-                className="btn-brass px-8 py-4 rounded-xl text-base font-bold text-center flex items-center justify-center gap-2 shadow-2xl hover:scale-105 transition-all"
-              >
-                <span>Book a Free Consultation</span>
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-
-              <a
-                href="tel:+60175483157"
-                className="btn-navy px-6 py-4 rounded-xl text-base font-semibold text-center flex items-center justify-center gap-2 bg-[#1B2F57]/80 border-[#B8935A]/40 hover:border-[#B8935A] text-white transition-all shadow-md"
-              >
-                <Phone className="w-5 h-5 text-[#CFA76F]" />
-                <span>Call +60 17-548 3157</span>
-              </a>
-            </div>
-
-            {/* Fast Guarantees */}
-            <div className="mt-10 pt-8 border-t border-[#B8935A]/25 flex flex-wrap items-center gap-6 text-xs sm:text-sm text-white/90">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#CFA76F]" />
-                <span>100% Confidential Legal Privilege</span>
+                {/* Floating Accolade Badge */}
+                <div className="absolute top-4 left-4 p-3 rounded-xl bg-[#0A1529]/90 backdrop-blur-md border border-[#B8935A]/40 text-xs text-white shadow-xl flex items-center gap-2.5">
+                  <Award className="w-5 h-5 text-[#CFA76F]" />
+                  <div>
+                    <span className="font-bold block text-[#CFA76F] leading-none">Top 6 Firm</span>
+                    <span className="text-[10px] text-white/80">Trusted Malaysia</span>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-[#CFA76F]" />
-                <span>24-Hour Response Guarantee</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="w-4 h-4 text-[#CFA76F]" />
-                <span>Lincoln’s Inn Barrister Lead</span>
-              </div>
+
+              {/* Decorative Corner Gold Glow */}
+              <div className="absolute -top-3 -right-3 w-20 h-20 bg-[#B8935A]/30 rounded-full blur-2xl -z-10" />
             </div>
           </div>
         </div>

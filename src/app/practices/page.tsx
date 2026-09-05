@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getPracticeAreas } from '@/db';
 import { constructMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/metadata';
 import JsonLd from '@/components/common/JsonLd';
@@ -28,9 +29,21 @@ export default async function PracticesPage() {
       <JsonLd data={breadcrumbSchema} />
 
       {/* Hero Header */}
-      <section className="relative bg-navy text-cream py-16 sm:py-24 overflow-hidden border-b border-brass/25">
-        <div className="absolute inset-0 bg-[radial-gradient(#B8935A_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <section className="relative bg-navy text-cream py-20 sm:py-28 overflow-hidden border-b border-brass/25">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=2000&q=85"
+            alt="LWCCO Practice Disciplines Kuala Lumpur"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-30 brightness-75 scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy/90 to-navy-dark/95" />
+          <div className="absolute inset-0 bg-[radial-gradient(#B8935A_1px,transparent_1px)] [background-size:24px_24px] opacity-15" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brass/20 text-brass-light border border-brass/30 text-xs font-bold uppercase tracking-wider mb-4">
             <Scale className="w-3.5 h-3.5" />
             <span>Scope of Legal Representation</span>

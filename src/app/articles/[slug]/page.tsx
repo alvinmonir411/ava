@@ -78,10 +78,23 @@ export default async function IndividualArticlePage({ params }: Props) {
       <JsonLd data={[breadcrumbSchema, articleSchema]} />
 
       {/* Article Header */}
-      <section className="bg-navy text-cream py-16 sm:py-20 border-b border-brass/25 relative overflow-hidden">
+      <section className="bg-navy text-cream py-16 sm:py-24 border-b border-brass/25 relative overflow-hidden">
+        {article.cover_image_url && (
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={article.cover_image_url}
+              alt={article.title}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center opacity-25 brightness-75 scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy/90 to-navy-dark/95" />
+          </div>
+        )}
         <div className="absolute inset-0 bg-[radial-gradient(#B8935A_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
 
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-xs text-cream/70 mb-6" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-brass-light transition-colors">Home</Link>
