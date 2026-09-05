@@ -14,12 +14,18 @@ const NAV_LINKS = [
     label: 'Practice Areas',
     hasDropdown: true,
     subLinks: [
-      { href: '/practices/legal-advice-consultation', label: 'Legal Advice & Advisory' },
-      { href: '/practices/property-conveyancing', label: 'Property & Conveyancing' },
-      { href: '/practices/family-divorce', label: 'Family & Divorce Matters' },
-      { href: '/practices/dispute-resolution-claims', label: 'Dispute Resolution & Injury Claims' },
-      { href: '/practices/will-estate-distribution', label: 'Will & Estate Distribution' },
-      { href: '/practices/company-matters-agreements', label: 'Corporate Agreements & Litigation' },
+      { href: '/practices/bodily-injury-claims', label: 'Bodily Injury Claims' },
+      { href: '/practices/medical-negligence-claims', label: 'Medical Negligence Claims' },
+      { href: '/practices/letter-writing-lods', label: 'Letter Writing & LODs' },
+      { href: '/practices/employment-labour-claims', label: 'Employment & Labour Claims' },
+      { href: '/practices/defamation-claims-justification', label: 'Defamation & Justification' },
+      { href: '/practices/will-writing-probate-advice', label: 'Will Writing & Probate' },
+      { href: '/practices/tenancy-agreement-disputes', label: 'Tenancy Agreement Disputes' },
+      { href: '/practices/business-negotiations', label: 'Business Negotiations' },
+      { href: '/practices/small-claims-assistance', label: 'Small Claims Assistance' },
+      { href: '/practices/professional-negligence', label: 'Professional Negligence' },
+      { href: '/practices/contractor-negligence-claims', label: 'Contractor Negligence' },
+      { href: '/practices/debt-recovery-winding-up', label: 'Debt Recovery & Winding Up' },
     ],
   },
   { href: '/our-team', label: 'Our Team' },
@@ -136,31 +142,31 @@ export default function Header() {
 
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-0 w-72 bg-[#0A1529] border border-[#B8935A]/35 rounded-xl shadow-2xl py-2 transition-all duration-200 z-50 ${
+                      className={`absolute top-full left-0 w-[540px] bg-[#0A1529] border border-[#B8935A]/35 rounded-xl shadow-2xl p-3 transition-all duration-200 z-50 ${
                         practicesDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
-                      <div className="px-3 py-1.5 border-b border-[#B8935A]/15 mb-1">
+                      <div className="px-3 py-1.5 border-b border-[#B8935A]/15 mb-2 flex items-center justify-between">
                         <span className="text-[10px] uppercase font-bold tracking-wider text-[#CFA76F]">
-                          Practice Disciplines
+                          Service Offerings & Areas of Scope
                         </span>
-                      </div>
-                      {link.subLinks?.map((sub, sIndex) => (
-                        <Link
-                          key={sIndex}
-                          href={sub.href}
-                          className="block px-4 py-2.5 text-xs text-white/90 hover:text-[#CFA76F] hover:bg-[#1B2F57]/60 transition-colors font-medium"
-                        >
-                          {sub.label}
-                        </Link>
-                      ))}
-                      <div className="mt-1 pt-1.5 border-t border-[#B8935A]/15 px-3">
                         <Link
                           href="/practices"
-                          className="block py-1 text-xs text-[#B8935A] font-semibold hover:underline text-center"
+                          className="text-[11px] text-[#B8935A] hover:text-[#CFA76F] font-semibold hover:underline"
                         >
-                          View All Practices →
+                          All Practices →
                         </Link>
+                      </div>
+                      <div className="grid grid-cols-2 gap-1">
+                        {link.subLinks?.map((sub, sIndex) => (
+                          <Link
+                            key={sIndex}
+                            href={sub.href}
+                            className="block px-3 py-2 rounded-lg text-xs text-white/90 hover:text-[#CFA76F] hover:bg-[#1B2F57]/80 transition-colors font-medium truncate"
+                          >
+                            • {sub.label}
+                          </Link>
+                        ))}
                       </div>
                     </div>
                   </div>

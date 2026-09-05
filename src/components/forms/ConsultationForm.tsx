@@ -12,12 +12,21 @@ interface ConsultationFormProps {
 }
 
 const PRACTICE_OPTIONS = [
-  'Legal Advice & General Consultation',
+  'Bodily Injury Claims',
+  'Medical Negligence Claims',
+  'Letter Writing & LODs (Letters of Demand)',
+  'Employment & Labour Claims',
+  'Defamation Claims & Justification',
+  'Will Writing & Probate Advice',
+  'Tenancy Agreement Disputes',
+  'Business Negotiations & Commercial Deals',
+  'Small Claims Assistance',
+  'Professional Negligence Claims',
+  'Contractor Negligence Claims',
+  'Debt Recovery & Corporate Winding Up',
   'Property & Conveyancing Law',
   'Family & Divorce Law',
-  'Dispute Resolution, Accident & Injury Claims',
-  'Will Writing & Estate Distribution',
-  'Company Matters, Commercial Agreements & Litigation',
+  'Legal Advice & General Consultation',
   'Other Legal Matter',
 ];
 

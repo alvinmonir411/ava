@@ -55,6 +55,7 @@ export async function generateMetadata({ params }: Props) {
 export default async function IndividualPracticePage({ params }: Props) {
   const { slug } = await params;
   const practice = await getPracticeAreaBySlug(slug);
+  const allPractices = await getPracticeAreas();
 
   if (!practice) {
     notFound();
@@ -257,20 +258,13 @@ export default async function IndividualPracticePage({ params }: Props) {
                   Other Practice Disciplines
                 </h4>
                 <div className="space-y-2 text-xs">
-                  {[
-                    { slug: 'legal-advice-consultation', title: 'Legal Advice & Consultation' },
-                    { slug: 'property-conveyancing', title: 'Property & Conveyancing' },
-                    { slug: 'family-divorce', title: 'Family & Divorce Matters' },
-                    { slug: 'dispute-resolution-claims', title: 'Dispute Resolution & Injury' },
-                    { slug: 'will-estate-distribution', title: 'Will & Estate Distribution' },
-                    { slug: 'company-matters-agreements', title: 'Corporate & Agreements' },
-                  ]
+                  {allPractices
                     .filter((p) => p.slug !== practice.slug)
                     .map((p, idx) => (
                       <Link
                         key={idx}
                         href={`/practices/${p.slug}`}
-                        className="block py-1.5 text-charcoal hover:text-brass font-medium transition-colors"
+                        className="block py-1.5 text-charcoal hover:text-brass font-medium transition-colors truncate"
                       >
                         → {p.title}
                       </Link>

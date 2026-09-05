@@ -1,7 +1,27 @@
 import React from 'react';
 import Link from 'next/link';
 import { PracticeArea } from '@/types';
-import { Scale, Building2, HeartHandshake, ShieldAlert, ScrollText, Briefcase, ArrowRight } from 'lucide-react';
+import {
+  Scale,
+  Building2,
+  HeartHandshake,
+  ShieldAlert,
+  ScrollText,
+  Briefcase,
+  ArrowRight,
+  Activity,
+  Stethoscope,
+  FileText,
+  Users,
+  ShieldCheck,
+  Home,
+  Handshake,
+  Gavel,
+  Award,
+  Hammer,
+  Banknote,
+  DollarSign,
+} from 'lucide-react';
 
 interface PracticeCardProps {
   practice: PracticeArea;
@@ -15,6 +35,18 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   ShieldAlert,
   ScrollText,
   Briefcase,
+  Activity,
+  Stethoscope,
+  FileText,
+  Users,
+  ShieldCheck,
+  Home,
+  Handshake,
+  Gavel,
+  Award,
+  Hammer,
+  Banknote,
+  DollarSign,
 };
 
 export default function PracticeCard({ practice, className = '' }: PracticeCardProps) {

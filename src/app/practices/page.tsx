@@ -36,13 +36,13 @@ export default async function PracticesPage() {
             <span>Scope of Legal Representation</span>
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-cream mb-4">
-            Our Legal Practice Areas
+            Service Offerings & Areas of Scope
           </h1>
           <p className="font-serif italic text-brass-light text-lg sm:text-xl mb-4">
             &ldquo;Comprehensive Legal Protection for Individuals, Families & Enterprises&rdquo;
           </p>
           <p className="text-cream/80 text-base sm:text-lg leading-relaxed font-light">
-            With over 15 years of courtroom diligence in the High Court of Malaya and Appellate Courts, we provide specialized counsel across six core legal disciplines.
+            With over 15 years of courtroom diligence in the High Court of Malaya and Appellate Courts, Messrs. Low Wah Chin & Co. provides dedicated legal counsel across 12 specialized practice disciplines.
           </p>
         </div>
       </section>

@@ -16,18 +16,18 @@ export default function Footer() {
   ];
 
   const serviceOfferings = [
-    'Bodily Injury Claims',
-    'Medical Negligence Claims',
-    'Letter Writing & LODs',
-    'Employment & Labour Claims',
-    'Defamation Claims & Justification',
-    'Will Writing & Probate Advice',
-    'Tenancy Agreement Disputes',
-    'Business Negotiations',
-    'Small Claims Assistance',
-    'Professional Negligence',
-    'Contractor Negligence Claims',
-    'Debt Recovery & Winding Up',
+    { label: 'Bodily Injury Claims', slug: 'bodily-injury-claims' },
+    { label: 'Medical Negligence Claims', slug: 'medical-negligence-claims' },
+    { label: 'Letter Writing & LODs', slug: 'letter-writing-lods' },
+    { label: 'Employment & Labour Claims', slug: 'employment-labour-claims' },
+    { label: 'Defamation Claims & Justification', slug: 'defamation-claims-justification' },
+    { label: 'Will Writing & Probate Advice', slug: 'will-writing-probate-advice' },
+    { label: 'Tenancy Agreement Disputes', slug: 'tenancy-agreement-disputes' },
+    { label: 'Business Negotiations', slug: 'business-negotiations' },
+    { label: 'Small Claims Assistance', slug: 'small-claims-assistance' },
+    { label: 'Professional Negligence', slug: 'professional-negligence' },
+    { label: 'Contractor Negligence Claims', slug: 'contractor-negligence-claims' },
+    { label: 'Debt Recovery & Winding Up', slug: 'debt-recovery-winding-up' },
   ];
 
   return (
@@ -176,12 +176,13 @@ export default function Footer() {
           </span>
           <div className="flex flex-wrap gap-2 text-xs text-white/80">
             {serviceOfferings.map((svc, i) => (
-              <span
+              <Link
                 key={i}
-                className="bg-[#0F1F3D] px-2.5 py-1 rounded-md border border-[#B8935A]/20 hover:border-[#B8935A]/50 transition-colors"
+                href={`/practices/${svc.slug}`}
+                className="bg-[#0F1F3D] px-2.5 py-1 rounded-md border border-[#B8935A]/30 hover:border-[#CFA76F] hover:text-[#CFA76F] transition-colors"
               >
-                {svc}
-              </span>
+                {svc.label}
+              </Link>
             ))}
           </div>
         </div>
