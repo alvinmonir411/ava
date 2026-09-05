@@ -1,31 +1,62 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #0F1F3D;
-  --color-navy-dark: #0A1529;
-  --color-navy-light: #1B2F57;
+  /* Deep Royal Midnight Purple - Legal Wisdom & Prestige */
+  --color-plum: #1b0d25;
+  --color-plum-dark: #120718;
+  --color-plum-light: #241133;
+  --color-plum-accent: #3b174f;
+  --color-plum-surface: #200f2b;
 
-  --color-brass: #B8935A;
-  --color-brass-light: #CFA76F;
-  --color-brass-dark: #967440;
+  /* Executive Midnight Blue - Institutional Trust & Solidity */
+  --color-navy: #0f172a;
+  --color-navy-dark: #090d18;
+  --color-navy-light: #161e31;
+  --color-navy-surface: #1e293b;
 
-  --color-cream: #FAF8F4;
-  --color-cream-light: #FFFFFF;
-  --color-cream-dark: #F0EAE1;
-  --color-cream-accent: #E6DCCF;
+  /* Polished Champagne Gold - Primary Accents, CTAs & Borders */
+  --color-gold: #c6a052;
+  --color-gold-light: #e5c777;
+  --color-gold-dark: #9d7835;
+  --color-gold-accent: #d4af37;
+  --color-gold-shimmer: #f5e4b8;
 
-  --color-charcoal: #2B2B2B;
-  --color-charcoal-muted: #5A5A5A;
-  --color-charcoal-light: #888888;
+  /* Warm Amber / Leather Brown - Secondary Category Badges & Highlights */
+  --color-amber-badge: #9a532a;
+  --color-amber-light: #b86832;
+  --color-amber-dark: #7a3e1c;
+  --color-amber-surface: #fdf5ef;
+
+  /* Crisp White & Ivory Canvas */
+  --color-ivory: #ffffff;
+  --color-ivory-warm: #faf9f6;
+  --color-ivory-dark: #f3efe6;
+  --color-ivory-accent: #e8e1d5;
+
+  /* High-Contrast Jet Black Typography */
+  --color-charcoal: #0a0a0a;
+  --color-charcoal-body: #231f20;
+  --color-charcoal-muted: #595355;
+  --color-charcoal-light: #8c8486;
+
+  /* Backward Compatibility Aliases */
+  --color-brass: #c6a052;
+  --color-brass-light: #e5c777;
+  --color-brass-dark: #9d7835;
+  --color-cream: #faf9f6;
+  --color-cream-light: #ffffff;
+  --color-cream-dark: #f3efe6;
+  --color-cream-accent: #e8e1d5;
 
   --font-serif: var(--font-playfair), Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+
 @layer base {
   body {
-    background-color: #FAF8F4;
-    color: #2B2B2B;
+    background-color: #faf9f6;
+    color: #231f20;
     font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -34,68 +65,382 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-playfair), Georgia, Cambria, 'Times New Roman', Times, serif;
+    letter-spacing: -0.015em;
   }
 }
 
-/* Explicit Fallback Utilities for Maximum Contrast & Reliability */
-.bg-navy { background-color: #0F1F3D !important; }
-.bg-navy-dark { background-color: #0A1529 !important; }
-.bg-navy-light { background-color: #1B2F57 !important; }
-.text-navy { color: #0F1F3D !important; }
-.text-navy-light { color: #1B2F57 !important; }
-.border-navy { border-color: #0F1F3D !important; }
+/* Explicit Utility Classes for Maximum Visual Consistency */
+.bg-plum { background-color: #22122b !important; }
+.bg-plum-dark { background-color: #170b1e !important; }
+.bg-plum-light { background-color: #2e173b !important; }
+.bg-plum-accent { background-color: #432056 !important; }
+.bg-plum-surface { background-color: #281433 !important; }
+.text-plum { color: #22122b !important; }
+.text-plum-light { color: #432056 !important; }
+.border-plum { border-color: #22122b !important; }
+.border-plum-light { border-color: #432056 !important; }
 
-.bg-brass { background-color: #B8935A !important; }
-.bg-brass-light { background-color: #CFA76F !important; }
-.bg-brass-dark { background-color: #967440 !important; }
-.text-brass { color: #B8935A !important; }
-.text-brass-light { color: #CFA76F !important; }
-.text-brass-dark { color: #967440 !important; }
-.border-brass { border-color: #B8935A !important; }
+.bg-gold { background-color: #c6a052 !important; }
+.bg-gold-light { background-color: #e5c777 !important; }
+.bg-gold-dark { background-color: #9d7835 !important; }
+.text-gold { color: #c6a052 !important; }
+.text-gold-light { color: #e5c777 !important; }
+.text-gold-dark { color: #9d7835 !important; }
+.border-gold { border-color: #c6a052 !important; }
+.border-gold-light { border-color: #e5c777 !important; }
+.border-gold-dark { border-color: #9d7835 !important; }
 
-.bg-cream { background-color: #FAF8F4 !important; }
-.bg-cream-dark { background-color: #F0EAE1 !important; }
-.bg-cream-accent { background-color: #E6DCCF !important; }
-.text-cream { color: #FAF8F4 !important; }
+.bg-ivory { background-color: #faf9f6 !important; }
+.bg-ivory-dark { background-color: #f3efe6 !important; }
+.bg-ivory-accent { background-color: #e8e1d5 !important; }
+.text-ivory { color: #faf9f6 !important; }
 
-.text-charcoal { color: #2B2B2B !important; }
-.text-charcoal-muted { color: #5A5A5A !important; }
-.text-charcoal-light { color: #888888 !important; }
+.text-charcoal { color: #231f20 !important; }
+.text-charcoal-muted { color: #595355 !important; }
+.text-charcoal-light { color: #8c8486 !important; }
 
-/* Elegant Button Styles */
-.btn-brass {
-  background-color: #B8935A !important;
-  color: #0F1F3D !important;
+/* Legacy Navy & Brass Mapping to Royal Plum & Champagne Gold */
+.bg-navy { background-color: #22122b !important; }
+.bg-navy-dark { background-color: #170b1e !important; }
+.bg-navy-light { background-color: #2e173b !important; }
+.text-navy { color: #22122b !important; }
+.text-navy-light { color: #432056 !important; }
+.border-navy { border-color: #22122b !important; }
+
+.bg-brass { background-color: #c6a052 !important; }
+.bg-brass-light { background-color: #e5c777 !important; }
+.bg-brass-dark { background-color: #9d7835 !important; }
+.text-brass { color: #c6a052 !important; }
+.text-brass-light { color: #e5c777 !important; }
+.text-brass-dark { color: #9d7835 !important; }
+.border-brass { border-color: #c6a052 !important; }
+
+.bg-cream { background-color: #faf9f6 !important; }
+.bg-cream-dark { background-color: #f3efe6 !important; }
+.bg-cream-accent { background-color: #e8e1d5 !important; }
+.text-cream { color: #faf9f6 !important; }
+
+/* Elite Law Practice Buttons */
+.btn-gold {
+  background: linear-gradient(135deg, #e5c777 0%, #c6a052 60%, #9d7835 100%) !important;
+  color: #170b1e !important;
   font-weight: 700 !important;
-  transition: all 0.25s ease-in-out;
+  letter-spacing: 0.02em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(198, 160, 82, 0.28);
+}
+.btn-gold:hover {
+  background: linear-gradient(135deg, #f5e4b8 0%, #e5c777 60%, #c6a052 100%) !important;
+  color: #170b1e !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(198, 160, 82, 0.42);
+}
+
+.btn-outline-gold {
+  background-color: transparent !important;
+  color: #e5c777 !important;
+  border: 1.5px solid #c6a052 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-outline-gold:hover {
+  background-color: rgba(198, 160, 82, 0.15) !important;
+  border-color: #e5c777 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+.btn-plum {
+  background-color: #22122b !important;
+  color: #faf9f6 !important;
+  font-weight: 600 !important;
+  border: 1px solid #432056 !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-plum:hover {
+  background-color: #2e173b !important;
+  color: #e5c777 !important;
+  border-color: #c6a052 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(23, 11, 30, 0.35);
+}
+
+.btn-brass {
+  background: linear-gradient(135deg, #e5c777 0%, #c6a052 60%, #9d7835 100%) !important;
+  color: #170b1e !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease-in-out;
 }
 .btn-brass:hover {
-  background-color: #0F1F3D !important;
-  color: #CFA76F !important;
-  box-shadow: 0 6px 20px rgba(15, 31, 61, 0.3);
+  background: linear-gradient(135deg, #f5e4b8 0%, #e5c777 60%, #c6a052 100%) !important;
+  color: #170b1e !important;
+  box-shadow: 0 6px 20px rgba(198, 160, 82, 0.4);
 }
 
 .btn-navy {
-  background-color: #0F1F3D !important;
-  color: #FAF8F4 !important;
+  background-color: #22122b !important;
+  color: #faf9f6 !important;
   font-weight: 600 !important;
-  border: 1px solid #1B2F57 !important;
+  border: 1px solid #432056 !important;
   transition: all 0.25s ease-in-out;
 }
 .btn-navy:hover {
-  background-color: #1B2F57 !important;
-  color: #CFA76F !important;
-  border-color: #B8935A !important;
+  background-color: #2e173b !important;
+  color: #e5c777 !important;
+  border-color: #c6a052 !important;
 }
 
-/* Shadows */
+/* Shadows & Elevations */
 .legal-card-shadow {
-  box-shadow: 0 10px 30px -10px rgba(15, 31, 61, 0.08), 0 2px 6px -2px rgba(15, 31, 61, 0.04);
+  box-shadow: 0 10px 30px -10px rgba(23, 11, 30, 0.08), 0 2px 6px -2px rgba(23, 11, 30, 0.04);
 }
 .legal-card-hover {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 .legal-card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 36px -12px rgba(15, 31, 61, 0.16);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -12px rgba(23, 11, 30, 0.16), 0 0 0 1px rgba(198, 160, 82, 0.35);
 }
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(198, 160, 82, 0.25);
+}
+
+.gold-border-glow {
+  border-color: rgba(198, 160, 82, 0.6);
+  box-shadow: 0 0 20px rgba(198, 160, 82, 0.2);
+}
+
+/* Pattern Backgrounds */
+.pattern-plum-grid {
+  background-image: radial-gradient(rgba(198, 160, 82, 0.15) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Luxury Keyframe Animations & Micro-Interactions */
+@keyframes goldShimmer {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(200%) rotate(45deg); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.5deg); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(8px) rotate(-0.5deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(1.08); }
+}
+
+/* Aurora UI Animations */
+@keyframes aurora-1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(35px, -55px) scale(1.12) rotate(15deg);
+  }
+  66% {
+    transform: translate(-25px, 45px) scale(0.94) rotate(-10deg);
+  }
+}
+
+@keyframes aurora-2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(-45px, 35px) scale(1.18) rotate(-18deg);
+  }
+  66% {
+    transform: translate(40px, -35px) scale(0.88) rotate(14deg);
+  }
+}
+
+@keyframes aurora-3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(45px, -45px) scale(1.15);
+  }
+}
+
+@keyframes aurora-pulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.97);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes aurora-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-aurora-1 {
+  animation: aurora-1 18s ease-in-out infinite;
+}
+
+.animate-aurora-2 {
+  animation: aurora-2 22s ease-in-out infinite;
+}
+
+.animate-aurora-3 {
+  animation: aurora-3 20s ease-in-out infinite;
+}
+
+.animate-aurora-pulse {
+  animation: aurora-pulse 8s ease-in-out infinite;
+}
+
+.animate-aurora-flow {
+  background-size: 200% 200%;
+  animation: aurora-flow 12s ease infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes marqueeSlow {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeSlow 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Gold Shimmer Overlay */
+.gold-shimmer-hover {
+  position: relative;
+  overflow: hidden;
+}
+.gold-shimmer-hover::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(229, 199, 119, 0.15) 45%,
+    rgba(245, 228, 184, 0.3) 50%,
+    rgba(229, 199, 119, 0.15) 55%,
+    transparent 80%
+  );
+  transform: translateX(-100%) rotate(25deg);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+.gold-shimmer-hover:hover::after {
+  transform: translateX(100%) rotate(25deg);
+}
+
+/* Aurora UI Glassmorphism & Surface Classes */
+.aurora-glass {
+  background: rgba(32, 15, 43, 0.65) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(198, 160, 82, 0.25) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.aurora-glass:hover {
+  background: rgba(38, 18, 51, 0.8) !important;
+  border-color: rgba(198, 160, 82, 0.55) !important;
+  box-shadow: 0 12px 40px 0 rgba(198, 160, 82, 0.22), inset 0 1px 2px 0 rgba(229, 199, 119, 0.25) !important;
+}
+
+.aurora-glass-light {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(198, 160, 82, 0.25) !important;
+  box-shadow: 0 8px 30px 0 rgba(23, 11, 30, 0.06) !important;
+}
+
+.aurora-text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #f5e4b8 35%, #e5c777 70%, #c6a052 100%);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.aurora-text-violet {
+  background: linear-gradient(135deg, #e5c777 0%, #c6a052 40%, #c084fc 80%, #ffffff 100%);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.aurora-pill {
+  background: linear-gradient(135deg, rgba(198, 160, 82, 0.18) 0%, rgba(121, 40, 202, 0.2) 100%) !important;
+  border: 1px solid rgba(198, 160, 82, 0.4) !important;
+  box-shadow: 0 0 20px rgba(198, 160, 82, 0.18) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.aurora-badge {
+  background: linear-gradient(135deg, rgba(34, 18, 43, 0.85) 0%, rgba(67, 32, 86, 0.75) 100%);
+  border: 1px solid rgba(198, 160, 82, 0.4);
+  box-shadow: 0 0 25px rgba(121, 40, 202, 0.25);
+  backdrop-filter: blur(12px);
+}
+
+.glass-plum {
+  background: rgba(34, 18, 43, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(198, 160, 82, 0.25);
+}
+
+.glass-ivory {
+  background: rgba(250, 249, 246, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(198, 160, 82, 0.2);
+}
+
+/* Interactive 3D Perspective Container */
+.perspective-1000 {
+  perspective: 1000px;
+}
+

@@ -64,6 +64,7 @@ export interface Testimonial {
 export interface PracticeArea {
   slug: string;
   title: string;
+  chineseTitle?: string;
   tagline: string;
   shortDescription: string;
   fullDescription: string;
@@ -71,13 +72,33 @@ export interface PracticeArea {
   seoDescription: string;
   heroImage: string;
   iconName: string;
+  statutoryFramework?: string[];
   whatWeHandle: string[];
   keyBenefits: string[];
+  proceduralTimeline?: {
+    step: string;
+    title: string;
+    duration: string;
+    description: string;
+  }[];
+  preparationChecklist?: string[];
   faqs: { question: string; answer: string }[];
   caseStudy?: {
     scenario: string;
     outcome: string;
   };
+}
+
+export interface RepresentativeMatter {
+  id: string;
+  title: string;
+  category: 'Appellate Litigation' | 'Commercial & Corporate' | 'Real Estate & Land' | 'Debt & Insolvency' | 'Tort & Medical Negligence' | 'Employment & Industrial';
+  forum: string;
+  statutoryFramework: string;
+  background: string;
+  strategy: string;
+  outcome: string;
+  highlights: string[];
 }
 
 export interface FaqItem {

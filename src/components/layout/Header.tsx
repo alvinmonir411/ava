@@ -3,45 +3,45 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Phone, Mail, Clock, MapPin, Menu, X, ChevronDown, Scale } from 'lucide-react';
+import { Phone, Mail, MapPin, Menu, X, ChevronDown, Scale, ShieldCheck, ArrowRight, Clock } from 'lucide-react';
 import WhatsAppButton from '../common/WhatsAppButton';
+import BrandMonogram from '../common/BrandMonogram';
 
 const PRIMARY_PRACTICES = [
-  { href: '/practices/legal-advice-consultation', label: 'Legal Advice & General Consultation' },
-  { href: '/practices/property-conveyancing', label: 'Property & Conveyancing Law' },
-  { href: '/practices/family-divorce', label: 'Family & Divorce Matters' },
-  { href: '/practices/dispute-resolution-claims', label: 'Dispute Resolution & Bodily Injury' },
-  { href: '/practices/will-estate-distribution', label: 'Will Writing & Estate Distribution' },
-  { href: '/practices/company-matters-agreements', label: 'Company Matters & Commercial Law' },
+  { href: '/practices/contract-drafting-commercial-advisory', label: 'Contract Drafting & Advisory' },
+  { href: '/practices/contractual-dispute-claims', label: 'Contractual Dispute Claims' },
+  { href: '/practices/debt-recovery-claims', label: 'Debt Recovery Claims' },
+  { href: '/practices/tort-claims-civil-liabilities', label: 'Tort & Civil Liabilities' },
+  { href: '/practices/corporate-commercial', label: 'Corporate & Commercial' },
+  { href: '/practices/real-estate-conveyancing', label: 'Real Estate & Conveyancing' },
+  { href: '/practices/civil-commercial-litigation', label: 'Appellate & Civil Litigation' },
+  { href: '/practices/family-probate-estate', label: 'Wills, Probate & Estate' },
+  { href: '/practices/employment-industrial-relations', label: 'Employment & Industrial' },
 ];
 
 const SERVICE_OFFERINGS = [
   { href: '/practices/bodily-injury-claims', label: 'Bodily Injury Claims' },
-  { href: '/practices/medical-negligence-claims', label: 'Medical Negligence Claims' },
-  { href: '/practices/letter-writing-lods', label: 'Letter Writing & LODs' },
-  { href: '/practices/employment-labour-claims', label: 'Employment & Labour Claims' },
-  { href: '/practices/defamation-claims-justification', label: 'Defamation Claims & Justification' },
-  { href: '/practices/will-writing-probate-advice', label: 'Will Writing & Probate Advice' },
-  { href: '/practices/tenancy-agreement-disputes', label: 'Tenancy Agreement Disputes' },
-  { href: '/practices/business-negotiations', label: 'Business Negotiations' },
-  { href: '/practices/small-claims-assistance', label: 'Small Claims Assistance' },
-  { href: '/practices/professional-negligence', label: 'Professional Negligence' },
-  { href: '/practices/contractor-negligence-claims', label: 'Contractor Negligence Claims' },
+  { href: '/practices/medical-negligence-claims', label: 'Medical Negligence' },
+  { href: '/practices/letter-writing-lods', label: 'Letters of Demand (LOD)' },
+  { href: '/practices/employment-labour-claims', label: 'Labour Disputes' },
+  { href: '/practices/defamation-claims-justification', label: 'Defamation & Reputation' },
+  { href: '/practices/will-writing-probate-advice', label: 'Will Writing & Grants' },
+  { href: '/practices/tenancy-agreement-disputes', label: 'Tenancy Disputes' },
   { href: '/practices/debt-recovery-winding-up', label: 'Debt Recovery & Winding Up' },
 ];
 
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About Us' },
+  { href: '/about', label: 'About' },
   {
     href: '/practices',
-    label: 'Practice Areas',
+    label: 'Practices',
     hasDropdown: true,
   },
   { href: '/our-team', label: 'Our Team' },
   { href: '/articles', label: 'Articles' },
   { href: '/faq', label: 'FAQ' },
-  { href: '/contact', label: 'Contact Us' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Header() {
@@ -58,75 +58,59 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
     setPracticesDropdownOpen(false);
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 w-full shadow-lg transition-all duration-300">
-      {/* Top Utility Bar */}
-      <div className="bg-[#0A1529] text-cream/90 text-xs py-2 px-4 sm:px-6 lg:px-8 border-b border-[#B8935A]/25 hidden md:block">
+    <header className="sticky top-0 z-50 w-full transition-all duration-300">
+      {/* Top Malaysian Legal Utility Bar - Clean, Minimalist & Elite */}
+      <div className="bg-[#0e0513] text-[#faf9f6]/75 text-[11.5px] py-1.5 px-4 sm:px-6 lg:px-8 border-b border-[#c6a052]/15 hidden md:block">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-6">
             <a
               href="tel:+60175483157"
-              className="flex items-center gap-1.5 text-white/90 hover:text-brass-light transition-colors"
+              className="flex items-center gap-1.5 hover:text-[#e5c777] transition-colors group"
             >
-              <Phone className="w-3.5 h-3.5 text-brass" />
-              <span>+60 17-548 3157</span>
+              <Phone className="w-3 h-3 text-[#c6a052] group-hover:scale-110 transition-transform" />
+              <span className="tracking-wide">+60 17-548 3157</span>
             </a>
             <a
               href="mailto:lwclegal5@gmail.com"
-              className="flex items-center gap-1.5 text-white/90 hover:text-brass-light transition-colors"
+              className="flex items-center gap-1.5 hover:text-[#e5c777] transition-colors group"
             >
-              <Mail className="w-3.5 h-3.5 text-brass" />
+              <Mail className="w-3 h-3 text-[#c6a052] group-hover:scale-110 transition-transform" />
               <span>lwclegal5@gmail.com</span>
             </a>
-            <div className="flex items-center gap-1.5 text-white/75">
-              <Clock className="w-3.5 h-3.5 text-brass" />
-              <span>Mon – Fri: 9:00 AM – 5:30 PM</span>
-            </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5 text-white/80">
-              <MapPin className="w-3.5 h-3.5 text-brass" />
-              <span>Colony @ KLCC, Vipod Residences, KL</span>
+            <span className="flex items-center gap-1.5 text-[#faf9f6]/70">
+              <MapPin className="w-3 h-3 text-[#c6a052]" />
+              <span>Colony @ KLCC, Kuala Lumpur</span>
             </span>
-            <span className="text-brass/60">|</span>
-            <span className="text-brass-light font-semibold">Bar Council No. BC/L/2019</span>
+            <span className="text-[#c6a052]/30">•</span>
+            <span className="text-[#e5c777] font-medium flex items-center gap-1.5">
+              <ShieldCheck className="w-3 h-3 text-[#c6a052]" />
+              <span>Malaysian Bar BC/L/2019</span>
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
+      {/* Main Navigation Bar - Spacious, Balanced & Prestigious */}
       <nav
-        className={`w-full bg-[#0F1F3D] text-white transition-all duration-300 border-b border-[#B8935A]/25 ${
-          isScrolled ? 'py-3 shadow-2xl' : 'py-4 sm:py-5'
+        className={`w-full bg-[#14081c]/95 backdrop-blur-md text-white transition-all duration-300 border-b border-[#c6a052]/20 ${
+          isScrolled ? 'py-3 shadow-2xl' : 'py-3.5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-gradient-to-br from-[#CFA76F] to-[#967440] p-0.5 shadow-md flex items-center justify-center shrink-0">
-              <div className="w-full h-full bg-[#0F1F3D] rounded-[7px] flex items-center justify-center text-brass-light group-hover:bg-[#1B2F57] transition-colors">
-                <Scale className="w-5 h-5 sm:w-6 sm:h-6 text-[#CFA76F]" />
-              </div>
-            </div>
-            <div>
-              <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-white group-hover:text-brass-light transition-colors block leading-tight">
-                Low Wah Chin & Co.
-              </span>
-              <span className="text-[10px] sm:text-[11px] font-sans tracking-widest text-[#CFA76F] font-semibold uppercase block leading-none mt-0.5">
-                Advocates & Solicitors
-              </span>
-            </div>
-          </Link>
+          {/* Brand Monogram & Firm Name */}
+          <BrandMonogram variant="header" />
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+          {/* Desktop Navigation Links - Clean, uncluttered typography with ample breathing room */}
+          <div className="hidden lg:flex items-center gap-7 xl:gap-8">
             {NAV_LINKS.map((link, index) => {
               const isActive = pathname === link.href || (link.hasDropdown && pathname.startsWith('/practices'));
 
@@ -140,66 +124,72 @@ export default function Header() {
                   >
                     <Link
                       href={link.href}
-                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-1 ${
+                      className={`relative py-1.5 text-[13.5px] font-medium tracking-wide transition-colors flex items-center gap-1 ${
                         isActive
-                          ? 'text-[#CFA76F] font-bold'
-                          : 'text-white/90 hover:text-[#CFA76F]'
+                          ? 'text-[#e5c777] font-bold'
+                          : 'text-[#faf9f6]/85 hover:text-[#e5c777]'
                       }`}
                     >
                       <span>{link.label}</span>
-                      <ChevronDown className="w-3.5 h-3.5 text-[#CFA76F] transition-transform duration-200 group-hover:rotate-180" />
+                      <ChevronDown className="w-3.5 h-3.5 text-[#c6a052] transition-transform duration-200 group-hover:rotate-180 opacity-80" />
+                      {isActive && (
+                        <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#c6a052] rounded-full shadow-[0_0_8px_rgba(198,160,82,0.6)]" />
+                      )}
                     </Link>
 
-                    {/* Dropdown Menu */}
+                    {/* Clean Mega Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-0 w-[740px] bg-[#0A1529] border border-[#B8935A]/40 rounded-2xl shadow-2xl p-4 transition-all duration-200 z-50 ${
-                        practicesDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+                      className={`absolute top-full left-1/2 -translate-x-1/2 w-[620px] bg-[#14081c] border border-[#c6a052]/35 rounded-2xl shadow-2xl p-5 transition-all duration-200 z-50 ${
+                        practicesDropdownOpen ? 'opacity-100 visible translate-y-1' : 'opacity-0 invisible -translate-y-2'
                       }`}
+                      style={{
+                        boxShadow: '0 25px 50px -12px rgba(14, 5, 19, 0.95), 0 0 0 1px rgba(198, 160, 82, 0.25)',
+                      }}
                     >
                       {/* Top Bar */}
-                      <div className="px-3 py-1.5 border-b border-[#B8935A]/20 mb-3 flex items-center justify-between">
-                        <span className="text-[11px] uppercase font-bold tracking-wider text-[#CFA76F] flex items-center gap-1.5">
-                          <Scale className="w-3.5 h-3.5 text-[#CFA76F]" />
-                          <span>Practice Areas & Disciplines</span>
+                      <div className="px-2 py-1 border-b border-[#c6a052]/20 mb-3.5 flex items-center justify-between">
+                        <span className="text-[11px] uppercase font-bold tracking-wider text-[#e5c777] flex items-center gap-1.5">
+                          <Scale className="w-3.5 h-3.5 text-[#c6a052]" />
+                          <span>Legal Disciplines & Practice Directory</span>
                         </span>
                         <Link
                           href="/practices"
-                          className="text-xs text-[#B8935A] hover:text-[#CFA76F] font-semibold hover:underline"
+                          className="text-xs text-[#c6a052] hover:text-[#e5c777] font-semibold hover:underline"
                         >
-                          View All 18 Practices →
+                          View All 18 Scopes →
                         </Link>
                       </div>
 
-                      {/* 1. Primary Practice Disciplines (Top / First) */}
-                      <div className="mb-3">
-                        <span className="text-[10px] uppercase font-bold tracking-wider text-white/60 block px-2 mb-1.5">
-                          Core Practice Disciplines
+                      {/* 1. Core Practice Disciplines */}
+                      <div className="mb-3.5">
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-[#faf9f6]/50 block px-2 mb-2">
+                          Core Practice Areas
                         </span>
-                        <div className="grid grid-cols-2 gap-1.5">
+                        <div className="grid grid-cols-2 gap-2">
                           {PRIMARY_PRACTICES.map((p, pIdx) => (
                             <Link
                               key={pIdx}
                               href={p.href}
-                              className="px-3 py-2 rounded-lg text-xs text-white font-semibold hover:text-[#CFA76F] bg-[#0F1F3D]/90 hover:bg-[#1B2F57] border border-[#B8935A]/25 hover:border-[#CFA76F]/50 transition-all flex items-center justify-between"
+                              className="px-3 py-2 rounded-xl text-xs text-[#faf9f6] font-medium hover:text-[#e5c777] bg-[#1d0f24] hover:bg-[#281433] border border-[#c6a052]/15 hover:border-[#c6a052]/50 transition-all flex items-center justify-between"
                             >
                               <span>{p.label}</span>
-                              <span className="text-[#CFA76F] text-[10px]">→</span>
+                              <span className="text-[#c6a052] text-xs">→</span>
                             </Link>
                           ))}
                         </div>
                       </div>
 
-                      {/* 2. Specialized Service Offerings & Scope (Second / After) */}
-                      <div className="pt-2 border-t border-[#B8935A]/20">
-                        <span className="text-[10px] uppercase font-bold tracking-wider text-white/60 block px-2 mb-1.5">
-                          Specialized Service Offerings & Areas of Scope
+                      {/* 2. Specialized Service Offerings & Scope */}
+                      <div className="pt-2.5 border-t border-[#c6a052]/20">
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-[#faf9f6]/50 block px-2 mb-1.5">
+                          Specialized Practice Scope
                         </span>
                         <div className="grid grid-cols-2 gap-1">
                           {SERVICE_OFFERINGS.map((sub, sIndex) => (
                             <Link
                               key={sIndex}
                               href={sub.href}
-                              className="block px-2.5 py-1.5 rounded-md text-xs text-white/80 hover:text-[#CFA76F] hover:bg-[#1B2F57]/80 transition-colors font-medium truncate"
+                              className="block px-2.5 py-1.5 rounded-lg text-xs text-[#faf9f6]/75 hover:text-[#e5c777] hover:bg-[#1d0f24] transition-colors truncate"
                             >
                               • {sub.label}
                             </Link>
@@ -215,25 +205,28 @@ export default function Header() {
                 <Link
                   key={index}
                   href={link.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`relative py-1.5 text-[13.5px] font-medium tracking-wide transition-colors ${
                     isActive
-                      ? 'text-[#CFA76F] font-bold'
-                      : 'text-white/90 hover:text-[#CFA76F]'
+                      ? 'text-[#e5c777] font-bold'
+                      : 'text-[#faf9f6]/85 hover:text-[#e5c777]'
                   }`}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#c6a052] rounded-full shadow-[0_0_8px_rgba(198,160,82,0.6)]" />
+                  )}
                 </Link>
               );
             })}
           </div>
 
-          {/* Desktop Right CTA */}
+          {/* Desktop Right Gold Consultation CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/contact"
-              className="btn-brass px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider shadow-md hover:scale-105 transition-transform"
+              className="btn-gold px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase shadow-md hover:scale-105 transition-all"
             >
-              Book Consultation
+              Consultation
             </Link>
           </div>
 
@@ -242,72 +235,93 @@ export default function Header() {
             <a
               href="tel:+60175483157"
               aria-label="Call LWCCO"
-              className="p-2 rounded-lg bg-[#1B2F57] text-[#CFA76F] hover:bg-[#1B2F57]/80 transition-colors"
+              className="p-2 rounded-lg bg-[#1d0f24] text-[#e5c777] border border-[#c6a052]/30 hover:bg-[#281433] transition-colors"
             >
-              <Phone className="w-5 h-5" />
+              <Phone className="w-4 h-4" />
             </a>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Navigation Menu"
-              className="p-2 rounded-lg bg-[#1B2F57] text-white hover:text-[#CFA76F] transition-colors focus:outline-none"
+              className="p-2 rounded-lg bg-[#1d0f24] text-white border border-[#c6a052]/30 hover:text-[#e5c777] transition-colors focus:outline-none cursor-pointer"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6 text-[#CFA76F]" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-[#e5c777]" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Slide-Out Menu */}
+        {/* Mobile Slide-Out Menu Drawer - Ultra Clean & Elegant */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-[#0A1529] border-t border-[#B8935A]/25 px-4 pt-4 pb-8 space-y-3 animate-in slide-in-from-top-4 duration-300">
+          <div className="lg:hidden bg-[#120718]/98 backdrop-blur-2xl border-t border-[#c6a052]/30 px-4 pt-3 pb-6 space-y-4 animate-in slide-in-from-top-3 duration-250 shadow-2xl max-h-[calc(100vh-65px)] overflow-y-auto">
             <div className="space-y-1">
               {NAV_LINKS.map((link, index) => {
-                const isActive = pathname === link.href;
+                const isActive = pathname === link.href || (link.hasDropdown && pathname.startsWith('/practices'));
 
                 if (link.hasDropdown) {
                   return (
-                    <div key={index} className="py-1">
-                      <div className="flex items-center justify-between px-3 py-2 text-white font-medium">
-                        <Link href={link.href} className="text-base">
-                          {link.label}
+                    <div key={index} className="rounded-xl border border-[#c6a052]/15 bg-[#1a0c20]/60 overflow-hidden my-1">
+                      <div className="flex items-center justify-between px-3.5 py-2.5">
+                        <Link
+                          href={link.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className={`text-sm font-serif font-bold tracking-wide flex items-center gap-2 ${
+                            isActive ? 'text-[#e5c777]' : 'text-[#faf9f6]'
+                          }`}
+                        >
+                          <Scale className="w-4 h-4 text-[#c6a052]" />
+                          <span>{link.label}</span>
                         </Link>
                         <button
                           type="button"
                           onClick={() => setPracticesDropdownOpen(!practicesDropdownOpen)}
-                          className="p-1 text-[#CFA76F]"
+                          aria-label="Toggle Practice Disciplines"
+                          className="p-1.5 rounded-lg bg-[#241133] text-[#e5c777] border border-[#c6a052]/30 cursor-pointer"
                         >
-                          <ChevronDown className={`w-4 h-4 transition-transform ${practicesDropdownOpen ? 'rotate-180' : ''}`} />
+                          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${practicesDropdownOpen ? 'rotate-180 text-[#e5c777]' : ''}`} />
                         </button>
                       </div>
+
                       {practicesDropdownOpen && (
-                        <div className="pl-4 pr-2 py-2 space-y-3 bg-[#0F1F3D]/90 rounded-lg border-l-2 border-[#B8935A] ml-2">
+                        <div className="px-3 pb-3 pt-1 space-y-3 bg-[#15091b] border-t border-[#c6a052]/20">
                           <div>
-                            <span className="text-[10px] uppercase font-bold tracking-wider text-[#CFA76F] block mb-1">
-                              Core Practice Disciplines
-                            </span>
-                            <div className="space-y-1">
+                            <div className="flex items-center justify-between mb-1.5 pt-1">
+                              <span className="text-[10px] uppercase font-bold tracking-wider text-[#e5c777]">
+                                Core Practice Disciplines (9)
+                              </span>
+                              <Link
+                                href="/practices"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="text-[10px] text-[#c6a052] font-semibold hover:underline"
+                              >
+                                View All →
+                              </Link>
+                            </div>
+                            <div className="grid grid-cols-1 gap-1">
                               {PRIMARY_PRACTICES.map((p, pIdx) => (
                                 <Link
                                   key={pIdx}
                                   href={p.href}
-                                  className="block py-1 text-xs text-white font-semibold hover:text-[#CFA76F]"
+                                  onClick={() => setMobileMenuOpen(false)}
+                                  className="flex items-center gap-2 py-1.5 px-2.5 rounded-lg text-xs font-medium text-[#faf9f6]/90 hover:text-[#e5c777] hover:bg-[#241133] transition-colors"
                                 >
-                                  → {p.label}
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#c6a052] shrink-0" />
+                                  <span className="truncate">{p.label}</span>
                                 </Link>
                               ))}
                             </div>
                           </div>
 
-                          <div className="pt-2 border-t border-[#B8935A]/20">
-                            <span className="text-[10px] uppercase font-bold tracking-wider text-[#CFA76F] block mb-1">
-                              Service Offerings & Scope
+                          <div className="pt-2 border-t border-[#c6a052]/15">
+                            <span className="text-[10px] uppercase font-bold tracking-wider text-[#e5c777] block mb-1.5">
+                              Specialized Scopes & Advisory
                             </span>
-                            <div className="space-y-1">
-                              {SERVICE_OFFERINGS.map((sub, sIdx) => (
+                            <div className="grid grid-cols-2 gap-1">
+                              {SERVICE_OFFERINGS.slice(0, 6).map((sub, sIdx) => (
                                 <Link
                                   key={sIdx}
                                   href={sub.href}
-                                  className="block py-1 text-xs text-white/80 hover:text-[#CFA76F]"
+                                  onClick={() => setMobileMenuOpen(false)}
+                                  className="py-1 px-2 rounded text-[11px] text-[#faf9f6]/75 hover:text-[#e5c777] hover:bg-[#241133] transition-colors truncate"
                                 >
                                   • {sub.label}
                                 </Link>
@@ -324,43 +338,40 @@ export default function Header() {
                   <Link
                     key={index}
                     href={link.href}
-                    className={`block px-3 py-2 rounded-lg text-base font-medium ${
-                      isActive ? 'bg-[#B8935A]/25 text-[#CFA76F] font-bold' : 'text-white hover:bg-[#1B2F57]'
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                      isActive
+                        ? 'bg-[#281433] text-[#e5c777] font-bold border border-[#c6a052]/40 shadow-sm'
+                        : 'text-[#faf9f6]/90 hover:bg-[#200f2b] hover:text-[#e5c777]'
                     }`}
                   >
-                    {link.label}
+                    <span>{link.label}</span>
+                    {isActive && <ArrowRight className="w-3.5 h-3.5 text-[#e5c777]" />}
                   </Link>
                 );
               })}
             </div>
 
-            <div className="pt-4 border-t border-[#B8935A]/25 space-y-3">
+            {/* Direct Mobile Quick Actions */}
+            <div className="pt-3 border-t border-[#c6a052]/25 space-y-2.5">
               <Link
                 href="/contact"
-                className="btn-brass w-full py-3 rounded-lg text-center block text-sm font-bold shadow-md"
+                onClick={() => setMobileMenuOpen(false)}
+                className="btn-gold w-full py-3 rounded-xl text-center block text-xs font-bold uppercase tracking-wider shadow-lg"
               >
-                Book a Free Consultation
+                Schedule Legal Consultation
               </Link>
               <WhatsAppButton
                 variant="inline"
-                label="Direct WhatsApp Consultation"
-                className="w-full text-center justify-center text-sm"
+                label="Direct WhatsApp Counsel"
+                className="w-full text-center justify-center text-xs py-2.5"
               />
             </div>
 
-            <div className="pt-3 text-xs text-white/80 space-y-1.5">
-              <p className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-brass" />
-                <a href="tel:+60175483157" className="hover:text-brass-light">+60 17-548 3157</a>
-              </p>
-              <p className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-brass" />
-                <a href="mailto:lwclegal5@gmail.com" className="hover:text-brass-light">lwclegal5@gmail.com</a>
-              </p>
-              <p className="flex items-center gap-2">
-                <Clock className="w-3.5 h-3.5 text-brass" />
-                <span>Mon – Fri: 9:00 AM – 5:30 PM</span>
-              </p>
+            {/* Quick Contact Info Strip */}
+            <div className="pt-2 text-center text-[11px] text-[#faf9f6]/60 space-y-1">
+              <p>Colony @ KLCC • Vipod Residences, Kuala Lumpur</p>
+              <p className="text-[#e5c777] font-semibold">Direct Tel: +60 17-548 3157</p>
             </div>
           </div>
         )}
@@ -368,3 +379,5 @@ export default function Header() {
     </header>
   );
 }
+
+

@@ -1,14 +1,18 @@
 import { neon } from '@neondatabase/serverless';
 import { drizzle } from 'drizzle-orm/neon-http';
 import * as schema from './schema';
-import { PRACTICE_AREAS, ARTICLES_DATA, TEAM_MEMBERS_DATA, TESTIMONIALS_DATA } from './seedData';
-import { Article, TeamMember, Testimonial, PracticeArea } from '@/types';
+import { PRACTICE_AREAS, ARTICLES_DATA, TEAM_MEMBERS_DATA, TESTIMONIALS_DATA, REPRESENTATIVE_MATTERS_DATA } from './seedData';
+import { Article, TeamMember, Testimonial, PracticeArea, RepresentativeMatter } from '@/types';
 
 const connectionString = process.env.DATABASE_URL;
 
 export const db = connectionString ? drizzle(neon(connectionString), { schema }) : null;
 
 // Dynamic or fallback data access helpers
+export async function getRepresentativeMatters(): Promise<RepresentativeMatter[]> {
+  return REPRESENTATIVE_MATTERS_DATA;
+}
+
 export async function getArticles(): Promise<Article[]> {
   if (db) {
     try {
@@ -35,8 +39,32 @@ export async function getPracticeAreas(): Promise<PracticeArea[]> {
   return PRACTICE_AREAS;
 }
 
+const SLUG_ALIASES: Record<string, string> = {
+  'corporate-commercial': 'company-matters-agreements',
+  'civil-commercial-litigation': 'dispute-resolution-claims',
+  'family-probate-estate': 'family-divorce',
+  'employment-industrial-relations': 'employment-labour-claims',
+  'employment-dispute-resolution': 'employment-labour-claims',
+  'personal-injury-medical-negligence': 'dispute-resolution-claims',
+  'real-estate-conveyancing': 'property-conveyancing',
+  'conveyancing-property': 'property-conveyancing',
+  'conveyancing-property-transactions': 'property-conveyancing',
+  'wills-probate-estate': 'wills-probate-estate-planning',
+  'wills-probate-estate-administration': 'wills-probate-estate-planning',
+  'civil-commercial-appellate-litigation': 'dispute-resolution-claims',
+};
+
 export async function getPracticeAreaBySlug(slug: string): Promise<PracticeArea | null> {
-  return PRACTICE_AREAS.find((p) => p.slug === slug) || null;
+  const exact = PRACTICE_AREAS.find((p) => p.slug === slug);
+  if (exact) return exact;
+
+  const targetSlug = SLUG_ALIASES[slug];
+  if (targetSlug) {
+    const aliased = PRACTICE_AREAS.find((p) => p.slug === targetSlug);
+    if (aliased) return aliased;
+  }
+
+  return PRACTICE_AREAS.find((p) => p.slug.includes(slug) || slug.includes(p.slug)) || PRACTICE_AREAS[0] || null;
 }
 
 export async function getTeamMembers(): Promise<TeamMember[]> {

@@ -9,12 +9,12 @@ export default function TrustBar({ className = '' }: TrustBarProps) {
   const trustSignals = [
     {
       icon: ShieldCheck,
-      title: '15+ Years Practice',
+      title: '15+ Years Court Practice',
       subtitle: 'Called to Bar 2011',
     },
     {
       icon: Landmark,
-      title: 'Malaysian Bar Registered',
+      title: 'Malaysian Bar Council',
       subtitle: 'High Court of Malaya',
     },
     {
@@ -24,29 +24,29 @@ export default function TrustBar({ className = '' }: TrustBarProps) {
     },
     {
       icon: CheckCircle2,
-      title: 'Trusted Malaysia Top 6',
-      subtitle: 'Recognized Legal Excellence',
+      title: 'Top 6 Trusted Practice',
+      subtitle: 'Recognized Legal Diligence',
     },
   ];
 
   return (
-    <div className={`bg-[#0F1F3D] border-y border-[#B8935A]/35 py-6 px-4 sm:px-6 lg:px-8 ${className}`}>
+    <div className={`bg-[#170b1e] border-y border-[#c6a052]/30 py-6 px-4 sm:px-6 lg:px-8 shadow-inner ${className}`}>
       <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {trustSignals.map((item, index) => {
           const Icon = item.icon;
           return (
             <div
               key={index}
-              className="flex items-center gap-3.5 sm:gap-4 p-3 sm:p-4 rounded-xl bg-[#1B2F57]/60 border border-[#B8935A]/25 hover:border-[#B8935A]/50 transition-all duration-200"
+              className="flex items-center gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-[#22122b]/80 border border-[#c6a052]/25 hover:border-[#c6a052]/60 hover:bg-[#2e173b] transition-all duration-300 group shadow-md"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#B8935A]/20 border border-[#B8935A]/40 flex items-center justify-center shrink-0 text-[#CFA76F]">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#c6a052]/15 border border-[#c6a052]/40 flex items-center justify-center shrink-0 text-[#e5c777] group-hover:scale-110 group-hover:bg-[#c6a052] group-hover:text-[#170b1e] transition-all duration-300">
                 <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div className="min-w-0">
-                <h4 className="text-white text-xs sm:text-sm font-bold tracking-tight truncate">
+                <h4 className="text-[#faf9f6] text-xs sm:text-sm font-bold tracking-tight truncate group-hover:text-[#e5c777] transition-colors">
                   {item.title}
                 </h4>
-                <p className="text-[#CFA76F] text-[11px] sm:text-xs truncate font-medium mt-0.5">
+                <p className="text-[#e5c777]/90 text-[11px] sm:text-xs truncate font-medium mt-0.5">
                   {item.subtitle}
                 </p>
               </div>

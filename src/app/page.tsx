@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getPracticeAreas, getArticles, getTestimonials } from '@/db';
+import { getPracticeAreas, getArticles, getTestimonials, getRepresentativeMatters } from '@/db';
 import TrustBar from '@/components/common/TrustBar';
 import SectionHeading from '@/components/common/SectionHeading';
 import PracticeCard from '@/components/cards/PracticeCard';
@@ -9,7 +9,21 @@ import ArticleCard from '@/components/cards/ArticleCard';
 import TestimonialCard from '@/components/cards/TestimonialCard';
 import ConsultationForm from '@/components/forms/ConsultationForm';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
+import BrandMonogram from '@/components/common/BrandMonogram';
+import InstitutionalPedigree from '@/components/common/InstitutionalPedigree';
+import PartnerGallery from '@/components/common/PartnerGallery';
+import FounderPhilosophy from '@/components/common/FounderPhilosophy';
+import RepresentativeMatters from '@/components/showcase/RepresentativeMatters';
+import EngagementWorkflow from '@/components/common/EngagementWorkflow';
+import SectionDivider from '@/components/common/SectionDivider';
 import JsonLd from '@/components/common/JsonLd';
+import ScrollReveal from '@/components/effects/ScrollReveal';
+import TiltCard from '@/components/effects/TiltCard';
+import AnimatedCounter from '@/components/effects/AnimatedCounter';
+import SpotlightCard from '@/components/effects/SpotlightCard';
+import ParallaxContainer from '@/components/effects/ParallaxContainer';
+import AuroraBackground from '@/components/effects/AuroraBackground';
+import AuroraGlow from '@/components/effects/AuroraGlow';
 import { getLegalServiceSchema } from '@/lib/metadata';
 import {
   Scale,
@@ -23,233 +37,295 @@ import {
   Building,
   UserCheck,
   ChevronRight,
+  Landmark,
+  GraduationCap,
+  BookOpen,
+  Sparkles,
+  MapPin,
+  Mail,
+  HelpCircle,
+  Briefcase,
+  TrendingUp,
 } from 'lucide-react';
 
 export default async function HomePage() {
   const practiceAreas = await getPracticeAreas();
   const articles = await getArticles();
   const testimonials = await getTestimonials();
+  const representativeMatters = await getRepresentativeMatters();
   const legalServiceSchema = getLegalServiceSchema();
 
   return (
     <>
       <JsonLd data={legalServiceSchema} />
 
-      {/* Hero Section */}
-      <section className="relative bg-[#0F1F3D] text-white overflow-hidden min-h-[90vh] flex items-center justify-center py-16 lg:py-24">
-        {/* Background Image with Deep Gradient Overlay */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2000&q=85"
-            alt="Messrs. Low Wah Chin & Co. Advocates & Solicitors Kuala Lumpur"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center opacity-40 scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1529]/95 via-[#0F1F3D]/85 to-[#0A1529]/90" />
-          <div className="absolute inset-0 bg-[radial-gradient(#B8935A_1px,transparent_1px)] [background-size:32px_32px] opacity-15" />
+      {/* 1. Hero Banner: Architectural Editorial Split Layout with Aurora UI */}
+      <AuroraBackground
+        intensity="vibrant"
+        showGrid={true}
+        className="bg-[#170b1e] text-[#faf9f6] min-h-[92vh] flex items-center justify-center py-16 lg:py-24 border-b border-[#c6a052]/30"
+      >
+        {/* Parallax Background Image */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <ParallaxContainer speed={0.15} className="w-full h-[120%] -top-[10%] absolute">
+            <Image
+              src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2000&q=85"
+              alt="Messrs. Low, Wah Chin & Co. Advocates & Solicitors Kuala Lumpur"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center opacity-55 scale-105 filter brightness-95 contrast-105"
+            />
+          </ParallaxContainer>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#170b1e]/90 via-[#22122b]/70 to-[#170b1e]/85" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#170b1e] via-transparent to-[#170b1e]/40" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-            {/* Left Column: Headline & Action (7 cols) */}
-            <div className="lg:col-span-7">
-              {/* Authority Badge */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#B8935A]/25 border border-[#B8935A]/60 text-[#CFA76F] text-xs font-bold tracking-wider uppercase mb-6 shadow-inner">
-                <Scale className="w-4 h-4 text-[#CFA76F]" />
-                <span>Advocates & Solicitors • High Court of Malaya</span>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 lg:py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left Column: Clean, Elegant Typography & Strategic CTAs (7 cols) */}
+            <ScrollReveal animation="fade-up" duration={700} className="lg:col-span-7">
+              {/* Minimal Authority Pill */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full aurora-pill text-[#e5c777] text-xs font-semibold tracking-wider uppercase mb-5">
+                <Scale className="w-3.5 h-3.5 text-[#c6a052]" />
+                <span>Advocates & Solicitors • Est. 2011 • Kuala Lumpur</span>
               </div>
 
-              {/* Main Headline */}
-              <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6">
-                Legal Expertise in All Areas of{' '}
-                <span className="text-[#CFA76F] italic underline decoration-[#B8935A]/60 underline-offset-8">
-                  Business & Private Life
-                </span>
+              {/* Minimal Striking Headline */}
+              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#faf9f6] leading-[1.15] mb-5">
+                Seasoned intellect.{' '}
+                <span className="aurora-text-gradient italic">Uncompromising</span> advocacy.
               </h1>
 
-              {/* Tagline & Subheading */}
-              <p className="font-serif italic text-lg sm:text-xl text-[#CFA76F] mb-4 font-medium">
-                &ldquo;Passion & Duty, Integrity & Care — To the Point.&rdquo;
+              {/* Refined Single Narrative */}
+              <p className="text-[#faf9f6]/85 text-base sm:text-lg leading-relaxed mb-8 max-w-xl font-light">
+                Led by principal counsel <strong className="text-white font-medium">Ava Rachel Low (刘华律师)</strong>, Lincoln’s Inn Barrister & Advocate of the High Court of Malaya. Providing strategic corporate advisory and deliberate courtroom representation with poise and clarity.
               </p>
 
-              <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl font-normal">
-                Founded by <strong className="text-white font-semibold">Low Wah Chin (Ava Rachel)</strong>, Barrister-at-Law (Lincoln’s Inn) and Advocate of the High Court of Malaya. Delivering relentless advocacy, high responsiveness, and human-centric legal solutions across Kuala Lumpur and Peninsular Malaysia.
-              </p>
-
-              {/* Hero CTAs */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
+              {/* Clean Dual CTAs */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 mb-8">
                 <Link
                   href="/contact"
-                  className="btn-brass px-8 py-4 rounded-xl text-base font-bold text-center flex items-center justify-center gap-2 shadow-2xl hover:scale-105 transition-all"
+                  className="btn-gold w-full sm:w-auto px-7 py-3.5 rounded-xl text-sm sm:text-base font-bold text-center flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(198,160,82,0.3)] hover:scale-102 transition-transform"
                 >
-                  <span>Book a Free Consultation</span>
-                  <ArrowRight className="w-5 h-5" />
+                  <span>Request a Consultation</span>
+                  <ArrowRight className="w-4 h-4 text-[#170b1e]" />
                 </Link>
 
-                <a
-                  href="tel:+60175483157"
-                  className="btn-navy px-6 py-4 rounded-xl text-base font-semibold text-center flex items-center justify-center gap-2 bg-[#1B2F57]/90 border-[#B8935A]/50 hover:border-[#B8935A] text-white transition-all shadow-md"
+                <Link
+                  href="/practices"
+                  className="btn-outline-gold w-full sm:w-auto px-6 py-3.5 rounded-xl text-sm sm:text-base font-medium text-center flex items-center justify-center gap-2 hover:scale-102 transition-transform"
                 >
-                  <Phone className="w-5 h-5 text-[#CFA76F]" />
-                  <span>Call +60 17-548 3157</span>
-                </a>
+                  <Scale className="w-4 h-4 text-[#e5c777]" />
+                  <span>Explore Practice Disciplines</span>
+                </Link>
               </div>
 
-              {/* Fast Guarantees */}
-              <div className="pt-6 border-t border-[#B8935A]/25 flex flex-wrap items-center gap-6 text-xs sm:text-sm text-white/90">
+              {/* Minimal Trust Strip */}
+              <div className="pt-5 border-t border-[#c6a052]/20 flex flex-wrap items-center gap-6 text-xs text-[#faf9f6]/80 font-light">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#CFA76F]" />
-                  <span>100% Confidential Legal Privilege</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#c6a052] shrink-0" />
+                  <span>Absolute Legal Privilege</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-[#CFA76F]" />
-                  <span>24-Hour Response Guarantee</span>
+                  <Clock className="w-3.5 h-3.5 text-[#c6a052] shrink-0" />
+                  <span>24-Hour Response</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-[#CFA76F]" />
-                  <span>Lincoln’s Inn Barrister Lead</span>
+                  <Award className="w-3.5 h-3.5 text-[#c6a052] shrink-0" />
+                  <span>Lincoln’s Inn Barrister</span>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            {/* Right Column: Hero Visual Card with High-Res Image (5 cols) */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#B8935A]/60 bg-[#0A1529]">
-                <div className="relative h-[440px] sm:h-[480px] w-full">
-                  <Image
-                    src="/profile-image.avif"
-                    alt="Low Wah Chin (Ava Rachel) Advocate & Solicitor LWCCO Kuala Lumpur"
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover object-top filter brightness-100 contrast-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1529] via-[#0A1529]/20 to-transparent" />
-                </div>
-
-                {/* Bottom Overlay Card */}
-                <div className="absolute bottom-4 left-4 right-4 p-5 rounded-xl bg-[#0F1F3D]/95 backdrop-blur-md border border-[#B8935A]/50 text-white">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <div>
-                      <h4 className="font-serif text-lg font-bold text-white leading-tight">
-                        Low Wah Chin (Ava Rachel)
-                      </h4>
-                      <p className="text-[#CFA76F] text-xs font-semibold">
-                        Founder & Managing Partner
-                      </p>
+            {/* Right Column: Clean, Uncluttered Minimalist Portrait (5 cols) */}
+            <ScrollReveal animation="fade-up" delay={150} duration={700} className="lg:col-span-5 relative mt-4 lg:mt-0">
+              <AuroraGlow glowColor="multi" rounded="rounded-3xl">
+                <TiltCard maxTilt={6} glare={false} className="w-full">
+                  <div className="relative rounded-3xl overflow-hidden border border-[#c6a052]/40 bg-[#22122b]/60 shadow-2xl">
+                    <div className="relative h-[390px] sm:h-[460px] lg:h-[500px] w-full">
+                      <Image
+                        src="/lawyer-hero.jpg"
+                        alt="Ava Rachel Low (刘华律师) Advocate & Solicitor Low, Wah Chin & Co. Kuala Lumpur"
+                        fill
+                        priority
+                        sizes="(max-width: 1024px) 100vw, 40vw"
+                        className="object-cover object-top filter brightness-100 contrast-102"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#170b1e] via-transparent to-transparent" />
                     </div>
-                    <div className="w-10 h-10 rounded-lg bg-[#B8935A] text-[#0F1F3D] flex items-center justify-center font-bold">
-                      <Scale className="w-5 h-5" />
+
+                    {/* Sleek Minimal Glass Caption */}
+                    <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 p-3.5 sm:p-4 rounded-2xl aurora-glass border border-[#c6a052]/30 backdrop-blur-xl flex items-center justify-between">
+                      <div>
+                        <h4 className="font-serif text-sm sm:text-base font-bold text-[#faf9f6] leading-tight">
+                          Ava Rachel Low (刘华律师)
+                        </h4>
+                        <p className="text-[#e5c777] text-[11px] sm:text-xs font-medium mt-0.5">
+                          Lincoln’s Inn Barrister (UK) • High Court of Malaya
+                        </p>
+                      </div>
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#c6a052]/20 border border-[#c6a052]/40 text-[#e5c777] flex items-center justify-center font-bold shrink-0">
+                        <Scale className="w-4 h-4" />
+                      </div>
                     </div>
                   </div>
-                  <p className="text-[11px] text-white/80 leading-relaxed border-t border-white/10 pt-2 mt-1">
-                    Lincoln’s Inn Barrister (UK) • High Court of Malaya • 15+ Years Courtroom Diligence
-                  </p>
-                </div>
-
-                {/* Floating Accolade Badge */}
-                <div className="absolute top-4 left-4 p-3 rounded-xl bg-[#0A1529]/90 backdrop-blur-md border border-[#B8935A]/40 text-xs text-white shadow-xl flex items-center gap-2.5">
-                  <Award className="w-5 h-5 text-[#CFA76F]" />
-                  <div>
-                    <span className="font-bold block text-[#CFA76F] leading-none">Top 6 Firm</span>
-                    <span className="text-[10px] text-white/80">Trusted Malaysia</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Decorative Corner Gold Glow */}
-              <div className="absolute -top-3 -right-3 w-20 h-20 bg-[#B8935A]/30 rounded-full blur-2xl -z-10" />
-            </div>
+                </TiltCard>
+              </AuroraGlow>
+            </ScrollReveal>
           </div>
         </div>
-      </section>
+      </AuroraBackground>
 
-      {/* Trust Bar Directly Under Hero */}
-      <TrustBar />
+      {/* 2. Institutional Pedigree & Regional Media Trust Bar */}
+      <InstitutionalPedigree />
 
-      {/* About Preview Section (Asymmetric & Premium) */}
-      <section className="py-20 md:py-28 bg-[#FAF8F4] relative">
+      {/* 2.5 Live Animated Firm Metrics Bar with Aurora Mesh */}
+      <AuroraBackground intensity="subtle" showGrid={false} className="bg-[#22122b] py-8 border-b border-[#c6a052]/30 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Image & Accreditation Card */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative h-[420px] sm:h-[480px] w-full rounded-2xl overflow-hidden shadow-2xl border-2 border-[#B8935A]/40 bg-[#0F1F3D]">
-                <Image
-                  src="/profile-image.avif"
-                  alt="Low Wah Chin (Ava Rachel) Advocate & Solicitor LWCCO Kuala Lumpur"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover object-top filter brightness-100 contrast-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1529]/95 via-transparent to-transparent" />
-                
-                {/* Overlay Card */}
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-[#0F1F3D]/95 backdrop-blur-md border border-[#B8935A]/40 text-white">
-                  <h4 className="font-serif text-lg font-bold text-white">
-                    Low Wah Chin (Ava Rachel)
-                  </h4>
-                  <p className="text-[#CFA76F] text-xs font-semibold">
-                    Founder & Managing Partner
-                  </p>
-                  <p className="text-[11px] text-white/80 mt-1">
-                    Barrister-at-Law, Lincoln’s Inn (UK) • LL.B (Hons) Reading (UK)
-                  </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <ScrollReveal animation="fade-up" delay={50}>
+              <div className="p-4 rounded-xl aurora-glass">
+                <span className="font-serif text-3xl sm:text-4xl font-bold text-[#e5c777] block drop-shadow-sm">
+                  <AnimatedCounter end={15} suffix="+" />
+                </span>
+                <span className="text-xs text-[#faf9f6]/80 uppercase tracking-wider font-semibold mt-1 block">
+                  Years of Courtroom Practice
+                </span>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-up" delay={150}>
+              <div className="p-4 rounded-xl aurora-glass">
+                <span className="font-serif text-3xl sm:text-4xl font-bold text-[#e5c777] block drop-shadow-sm">
+                  <AnimatedCounter end={100} suffix="%" />
+                </span>
+                <span className="text-xs text-[#faf9f6]/80 uppercase tracking-wider font-semibold mt-1 block">
+                  Legal Privilege & Secrecy
+                </span>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-up" delay={250}>
+              <div className="p-4 rounded-xl aurora-glass">
+                <span className="font-serif text-3xl sm:text-4xl font-bold text-[#e5c777] block drop-shadow-sm">
+                  <AnimatedCounter end={500} suffix="+" />
+                </span>
+                <span className="text-xs text-[#faf9f6]/80 uppercase tracking-wider font-semibold mt-1 block">
+                  Matters & Advisory Briefs
+                </span>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-up" delay={350}>
+              <div className="p-4 rounded-xl aurora-glass">
+                <span className="font-serif text-3xl sm:text-4xl font-bold text-[#e5c777] block drop-shadow-sm">
+                  Top 6
+                </span>
+                <span className="text-xs text-[#faf9f6]/80 uppercase tracking-wider font-semibold mt-1 block">
+                  Trusted Malaysia Recommended
+                </span>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </AuroraBackground>
+
+      {/* 3. "Meet the Founder / Managing Partner" Profile Showcase & Gallery */}
+      <section className="py-20 md:py-28 bg-[#faf9f6] relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Left Column: Multi-Image Portrait Gallery (5 cols) */}
+            <div className="lg:col-span-5 static lg:sticky lg:top-28 space-y-6">
+              <PartnerGallery />
+
+              {/* Fast Milestone Card */}
+              <div className="bg-white p-5 rounded-2xl border border-[#e8e1d5] shadow-sm space-y-2.5">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#9d7835] block">
+                  HERITAGE & ADMISSIONS
+                </span>
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div className="p-2.5 rounded-xl bg-[#faf9f6] border border-[#e8e1d5]">
+                    <span className="text-[10px] text-[#595355] block">Malayan Bar:</span>
+                    <strong className="text-[#22122b]">11 Nov 2011</strong>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-[#faf9f6] border border-[#e8e1d5]">
+                    <span className="text-[10px] text-[#595355] block">English Bar:</span>
+                    <strong className="text-[#22122b]">Lincoln's Inn 2010</strong>
+                  </div>
                 </div>
               </div>
-
-              {/* Decorative Corner Brass Emblem */}
-              <div className="absolute -top-4 -left-4 w-16 h-16 rounded-2xl bg-[#B8935A]/20 border border-[#B8935A]/40 -z-10 hidden sm:block" />
             </div>
 
-            {/* Right Content Column */}
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B8935A]/15 border border-[#B8935A]/30 text-[#967440] text-xs font-bold uppercase tracking-wider mb-4">
-                <Shield className="w-3.5 h-3.5 text-[#B8935A]" />
-                <span>Firm Tradition & Core Philosophy</span>
+            {/* Right Column: Bio Narrative, Philosophy & Benchmark Roots (7 cols) */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#c6a052]/15 border border-[#c6a052]/30 text-[#9d7835] text-xs font-bold uppercase tracking-wider">
+                <Shield className="w-3.5 h-3.5 text-[#c6a052]" />
+                <span>Meet the Founder & Principal Advocate</span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#0F1F3D] tracking-tight leading-tight mb-6">
-                Protecting Every Class of the Community with Excellence
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#22122b] tracking-tight leading-tight">
+                Ava Rachel Low (刘华律师)
               </h2>
 
-              <p className="text-[#2B2B2B] leading-relaxed text-base sm:text-lg mb-6 font-normal">
-                <strong>Messrs. Low Wah Chin & Co. (LWCCO)</strong> was established to provide clients with the most sensible, direct, and compassionate legal representation in Kuala Lumpur.
+              <p className="font-serif italic text-[#9d7835] text-lg font-medium">
+                Advocate & Solicitor of the High Court of Malaya • Barrister-at-Law (Lincoln’s Inn, London)
               </p>
 
-              <blockquote className="border-l-4 border-[#B8935A] pl-5 py-3 my-6 bg-[#F0EAE1]/70 rounded-r-xl italic font-serif text-base sm:text-lg text-[#0F1F3D]">
-                &ldquo;Our aim in practice is to serve the community and provide clients with the most sensible service at the sphere of humanity values. We do not limit our practice to a narrow niche—we ensure every class of the community is properly protected with excellence.&rdquo;
+              <p className="text-[#231f20] leading-relaxed text-base sm:text-lg font-normal">
+                <strong>Messrs. Low, Wah Chin & Co. (LWCCO)</strong> was established on <strong>11th November 2011</strong> with a discerning vision: to provide thoughtful, poised, and compassionate legal representation anchored in the highest standards of legal craftsmanship and human dignity.
+              </p>
+
+              <blockquote className="border-l-4 border-[#c6a052] pl-5 py-3.5 my-6 bg-[#f3efe6]/80 rounded-r-xl italic font-serif text-base sm:text-lg text-[#22122b]">
+                &ldquo;Where legal mastery meets the art of strategy—navigating complexity with poise, discretion, and unwavering clarity. Our purpose is to serve with deliberate care, ensuring every client receives tailored counsel of the highest caliber.&rdquo;
               </blockquote>
 
-              <p className="text-[#5A5A5A] leading-relaxed text-sm sm:text-base mb-8">
-                With a strong grounding in Civil and Commercial Litigation, Personal Injury Tort, Property Conveyancing, Family Law, and Corporate Dispute Resolution, Ms. Low brings deep courtroom experience extending up to the Appellate Courts of Malaysia.
+              <p className="text-[#595355] leading-relaxed text-sm sm:text-base">
+                Ms. Low completed her formative legal training across distinguished Malaysian institutions: undertaking pupillage at <strong>Shook Lin & Bok</strong> (trial and appellate practice), mastering conveyancing at <strong>Raja Eleena, Siew Ang & Associates</strong>, conducting insurance defense and banking litigation at <strong>Azim, Tunku Farik & Wong</strong>, and directing corporate risk for listed multinational <strong>KNM Group Berhad</strong>.
               </p>
 
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="p-4 rounded-xl bg-white border border-[#E2DDD5] shadow-sm">
-                  <span className="font-serif text-2xl sm:text-3xl font-bold text-[#0F1F3D] block">2011</span>
-                  <span className="text-xs text-[#5A5A5A] font-semibold">Admitted to Malaysian Bar</span>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                <div className="p-4 rounded-xl bg-white border border-[#e8e1d5] shadow-xs">
+                  <span className="font-serif text-2xl font-bold text-[#22122b] block">15+</span>
+                  <span className="text-[11px] text-[#595355] font-semibold">Years Continuous Courtroom Practice</span>
                 </div>
-                <div className="p-4 rounded-xl bg-white border border-[#E2DDD5] shadow-sm">
-                  <span className="font-serif text-2xl sm:text-3xl font-bold text-[#0F1F3D] block">Top 6</span>
-                  <span className="text-xs text-[#5A5A5A] font-semibold">Trusted Malaysia Personal Injury</span>
+                <div className="p-4 rounded-xl bg-white border border-[#e8e1d5] shadow-xs">
+                  <span className="font-serif text-2xl font-bold text-[#22122b] block">Appellate</span>
+                  <span className="text-[11px] text-[#595355] font-semibold">Court of Appeal & Federal Court Track Record</span>
+                </div>
+                <div className="p-4 rounded-xl bg-white border border-[#e8e1d5] shadow-xs col-span-2 sm:col-span-1">
+                  <span className="font-serif text-2xl font-bold text-[#22122b] block">Top 6</span>
+                  <span className="text-[11px] text-[#595355] font-semibold">Trusted Malaysia Commendation</span>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4">
+              {/* Chinese Bilingual Profile Card */}
+              <div className="p-5 rounded-2xl bg-[#22122b] text-white border border-[#c6a052]/40 shadow-md">
+                <div className="flex items-center gap-2 text-[#e5c777] text-xs font-bold uppercase tracking-wider mb-2">
+                  <span>关于刘华律师事务所 (中文简介)</span>
+                </div>
+                <p className="text-white/90 text-sm leading-relaxed italic mb-2">
+                  &ldquo;刘华律师事务所（Low, Wah Chin & Co.）位于吉隆坡KLCC核心商务区，由英国林肯律师学院出庭大律师及马来西亚高等法院执业律师刘华（Ava Rachel Low）创立。&rdquo;
+                </p>
+                <p className="text-xs text-white/75 leading-relaxed">
+                  本所秉持“热忱、职责、诚信与关怀”之宗旨，为个人、家庭及企业提供民商事诉讼、房地产买卖过户、遗产继承与遗嘱起草、公司商业协议及劳动人事争议等全方位法律服务。
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   href="/about"
-                  className="btn-navy px-6 py-3.5 rounded-lg text-sm font-bold inline-flex items-center gap-2 shadow-md"
+                  className="btn-gold px-6 py-3.5 rounded-xl text-sm font-bold inline-flex items-center gap-2 shadow-md"
                 >
-                  <span>Read Full Firm Bio</span>
-                  <ChevronRight className="w-4 h-4 text-[#CFA76F]" />
+                  <span>Read Full Firm Philosophy</span>
+                  <ChevronRight className="w-4 h-4 text-[#170b1e]" />
                 </Link>
                 <Link
                   href="/our-team"
-                  className="px-5 py-3 rounded-lg border border-[#0F1F3D]/30 text-[#0F1F3D] font-bold text-sm hover:bg-[#F0EAE1] transition-colors inline-flex items-center gap-2"
+                  className="px-5 py-3 rounded-xl border border-[#22122b]/30 text-[#22122b] font-bold text-sm hover:bg-[#f3efe6] transition-colors inline-flex items-center gap-2"
                 >
-                  <span>View Appellate Experience</span>
+                  <GraduationCap className="w-4 h-4 text-[#c6a052]" />
+                  <span>View Credentials & Appellate Jurisprudence</span>
                 </Link>
               </div>
             </div>
@@ -257,253 +333,301 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Practice Areas Preview Grid */}
+      {/* 3.5 Founder Insight & Judicial Philosophy Section */}
+      <FounderPhilosophy />
+
+      <SectionDivider glyph="§" theme="dark" />
+
+      {/* 4. Comprehensive Practice Areas (Interactive 9-Discipline Grid) */}
       <section className="py-20 md:py-28 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            badge="Our Legal Disciplines"
-            title="Comprehensive Legal Representation"
-            subtitle="Explore our core practice areas tailored for individual protection, real estate, families, and commercial growth."
-          />
+          <ScrollReveal animation="fade-up">
+            <SectionHeading
+              badge="Our Core Disciplines"
+              title="Comprehensive Legal Practice Areas"
+              subtitle="Sharp, dedicated legal representation across corporate contracts, commercial disputes, debt recovery, tort liabilities, real estate conveyancing, family, and appellate litigation."
+            />
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {practiceAreas.map((practice) => (
-              <PracticeCard key={practice.slug} practice={practice} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-8">
+            {practiceAreas.slice(0, 9).map((practice, pIdx) => (
+              <ScrollReveal key={practice.slug} animation="fade-up" delay={pIdx * 75} duration={600}>
+                <PracticeCard practice={practice} featured />
+              </ScrollReveal>
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          <ScrollReveal animation="fade-up" delay={200} className="mt-12 text-center">
             <Link
               href="/practices"
-              className="btn-brass px-8 py-3.5 rounded-xl font-bold text-sm sm:text-base inline-flex items-center gap-2 shadow-lg"
+              className="btn-gold px-8 py-4 rounded-xl font-bold text-sm sm:text-base inline-flex items-center gap-2 shadow-lg hover:scale-105 transition-transform"
             >
-              <span>View Full Practice Directory & Scope</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>View Full Practice Directory & Specialized Scope (18 Disciplines)</span>
+              <ArrowRight className="w-4 h-4 text-[#170b1e]" />
             </Link>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Why Choose LWCCO / Distinct Advantages */}
-      <section className="py-20 md:py-28 bg-[#0F1F3D] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(#B8935A_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
+      {/* 4.5 Landmark Decisions & Representative Matters Showcase */}
+      <RepresentativeMatters matters={representativeMatters} />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            badge="The LWCCO Advantage"
-            title="Why Clients Entrust Their Legal Matters to Us"
-            subtitle="A boutique legal firm with top-tier capability, direct senior partner access, and fearless appellate advocacy."
-            light
-          />
+      <SectionDivider glyph="❖" theme="dark" />
+
+      {/* 5. Why Choose LWCC / 4 Core Value Pillars with Aurora Glass Cards */}
+      <AuroraBackground
+        intensity="medium"
+        showGrid={true}
+        className="py-20 md:py-28 bg-[#170b1e] text-white border-y border-[#c6a052]/30"
+      >
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <ScrollReveal animation="fade-up">
+            <SectionHeading
+              badge="The LWCCO Advantage"
+              title="Why Clients Entrust Their Legal Matters to Us"
+              subtitle="An elite boutique practice combining premier institutional pedigree, direct partner attention, and fearless appellate advocacy."
+              light
+            />
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            <div className="p-6 sm:p-8 rounded-2xl bg-[#1B2F57]/70 border border-[#B8935A]/30 backdrop-blur-sm">
-              <div className="w-12 h-12 rounded-xl bg-[#B8935A]/20 text-[#CFA76F] flex items-center justify-center mb-6">
-                <UserCheck className="w-6 h-6" />
+            <ScrollReveal animation="fade-up" delay={50}>
+              <div className="h-full rounded-2xl aurora-glass p-6 sm:p-8 hover:border-[#c6a052] transition-all duration-300 shadow-lg gold-shimmer-hover flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#c6a052]/30 to-[#7928ca]/20 text-[#e5c777] border border-[#c6a052]/40 flex items-center justify-center mb-6 shadow-inner">
+                    <UserCheck className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-serif text-xl font-bold text-white mb-3">
+                    Strategic Wisdom
+                  </h3>
+                  <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-light">
+                    Ms. Ava Rachel Low directly supervises every brief, ensuring rigorous quality, strategic foresight, and multidisciplinary courtroom experience.
+                  </p>
+                </div>
               </div>
-              <h3 className="font-serif text-xl font-bold text-white mb-3">
-                Direct Partner Attention
-              </h3>
-              <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
-                Your file is never relegated to junior paralegals. Ms. Ava Rachel Low directly supervises every brief, ensuring rigorous quality and strategic depth.
-              </p>
-            </div>
+            </ScrollReveal>
 
-            <div className="p-6 sm:p-8 rounded-2xl bg-[#1B2F57]/70 border border-[#B8935A]/30 backdrop-blur-sm">
-              <div className="w-12 h-12 rounded-xl bg-[#B8935A]/20 text-[#CFA76F] flex items-center justify-center mb-6">
-                <Clock className="w-6 h-6" />
+            <ScrollReveal animation="fade-up" delay={150}>
+              <div className="h-full rounded-2xl aurora-glass p-6 sm:p-8 hover:border-[#c6a052] transition-all duration-300 shadow-lg gold-shimmer-hover flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#c6a052]/30 to-[#7928ca]/20 text-[#e5c777] border border-[#c6a052]/40 flex items-center justify-center mb-6 shadow-inner">
+                    <Clock className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-serif text-xl font-bold text-white mb-3">
+                    Rapid Response
+                  </h3>
+                  <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-light">
+                    We understand legal urgency. We provide prompt updates, transparent timelines, and guarantee a 24-hour response to client inquiries.
+                  </p>
+                </div>
               </div>
-              <h3 className="font-serif text-xl font-bold text-white mb-3">
-                High Responsiveness
-              </h3>
-              <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
-                We know legal uncertainty creates anxiety. We provide prompt updates, transparent timelines, and guarantee a 24-hour response to client inquiries.
-              </p>
-            </div>
+            </ScrollReveal>
 
-            <div className="p-6 sm:p-8 rounded-2xl bg-[#1B2F57]/70 border border-[#B8935A]/30 backdrop-blur-sm">
-              <div className="w-12 h-12 rounded-xl bg-[#B8935A]/20 text-[#CFA76F] flex items-center justify-center mb-6">
-                <Award className="w-6 h-6" />
+            <ScrollReveal animation="fade-up" delay={250}>
+              <div className="h-full rounded-2xl aurora-glass p-6 sm:p-8 hover:border-[#c6a052] transition-all duration-300 shadow-lg gold-shimmer-hover flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#c6a052]/30 to-[#7928ca]/20 text-[#e5c777] border border-[#c6a052]/40 flex items-center justify-center mb-6 shadow-inner">
+                    <Landmark className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-serif text-xl font-bold text-white mb-3">
+                    Integrity & Bar Compliance
+                  </h3>
+                  <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-light">
+                    Strict adherence to the Legal Profession Act 1976 and Malaysian Bar standards with zero conflict of interest and unyielding ethics.
+                  </p>
+                </div>
               </div>
-              <h3 className="font-serif text-xl font-bold text-white mb-3">
-                Appellate Court Diligence
-              </h3>
-              <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
-                Extensive litigation track record up to the Court of Appeal and Federal Court of Malaysia across commercial, land, banking, and insurance disputes.
-              </p>
-            </div>
+            </ScrollReveal>
 
-            <div className="p-6 sm:p-8 rounded-2xl bg-[#1B2F57]/70 border border-[#B8935A]/30 backdrop-blur-sm">
-              <div className="w-12 h-12 rounded-xl bg-[#B8935A]/20 text-[#CFA76F] flex items-center justify-center mb-6">
-                <FileCheck className="w-6 h-6" />
+            <ScrollReveal animation="fade-up" delay={350}>
+              <div className="h-full rounded-2xl aurora-glass p-6 sm:p-8 hover:border-[#c6a052] transition-all duration-300 shadow-lg gold-shimmer-hover flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#c6a052]/30 to-[#7928ca]/20 text-[#e5c777] border border-[#c6a052]/40 flex items-center justify-center mb-6 shadow-inner">
+                    <FileCheck className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-serif text-xl font-bold text-white mb-3">
+                    Tailored Client Solutions
+                  </h3>
+                  <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-light">
+                    Upfront, transparent billing with no hidden disbursements. Pragmatic, human-centric strategies designed to protect your rights cost-effectively.
+                  </p>
+                </div>
               </div>
-              <h3 className="font-serif text-xl font-bold text-white mb-3">
-                Transparent & Sensible Fees
-              </h3>
-              <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
-                Upfront, transparent billing with no hidden disbursements. Generous professional advice with cost-effective retainer and fixed-fee options.
-              </p>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
-      </section>
+      </AuroraBackground>
 
-      {/* Proven 3-Step Process */}
-      <section className="py-20 md:py-28 bg-[#FAF8F4] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            badge="How We Work"
-            title="A Clear, Structured Path to Legal Resolution"
-            subtitle="From initial fact-finding to decisive legal action, we keep the process simple, transparent, and focused on results."
-          />
+      {/* 6. Interactive Engagement & Fee Roadmap Workflow */}
+      <EngagementWorkflow />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            {/* Step 1 */}
-            <div className="bg-white rounded-2xl p-8 border border-[#E2DDD5] shadow-md relative">
-              <div className="w-12 h-12 rounded-full bg-[#0F1F3D] text-[#CFA76F] font-serif font-bold text-xl flex items-center justify-center mb-6">
-                01
-              </div>
-              <h3 className="font-serif text-xl font-bold text-[#0F1F3D] mb-3">
-                Confidential Case Appraisal
-              </h3>
-              <p className="text-xs sm:text-sm text-[#5A5A5A] leading-relaxed">
-                We review your documents, examine the statutory framework, and identify key strengths, risks, and preliminary remedies under Malaysian law.
-              </p>
-            </div>
+      <SectionDivider glyph="⚖" theme="light" />
 
-            {/* Step 2 */}
-            <div className="bg-white rounded-2xl p-8 border border-[#B8935A]/60 shadow-md relative">
-              <div className="w-12 h-12 rounded-full bg-[#B8935A] text-[#0F1F3D] font-serif font-bold text-xl flex items-center justify-center mb-6">
-                02
-              </div>
-              <h3 className="font-serif text-xl font-bold text-[#0F1F3D] mb-3">
-                Transparent Legal Strategy
-              </h3>
-              <p className="text-xs sm:text-sm text-[#5A5A5A] leading-relaxed">
-                We provide a written roadmap detailing recommended steps (negotiation, LOD, court petition), realistic timelines, and a fixed fee quote.
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="bg-white rounded-2xl p-8 border border-[#E2DDD5] shadow-md relative">
-              <div className="w-12 h-12 rounded-full bg-[#0F1F3D] text-[#CFA76F] font-serif font-bold text-xl flex items-center justify-center mb-6">
-                03
-              </div>
-              <h3 className="font-serif text-xl font-bold text-[#0F1F3D] mb-3">
-                Diligent Execution & Advocacy
-              </h3>
-              <p className="text-xs sm:text-sm text-[#5A5A5A] leading-relaxed">
-                Our advocates execute with precision—drafting airtight agreements or championing your rights tenaciously in courtroom trials and appellate hearings.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials & Accolades Section */}
+      {/* 7. Testimonials & Accolades Section */}
       <section className="py-20 md:py-28 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            badge="Client Testimonials & Recognition"
-            title="Trusted by Individuals and Corporations Alike"
-            subtitle="Hear what independent legal analysts, consumer review portals, and our clients say about LWCCO."
-          />
+          <ScrollReveal animation="fade-up">
+            <SectionHeading
+              badge="Client Testimonials & Recognition"
+              title="Trusted by Individuals and Corporations Alike"
+              subtitle="Hear what independent legal analysts, consumer review portals, and our clients say about Low, Wah Chin & Co."
+            />
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.slice(0, 3).map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+            {testimonials.map((testimonial, tIdx) => (
+              <ScrollReveal key={testimonial.id} animation="fade-up" delay={tIdx * 100}>
+                <TestimonialCard testimonial={testimonial} />
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Latest Legal Insights & Articles Preview */}
-      <section className="py-20 md:py-28 bg-[#FAF8F4] relative">
+      {/* 8. Recent Legal Articles & Guides */}
+      <section className="py-20 md:py-28 bg-[#faf9f6] relative border-t border-[#e8e1d5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B8935A]/15 border border-[#B8935A]/30 text-[#967440] text-xs font-bold uppercase tracking-wider mb-3">
-                <span>Legal Publications & Guides</span>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <ScrollReveal animation="fade-up">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c6a052]/15 border border-[#c6a052]/30 text-[#9d7835] text-xs font-bold uppercase tracking-wider mb-3">
+                  <BookOpen className="w-3.5 h-3.5 text-[#c6a052]" />
+                  <span>Legal Insights & Knowledge</span>
+                </div>
+                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#22122b] tracking-tight">
+                  Recent Publications & Articles
+                </h2>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#0F1F3D] tracking-tight">
-                Latest Insights & Industry Reviews
-              </h2>
-            </div>
-            <Link
-              href="/articles"
-              className="mt-4 md:mt-0 inline-flex items-center gap-2 text-sm font-bold text-[#0F1F3D] hover:text-[#B8935A] transition-colors"
-            >
-              <span>View All Articles</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            </ScrollReveal>
+            
+            <ScrollReveal animation="fade-up" delay={150}>
+              <Link
+                href="/articles"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#9d7835] hover:text-[#22122b] transition-colors"
+              >
+                <span>Browse All Articles & Guides</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </ScrollReveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.slice(0, 3).map((article) => (
-              <ArticleCard key={article.id} article={article} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {articles.slice(0, 3).map((article, aIdx) => (
+              <ScrollReveal key={article.id} animation="fade-up" delay={aIdx * 100}>
+                <ArticleCard article={article} />
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Final Booking Consultation Section */}
-      <section id="consultation" className="py-20 md:py-32 bg-[#0F1F3D] text-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Context */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#B8935A]/20 border border-[#B8935A]/40 text-[#CFA76F] text-xs font-bold uppercase tracking-wider">
-                <span>Start Your Case Review</span>
+      {/* 9. Comprehensive Consultation Request & Chambers Location with Aurora UI */}
+      <AuroraBackground
+        intensity="vibrant"
+        showGrid={true}
+        className="py-20 md:py-28 bg-gradient-to-b from-[#1b0d25] via-[#161e31] to-[#120718] text-white border-t border-[#c6a052]/30"
+      >
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Left: Chambers Details & Interactive Map (5 cols) */}
+            <ScrollReveal animation="fade-up" duration={700} className="lg:col-span-5 space-y-6">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full aurora-pill text-[#e5c777] text-xs font-bold uppercase tracking-wider mb-4 animate-float-slow">
+                  <Building className="w-3.5 h-3.5 text-[#c6a052]" />
+                  <span>Kuala Lumpur Chambers & Coordinates</span>
+                </div>
+                <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight leading-tight aurora-text-gradient">
+                  Schedule a Consultation With Principal Counsel
+                </h2>
+                <p className="text-sm text-[#faf9f6]/80 mt-3 leading-relaxed font-light">
+                  Confidential, privileged, and partner-level legal advisory. Discuss your matter directly with Ms. Ava Rachel Low and our senior advocates.
+                </p>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
-                Let Us Help You Resolve Your Legal Matter With Confidence
-              </h2>
-
-              <p className="text-white/85 text-base sm:text-lg leading-relaxed font-normal">
-                Whether you are facing an urgent court dispute, purchasing a property, organizing family arrangements, or requiring contract drafting, our senior team is ready to advise you.
-              </p>
-
-              <div className="space-y-4 pt-4 border-t border-[#B8935A]/25 text-sm">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-[#B8935A]/20 text-[#CFA76F] flex items-center justify-center shrink-0">
-                    <Phone className="w-4 h-4" />
-                  </div>
+              <div className="space-y-3.5 text-sm text-[#faf9f6]/90">
+                {/* Address */}
+                <div className="flex items-start gap-4 p-4 rounded-xl aurora-glass shadow-md">
+                  <MapPin className="w-5 h-5 text-[#e5c777] shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs text-[#CFA76F] uppercase font-bold tracking-wider block">Call Direct:</span>
-                    <a href="tel:+60175483157" className="text-white font-semibold hover:text-[#CFA76F] transition-colors">
+                    <strong className="block text-white font-semibold">Chambers Address:</strong>
+                    <span className="text-xs text-[#faf9f6]/80 leading-relaxed block mt-0.5 font-light">
+                      Colony @ KLCC, Vipod Residences, No. 6, Jalan Kia Peng, 50450 Kuala Lumpur, Malaysia.
+                    </span>
+                  </div>
+                </div>
+
+                {/* Office Hours */}
+                <div className="flex items-start gap-4 p-4 rounded-xl aurora-glass shadow-md">
+                  <Clock className="w-5 h-5 text-[#e5c777] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="block text-white font-semibold">Office Hours:</strong>
+                    <span className="text-xs text-[#faf9f6]/80 leading-relaxed block mt-0.5 font-light">
+                      Monday – Friday: 9:00 AM – 5:30 PM (Closed on Weekends & Public Holidays)
+                    </span>
+                  </div>
+                </div>
+
+                {/* Phone & Email */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="p-3.5 rounded-xl aurora-glass shadow-md">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Phone className="w-4 h-4 text-[#e5c777]" />
+                      <span className="text-xs font-semibold text-white">Direct Phone:</span>
+                    </div>
+                    <a href="tel:+60175483157" className="text-xs text-[#e5c777] hover:underline font-semibold block">
                       +60 17-548 3157
                     </a>
                   </div>
-                </div>
 
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-[#B8935A]/20 text-[#CFA76F] flex items-center justify-center shrink-0">
-                    <Building className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-xs text-[#CFA76F] uppercase font-bold tracking-wider block">Office Location:</span>
-                    <span className="text-white/90">Colony @ KLCC, Vipod Residences, KL</span>
+                  <div className="p-3.5 rounded-xl aurora-glass shadow-md">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Mail className="w-4 h-4 text-[#e5c777]" />
+                      <span className="text-xs font-semibold text-white">Inquiry Email:</span>
+                    </div>
+                    <a href="mailto:lwclegal5@gmail.com" className="text-xs text-[#e5c777] hover:underline block truncate">
+                      lwclegal5@gmail.com
+                    </a>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-4">
-                <WhatsAppButton
-                  variant="inline"
-                  label="Instant WhatsApp Chat with Counsel"
-                  className="w-full sm:w-auto"
+              {/* Google Maps Embed Container */}
+              <div className="rounded-2xl overflow-hidden border border-[#c6a052]/40 shadow-xl relative h-52 w-full bg-[#120718]">
+                <iframe
+                  title="Low, Wah Chin & Co. Chambers Location Map"
+                  src="https://maps.google.com/maps?q=Vipod+Residences+Jalan+Kia+Peng+Kuala+Lumpur&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                  className="w-full h-full border-0 filter brightness-90 contrast-105"
+                  loading="lazy"
+                  allowFullScreen
                 />
               </div>
-            </div>
 
-            {/* Right Booking Form */}
-            <div className="lg:col-span-7">
-              <ConsultationForm />
-            </div>
+              {/* Direct WhatsApp Callout */}
+              <div className="p-5 rounded-2xl aurora-glass border border-[#c6a052]/40 text-center space-y-2.5">
+                <span className="text-xs text-[#e5c777] uppercase font-bold tracking-wider block">
+                  Need Urgent Courtroom Representation?
+                </span>
+                <p className="text-xs text-[#faf9f6]/80 font-light">
+                  Connect immediately with our senior counsel via WhatsApp for urgent injunctions or criminal arrest warrants.
+                </p>
+                <div className="pt-1 flex justify-center">
+                  <WhatsAppButton label="WhatsApp Senior Counsel" />
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Right: Interactive Consultation Form (7 cols) */}
+            <ScrollReveal animation="fade-up" delay={200} duration={800} className="lg:col-span-7">
+              <AuroraGlow glowColor="gold" rounded="rounded-2xl">
+                <ConsultationForm className="shadow-2xl" />
+              </AuroraGlow>
+            </ScrollReveal>
           </div>
         </div>
-      </section>
+      </AuroraBackground>
     </>
   );
 }
+
+
+

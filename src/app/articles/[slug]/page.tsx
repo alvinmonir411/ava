@@ -15,6 +15,9 @@ import {
   Clock,
   User,
   ChevronRight,
+  ArrowRight,
+  Shield,
+  Share2,
 } from 'lucide-react';
 
 interface Props {
@@ -34,13 +37,13 @@ export async function generateMetadata({ params }: Props) {
 
   if (!article) {
     return constructMetadata({
-      title: 'Article Not Found | LWCCO',
+      title: 'Article Not Found | Low, Wah Chin & Co.',
       description: 'The requested legal article could not be found.',
     });
   }
 
   return constructMetadata({
-    title: `${article.title} | LWCCO`,
+    title: `${article.title} | Low, Wah Chin & Co.`,
     description: article.excerpt,
     canonicalUrl: `${SITE_CONFIG.url}/articles/${article.slug}`,
     ogImage: article.cover_image_url || undefined,
@@ -78,7 +81,7 @@ export default async function IndividualArticlePage({ params }: Props) {
       <JsonLd data={[breadcrumbSchema, articleSchema]} />
 
       {/* Article Header */}
-      <section className="bg-navy text-cream py-16 sm:py-24 border-b border-brass/25 relative overflow-hidden">
+      <section className="bg-[#170b1e] text-[#faf9f6] py-16 sm:py-24 border-b border-[#c6a052]/30 relative overflow-hidden">
         {article.cover_image_url && (
           <div className="absolute inset-0 z-0">
             <Image
@@ -87,42 +90,43 @@ export default async function IndividualArticlePage({ params }: Props) {
               fill
               priority
               sizes="100vw"
-              className="object-cover object-center opacity-25 brightness-75 scale-105"
+              className="object-cover object-center opacity-65 brightness-95 contrast-105 scale-100"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy/90 to-navy-dark/95" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#170b1e]/90 via-[#22122b]/70 to-[#170b1e]/90" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#170b1e] via-transparent to-[#170b1e]/30" />
           </div>
         )}
-        <div className="absolute inset-0 bg-[radial-gradient(#B8935A_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(#c6a052_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-xs text-cream/70 mb-6" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-brass-light transition-colors">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-brass/60" />
-            <Link href="/articles" className="hover:text-brass-light transition-colors">Articles</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-brass/60" />
-            <span className="text-brass-light font-medium truncate">{article.category}</span>
+          <nav className="flex items-center gap-2 text-xs text-[#faf9f6]/70 mb-6" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-[#e5c777] transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-[#c6a052]/60" />
+            <Link href="/articles" className="hover:text-[#e5c777] transition-colors">Articles</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-[#c6a052]/60" />
+            <span className="text-[#e5c777] font-medium truncate">{article.category}</span>
           </nav>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brass/20 text-brass-light border border-brass/30 text-xs font-bold uppercase tracking-wider mb-4">
-            <span>{article.category}</span>
+          <div className="inline-block bg-[#c6a052]/20 text-[#e5c777] border border-[#c6a052]/40 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+            {article.category}
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-cream leading-tight mb-6">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-6">
             {article.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-6 text-xs sm:text-sm text-cream/80 pt-4 border-t border-brass/20">
+          <div className="flex flex-wrap items-center gap-6 text-xs sm:text-sm text-[#faf9f6]/80 pt-4 border-t border-[#c6a052]/25">
             <div className="flex items-center gap-2">
-              <User className="w-4 h-4 text-brass" />
-              <span>By <strong className="text-cream">{article.author}</strong></span>
+              <User className="w-4 h-4 text-[#c6a052]" />
+              <span>By <strong className="text-white">{article.author}</strong></span>
             </div>
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-brass" />
+              <Calendar className="w-4 h-4 text-[#c6a052]" />
               <span>{formatDate(article.published_at.toString())}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-brass" />
+              <Clock className="w-4 h-4 text-[#c6a052]" />
               <span>{article.read_time}</span>
             </div>
           </div>
@@ -131,78 +135,67 @@ export default async function IndividualArticlePage({ params }: Props) {
 
       <TrustBar />
 
-      {/* Article Body Section */}
-      <section className="py-16 sm:py-24 bg-white">
+      {/* Main Article Content */}
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Cover Image */}
-          {article.cover_image_url && (
-            <div className="relative h-[320px] sm:h-[440px] w-full rounded-2xl overflow-hidden shadow-xl mb-12 border border-charcoal-light/30">
-              <Image
-                src={article.cover_image_url}
-                alt={article.title}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 800px"
-                className="object-cover"
-              />
-            </div>
-          )}
+          {/* Article Lead / Excerpt */}
+          <div className="p-6 sm:p-8 bg-[#faf9f6] rounded-2xl border-l-4 border-[#c6a052] mb-10 shadow-sm border border-[#e8e1d5]">
+            <p className="font-serif italic text-base sm:text-lg text-[#22122b] leading-relaxed">
+              {article.excerpt}
+            </p>
+          </div>
 
-          {/* Formatted Markdown/Text Content */}
-          <div className="prose prose-lg max-w-none text-charcoal leading-relaxed space-y-6 font-light">
+          {/* Body Prose */}
+          <div className="prose prose-lg text-[#231f20] leading-relaxed space-y-6">
             {article.content.split('\n\n').map((block, idx) => {
               if (block.startsWith('### ')) {
                 return (
-                  <h3 key={idx} className="font-serif text-2xl sm:text-3xl font-bold text-navy pt-6 pb-2 border-b border-cream-dark">
+                  <h3 key={idx} className="font-serif text-2xl font-bold text-[#22122b] pt-4">
                     {block.replace('### ', '')}
                   </h3>
                 );
               }
               if (block.startsWith('#### ')) {
                 return (
-                  <h4 key={idx} className="font-serif text-xl sm:text-2xl font-bold text-navy pt-4">
+                  <h4 key={idx} className="font-serif text-xl font-bold text-[#22122b] pt-2">
                     {block.replace('#### ', '')}
                   </h4>
                 );
               }
               if (block.startsWith('> ')) {
                 return (
-                  <blockquote key={idx} className="border-l-4 border-brass pl-6 py-3 my-6 bg-cream rounded-r-xl italic font-serif text-base sm:text-lg text-navy">
-                    {block.replace('> ', '')}
+                  <blockquote key={idx} className="border-l-4 border-[#c6a052] pl-4 py-2 italic text-[#22122b] bg-[#faf9f6] my-4 rounded-r-lg">
+                    {block.replace('> ', '').replace(/\*/g, '')}
                   </blockquote>
                 );
               }
               if (block.startsWith('- ')) {
-                const listItems = block.split('\n').map((li) => li.replace('- ', ''));
+                const items = block.split('\n- ');
                 return (
-                  <ul key={idx} className="space-y-2.5 my-4 pl-0 list-none">
-                    {listItems.map((li, liIdx) => (
-                      <li key={liIdx} className="flex items-start gap-3 text-base text-charcoal">
-                        <span className="w-2 h-2 rounded-full bg-brass mt-2 shrink-0" />
-                        <span>{li}</span>
+                  <ul key={idx} className="space-y-2 text-sm sm:text-base pl-0 list-none my-4">
+                    {items.map((item, iIdx) => (
+                      <li key={iIdx} className="flex items-start gap-2.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#c6a052] mt-2 shrink-0" />
+                        <span dangerouslySetInnerHTML={{ __html: item.replace(/^- /, '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
                       </li>
                     ))}
                   </ul>
                 );
               }
               return (
-                <p key={idx} className="text-base sm:text-lg leading-relaxed text-charcoal">
-                  {block}
-                </p>
+                <p key={idx} className="text-base sm:text-lg leading-relaxed text-[#231f20]" dangerouslySetInnerHTML={{ __html: block.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*(.*?)\*/g, '<em>$1</em>') }} />
               );
             })}
           </div>
 
           {/* Tags */}
           {article.tags && article.tags.length > 0 && (
-            <div className="mt-12 pt-6 border-t border-cream-dark flex flex-wrap items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-charcoal-muted mr-2">
-                Topics:
-              </span>
-              {article.tags.map((tag: string, tIdx: number) => (
+            <div className="pt-8 mt-12 border-t border-[#e8e1d5] flex flex-wrap items-center gap-2">
+              <span className="text-xs font-bold text-[#595355] uppercase tracking-wider mr-2">Topic Tags:</span>
+              {article.tags.map((tag, tIdx) => (
                 <span
                   key={tIdx}
-                  className="bg-cream px-3 py-1 rounded-full text-xs text-navy font-semibold border border-charcoal-light/40"
+                  className="bg-[#faf9f6] text-[#22122b] text-xs font-medium px-3 py-1.5 rounded-lg border border-[#e8e1d5]"
                 >
                   #{tag}
                 </span>
@@ -210,63 +203,40 @@ export default async function IndividualArticlePage({ params }: Props) {
             </div>
           )}
 
-          {/* Author Card Box */}
-          <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-cream border border-brass/30 flex flex-col sm:flex-row items-center sm:items-start gap-6">
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shrink-0 border-2 border-brass">
+          {/* Author Bio Callout */}
+          <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-[#22122b] text-white flex flex-col sm:flex-row items-center gap-6 shadow-xl border border-[#c6a052]/40">
+            <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-[#c6a052]">
               <Image
                 src="/profile-image.avif"
-                alt="Ava Rachel Low"
+                alt={article.author}
                 fill
-                sizes="100px"
                 className="object-cover object-top"
               />
             </div>
-            <div className="text-center sm:text-left">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-brass-dark">Author & Managing Counsel</span>
-              <h4 className="font-serif text-xl font-bold text-navy mt-0.5">
-                Low Wah Chin (Ava Rachel)
+            <div className="text-center sm:text-left flex-1">
+              <span className="text-xs text-[#e5c777] uppercase font-bold tracking-wider block mb-1">
+                Author & Legal Counsel
+              </span>
+              <h4 className="font-serif text-xl font-bold text-white mb-1">
+                {article.author}
               </h4>
-              <p className="text-xs text-charcoal-muted mt-1 leading-relaxed">
-                Advocate & Solicitor of the High Court of Malaya • Barrister-at-Law, Lincoln’s Inn, London. 15+ years of litigation and appellate experience in civil, banking, corporate, and personal injury law.
+              <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
+                Advocate & Solicitor of the High Court of Malaya and Lincoln’s Inn Barrister (London, UK). Providing fearless advocacy and compassionate legal counsel in Kuala Lumpur.
               </p>
-              <div className="mt-4 flex flex-wrap justify-center sm:justify-start gap-3">
-                <Link
-                  href={`/contact?practice=${encodeURIComponent(
-                    article.slug.includes('property')
-                      ? 'Property & Conveyancing Law'
-                      : article.slug.includes('injury')
-                      ? 'Bodily Injury Claims'
-                      : article.slug.includes('divorce')
-                      ? 'Family & Divorce Law'
-                      : 'Legal Advice & General Consultation'
-                  )}`}
-                  className="btn-brass px-4 py-2 rounded-lg text-xs font-bold"
-                >
-                  Request Case Review
-                </Link>
-                <WhatsAppButton variant="compact" label="Direct WhatsApp" />
-              </div>
             </div>
+            <WhatsAppButton variant="compact" label="Inquire Direct" />
           </div>
         </div>
       </section>
 
       {/* Related Articles */}
       {relatedArticles.length > 0 && (
-        <section className="py-16 bg-cream border-t border-cream-dark">
+        <section className="py-16 bg-[#faf9f6] border-t border-[#c6a052]/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between mb-8">
-              <h3 className="font-serif text-2xl font-bold text-navy">
-                Related Legal Publications
-              </h3>
-              <Link
-                href="/articles"
-                className="text-xs font-bold text-brass-dark hover:underline"
-              >
-                View All Articles →
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <h3 className="font-serif text-2xl font-bold text-[#22122b] mb-8 text-center">
+              More Legal Insights & Commentary
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {relatedArticles.map((rel) => (
                 <ArticleCard key={rel.id} article={rel} />
               ))}
@@ -276,27 +246,9 @@ export default async function IndividualArticlePage({ params }: Props) {
       )}
 
       {/* Booking Form */}
-      <section className="py-20 bg-navy text-cream">
+      <section className="py-20 bg-[#170b1e] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="font-serif text-3xl font-bold text-cream">
-              Have Questions Regarding This Legal Topic?
-            </h2>
-            <p className="text-cream/80 text-sm mt-2">
-              Book a confidential consultation with senior counsel at LWCCO.
-            </p>
-          </div>
-          <ConsultationForm
-            defaultPracticeArea={
-              article.slug.includes('property')
-                ? 'Property & Conveyancing Law'
-                : article.slug.includes('injury')
-                ? 'Bodily Injury Claims'
-                : article.slug.includes('divorce')
-                ? 'Family & Divorce Law'
-                : 'Legal Advice & General Consultation'
-            }
-          />
+          <ConsultationForm />
         </div>
       </section>
     </>

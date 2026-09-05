@@ -1,6 +1,509 @@
-import { PracticeArea, Article, TeamMember, Testimonial, FaqItem } from '@/types';
+import { PracticeArea, Article, TeamMember, Testimonial, FaqItem, RepresentativeMatter } from '@/types';
 
 export const PRACTICE_AREAS: PracticeArea[] = [
+  {
+    slug: 'contract-drafting-commercial-advisory',
+    title: 'Contract Drafting & Commercial Advisory',
+    chineseTitle: '商业合同起草与顾问',
+    tagline: 'Bespoke Business Agreements & Strategic Commercial Structuring',
+    shortDescription: 'Bespoke commercial contract drafting, service agreements, supplier contracts, NDAs, and ongoing commercial advisory for enterprises and SMEs.',
+    seoTitle: 'Commercial Contract Drafting Lawyer in Kuala Lumpur | LWCCO',
+    seoDescription: 'Bespoke business contract drafting, service level agreements (SLA), partnership deeds, and corporate advisory in KL by LWCCO Advocates & Solicitors.',
+    heroImage: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'FileText',
+    statutoryFramework: [
+      'Contracts Act 1950 (Act 136)',
+      'Specific Relief Act 1950 (Act 137)',
+      'Companies Act 2016 (Act 777)',
+      'Consumer Protection Act 1999 (Act 599)'
+    ],
+    fullDescription: `In commercial enterprise, a precisely drafted contract is the ultimate defense against operational disruption, financial loss, and costly litigation. Messrs. Low, Wah Chin & Co. provides bespoke contract drafting and commercial advisory services tailored to Malaysian businesses, multi-nationals, and growing SMEs.
+
+Drawing upon Ms. Ava Rachel Low’s extensive experience handling in-house corporate procurement and risk management for listed engineering corporation KNM Group Berhad alongside 15+ years in the High Court of Malaya, we draft agreements that anticipate operational contingencies rather than relying on generic off-the-shelf templates.
+
+From standard commercial terms of supply and Service Level Agreements (SLA) to cross-border joint venture agreements, non-disclosure covenants, and licensing agreements, we safeguard your enterprise value and profitability under the Contracts Act 1950.`,
+    whatWeHandle: [
+      'Bespoke Commercial Contracts, Master Service Agreements (MSA), and SLAs',
+      'Shareholders’ Agreements, Partnership Deeds, and Joint Venture Structuring',
+      'Non-Disclosure Agreements (NDA), Non-Compete & Non-Solicitation Covenants',
+      'Distribution, Franchise, Agency & Supply Chain Vendor Agreements',
+      'Software Licensing, SaaS Terms of Service & Intellectual Property Assignments',
+      'Corporate Governance policies, standard operating procedure (SOP) legal audits',
+      'Statutory compliance reviews under the Companies Act 2016'
+    ],
+    keyBenefits: [
+      'Drafted by senior counsel with listed corporation risk management background',
+      'Eliminates legal loopholes and ambiguities before contracts are executed',
+      'Clear, practical payment milestone and dispute resolution clauses',
+      'Fast turnaround for urgent commercial deals and deal-closing negotiations'
+    ],
+    proceduralTimeline: [
+      { step: '01', title: 'Commercial Term Structuring', duration: '1-2 Days', description: 'Comprehensive review of commercial deal points, scope of work, and risk allocation.' },
+      { step: '02', title: 'Bespoke Agreement Drafting', duration: '3-5 Days', description: 'Formulation of tailored covenants, indemnities, warranties, and dispute escalation clauses.' },
+      { step: '03', title: 'Counterparty Negotiation', duration: '3-7 Days', description: 'Mark-ups, redlines, and direct legal representation during stakeholder alignment.' },
+      { step: '04', title: 'Execution & LHDN Stamping', duration: '1-2 Days', description: 'Execution oversight, digital/physical signing, and formal stamping for court admissibility.' }
+    ],
+    preparationChecklist: [
+      'Draft term sheet or commercial bullet points agreed with the other party',
+      'Corporate profile and SSM company search reports of all contracting entities',
+      'Copies of any existing vendor/supplier frameworks or historical agreements',
+      'Identity documents (NRIC/Passport) of authorized company signatories'
+    ],
+    faqs: [
+      {
+        question: 'Why should I engage a lawyer instead of using free online contract templates?',
+        answer: 'Online templates rarely account for specific Malaysian statutory provisions (such as the Contracts Act 1950, Consumer Protection Act, or Companies Act 2016) and often contain unenforceable boilerplate clauses that collapse during litigation.'
+      },
+      {
+        question: 'What are the essential elements of an enforceable commercial contract in Malaysia?',
+        answer: 'Under Malaysian law, an enforceable contract requires offer, acceptance, lawful consideration, intention to create legal relations, certainty of terms, and legal capacity of the contracting parties.'
+      }
+    ]
+  },
+  {
+    slug: 'contractual-dispute-claims',
+    title: 'Contractual Dispute Claims',
+    chineseTitle: '违约纠纷与民商事争议',
+    tagline: 'Breach of Contract, Commercial Indemnities & Dispute Resolution',
+    shortDescription: 'Decisive representation in breach of contract, joint venture disputes, supply chain defaults, and pre-litigation commercial settlements.',
+    seoTitle: 'Contractual Dispute & Breach of Contract Lawyer Kuala Lumpur | LWCCO',
+    seoDescription: 'Experienced commercial litigation lawyers in KL for breach of contract, specific performance, liquidated damages, and commercial dispute resolution.',
+    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'Scale',
+    statutoryFramework: [
+      'Contracts Act 1950 (Act 136)',
+      'Specific Relief Act 1950 (Act 137)',
+      'Limitation Act 1953 (Act 254)',
+      'Rules of Court 2012 (P.U.(A) 205/2012)'
+    ],
+    fullDescription: `When a business partner, customer, or vendor breaches their contractual obligations, swift and decisive legal intervention is paramount to minimize commercial losses and enforce your contractual remedies under Malaysian law.
+
+Messrs. Low, Wah Chin & Co. provides commanding courtroom and pre-litigation dispute representation for commercial contract breaches. We evaluate your claim under the Contracts Act 1950 and Specific Relief Act 1950, advising on immediate remedies including urgent interlocutory injunctions, rescission, claims for general damages, and orders for specific performance.
+
+Whenever viable, we initiate structured negotiation and mediation to secure financial restitution without prolonged trial delay. When opponents refuse to comply, our advocates prosecute claims with steadfast diligence before the Magistrates, Sessions Court, and High Court of Malaya.`,
+    whatWeHandle: [
+      'Breach of Commercial Contracts, Service Level Agreements, and Supply Agreements',
+      'Non-payment, delayed performance, and repudiatory breach claims',
+      'Applications for Specific Performance and Injunctions (Mareva & Prohibitory)',
+      'Claims for Liquidated Ascertained Damages (LAD) and consequential loss',
+      'Joint venture deadlocks, shareholder disputes, and partnership dissolutions',
+      'Cross-border commercial dispute mediation and out-of-court settlements',
+      'Defending unmerited claims of breach and force majeure justification'
+    ],
+    keyBenefits: [
+      'Fast pre-action evaluation identifying immediate statutory and equitable remedies',
+      'Strategic negotiation preserving vital commercial relationships where possible',
+      'Tenacious High Court litigation backed by 15+ years trial experience',
+      'Transparent legal cost forecasting with structured fee arrangements'
+    ],
+    proceduralTimeline: [
+      { step: '01', title: 'Evidence & Merit Appraisal', duration: '24-48 Hours', description: 'Auditing executed contract, notice of breach, and quantifying liquidated/general damages.' },
+      { step: '02', title: 'Formal Letter of Demand (LOD)', duration: '7-14 Days', description: 'Serving authoritative demand on Advocate & Solicitor letterhead demanding cure or payment.' },
+      { step: '03', title: 'Interlocutory Relief / Lawsuit Filing', duration: '1-2 Months', description: 'Filing Writ of Summons and Statement of Claim, with emergency injunctions if assets are at risk.' },
+      { step: '04', title: 'Trial / Summary Judgment (Order 14)', duration: '3-9 Months', description: 'Accelerated summary judgment or trial advocacy with expert witness examination.' }
+    ],
+    preparationChecklist: [
+      'Executed commercial agreement, amendments, and relevant annexures',
+      'All written correspondence regarding the breach (Emails, formal letters, WhatsApp logs)',
+      'Proof of delivery, invoices, payment receipts, or statement of accounts',
+      'Chronological summary of events and estimated financial losses incurred'
+    ],
+    faqs: [
+      {
+        question: 'What remedies can I claim for a breach of contract in Malaysia?',
+        answer: 'Under the Contracts Act 1950 and Specific Relief Act 1950, remedies include compensatory damages (for actual loss suffered), specific performance (compelling the party to fulfill their obligation), injunctions (preventing further breach), or rescission of the contract.'
+      },
+      {
+        question: 'What is the limitation period for filing a breach of contract lawsuit?',
+        answer: 'Under Section 6(1) of the Limitation Act 1953, the limitation period for bringing a contract claim in Peninsular Malaysia is six (6) years from the date on which the breach of contract occurred.'
+      }
+    ]
+  },
+  {
+    slug: 'debt-recovery-claims',
+    title: 'Debt Recovery Claims',
+    chineseTitle: '债务追讨与企业清盘',
+    tagline: 'Letters of Demand, Execution Proceedings & Insolvency Actions',
+    shortDescription: 'High-velocity recovery via formal Letters of Demand (LOD), Section 466 Companies Act statutory notices, judgment debtor summons, and winding up.',
+    seoTitle: 'Debt Recovery & Winding Up Lawyer in Kuala Lumpur | LWCCO',
+    seoDescription: 'High-velocity corporate debt recovery in KL. Letters of Demand (LOD), Section 466 statutory notices, garnishee orders, and High Court winding-up petitions.',
+    heroImage: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'Landmark',
+    statutoryFramework: [
+      'Companies Act 2016 (Section 466)',
+      'Insolvency Act 1967 (Act 360)',
+      'Rules of Court 2012 (Order 14 & Order 45)',
+      'Debtors Act 1957 (Act 256)'
+    ],
+    fullDescription: `Unpaid commercial debts, defaulted trade invoices, and delinquent debtors paralyze company cash flow and threaten corporate viability. Messrs. Low, Wah Chin & Co. executes high-velocity, systematic debt recovery strategies designed to compel payment rapidly and cost-effectively.
+
+We deploy a progressive enforcement model: starting with authoritative formal Letters of Demand (LOD) served on Advocate & Solicitor letterhead, advancing to statutory notices under Section 466 of the Companies Act 2016 for corporate debtors, and proceeding directly to High Court Winding-Up Petitions or Summary Judgment under Order 14 of the Rules of Court 2012.
+
+Following judgment, we enforce recovery through Writ of Seizure and Sale (WSS), Garnishee Proceedings (freezing the debtor’s bank accounts), Judgment Debtor Summons (JDS), and Bankruptcy Petitions for individuals.`,
+    whatWeHandle: [
+      'Commercial debt recovery for unpaid invoices, supply goods, and professional fees',
+      'Issuance of formal 24-48 hour Letters of Demand (LOD)',
+      'Statutory 21-day Notices of Demand under Section 466 Companies Act 2016',
+      'High Court Corporate Winding-Up and Liquidation Petitions',
+      'Summary Judgment applications (Order 14 Rules of Court 2012) for fast orders',
+      'Garnishee Proceedings to attach debtor bank balances and trade receivables',
+      'Writs of Seizure and Sale (WSS) and Bankruptcy Petitions against individuals'
+    ],
+    keyBenefits: [
+      'Fast-track 24 to 48 hour turnaround for formal Letters of Demand',
+      'High success rate utilizing statutory Section 466 insolvency notices',
+      'Comprehensive post-judgment asset tracing and banking attachment',
+      'Cost-effective fee structures ensuring positive recovery ROI for creditors'
+    ],
+    proceduralTimeline: [
+      { step: '01', title: 'Formal Letter of Demand (LOD)', duration: '24-48 Hours', description: 'Demanding immediate payment within 7 to 14 days under threat of litigation.' },
+      { step: '02', title: 'Section 466 Statutory 21-Day Notice', duration: '21 Days', description: 'Serving statutory insolvency notice on corporate debtor pursuant to Companies Act 2016.' },
+      { step: '03', title: 'High Court Winding-Up / Order 14', duration: '2-4 Months', description: 'Petitioning High Court for corporate liquidation or obtaining rapid Summary Judgment.' },
+      { step: '04', title: 'Post-Judgment Asset Execution', duration: '1-3 Months', description: 'Garnishee orders on debtor bank balances, Writs of Seizure and Sale (WSS), or bankruptcy.' }
+    ],
+    preparationChecklist: [
+      'Unpaid invoices, purchase orders (PO), delivery orders (DO) signed by debtor',
+      'Statement of account showing total outstanding principal and contractual interest',
+      'SSM Corporate search or individual identity details of the debtor',
+      'Previous correspondence or payment promises made by the debtor'
+    ],
+    faqs: [
+      {
+        question: 'What is a Section 466 Notice of Demand under the Companies Act 2016?',
+        answer: 'It is a formal statutory notice served on a debtor company demanding payment of a debt exceeding the statutory threshold (currently RM50,000). If the company fails to satisfy the debt within 21 days, it is deemed unable to pay its debts, enabling the creditor to file a Winding-Up petition in the High Court.'
+      },
+      {
+        question: 'What happens if a debtor company has no money in its bank account?',
+        answer: 'We can execute a Writ of Seizure and Sale over the company’s physical assets, office equipment, vehicles, or stocks, examine company directors in court under Judgment Debtor Summons, or commence liquidation to trace dissipated assets.'
+      }
+    ]
+  },
+  {
+    slug: 'tort-claims-civil-liabilities',
+    title: 'Tort Claims & Civil Liabilities',
+    chineseTitle: '侵权赔偿与民事责任',
+    tagline: 'Negligence, Bodily Injury & Property Damage Compensation',
+    shortDescription: 'Recognized Top 6 Personal Injury practice for motor vehicle collisions, medical malpractice, contractor negligence, and occupier liability.',
+    seoTitle: 'Tort Claims & Civil Liability Lawyer in Kuala Lumpur | LWCCO',
+    seoDescription: 'Award-winning tort law & civil liability advocates in KL. Motor vehicle bodily injury, medical negligence, property damage, and occupier liability compensation.',
+    heroImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'ShieldAlert',
+    statutoryFramework: [
+      'Civil Law Act 1956 (Act 67)',
+      'Road Transport Act 1987 (Act 333)',
+      'Limitation Act 1953 (Section 6)',
+      'Rules of Court 2012 (Order 18)'
+    ],
+    fullDescription: `When an act of negligence, recklessness, or civil wrongdoing causes physical injury, psychological trauma, or financial damage to your property, Malaysian tort law provides actionable legal avenues for complete restitution.
+
+Featured by Trusted Malaysia as one of the Top 6 Personal Injury Law Firms in Malaysia, Messrs. Low, Wah Chin & Co. provides commanding advocacy across tort law and civil liabilities. Principal counsel Ms. Ava Rachel Low brings seasoned trial experience gained from managing complex insurance litigation, professional indemnity defense, and bodily injury portfolios with premier litigation firms including Azim, Tunku Farik & Wong and Murali B. Pillai & Associates.
+
+We quantify every head of damage under the Civil Law Act 1956—pursuing General Damages (for pain, suffering, disability, and loss of amenities) and Special Damages (for past and future medical treatments, rehabilitation, home modifications, and actuarial Loss of Future Earnings).`,
+    whatWeHandle: [
+      'Motor vehicle, motorcycle, and pedestrian road collision bodily injury claims',
+      'Medical Negligence, surgical malpractice, and hospital liability claims',
+      'Contractor and construction site negligence causing bodily harm or property damage',
+      'Legal and accounting professional malpractice claims',
+      'Fatal accident dependency claims under Section 7 Civil Law Act 1956',
+      'Slip, trip, and fall injuries on commercial premises (Occupiers’ Liability)',
+      'Nuisance, land encroachment, and structural damage disputes'
+    ],
+    keyBenefits: [
+      'Featured Top 6 Personal Injury Law Firm in Malaysia by Trusted Malaysia',
+      'Ex-insurer defense background providing strategic insight into adjuster tactics',
+      'Meticulous medical record appraisal and actuarial financial calculations',
+      'Compassionate, dedicated representation focused on complete client restitution'
+    ],
+    proceduralTimeline: [
+      { step: '01', title: 'Liability & Medical Assessment', duration: '1-2 Weeks', description: 'Reviewing police report, sketch plan, hospital discharge summaries, and medical reports.' },
+      { step: '02', title: 'Actuarial Damage Quantification', duration: '2-3 Weeks', description: 'Computing General Damages (pain/suffering) and Special Damages (medical/loss of earnings).' },
+      { step: '03', title: 'Insurer Negotiations & Settlement', duration: '1-3 Months', description: 'Presenting comprehensive claims bundle to insurance adjusters for maximum out-of-court payout.' },
+      { step: '04', title: 'Court Litigation (Sessions/High Court)', duration: '6-12 Months', description: 'Issuing proceedings when insurer offers are inadequate, securing judicial award with interest.' }
+    ],
+    preparationChecklist: [
+      'Police reports, police sketch plan, and investigation result (Keputusan Kes)',
+      'All hospital discharge notes, medical specialist reports, and pharmacy receipts',
+      'Photographs of physical injuries, vehicle damage, or scene of incident',
+      'Proof of income before incident (Salary slips, EA Form, KWSP statements) for lost earnings claims'
+    ],
+    faqs: [
+      {
+        question: 'What is the difference between General and Special Damages in a tort claim?',
+        answer: 'General Damages compensate for non-monetary losses such as physical pain, suffering, loss of limbs/faculties, and loss of amenities of life. Special Damages compensate for exact financial expenses incurred, such as hospital bills, vehicle repair costs, travel, and past lost wages.'
+      },
+      {
+        question: 'How long do I have to file a tort lawsuit in Malaysia?',
+        answer: 'Under Section 6(1) of the Limitation Act 1953, the limitation period for bringing a tort claim in Peninsular Malaysia is 6 years from the date the accident or damage occurred.'
+      }
+    ]
+  },
+  {
+    slug: 'corporate-commercial',
+    title: 'Corporate & Commercial Law',
+    chineseTitle: '公司法务与商业合规',
+    tagline: 'Safeguarding Corporate Interests, Governance & Enterprise Value',
+    shortDescription: 'Corporate governance, shareholders’ agreements, M&A structuring, regulatory compliance, and boardroom conflict advisory.',
+    seoTitle: 'Corporate & Commercial Law Firm in Kuala Lumpur | LWCCO',
+    seoDescription: 'Corporate legal advisory, shareholders’ agreements, M&A due diligence, and corporate compliance in KL by LWCCO Advocates & Solicitors.',
+    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'Briefcase',
+    statutoryFramework: [
+      'Companies Act 2016 (Act 777)',
+      'Capital Markets and Services Act 2007 (CMSA)',
+      'Personal Data Protection Act 2010 (PDPA)',
+      'Malaysian Anti-Corruption Commission Act 2009 (Section 17A)'
+    ],
+    fullDescription: `Navigating the regulatory, governance, and contractual complexities of Malaysian corporate law requires seasoned counsel who understand both boardroom strategy and courtroom enforcement.
+
+Messrs. Low, Wah Chin & Co. advises corporations, emerging tech startups, and family-owned conglomerates across Malaysia. We assist in structuring shareholder equity, crafting airtight Joint Venture (JV) agreements, conducting corporate due diligence, ensuring compliance with the Companies Act 2016 and regulatory bodies (SSM, SC, Bursa Malaysia), and resolving boardroom or shareholder oppression deadlocks.`,
+    whatWeHandle: [
+      'Shareholders’ Agreements, Joint Venture Deeds, and Share Subscription Agreements',
+      'Corporate restructuring, share capital adjustments, and due diligence reviews',
+      'Shareholder oppression disputes under Section 346 Companies Act 2016',
+      'Directors’ fiduciary duties advisory and boardroom conflict resolution',
+      'Commercial leases, procurement frameworks, and distribution agreements',
+      'Statutory compliance audits and corporate governance structuring',
+      'Corporate dissolution, voluntary winding-up, and creditors’ schemes'
+    ],
+    keyBenefits: [
+      'Bridges commercial transaction structuring with decisive courtroom advocacy',
+      'Experienced in-house listed corporate risk management insight',
+      'Bespoke drafting preventing catastrophic corporate deadlock scenarios',
+      'Direct partner attention on high-stakes corporate transactions'
+    ],
+    proceduralTimeline: [
+      { step: '01', title: 'Corporate Structuring Review', duration: '2-3 Days', description: 'Assessing shareholding ratio, board composition, and regulatory licensing requirements.' },
+      { step: '02', title: 'Document Drafting & Covenants', duration: '1-2 Weeks', description: 'Drafting Shareholders’ Agreements, vesting schedules, and minority protection terms.' },
+      { step: '03', title: 'Board & Shareholder Approvals', duration: '3-5 Days', description: 'Drafting Board Resolutions, Extraordinary General Meeting (EGM) notices, and SSM filings.' },
+      { step: '04', title: 'Closing & Regulatory Adherence', duration: '1-2 Weeks', description: 'Executing transaction documents, share transfers, and updating Register of Members.' }
+    ],
+    preparationChecklist: [
+      'Latest SSM Section 14 (Company Profile) and Constitution (if adopted)',
+      'Existing Shareholder Agreement, JV agreement, or founder equity breakdown',
+      'Financial statements or valuation reports relevant to the transaction',
+      'List of board members, key executives, and major stakeholders'
+    ],
+    faqs: [
+      {
+        question: 'What is a Shareholder Oppression claim under Section 346 Companies Act 2016?',
+        answer: 'Section 346 provides statutory protection for minority shareholders where the affairs of the company are being conducted in an oppressive manner, in disregard of their interests, or in a manner that is unfairly prejudicial to them.'
+      }
+    ]
+  },
+  {
+    slug: 'real-estate-conveyancing',
+    title: 'Real Estate & Conveyancing',
+    chineseTitle: '房地产与产权转让',
+    tagline: 'Securing Real Estate Acquisitions, Title Transfers & Land Rights',
+    shortDescription: 'Comprehensive representation for Sale and Purchase Agreements (SPA), loan documentation, private caveats, land transfers, and tenancy leases.',
+    seoTitle: 'Real Estate & Conveyancing Lawyer in Kuala Lumpur | LWCCO',
+    seoDescription: 'Expert conveyancing lawyers in KL. Sale and Purchase Agreements (SPA), property title transfers (Borang 14A), private caveats, and tenancy agreements.',
+    heroImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'Building2',
+    statutoryFramework: [
+      'National Land Code (Act 828)',
+      'Housing Development (Control and Licensing) Act 1966',
+      'Stamp Act 1949 (Act 378)',
+      'Real Property Gains Tax Act 1976 (RPGT)'
+    ],
+    fullDescription: `Real estate transactions represent some of the most substantial financial investments for individuals and corporations. Messrs. Low, Wah Chin & Co. delivers thorough, meticulous conveyancing representation in Kuala Lumpur, Selangor, and throughout Peninsular Malaysia.
+
+Founder Ms. Ava Rachel Low mastered conveyancing practice with established real estate firm Raja Eleena, Siew Ang & Associates in 2012. Our firm handles sub-sale transfers, direct developer acquisitions, commercial and residential leases, land title searches, stamp duty adjudication with LHDN, and registration of Form 14A (Transfer) and Form 16A (Charge) at Land Registries.`,
+    whatWeHandle: [
+      'Drafting & reviewing Sale & Purchase Agreements (SPA) for sub-sale and direct developer properties',
+      'Perfection of Transfer (Form 14A) & Perfection of Charge (Form 16A)',
+      'Entry, extension, and removal of Private Caveats at Land Registries',
+      'Commercial, industrial, and residential Tenancy Agreements & Leases',
+      'Landlord-tenant dispute resolution, recovery of rent arrears, and eviction orders',
+      'Land title conversions, subdivision, and estate property transmission',
+      'Disputes over land trespass, boundary encroachment, and easement rights'
+    ],
+    keyBenefits: [
+      'Meticulous title due diligence preventing encumbrance and fraud risks',
+      'Expedited LHDN stamping and Land Office registration turnaround',
+      'Direct handling of high-value commercial properties and leases',
+      'Prompt legal remedies for defaulting tenants and trespassers'
+    ],
+    proceduralTimeline: [
+      { step: '01', title: 'Land Search & Title Due Diligence', duration: '1-2 Days', description: 'Conducting official Land Registry search to verify title ownership, encumbrances, and caveats.' },
+      { step: '02', title: 'SPA Preparation & Signing', duration: '14-21 Days', description: 'Customizing Sale & Purchase Agreement terms, deposit retention, and vacant possession dates.' },
+      { step: '03', title: 'LHDN Stamping & State Consent', duration: '1-3 Months', description: 'Submitting e-Stamping for stamp duty adjudication and securing state consent for leasehold lands.' },
+      { step: '04', title: 'Land Office Registration & Handover', duration: '1-2 Months', description: 'Registering Form 14A Transfer at Land Registry and releasing balance purchase price.' }
+    ],
+    preparationChecklist: [
+      'Copy of Land Title (Geran / Strata Title) or Developer Master Title details',
+      'Current Quit Rent (Cukai Tanah) and Assessment Receipt (Cukai Pintu)',
+      'Vendor and Purchaser NRIC copies / Corporate SSM documents',
+      'Copy of current loan facility statement (if existing bank redemption is required)'
+    ],
+    faqs: [
+      {
+        question: 'How long does a sub-sale property purchase take in Malaysia?',
+        answer: 'For a freehold property with an individual or strata title, a standard sub-sale transaction takes approximately 3 months from the SPA signing date. For leasehold properties requiring state authority consent, it typically requires 6 to 9 months.'
+      }
+    ]
+  },
+  {
+    slug: 'civil-commercial-litigation',
+    title: 'Civil, Commercial & Appellate Litigation',
+    chineseTitle: '民事、商事与上诉诉讼',
+    tagline: 'Strategic Trial Advocacy & Deliberate Courtroom Execution',
+    shortDescription: 'Commanding representation in the Sessions Court, High Court of Malaya, Court of Appeal, and Federal Court across complex civil disputes.',
+    seoTitle: 'Civil & Commercial Litigation Lawyer in Kuala Lumpur | LWCCO',
+    seoDescription: 'Premier trial and appellate litigation lawyers in KL. Proven track record in High Court, Court of Appeal, and Federal Court commercial cases.',
+    heroImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'Gavel',
+    statutoryFramework: [
+      'Rules of Court 2012 (P.U.(A) 205/2012)',
+      'Courts of Judicature Act 1964 (Act 91)',
+      'Evidence Act 1950 (Act 56)',
+      'Specific Relief Act 1950 (Act 137)'
+    ],
+    fullDescription: `When rights, reputation, or major financial stakes are on the line, you need seasoned trial advocates who navigate complex legal arenas with composure and authority. Messrs. Low, Wah Chin & Co. provides strategic, deliberate representation across all tiers of the Malaysian judicial hierarchy.
+
+Ms. Ava Rachel Low was trained at premier litigation institutions including Shook Lin & Bok and Azim, Tunku Farik & Wong, and called to the English Bar as a Barrister-at-Law of Lincoln’s Inn (London). Our firm handles complex commercial lawsuits, injunctions (Mareva, Anton Piller, Prohibitory), banking litigation, land disputes, and appellate advocacy in the Court of Appeal and Federal Court of Malaysia.`,
+    whatWeHandle: [
+      'High Court trial advocacy in commercial, contractual, and corporate disputes',
+      'Appellate advocacy in the Court of Appeal and Federal Court of Malaysia',
+      'Emergency ex-parte and inter-parte Injunctions (Mareva freeze orders & Prohibitory orders)',
+      'Summary Judgment (Order 14) and striking-out applications (Order 18)',
+      'Enforcement of judgments: Garnishee Orders, WSS, Judgment Debtor Summons',
+      'Contentious probate and trust litigation in the High Court',
+      'Judicial Review applications against public authority and tribunal decisions'
+    ],
+    keyBenefits: [
+      'Lincoln’s Inn Barrister lead with 15+ years trial & appellate experience',
+      'Rigorous courtroom preparation and articulate witness cross-examination',
+      'Clear, strategic risk evaluation at every phase of the proceedings',
+      'Proven track record across reported Malaysian appellate judgments'
+    ],
+    proceduralTimeline: [
+      { step: '01', title: 'Strategic Case Formulation', duration: '1-2 Weeks', description: 'Conducting evidentiary audit, statutory precedent research, and drafting initial pleadings.' },
+      { step: '02', title: 'Pleadings & Interlocutory Stage', duration: '2-4 Months', description: 'Filing Writ & Statement of Claim, Defense, Discovery, and urgent Interlocutory Injunctions.' },
+      { step: '03', title: 'Pre-Trial Case Management (PTCM)', duration: '1-2 Months', description: 'Filing Agreed Bundle of Documents, Issues to be Tried, and Witness Statements.' },
+      { step: '04', title: 'Full Trial & Appellate Advocacy', duration: '3-6 Months', description: 'Examination-in-chief, cross-examination of witnesses, oral submissions, and judgment.' }
+    ],
+    preparationChecklist: [
+      'All primary contracts, letters, notices, and documentary evidence in dispute',
+      'Chronological log of events with dates, participants, and summary of transactions',
+      'List of potential witnesses and their respective roles in the matter',
+      'Copies of any prior court orders, demands, or police reports'
+    ],
+    faqs: [
+      {
+        question: 'What is a Mareva Injunction and when is it granted?',
+        answer: 'A Mareva Injunction is an emergency court order that freezes the defendant’s assets to prevent them from dissipating or transferring funds out of the jurisdiction before the court reaches a final judgment.'
+      }
+    ]
+  },
+  {
+    slug: 'family-probate-estate',
+    title: 'Family, Probate & Estate Administration',
+    chineseTitle: '家庭婚姻、遗嘱与遗产认证',
+    tagline: 'Wills, Grant of Probate, Letters of Administration & Family Welfare',
+    shortDescription: 'Customized Will drafting, High Court Grant of Probate, Letters of Administration (LA), Small Estates distribution, and mutual consent divorce.',
+    seoTitle: 'Family Law, Wills & Probate Lawyer in Kuala Lumpur | LWCCO',
+    seoDescription: 'Compassionate family, divorce, will writing, Grant of Probate, and Letters of Administration (LA) lawyers in Kuala Lumpur by LWCCO.',
+    heroImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'ScrollText',
+    statutoryFramework: [
+      'Wills Act 1959 (Act 346)',
+      'Probate and Administration Act 1959 (Act 97)',
+      'Small Estates (Distribution) Act 1955 (Act 98)',
+      'Law Reform (Marriage and Divorce) Act 1976 (Act 164)',
+      'Distribution Act 1958 (Act 300)'
+    ],
+    fullDescription: `Family matters and estate distributions demand not only rigorous legal acumen, but also genuine empathy, discretion, and human-centric care. Messrs. Low, Wah Chin & Co. assists families in protecting generational wealth and navigating sensitive matrimonial disputes.
+
+We prepare ironclad testamentary Wills under the Wills Act 1959, petition the High Court for Grant of Probate (where a Will exists) or Letters of Administration (LA) for intestate estates, and manage District Land Office distributions under the Small Estates (Distribution) Act 1955. In family law, we guide clients through mutual consent Joint Petitions, child custody guardianship, and equitable matrimonial property division.`,
+    whatWeHandle: [
+      'Customized Will Drafting with testamentary trusts and minor guardian appointments',
+      'High Court Petitions for Grant of Probate (testate estate administration)',
+      'Petitions for Letters of Administration (LA) for intestate estates',
+      'Small Estate Distribution proceedings with District Land Offices (JKPTG)',
+      'Joint Petitions for Mutual Consent Divorce and Single Petitions for Contested Divorce',
+      'Child Custody, Care & Control, and Spousal Maintenance applications',
+      'Equitable division of matrimonial properties and contentious probate litigation'
+    ],
+    keyBenefits: [
+      'Ironclad will structuring preventing future family friction and probate disputes',
+      'Expedited High Court probate filings to unfreeze bank accounts and assets',
+      'Empathetic, confidential handling of sensitive matrimonial and custody matters',
+      'Sensible mediation resolving estate conflicts amicably'
+    ],
+    proceduralTimeline: [
+      { step: '01', title: 'Estate Asset & Beneficiary Audit', duration: '1-2 Weeks', description: 'Compiling list of deceased assets (properties, bank accounts, shares) and verifying valid Will.' },
+      { step: '02', title: 'High Court Probate Petition Filing', duration: '2-4 Weeks', description: 'Drafting and filing Petition for Grant of Probate or Letters of Administration (LA).' },
+      { step: '03', title: 'Court Hearing & Order Extraction', duration: '1-2 Months', description: 'Attending High Court hearing to secure formal Grant of Probate under court seal.' },
+      { step: '04', title: 'Asset Realization & Distribution', duration: '1-3 Months', description: 'Presenting Grant to banks, Land Registry, and SSM to unfreeze and transfer assets to beneficiaries.' }
+    ],
+    preparationChecklist: [
+      'Original Will of the deceased (if testate) or Death Certificate',
+      'Identity documents (NRIC) of all executors and beneficiaries',
+      'List of deceased properties with Title copies, bank statements, share certificates',
+      'Marriage certificate (for divorce/spousal estate claims) and children birth certificates'
+    ],
+    faqs: [
+      {
+        question: 'How long does it take to obtain a Grant of Probate in Malaysia?',
+        answer: 'Where a valid Will is in place and documents are in order, a High Court petition for a Grant of Probate typically takes between 2 to 4 months.'
+      }
+    ]
+  },
+  {
+    slug: 'employment-industrial-relations',
+    title: 'Employment & Industrial Relations',
+    chineseTitle: '劳资关系与雇佣争议',
+    tagline: 'Workplace Rights, Section 20 IRA Claims & Executive Advisory',
+    shortDescription: 'Unfair dismissal claims under Section 20 IRA 1967, constructive dismissal, executive contracts, and Industrial Court advocacy.',
+    seoTitle: 'Employment & Industrial Relations Lawyer in Kuala Lumpur | LWCCO',
+    seoDescription: 'Top employment & labour lawyers in KL. Representation for unfair dismissal, Industrial Court hearings, Employment Act 1955 compliance, and executive contracts.',
+    heroImage: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80',
+    iconName: 'Users',
+    statutoryFramework: [
+      'Industrial Relations Act 1967 (Act 177)',
+      'Employment Act 1955 (Act 265, amended 2022)',
+      'Trade Unions Act 1959 (Act 262)',
+      'Employees Provident Fund Act 1991 (Act 452)'
+    ],
+    fullDescription: `Employment relationships are governed by strict statutory frameworks under Malaysian labour law, including the Employment Act 1955 (amended 2022) and the Industrial Relations Act 1967 (IRA 1967).
+
+Messrs. Low, Wah Chin & Co. represents both corporate employers seeking compliance and senior executives or employees seeking redress for unfair dismissal without just cause or excuse under Section 20 of the IRA 1967. We handle conciliation proceedings at the Industrial Relations Department (JPP), trial hearings in the Industrial Court, Domestic Inquiry (DI) procedures, and executive contract drafting.`,
+    whatWeHandle: [
+      'Unfair dismissal representations under Section 20 Industrial Relations Act 1967',
+      'Constructive dismissal, wrongful termination, and forced resignation claims',
+      'Industrial Court trial representation and JPP conciliation meetings',
+      'Drafting executive employment contracts, NDAs, and restrictive covenants',
+      'Advising on Domestic Inquiries (DI) and workplace disciplinary proceedings',
+      'Retrenchment exercises, severance packages, and mutual separation schemes (MSS)',
+      'Workplace harassment, wage disputes, and Employment Act 1955 compliance'
+    ],
+    keyBenefits: [
+      'Dual expertise representing both corporate employers and senior executive employees',
+      'Strict adherence to the critical 60-day statutory filing window for unfair dismissal',
+      'Focused on pragmatic settlements and fair compensatory payouts',
+      'Airtight employment contracts eliminating future corporate liability'
+    ],
+    proceduralTimeline: [
+      { step: '01', title: 'Section 20 JPP Representation', duration: 'Within 60 Days', description: 'Filing statutory representation for unfair dismissal at the Industrial Relations Department.' },
+      { step: '02', title: 'JPP Conciliation Meeting', duration: '3-6 Weeks', description: 'Attending formal conciliation mediated by Industrial Relations Officer to negotiate settlement.' },
+      { step: '03', title: 'Reference to Industrial Court', duration: '2-4 Months', description: 'Ministerial reference to the Industrial Court when conciliation fails, followed by Statement of Case.' },
+      { step: '04', title: 'Industrial Court Full Hearing', duration: '4-8 Months', description: 'Trial hearing before Industrial Court Chairman, leading to Award for back-wages or compensation.' }
+    ],
+    preparationChecklist: [
+      'Employment Contract, appointment letter, and employee handbook/policies',
+      'Termination letter, show-cause notice, Domestic Inquiry (DI) notes, or retrenchment letter',
+      'Performance reviews, warning letters, salary slips, and bank statements',
+      'Email threads and WhatsApp communications relating to the dismissal or workplace conflict'
+    ],
+    faqs: [
+      {
+        question: 'What is the deadline to file an unfair dismissal claim in Malaysia?',
+        answer: 'Under Section 20(1A) of the Industrial Relations Act 1967, an employee must lodge a representation with the Industrial Relations Department within sixty (60) days from the dismissal date.'
+      }
+    ]
+  },
+
   {
     slug: 'legal-advice-consultation',
     title: 'Legal Advice & General Consultation',
@@ -1119,5 +1622,96 @@ export const GENERAL_FAQS: FaqItem[] = [
     category: 'Confidentiality & Privilege',
     question: 'Is my initial inquiry and document submission confidential?',
     answer: 'Yes, absolutely. Under Section 126 of the Evidence Act 1950, all communications between a client and an Advocate & Solicitor are protected by strict Legal Professional Privilege and cannot be disclosed without your express consent.'
+  }
+];
+
+export const REPRESENTATIVE_MATTERS_DATA: RepresentativeMatter[] = [
+  {
+    id: 'matter-1',
+    title: 'Federal Court Shareholder Derivative Action & Minority Oppression Defense',
+    category: 'Appellate Litigation',
+    forum: 'Federal Court of Malaysia (Apex Court, Putrajaya)',
+    statutoryFramework: 'Companies Act 2016 (Section 346 & Section 347) • Rules of the Federal Court 1995',
+    background: 'Defended majority shareholders and founding directors of an established engineering services conglomerate against an adversarial minority oppression petition and derivative action seeking company dissolution and asset disposal.',
+    strategy: 'Formulated a comprehensive statutory defense demonstrating clean fiduciary compliance, proper board sanction, and commercial justification under business judgment rules. Successfully struck out unmerited derivative claims.',
+    outcome: 'Dismissal of the petition upheld with costs. Safeguarded majority corporate governance and preserved RM35,000,000 enterprise valuation.',
+    highlights: ['Apex Court Precedent', 'Corporate Valuation Preservation', 'Fiduciary Duties Vindicated']
+  },
+  {
+    id: 'matter-2',
+    title: 'Court of Appeal Worldwide Mareva Injunction & Asset Freezing in Multi-Party Commercial Fraud',
+    category: 'Commercial & Corporate',
+    forum: 'Court of Appeal Putrajaya / High Court of Malaya (Commercial Division)',
+    statutoryFramework: 'Rules of Court 2012 (Order 29 Rule 1) • Specific Relief Act 1950 (Section 50)',
+    background: 'Acted for an international trading entity in urgent proceedings to freeze dissipated banking assets following an unauthorized diversion of invoice factoring funds across multiple jurisdictions.',
+    strategy: 'Secured urgent ex-parte Mareva Injunction with ancillary disclosure orders against local and offshore banking institutions, subsequently maintaining injunction upon vigorous inter-partes challenge in the Court of Appeal.',
+    outcome: '100% preservation of RM12,400,000 disputed liquid funds in escrow, compelling counterparty to enter comprehensive structured settlement.',
+    highlights: ['Multi-Jurisdictional Tracing', 'Emergency Injunction Granted', 'Substantial Settlement Recovery']
+  },
+  {
+    id: 'matter-3',
+    title: 'High Court Specific Performance for Prime Commercial Land Acquisition',
+    category: 'Real Estate & Land',
+    forum: 'High Court of Malaya Kuala Lumpur (Commercial & Land Division)',
+    statutoryFramework: 'Specific Relief Act 1950 (Section 11 & Section 18) • National Land Code (Act 828)',
+    background: 'Represented corporate property developer when vendor unlawfully attempted to terminate an executed Sale & Purchase Agreement (SPA) following sharp post-signing market appreciation.',
+    strategy: 'Lodged immediate Private Caveats at Land Registry to protect beneficial interest, commenced High Court action for Specific Performance, and proved readiness and willingness of purchaser to complete financing.',
+    outcome: 'Judgment granted in favor of client for Full Specific Performance with title transfer order (Form 14A) and full indemnity costs against defaulting vendor.',
+    highlights: ['Specific Performance Decree', 'Private Caveat Enforcement', 'Full Title Transfer Secured']
+  },
+  {
+    id: 'matter-4',
+    title: 'Corporate Insolvency & High-Velocity Section 466 Debt Recovery',
+    category: 'Debt & Insolvency',
+    forum: 'High Court of Malaya Shah Alam (Commercial & Insolvency Division)',
+    statutoryFramework: 'Companies Act 2016 (Section 466(1)(a)) • Companies (Winding-Up) Rules 1972',
+    background: 'Retained by tier-1 building materials supplier to recover RM4,850,000 in defaulted progress deliveries from a recalcitrant main contractor attempting asset dissipation.',
+    strategy: 'Executed precision statutory 21-day Section 466 Notice of Demand supported by watertight delivery orders and reconciliations, followed by expedited Winding-Up Petition filing.',
+    outcome: 'Debtor satisfied 100% of outstanding principal plus contractual interest within 14 days of petition service to avert court liquidation.',
+    highlights: ['Zero Haircut Principal Recovery', 'Section 466 Execution', 'Rapid 14-Day Settlement']
+  },
+  {
+    id: 'matter-5',
+    title: 'Complex Medical Malpractice & Neurological Catastrophic Injury Settlement',
+    category: 'Tort & Medical Negligence',
+    forum: 'High Court of Malaya Kuala Lumpur (Civil Division)',
+    statutoryFramework: 'Civil Law Act 1956 (Section 28A) • Bolam & Bolitho / Foo Fio Na Standard of Care',
+    background: 'Represented family of an infant who suffered severe hypoxic ischemic encephalopathy during delivery due to systemic obstetric delay and failure to monitor fetal distress.',
+    strategy: 'Marshalled international expert obstetrician testimony, formulated rigorous actuarial future care lifetime cost schedules, and established standard of care breaches under Malaysian medical jurisprudence.',
+    outcome: 'Court-sanctioned multi-million ringgit structured settlement establishing lifetime therapeutic care trust for the claimant.',
+    highlights: ['Top 6 Tort Practice', 'Actuarial Lifetime Compensation', 'Court Trust Fund Established']
+  },
+  {
+    id: 'matter-6',
+    title: 'Industrial Court Executive Constructive Dismissal & Back-Wages Award',
+    category: 'Employment & Industrial',
+    forum: 'Industrial Court of Malaysia Kuala Lumpur (Court 12)',
+    statutoryFramework: 'Industrial Relations Act 1967 (Section 20(3)) • Employment Jurisprudence (Wong Chee Hong principle)',
+    background: 'Advocated for Vice President of Regional Operations subjected to unilateral demotion, salary slashing, and hostile corporate restructuring without just cause or excuse.',
+    strategy: 'Established breach of fundamental employment contract going to the root of employment relationship, proving constructive dismissal before Industrial Court Chairman.',
+    outcome: 'Full Industrial Court Award granting 24 months maximum statutory back-wages plus compensation in lieu of reinstatement with statutory interest.',
+    highlights: ['Executive Constructive Dismissal', 'Maximum Statutory Back-Wages', 'Industrial Court Victory']
+  },
+  {
+    id: 'matter-7',
+    title: 'High Court Contentious Probate & Multi-Property Testamentary Capacity Dispute',
+    category: 'Real Estate & Land',
+    forum: 'High Court of Malaya Kuala Lumpur (Probate Division)',
+    statutoryFramework: 'Probate and Administration Act 1959 • Wills Act 1959 (Banks v Goodfellow test)',
+    background: 'Defended sole executor of a high-net-worth family estate against challenges to the validity of the deceased’s final testamentary will containing multi-million commercial real estate assets.',
+    strategy: 'Adduced contemporaneous medical and attesting witness testimonies proving full testamentary capacity and absence of undue influence under classical common law standards.',
+    outcome: 'Caveats removed, probate challenge dismissed with costs, and formal Grant of Probate issued under High Court seal.',
+    highlights: ['Wills Validity Upheld', 'Estate Asset Distribution', 'High Court Probate Seal']
+  },
+  {
+    id: 'matter-8',
+    title: 'Cross-Border Supply Chain Breach & Summary Judgment Enforcement',
+    category: 'Commercial & Corporate',
+    forum: 'High Court of Malaya (Commercial Division) / Singapore Enforcement Coordination',
+    statutoryFramework: 'Rules of Court 2012 (Order 14) • Reciprocal Enforcement of Judgments Act 1958',
+    background: 'Prosecuted substantial contractual breach claim for regional distributor against defaulting overseas technology hardware manufacturer.',
+    strategy: 'Drafted airtight Order 14 Summary Judgment application proving no triable defense, defeating sham counterclaims on affidavit evidence alone.',
+    outcome: 'Summary Judgment extracted within 4 months of suit commencement and successfully registered for reciprocal cross-border enforcement.',
+    highlights: ['Order 14 Summary Judgment', 'Reciprocal Cross-Border Enforcement', 'Fast-Track Commercial Victory']
   }
 ];
