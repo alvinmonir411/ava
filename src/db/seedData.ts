@@ -8,7 +8,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     shortDescription: 'Clear, direct, and actionable legal opinions for individuals and businesses navigating regulatory hurdles, disputes, and compliance.',
     seoTitle: 'Legal Advice & Consultation Lawyer in Kuala Lumpur | LWCCO',
     seoDescription: 'Consult experienced Advocates & Solicitors at LWCCO in Kuala Lumpur for confidential legal advice, legal notices, dispute risk assessments, and compliance.',
-    heroImage: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1600&q=80',
     iconName: 'Scale',
     fullDescription: `At Messrs. Low Wah Chin & Co. (LWCCO), our General Legal Advice & Consultation practice is founded upon the principle of providing sensible, realistic, and unvarnished legal counsel. Whether you are facing an impending dispute, seeking to safeguard personal rights, or requiring preliminary legal opinions before signing major commitments, our team offers prompt, confidential, and comprehensive legal reviews.
 
@@ -56,7 +56,7 @@ Our consultation practice avoids legal jargon. We present your options with abso
     shortDescription: 'Comprehensive legal representation for Sale and Purchase Agreements (SPA), property transfers, loan documentation, tenancy disputes, and land trespass.',
     seoTitle: 'Property & Conveyancing Lawyer in Kuala Lumpur | LWCCO',
     seoDescription: 'Expert real estate conveyancing, SPA drafting, property title transfers, and tenancy dispute resolution in Kuala Lumpur & Selangor by LWCCO Advocates & Solicitors.',
-    heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80',
     iconName: 'Building2',
     fullDescription: `Real estate transactions represent some of the most substantial financial commitments in an individual's or corporation's lifespan. Messrs. Low Wah Chin & Co. provides meticulous conveyancing and property law representation in Kuala Lumpur and throughout Peninsular Malaysia, protecting your ownership rights against encumbrances, title defects, and contractual breaches.
 
@@ -276,7 +276,7 @@ When commercial disputes arise—such as breaches of contract, non-payment of tr
     shortDescription: 'Recognized by Trusted Malaysia among the Top 6 Personal Injury law firms. Expert handling of motor collisions, road traffic trauma, and severe injury restitution.',
     seoTitle: 'Bodily Injury & Accident Claim Lawyer in Kuala Lumpur | LWCCO',
     seoDescription: 'Leading bodily injury and road traffic accident lawyers in Kuala Lumpur. Maximize General & Special Damages under the Civil Law Act 1956 with LWCCO.',
-    heroImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1600&q=80',
     iconName: 'Activity',
     fullDescription: `A catastrophic motor collision or physical trauma can permanently alter your life, livelihood, and financial stability. Messrs. Low Wah Chin & Co. (LWCCO) is widely recognized across Kuala Lumpur and Selangor as a premier tort and bodily injury practice, having been featured on Trusted Malaysia as one of the Top 6 Personal Injury Law Firms in Malaysia.
 
@@ -364,7 +364,7 @@ Whether your case involves surgical malpractice, anesthesia errors, delayed canc
     shortDescription: 'Fast 24 to 48-hour drafting and issuance of formal Letters of Demand (LOD), Cease-and-Desist notices, breach notices, and pre-litigation demands.',
     seoTitle: 'Letter of Demand (LOD) & Legal Notice Lawyer Kuala Lumpur | LWCCO',
     seoDescription: 'Fast, authoritative Letters of Demand (LOD), breach of contract notices, and Cease & Desist letters drafted by senior Advocates & Solicitors in KL.',
-    heroImage: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=1600&q=80',
     iconName: 'FileText',
     fullDescription: `A professionally drafted Letter of Demand (LOD) bearing the formal letterhead of an Advocate & Solicitor of the High Court of Malaya is often the most cost-effective and rapid tool to resolve disputes without setting foot inside a courtroom.
 
@@ -452,7 +452,7 @@ For corporate clients, we draft bespoke employment contracts, non-disclosure agr
     shortDescription: 'Specialized legal counsel for libel, slander, social media defamation, cease-and-desist notices, and statutory defenses under the Defamation Act 1957.',
     seoTitle: 'Defamation Lawyer in Kuala Lumpur (Libel & Slander) | LWCCO',
     seoDescription: 'Top defamation lawyers in KL. Handle online slander, libel, social media character assassination, injunctions, and justification defenses under Defamation Act 1957.',
-    heroImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1600&q=80',
     iconName: 'ShieldCheck',
     fullDescription: `In today’s interconnected digital age, defamatory statements posted on social media platforms, forums, or corporate communications can inflict irreparable damage on personal reputations and business commercial goodwill within minutes.
 
@@ -496,7 +496,7 @@ For defendants, we formulate robust statutory defenses—including Justification
     shortDescription: 'Comprehensive will drafting under Wills Act 1959, High Court Grant of Probate, Letters of Administration (LA), and Small Estates Land Office distribution.',
     seoTitle: 'Will Writing & Probate Lawyer in Kuala Lumpur | LWCCO',
     seoDescription: 'Professional will writing, Grant of Probate, Letters of Administration (LA), and Land Office estate distribution in Kuala Lumpur by LWCCO Advocates & Solicitors.',
-    heroImage: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1600&q=80',
     iconName: 'ScrollText',
     fullDescription: `A comprehensive, legally sound estate plan guarantees that your hard-earned assets and family wealth are seamlessly transmitted to your loved ones without costly court delays, family disputes, or frozen bank accounts.
 
@@ -540,7 +540,7 @@ Following the passing of a family member, our firm handles the entire judicial p
     shortDescription: 'Drafting residential/commercial tenancy agreements, lawful eviction proceedings under Specific Relief Act 1950, and Distress Act 1951 actions.',
     seoTitle: 'Tenancy Agreement & Eviction Lawyer in Kuala Lumpur | LWCCO',
     seoDescription: 'Expert tenancy agreement drafting, tenant eviction orders, recovery of rental arrears, and distress proceedings in KL by LWCCO Advocates & Solicitors.',
-    heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1600&q=80',
     iconName: 'Home',
     fullDescription: `Disputes between landlords and tenants over unpaid rental arrears, unauthorized subletting, property damage, or refusal to vacate upon expiry can cause immense financial stress and immobilize prime real estate assets.
 
@@ -584,7 +584,7 @@ Messrs. Low Wah Chin & Co. represents both landlords and tenants across resident
     shortDescription: 'Senior partner legal representation for commercial partnership structuring, joint venture agreements, M&A deal negotiation, and out-of-court dispute settlement.',
     seoTitle: 'Business Negotiation & Commercial Lawyer in Kuala Lumpur | LWCCO',
     seoDescription: 'Strategic legal counsel for business negotiations, partnership deeds, joint ventures, and commercial deal-making in Kuala Lumpur by LWCCO.',
-    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1600&q=80',
     iconName: 'Handshake',
     fullDescription: `Entering into complex commercial ventures or resolving high-stakes corporate standoffs requires more than basic contract templates—it demands seasoned negotiation acumen, commercial foresight, and deep knowledge of Malaysian company law.
 
@@ -628,7 +628,7 @@ Whether you are structuring a multi-party Joint Venture, negotiating venture cap
     shortDescription: 'Guidance and document preparation for small claims under Order 93 of the Rules of Court 2012 in Malaysian Magistrates’ Courts.',
     seoTitle: 'Small Claims Court Assistance Lawyer in Kuala Lumpur | LWCCO',
     seoDescription: 'Affordable assistance for Small Claims under Order 93 of Rules of Court 2012 in Malaysia. Prepare Form 198 and enforce Magistrate judgments with LWCCO.',
-    heroImage: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1600&q=80',
     iconName: 'Gavel',
     fullDescription: `Under Order 93 of the Rules of Court 2012, the Small Claims Court is a simplified, cost-effective judicial mechanism established in the Magistrates’ Court for individuals to recover debts or damages not exceeding RM5,000 without requiring lawyer representation during the trial hearing itself.
 
@@ -760,7 +760,7 @@ We work alongside certified structural engineers and quantity surveyors to docum
     shortDescription: 'Aggressive recovery of commercial receivables, Section 466 Companies Act 2016 statutory notices, High Court winding-up petitions, and Judgment Debtor Summons.',
     seoTitle: 'Debt Recovery & Corporate Winding Up Lawyer Kuala Lumpur | LWCCO',
     seoDescription: 'High-velocity commercial debt recovery, Section 466 Companies Act 2016 statutory notices, winding-up petitions, and judgment enforcement in KL by LWCCO.',
-    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1600&q=80',
     iconName: 'Banknote',
     fullDescription: `Unpaid commercial debts, defaulted trade invoices, and uncooperative corporate debtors pose an existential threat to business cash flow. Traditional polite reminders often fail; decisive legal leverage is required to command immediate payment.
 
