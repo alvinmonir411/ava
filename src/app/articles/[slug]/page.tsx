@@ -231,7 +231,15 @@ export default async function IndividualArticlePage({ params }: Props) {
               </p>
               <div className="mt-4 flex flex-wrap justify-center sm:justify-start gap-3">
                 <Link
-                  href="/contact"
+                  href={`/contact?practice=${encodeURIComponent(
+                    article.slug.includes('property')
+                      ? 'Property & Conveyancing Law'
+                      : article.slug.includes('injury')
+                      ? 'Bodily Injury Claims'
+                      : article.slug.includes('divorce')
+                      ? 'Family & Divorce Law'
+                      : 'Legal Advice & General Consultation'
+                  )}`}
                   className="btn-brass px-4 py-2 rounded-lg text-xs font-bold"
                 >
                   Request Case Review
@@ -278,7 +286,17 @@ export default async function IndividualArticlePage({ params }: Props) {
               Book a confidential consultation with senior counsel at LWCCO.
             </p>
           </div>
-          <ConsultationForm />
+          <ConsultationForm
+            defaultPracticeArea={
+              article.slug.includes('property')
+                ? 'Property & Conveyancing Law'
+                : article.slug.includes('injury')
+                ? 'Bodily Injury Claims'
+                : article.slug.includes('divorce')
+                ? 'Family & Divorce Law'
+                : 'Legal Advice & General Consultation'
+            }
+          />
         </div>
       </section>
     </>

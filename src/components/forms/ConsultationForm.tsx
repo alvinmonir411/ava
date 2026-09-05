@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { submitInquiry } from '@/actions/submitInquiry';
 import { Send, Shield, PhoneCall, CheckCircle } from 'lucide-react';
@@ -11,7 +11,15 @@ interface ConsultationFormProps {
   className?: string;
 }
 
-const PRACTICE_OPTIONS = [
+export const PRACTICE_OPTIONS = [
+  // 6 Core Practice Disciplines
+  'Legal Advice & General Consultation',
+  'Property & Conveyancing Law',
+  'Family & Divorce Law',
+  'Dispute Resolution, Accident & Bodily Injury Claims',
+  'Will Writing & Estate Distribution',
+  'Company Matters, Commercial Agreements & Litigation',
+  // 12 Specialized Service Scopes
   'Bodily Injury Claims',
   'Medical Negligence Claims',
   'Letter Writing & LODs (Letters of Demand)',
@@ -23,20 +31,131 @@ const PRACTICE_OPTIONS = [
   'Small Claims Assistance',
   'Professional Negligence Claims',
   'Contractor Negligence Claims',
-  'Debt Recovery & Corporate Winding Up',
-  'Property & Conveyancing Law',
-  'Family & Divorce Law',
-  'Legal Advice & General Consultation',
+  'Debt Recovery & Winding Up',
   'Other Legal Matter',
 ];
+
+export function resolvePracticeArea(input?: string | null): string {
+  if (!input) return '';
+  const clean = input.trim().toLowerCase();
+
+  // 1. Direct case-insensitive match
+  const exact = PRACTICE_OPTIONS.find((opt) => opt.toLowerCase() === clean);
+  if (exact) return exact;
+
+  // 2. Slug & alias dictionary
+  const slugMap: Record<string, string> = {
+    'legal-advice-consultation': 'Legal Advice & General Consultation',
+    'legal-advice': 'Legal Advice & General Consultation',
+    'general-consultation': 'Legal Advice & General Consultation',
+
+    'property-conveyancing': 'Property & Conveyancing Law',
+    'property': 'Property & Conveyancing Law',
+    'conveyancing': 'Property & Conveyancing Law',
+    'spa': 'Property & Conveyancing Law',
+
+    'family-divorce': 'Family & Divorce Law',
+    'family-divorce-matters': 'Family & Divorce Law',
+    'family': 'Family & Divorce Law',
+    'divorce': 'Family & Divorce Law',
+
+    'dispute-resolution-claims': 'Dispute Resolution, Accident & Bodily Injury Claims',
+    'dispute-resolution': 'Dispute Resolution, Accident & Bodily Injury Claims',
+
+    'will-estate-distribution': 'Will Writing & Estate Distribution',
+    'estate-distribution': 'Will Writing & Estate Distribution',
+
+    'company-matters-agreements': 'Company Matters, Commercial Agreements & Litigation',
+    'company-matters': 'Company Matters, Commercial Agreements & Litigation',
+    'commercial-law': 'Company Matters, Commercial Agreements & Litigation',
+
+    'bodily-injury-claims': 'Bodily Injury Claims',
+    'bodily-injury': 'Bodily Injury Claims',
+    'accident-claims': 'Bodily Injury Claims',
+
+    'medical-negligence-claims': 'Medical Negligence Claims',
+    'medical-negligence': 'Medical Negligence Claims',
+
+    'letter-writing-lods': 'Letter Writing & LODs (Letters of Demand)',
+    'letter-of-demand': 'Letter Writing & LODs (Letters of Demand)',
+    'lod': 'Letter Writing & LODs (Letters of Demand)',
+
+    'employment-labour-claims': 'Employment & Labour Claims',
+    'employment-law': 'Employment & Labour Claims',
+    'labour-law': 'Employment & Labour Claims',
+
+    'defamation-claims': 'Defamation Claims & Justification',
+    'defamation': 'Defamation Claims & Justification',
+
+    'will-writing-probate-advice': 'Will Writing & Probate Advice',
+    'probate': 'Will Writing & Probate Advice',
+
+    'tenancy-disputes': 'Tenancy Agreement Disputes',
+    'tenancy': 'Tenancy Agreement Disputes',
+
+    'business-negotiations-deals': 'Business Negotiations & Commercial Deals',
+    'business-negotiations': 'Business Negotiations & Commercial Deals',
+
+    'small-claims-assistance': 'Small Claims Assistance',
+    'small-claims': 'Small Claims Assistance',
+
+    'professional-negligence-claims': 'Professional Negligence Claims',
+    'professional-negligence': 'Professional Negligence Claims',
+
+    'contractor-negligence-claims': 'Contractor Negligence Claims',
+    'contractor-negligence': 'Contractor Negligence Claims',
+
+    'debt-recovery-winding-up': 'Debt Recovery & Winding Up',
+    'debt-recovery': 'Debt Recovery & Winding Up',
+    'winding-up': 'Debt Recovery & Winding Up',
+  };
+
+  if (slugMap[clean]) return slugMap[clean];
+
+  // 3. Substring match
+  const partial = PRACTICE_OPTIONS.find(
+    (opt) =>
+      opt.toLowerCase().includes(clean) ||
+      clean.includes(opt.toLowerCase().replace(/[^a-z0-9]/g, ''))
+  );
+  if (partial) return partial;
+
+  return '';
+}
 
 export default function ConsultationForm({
   defaultPracticeArea,
   className = '',
 }: ConsultationFormProps) {
+  const [selectedPractice, setSelectedPractice] = useState<string>(() =>
+    resolvePracticeArea(defaultPracticeArea)
+  );
   const [isPending, setIsPending] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string[]>>({});
+
+  useEffect(() => {
+    // 1. Check if defaultPracticeArea prop is provided
+    if (defaultPracticeArea) {
+      const resolved = resolvePracticeArea(defaultPracticeArea);
+      if (resolved) {
+        setSelectedPractice(resolved);
+        return;
+      }
+    }
+
+    // 2. Check URL search parameters (?practice=... or ?service=...)
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const paramPractice = params.get('practice') || params.get('service') || params.get('area');
+      if (paramPractice) {
+        const resolved = resolvePracticeArea(paramPractice);
+        if (resolved) {
+          setSelectedPractice(resolved);
+        }
+      }
+    }
+  }, [defaultPracticeArea]);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -196,13 +315,24 @@ export default function ConsultationForm({
               id="practiceArea"
               name="practiceArea"
               required
-              defaultValue={defaultPracticeArea || ''}
-              className="w-full px-3.5 py-2.5 rounded-lg border border-charcoal-light/50 bg-cream/30 text-charcoal text-sm focus:outline-none focus:ring-2 focus:ring-brass focus:border-brass transition-all"
+              value={selectedPractice}
+              onChange={(e) => setSelectedPractice(e.target.value)}
+              className="w-full px-3.5 py-2.5 rounded-lg border border-charcoal-light/50 bg-cream/30 text-charcoal text-sm focus:outline-none focus:ring-2 focus:ring-brass focus:border-brass transition-all font-medium"
             >
               <option value="" disabled>Select Practice Discipline</option>
-              {PRACTICE_OPTIONS.map((opt, i) => (
-                <option key={i} value={opt}>{opt}</option>
-              ))}
+              <optgroup label="Core Practice Disciplines (1–6)">
+                {PRACTICE_OPTIONS.slice(0, 6).map((opt, i) => (
+                  <option key={i} value={opt}>{opt}</option>
+                ))}
+              </optgroup>
+              <optgroup label="Specialized Service Offerings & Scope (7–18)">
+                {PRACTICE_OPTIONS.slice(6, 18).map((opt, i) => (
+                  <option key={i} value={opt}>{opt}</option>
+                ))}
+              </optgroup>
+              <optgroup label="Other Legal Inquiries">
+                <option value="Other Legal Matter">Other Legal Matter</option>
+              </optgroup>
             </select>
             {errors.practiceArea && (
               <p className="text-red-500 text-xs mt-1">{errors.practiceArea[0]}</p>

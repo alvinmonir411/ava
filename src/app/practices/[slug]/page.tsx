@@ -271,7 +271,7 @@ export default async function IndividualPracticePage({ params }: Props) {
                 />
 
                 <Link
-                  href="/contact"
+                  href={`/contact?practice=${practice.slug}`}
                   className="btn-brass w-full py-3 rounded-lg text-center block text-xs font-bold uppercase tracking-wider"
                 >
                   Go to Full Booking Form
