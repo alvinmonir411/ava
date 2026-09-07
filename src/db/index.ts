@@ -30,9 +30,27 @@ export async function getArticles(): Promise<Article[]> {
   return ARTICLES_DATA;
 }
 
+const ARTICLE_SLUG_ALIASES: Record<string, string> = {
+  '10-best-law-firms-in-kuala-lumpur': '10-best-law-firms-in-kuala-lumpur-by-mohammad-bin-amir-last-updated-july-1-2023',
+  '10-best-law-firms-kl': '10-best-law-firms-in-kuala-lumpur-by-mohammad-bin-amir-last-updated-july-1-2023',
+  'best-law-firms-in-kuala-lumpur': '10-best-law-firms-in-kuala-lumpur-by-mohammad-bin-amir-last-updated-july-1-2023',
+  '6-best-personal-injury-lawyers': '6-best-personal-injury-lawyers-in-kl-selangor-2023',
+  '6-best-personal-injury-lawyers-in-kl': '6-best-personal-injury-lawyers-in-kl-selangor-2023',
+  'top-6-personal-injury-lawyers-kl': '6-best-personal-injury-lawyers-in-kl-selangor-2023',
+};
+
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
   const all = await getArticles();
-  return all.find((a) => a.slug === slug) || null;
+  const exact = all.find((a) => a.slug === slug);
+  if (exact) return exact;
+
+  const aliasedSlug = ARTICLE_SLUG_ALIASES[slug];
+  if (aliasedSlug) {
+    const aliased = all.find((a) => a.slug === aliasedSlug);
+    if (aliased) return aliased;
+  }
+
+  return all.find((a) => a.slug.startsWith(slug) || slug.startsWith(a.slug)) || null;
 }
 
 export async function getPracticeAreas(): Promise<PracticeArea[]> {

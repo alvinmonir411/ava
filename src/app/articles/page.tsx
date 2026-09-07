@@ -1,15 +1,13 @@
 import React from 'react';
-import Image from 'next/image';
 import { getArticles } from '@/db';
 import { constructMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/metadata';
 import JsonLd from '@/components/common/JsonLd';
-import SectionHeading from '@/components/common/SectionHeading';
+import PageHero from '@/components/layout/PageHero';
 import ArticleCard from '@/components/cards/ArticleCard';
-import TrustBar from '@/components/common/TrustBar';
-import { BookOpen, Sparkles, Award, FileText } from 'lucide-react';
+import { BookOpen, Sparkles, Award } from 'lucide-react';
 
 export const metadata = constructMetadata({
-  title: 'Malaysian Legal Insights, Articles & Industry Reviews | Low, Wah Chin & Co.',
+  title: 'Legal Insights, Articles & Industry Reviews | Messrs. Low Wah Chin & Co.',
   description: 'Read legal analysis, industry recognitions, and statutory guides on Personal Injury, Property Conveyancing, Divorce, and Commercial Litigation in Malaysia by Low, Wah Chin & Co.',
   canonicalUrl: `${SITE_CONFIG.url}/articles`,
 });
@@ -28,48 +26,22 @@ export default async function ArticlesPage() {
     <>
       <JsonLd data={breadcrumbSchema} />
 
-      {/* Hero Header */}
-      <section className="relative bg-[#170b1e] text-[#faf9f6] py-20 sm:py-28 overflow-hidden border-b border-[#c6a052]/30">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=2000&q=85"
-            alt="Messrs. Low, Wah Chin & Co. Legal Publications"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center opacity-65 brightness-95 contrast-105 scale-100"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#170b1e]/90 via-[#22122b]/70 to-[#170b1e]/90" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#170b1e] via-transparent to-[#170b1e]/30" />
-          <div className="absolute inset-0 bg-[radial-gradient(#c6a052_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
-        </div>
+      <PageHero
+        title="Articles & Legal Commentary"
+        subtitle="Practical Legal Knowledge, Courtroom Precedents & Industry Commendations"
+        badge="Legal Insights & Accolades"
+        badgeIcon={BookOpen}
+        breadcrumbs={[{ label: 'Home', href: '/' }]}
+        bgImage="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=2000&q=85"
+      />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#c6a052]/20 text-[#e5c777] border border-[#c6a052]/40 text-xs font-bold uppercase tracking-wider mb-4">
-            <BookOpen className="w-3.5 h-3.5 text-[#c6a052]" />
-            <span>Legal Insights & Accolades</span>
-          </div>
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#faf9f6] mb-4">
-            Articles & Legal Publications
-          </h1>
-          <p className="font-serif italic text-[#e5c777] text-lg sm:text-xl mb-4">
-            &ldquo;Practical Legal Knowledge, Courtroom Precedents & Industry Commendations&rdquo;
-          </p>
-          <p className="text-[#faf9f6]/85 text-base sm:text-lg leading-relaxed font-light">
-            Stay informed with authoritative legal commentary, statutory guides, and independent recognition of Messrs. Low, Wah Chin & Co.
-          </p>
-        </div>
-      </section>
-
-      <TrustBar />
-
-      {/* Main Articles Listing */}
-      <section className="py-20 md:py-28 bg-[#faf9f6]">
+      {/* Main Articles Listing (Light Section) */}
+      <section className="py-20 lg:py-28 bg-[#faf9f6] text-[#231f20] border-b border-[#e5e7eb]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Featured Article */}
+          {/* Featured Article Spotlight */}
           {featuredArticle && (
             <div className="mb-16">
-              <div className="flex items-center gap-2 text-[#9d7835] text-xs font-bold uppercase tracking-wider mb-4">
+              <div className="flex items-center gap-2 text-[#9d7835] text-xs font-bold uppercase tracking-[0.2em] mb-4">
                 <Sparkles className="w-4 h-4 text-[#c6a052]" />
                 <span>Featured Publication</span>
               </div>
@@ -77,14 +49,21 @@ export default async function ArticlesPage() {
             </div>
           )}
 
-          {/* Regular Articles Grid */}
-          <SectionHeading
-            badge="All Publications"
-            title="Recent Legal Commentary & Guides"
-            subtitle="Explore our library of legal guides written for Malaysian citizens, property owners, and business operators."
-          />
+          {/* All Articles Section */}
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 text-[#9d7835] text-xs font-bold uppercase tracking-[0.2em] mb-2">
+              <Award className="w-3.5 h-3.5 text-[#c6a052]" />
+              <span>All Publications</span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a2332]">
+              Recent Legal Commentary & Guides
+            </h2>
+            <p className="text-xs sm:text-sm text-[#4b5563] mt-2 font-light">
+              Explore our library of statutory guides and legal analyses for Malaysian citizens, property buyers, and businesses.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {regularArticles.map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}

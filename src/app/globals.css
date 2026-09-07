@@ -1,57 +1,52 @@
 @import "tailwindcss";
 
 @theme {
-  /* Deep Royal Midnight Purple - Legal Wisdom & Prestige */
-  --color-plum: #1b0d25;
-  --color-plum-dark: #120718;
-  --color-plum-light: #241133;
-  --color-plum-accent: #3b174f;
-  --color-plum-surface: #200f2b;
+  /* Traditional Formal Law Firm Dark Palette */
+  --color-navy: #1a2332;
+  --color-navy-dark: #101826;
+  --color-navy-light: #243044;
+  --color-navy-surface: #1e2a3c;
+  --color-navy-accent: #2e3e57;
 
-  /* Executive Midnight Blue - Institutional Trust & Solidity */
-  --color-navy: #0f172a;
-  --color-navy-dark: #090d18;
-  --color-navy-light: #161e31;
-  --color-navy-surface: #1e293b;
+  /* Classic Midnight & Plum Compatibility */
+  --color-plum: #1a2332;
+  --color-plum-dark: #101826;
+  --color-plum-light: #243044;
+  --color-plum-accent: #2e3e57;
+  --color-plum-surface: #1e2a3c;
 
-  /* Polished Champagne Gold - Primary Accents, CTAs & Borders */
+  /* Polished Muted Gold / Brass - CTAs, Borders & Accents */
   --color-gold: #c6a052;
-  --color-gold-light: #e5c777;
+  --color-gold-light: #dcc280;
   --color-gold-dark: #9d7835;
-  --color-gold-accent: #d4af37;
-  --color-gold-shimmer: #f5e4b8;
+  --color-gold-accent: #b89047;
+  --color-gold-shimmer: #f0e1b9;
 
-  /* Warm Amber / Leather Brown - Secondary Category Badges & Highlights */
-  --color-amber-badge: #9a532a;
-  --color-amber-light: #b86832;
-  --color-amber-dark: #7a3e1c;
-  --color-amber-surface: #fdf5ef;
-
-  /* Crisp White & Ivory Canvas */
+  /* Warm Off-White / Cream Canvas */
   --color-ivory: #ffffff;
   --color-ivory-warm: #faf9f6;
   --color-ivory-dark: #f3efe6;
   --color-ivory-accent: #e8e1d5;
 
-  /* High-Contrast Jet Black Typography */
-  --color-charcoal: #0a0a0a;
-  --color-charcoal-body: #231f20;
-  --color-charcoal-muted: #595355;
-  --color-charcoal-light: #8c8486;
-
-  /* Backward Compatibility Aliases */
-  --color-brass: #c6a052;
-  --color-brass-light: #e5c777;
-  --color-brass-dark: #9d7835;
   --color-cream: #faf9f6;
   --color-cream-light: #ffffff;
   --color-cream-dark: #f3efe6;
   --color-cream-accent: #e8e1d5;
 
+  /* Traditional Charcoal / High-Legibility Typography */
+  --color-charcoal: #111827;
+  --color-charcoal-body: #231f20;
+  --color-charcoal-muted: #4b5563;
+  --color-charcoal-light: #6b7280;
+
+  /* Brass aliases */
+  --color-brass: #c6a052;
+  --color-brass-light: #dcc280;
+  --color-brass-dark: #9d7835;
+
   --font-serif: var(--font-playfair), Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
-
 
 @layer base {
   body {
@@ -70,24 +65,32 @@
 }
 
 /* Explicit Utility Classes for Maximum Visual Consistency */
-.bg-plum { background-color: #22122b !important; }
-.bg-plum-dark { background-color: #170b1e !important; }
-.bg-plum-light { background-color: #2e173b !important; }
-.bg-plum-accent { background-color: #432056 !important; }
-.bg-plum-surface { background-color: #281433 !important; }
-.text-plum { color: #22122b !important; }
-.text-plum-light { color: #432056 !important; }
-.border-plum { border-color: #22122b !important; }
-.border-plum-light { border-color: #432056 !important; }
+.bg-navy { background-color: #1a2332 !important; }
+.bg-navy-dark { background-color: #101826 !important; }
+.bg-navy-light { background-color: #243044 !important; }
+.text-navy { color: #1a2332 !important; }
+.text-navy-light { color: #2e3e57 !important; }
+.border-navy { border-color: #1a2332 !important; }
+.border-navy-light { border-color: #2e3e57 !important; }
+
+.bg-plum { background-color: #1a2332 !important; }
+.bg-plum-dark { background-color: #101826 !important; }
+.bg-plum-light { background-color: #243044 !important; }
+.bg-plum-accent { background-color: #2e3e57 !important; }
+.bg-plum-surface { background-color: #1e2a3c !important; }
+.text-plum { color: #1a2332 !important; }
+.text-plum-light { color: #2e3e57 !important; }
+.border-plum { border-color: #1a2332 !important; }
+.border-plum-light { border-color: #2e3e57 !important; }
 
 .bg-gold { background-color: #c6a052 !important; }
-.bg-gold-light { background-color: #e5c777 !important; }
+.bg-gold-light { background-color: #dcc280 !important; }
 .bg-gold-dark { background-color: #9d7835 !important; }
 .text-gold { color: #c6a052 !important; }
-.text-gold-light { color: #e5c777 !important; }
+.text-gold-light { color: #dcc280 !important; }
 .text-gold-dark { color: #9d7835 !important; }
 .border-gold { border-color: #c6a052 !important; }
-.border-gold-light { border-color: #e5c777 !important; }
+.border-gold-light { border-color: #dcc280 !important; }
 .border-gold-dark { border-color: #9d7835 !important; }
 
 .bg-ivory { background-color: #faf9f6 !important; }
@@ -96,22 +99,14 @@
 .text-ivory { color: #faf9f6 !important; }
 
 .text-charcoal { color: #231f20 !important; }
-.text-charcoal-muted { color: #595355 !important; }
-.text-charcoal-light { color: #8c8486 !important; }
-
-/* Legacy Navy & Brass Mapping to Royal Plum & Champagne Gold */
-.bg-navy { background-color: #22122b !important; }
-.bg-navy-dark { background-color: #170b1e !important; }
-.bg-navy-light { background-color: #2e173b !important; }
-.text-navy { color: #22122b !important; }
-.text-navy-light { color: #432056 !important; }
-.border-navy { border-color: #22122b !important; }
+.text-charcoal-muted { color: #4b5563 !important; }
+.text-charcoal-light { color: #6b7280 !important; }
 
 .bg-brass { background-color: #c6a052 !important; }
-.bg-brass-light { background-color: #e5c777 !important; }
+.bg-brass-light { background-color: #dcc280 !important; }
 .bg-brass-dark { background-color: #9d7835 !important; }
 .text-brass { color: #c6a052 !important; }
-.text-brass-light { color: #e5c777 !important; }
+.text-brass-light { color: #dcc280 !important; }
 .text-brass-dark { color: #9d7835 !important; }
 .border-brass { border-color: #c6a052 !important; }
 
@@ -120,35 +115,47 @@
 .bg-cream-accent { background-color: #e8e1d5 !important; }
 .text-cream { color: #faf9f6 !important; }
 
-/* Elite Law Practice Buttons */
+/* Traditional Formal Law Practice Buttons */
 .btn-gold {
-  background: linear-gradient(135deg, #e5c777 0%, #c6a052 60%, #9d7835 100%) !important;
-  color: #170b1e !important;
+  background: linear-gradient(135deg, #dcc280 0%, #c6a052 60%, #9d7835 100%) !important;
+  color: #101826 !important;
   font-weight: 700 !important;
-  letter-spacing: 0.02em;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 16px rgba(198, 160, 82, 0.28);
+  letter-spacing: 0.03em;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 3px 12px rgba(198, 160, 82, 0.22);
 }
 .btn-gold:hover {
-  background: linear-gradient(135deg, #f5e4b8 0%, #e5c777 60%, #c6a052 100%) !important;
-  color: #170b1e !important;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(198, 160, 82, 0.42);
+  background: linear-gradient(135deg, #f0e1b9 0%, #dcc280 60%, #c6a052 100%) !important;
+  color: #101826 !important;
+  box-shadow: 0 6px 18px rgba(198, 160, 82, 0.35);
 }
 
 .btn-outline-gold {
   background-color: transparent !important;
-  color: #e5c777 !important;
+  color: #dcc280 !important;
   border: 1.5px solid #c6a052 !important;
   font-weight: 600 !important;
-  letter-spacing: 0.02em;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.03em;
+  transition: all 0.25s ease-in-out;
 }
 .btn-outline-gold:hover {
-  background-color: rgba(198, 160, 82, 0.15) !important;
-  border-color: #e5c777 !important;
+  background-color: rgba(198, 160, 82, 0.12) !important;
+  border-color: #dcc280 !important;
   color: #ffffff !important;
-  transform: translateY(-2px);
+}
+
+.btn-ghost-light {
+  background-color: transparent !important;
+  color: #faf9f6 !important;
+  border: 1.5px solid rgba(250, 249, 246, 0.6) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em;
+  transition: all 0.25s ease-in-out;
+}
+.btn-ghost-light:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
 }
 
 .btn-plum {

@@ -1489,8 +1489,8 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
       { period: '2013', firm: 'Azim, Tunku Farik & Wong', role: 'General Insurance, Professional Indemnity & Banking Litigation' },
       { period: '2015', firm: 'Murali B. Pillai & Associates / K.S. Ong', role: 'Civil, Non-Motor Insurance, Medical Negligence & Divorce Claims' },
       { period: '2016', firm: 'KNM Group Berhad (Public Listed Co.)', role: 'In-house Legal Advisory, Procurement & Engineering Risk Management' },
-      { period: '2017', firm: 'Serena Paul Naveen & Associates', role: 'Partner — General Litigation Practice' },
-      { period: '2020', firm: 'Burton Tan, Syazwan & Co. (Johor)', role: 'Senior Litigation Counsel' },
+      { period: '2017–2020', firm: 'Serena Paul Naveen & Associates', role: 'Partner — General Litigation Practice' },
+      /* TODO: insert verified prior firm experience from client CV */
       { period: '2020–Present', firm: 'Messrs. Low Wah Chin & Co. (LWCCO)', role: 'Founder & Managing Partner' }
     ],
     appellateExperience: [
@@ -1542,53 +1542,102 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
 export const TESTIMONIALS_DATA: Testimonial[] = [
   {
     id: 1,
-    client_name: 'Trusted Malaysia Editorial Review',
-    title: 'Top 6 Personal Injury Lawyers in Malaysia',
+    client_name: 'Rachel Yap',
+    title: 'Client · 4 Reviews',
     location: 'Kuala Lumpur',
-    quote: 'Low Wah Chin & Co is a firm that provides high-quality legal services which exude passion, duty, integrity, and care for you as their client. They are highly commended to be professional and thorough in every case that they take up, guiding clients throughout the whole process as a whole.',
-    practice_area: 'Dispute Resolution & Injury Claims',
+    quote: 'Ms Ava Rachel Low is responsive, dedicated, overprepared mindset, articulated matters in detailed. She provided solutions in different options regardless of the complexity. She is honest and transparent about cost.',
+    practice_area: 'Commercial Advisory & Letter Writing',
     rating: 5,
-    source: 'Trusted Malaysia Review'
+    source: 'Google Maps Review (Verified)',
+    published_at: '2024-05-15T00:00:00.000Z'
   },
   {
     id: 2,
-    client_name: 'Mohammad Bin Amir',
-    title: '10 Best Law Firms in Kuala Lumpur Review',
+    client_name: 'Robow Hassan',
+    title: 'Client · 2 Reviews',
     location: 'Kuala Lumpur',
-    quote: 'Ranked among the Best for Practice of Law with Passion & Duty, Integrity & Care. We find them to be efficient, straight to the point, highly responsive, and generous with professional advice at reasonable fees. We highly recommend Messrs. Low Wah Chin & Co.',
-    practice_area: 'Comprehensive Legal Services',
+    quote: 'I thank you so immensely for giving me good legal advice on the fraud that happened to me counsel Eva. It was a pleasure speaking with you for legal counsel, your advice will assist many people facing similar issues.',
+    practice_area: 'Fraud & Financial Dispute',
     rating: 5,
-    source: 'Best in KL Feature'
+    source: 'Google Maps Review (Verified)',
+    published_at: '2024-04-10T00:00:00.000Z'
   },
   {
     id: 3,
-    client_name: 'Mr. Darren K.',
-    title: 'Commercial Property Owner',
-    location: 'Mont Kiara, KL',
-    quote: 'Ms. Ava Rachel Low provided invaluable counsel during a difficult commercial tenancy dispute and property title transfer. Her attention to detail and swift intervention saved us substantial financial losses. Highly recommended for any property matters in KL.',
-    practice_area: 'Property & Conveyancing',
+    client_name: 'Brian Oscar',
+    title: 'International Student Client',
+    location: 'Kuala Lumpur',
+    quote: 'I had a very difficult situation as an international student dealing with Visa issues, but she was very helpful, articulate and hospitable. She resolved the issue in almost an hour of her working on it.',
+    practice_area: 'Visa & Immigration Advisory',
     rating: 5,
-    source: 'Verified Client'
+    source: 'Google Maps Review (Verified)',
+    published_at: '2023-10-15T00:00:00.000Z'
   },
   {
     id: 4,
-    client_name: 'Madam S. L. Tan',
-    title: 'Family Law Client',
-    location: 'Petaling Jaya',
-    quote: 'Going through a family breakdown was the hardest period of my life. Ms. Low handled our joint petition with utmost empathy, clarity, and speed. She protected my children’s future without dragging us into unnecessary conflict.',
-    practice_area: 'Family & Divorce Law',
+    client_name: 'Jillian',
+    title: 'Private Client · 8 Reviews',
+    location: 'International / Australia',
+    quote: 'Absolutely wonderful to work with. Extremely intelligent, knowledgeable and resourceful. Fluent in English, comprehended the LAWS in Australia, consolidated and refined all aspects of a very complex case that involved 3 Wills.',
+    practice_area: 'Wills & Cross-Border Estate (3 Wills)',
     rating: 5,
-    source: 'Verified Client'
+    source: 'Google Maps Review (Verified)',
+    published_at: '2022-09-01T00:00:00.000Z'
   },
   {
     id: 5,
-    client_name: 'Managing Director, Engineering SME',
-    title: 'Corporate Client',
-    location: 'Kuala Lumpur',
-    quote: 'Her in-house experience with listed corporations gives LWCCO a rare commercial edge. They drafted our master supply contracts and successfully recovered overdue trade debts through statutory winding-up notices. Efficient and to the point.',
-    practice_area: 'Corporate Matters & Agreements',
+    client_name: 'Jerry Ho',
+    title: 'Accident Claim Client · 11 Reviews',
+    location: 'Selangor',
+    quote: 'Very responsive, also able to provide professional opinion & advice based on your briefing before asking payment. After taking their service, the lawyer investigated the case together thoroughly to victory.',
+    practice_area: 'Personal Injury & Accident Claim',
     rating: 5,
-    source: 'Corporate Client'
+    source: 'Google Maps Review (Verified)',
+    published_at: '2020-08-12T00:00:00.000Z'
+  },
+  {
+    id: 6,
+    client_name: 'Juey Fang',
+    title: 'Corporate Client · Local Guide (14 Reviews)',
+    location: 'Kuala Lumpur',
+    quote: 'My company faced an issue and Miss Low took instant action to help us solve the problem. Highly appreciate her fast response and professional letter writing for us.',
+    practice_area: 'Corporate Dispute & Letter Writing',
+    rating: 5,
+    source: 'Google Maps Review (Verified)',
+    published_at: '2022-06-20T00:00:00.000Z'
+  },
+  {
+    id: 7,
+    client_name: 'Chrisna Tanos',
+    title: 'Client · 10 Reviews',
+    location: 'Kuala Lumpur',
+    quote: 'Ava Rachel Low is a very nice and professional solicitor. She assisted me with my visa application issues with good legal drafting and explanation of the statutory settings.',
+    practice_area: 'Visa Application & Legal Drafting',
+    rating: 5,
+    source: 'Google Maps Review (Verified)',
+    published_at: '2022-05-18T00:00:00.000Z'
+  },
+  {
+    id: 8,
+    client_name: '风行资本 (Wind Capital)',
+    title: 'Cross-Border Corporate Client',
+    location: 'China / Malaysia',
+    quote: 'Coming from China, I am delighted to have found a Chinese-speaking lawyer with profound legal expertise who excels at identifying key elements in complex cases and handling matters with extreme caution.',
+    practice_area: 'Cross-Border Corporate Advisory',
+    rating: 5,
+    source: 'Google Maps Review (Verified)',
+    published_at: '2023-03-15T00:00:00.000Z'
+  },
+  {
+    id: 9,
+    client_name: 'Michael Chai',
+    title: 'Local Guide · 30 Reviews',
+    location: 'Kuala Lumpur',
+    quote: 'The service was fantastic! Very professional, attentive, patient, and friendly. A highly recommended lawyer for anyone needing trusted legal counsel.',
+    practice_area: 'General Legal Counsel',
+    rating: 5,
+    source: 'Google Maps Review (Verified)',
+    published_at: '2022-07-22T00:00:00.000Z'
   }
 ];
 
@@ -1715,3 +1764,5 @@ export const REPRESENTATIVE_MATTERS_DATA: RepresentativeMatter[] = [
     highlights: ['Order 14 Summary Judgment', 'Reciprocal Cross-Border Enforcement', 'Fast-Track Commercial Victory']
   }
 ];
+
+
