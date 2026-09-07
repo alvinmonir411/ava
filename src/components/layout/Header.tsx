@@ -8,12 +8,12 @@ import { Phone, Mail, Clock, Menu, X, ChevronDown, Scale, ShieldCheck, ArrowRigh
 import TopUtilityBar from './TopUtilityBar';
 
 const PRIMARY_PRACTICES = [
-  { href: '/practices/contract-drafting-commercial-advisory', label: 'Legal Advice & Consultation' },
-  { href: '/practices/real-estate-conveyancing', label: 'Property & Conveyancing' },
-  { href: '/practices/family-probate-estate', label: 'Family & Divorce Matters' },
-  { href: '/practices/contractual-dispute-claims', label: 'Dispute Resolution & Claims' },
-  { href: '/practices/family-probate-estate', label: 'Wills & Estate Distribution' },
-  { href: '/practices/corporate-commercial', label: 'Company Matters & Agreements' },
+  { href: '/practices/legal-advice-consultation', label: 'Legal Advice & Consultation' },
+  { href: '/practices/property-conveyancing', label: 'Property & Conveyancing' },
+  { href: '/practices/family-divorce', label: 'Family & Divorce Matters' },
+  { href: '/practices/dispute-resolution-claims', label: 'Dispute Resolution & Claims' },
+  { href: '/practices/will-estate-distribution', label: 'Wills & Estate Distribution' },
+  { href: '/practices/company-matters-agreements', label: 'Company Matters & Agreements' },
 ];
 
 const NAV_LINKS = [
