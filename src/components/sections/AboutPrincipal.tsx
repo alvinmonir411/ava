@@ -11,8 +11,8 @@ export default function AboutPrincipal() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Professional Portrait Photo in a Thin Bordered Frame/Box (5 cols) */}
           <div className="md:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-[380px] p-2 bg-white border border-[#c6a052]/40 rounded-lg shadow-md">
-              <div className="relative h-[440px] sm:h-[480px] w-full rounded overflow-hidden bg-gray-100">
+            <div className="relative w-full max-w-[360px] sm:max-w-[380px] p-2 bg-white border border-[#c6a052]/40 rounded-lg shadow-md">
+              <div className="relative h-[380px] sm:h-[440px] md:h-[480px] w-full rounded overflow-hidden bg-gray-100">
                 <Image
                   src="/lawyer-portrait-1.jpg"
                   alt="Ava Rachel Low (劉華晶) — Principal Counsel at Messrs. Low Wah Chin & Co."
@@ -40,7 +40,7 @@ export default function AboutPrincipal() {
                 <Award className="w-3.5 h-3.5 text-[#c6a052]" />
                 <span>About Us</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a2332] leading-tight">
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1a2332] leading-tight">
                 Senior Legal Counsel Anchored in Humanity & Excellence
               </h2>
             </div>
@@ -65,18 +65,18 @@ export default function AboutPrincipal() {
 
             {/* Contact Line & Read More Button */}
             <div className="pt-4 border-t border-gray-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="text-xs text-[#4b5563]">
+              <div className="text-xs text-[#4b5563] flex flex-wrap items-center gap-x-2 gap-y-1">
                 <span>Direct Inquiries: </span>
                 <a href="tel:+60175483157" className="font-semibold text-[#1a2332] hover:text-[#9d7835] transition-colors">
                   +60 17-548 3157
                 </a>
-                <span className="mx-2">•</span>
+                <span>•</span>
                 <a href="mailto:lwc.rachel@gmail.com" className="font-semibold text-[#1a2332] hover:text-[#9d7835] transition-colors">
                   lwc.rachel@gmail.com
                 </a>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <Link
                   href="/our-team"
                   className="btn-gold px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 shadow-sm"

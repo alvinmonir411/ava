@@ -76,36 +76,36 @@ export default function PracticeAreasDark() {
         </div>
 
         {/* 2-column × 3-row grid (6 cards total) with thin-bordered boxes (no fill, just border on dark bg) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 lg:gap-8">
           {PRACTICE_AREAS.map((area, idx) => {
             const Icon = area.icon;
             return (
               <Link
                 key={idx}
                 href={`/practices/${area.slug}`}
-                className="group block p-7 sm:p-8 rounded-none border border-[#c6a052]/40 bg-transparent hover:border-[#dcc280] hover:bg-[#243044]/30 transition-all duration-300"
+                className="group block p-5 sm:p-7 lg:p-8 rounded-none border border-[#c6a052]/40 bg-transparent hover:border-[#dcc280] hover:bg-[#243044]/30 transition-all duration-300"
               >
                 <div className="flex items-start justify-between gap-4 mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded border border-[#c6a052]/30 text-[#dcc280] group-hover:text-white group-hover:border-[#dcc280] transition-colors">
-                      <Icon className="w-5 h-5" />
+                    <div className="p-2 sm:p-2.5 rounded border border-[#c6a052]/30 text-[#dcc280] group-hover:text-white group-hover:border-[#dcc280] transition-colors shrink-0">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-white group-hover:text-[#dcc280] transition-colors">
+                    <h3 className="font-serif text-lg sm:text-xl md:text-2xl font-bold text-white group-hover:text-[#dcc280] transition-colors leading-snug">
                       {area.title}
                     </h3>
                   </div>
-                  <span className="text-xs font-sans text-[#c6a052]/60 font-mono tracking-widest mt-1">
+                  <span className="text-xs font-sans text-[#c6a052]/60 font-mono tracking-widest mt-1 shrink-0">
                     0{idx + 1}
                   </span>
                 </div>
 
-                <p className="text-sm sm:text-base text-[#faf9f6]/80 leading-relaxed font-light line-clamp-2 mb-4">
+                <p className="text-xs sm:text-sm md:text-base text-[#faf9f6]/80 leading-relaxed font-light line-clamp-2 mb-4">
                   {area.description}
                 </p>
 
                 <div className="flex items-center gap-1.5 text-xs uppercase font-bold tracking-wider text-[#dcc280] group-hover:translate-x-1 transition-transform">
                   <span>Explore Practice Scope</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                 </div>
               </Link>
             );
@@ -113,13 +113,13 @@ export default function PracticeAreasDark() {
         </div>
 
         {/* View All Practices CTA */}
-        <div className="mt-14 text-center">
+        <div className="mt-12 sm:mt-14 text-center">
           <Link
             href="/practices"
-            className="btn-outline-gold px-8 py-3.5 rounded-lg text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 hover:bg-[#c6a052]/20"
+            className="btn-outline-gold w-full sm:w-auto px-6 sm:px-8 py-3.5 rounded-lg text-xs font-bold uppercase tracking-wider inline-flex items-center justify-center gap-2 hover:bg-[#c6a052]/20"
           >
             <span>View Full Practice Directory & Statutes</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 shrink-0" />
           </Link>
         </div>
       </div>

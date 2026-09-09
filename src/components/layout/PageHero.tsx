@@ -45,40 +45,40 @@ export default function PageHero({
         <div className="max-w-3xl">
           {/* Breadcrumbs */}
           {breadcrumbs && breadcrumbs.length > 0 && (
-            <nav className="flex items-center gap-1.5 text-xs text-[#faf9f6]/70 mb-4" aria-label="Breadcrumb">
+            <nav className="flex flex-wrap items-center gap-1.5 text-xs text-[#faf9f6]/70 mb-4" aria-label="Breadcrumb">
               {breadcrumbs.map((item, idx) => (
                 <React.Fragment key={idx}>
-                  {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-[#c6a052]/60" />}
+                  {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-[#c6a052]/60 shrink-0" />}
                   {item.href ? (
-                    <Link href={item.href} className="hover:text-[#dcc280] transition-colors">
+                    <Link href={item.href} className="hover:text-[#dcc280] transition-colors truncate max-w-[200px]">
                       {item.label}
                     </Link>
                   ) : (
-                    <span className="text-[#dcc280] font-medium truncate">{item.label}</span>
+                    <span className="text-[#dcc280] font-medium truncate max-w-[200px]">{item.label}</span>
                   )}
                 </React.Fragment>
               ))}
-              <ChevronRight className="w-3.5 h-3.5 text-[#c6a052]/60" />
-              <span className="text-[#dcc280] font-medium truncate">{title}</span>
+              <ChevronRight className="w-3.5 h-3.5 text-[#c6a052]/60 shrink-0" />
+              <span className="text-[#dcc280] font-medium truncate max-w-[240px]">{title}</span>
             </nav>
           )}
 
           {/* Badge Pill */}
           {badge && (
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#c6a052]/40 bg-[#1a2332]/80 text-[#dcc280] text-xs font-bold uppercase tracking-[0.15em] mb-3 shadow-xs">
-              {BadgeIcon && <BadgeIcon className="w-3.5 h-3.5 text-[#c6a052]" />}
-              <span>{badge}</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#c6a052]/40 bg-[#1a2332]/80 text-[#dcc280] text-[10.5px] sm:text-xs font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] mb-3 shadow-xs max-w-full">
+              {BadgeIcon && <BadgeIcon className="w-3.5 h-3.5 text-[#c6a052] shrink-0" />}
+              <span className="truncate">{badge}</span>
             </div>
           )}
 
           {/* Large Serif Title */}
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-3 drop-shadow-sm">
+          <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-3 drop-shadow-sm">
             {title}
           </h1>
 
           {/* Subtitle */}
           {subtitle && (
-            <p className="font-serif italic text-[#dcc280] text-base sm:text-lg max-w-2xl leading-relaxed">
+            <p className="font-serif italic text-[#dcc280] text-sm sm:text-lg max-w-2xl leading-relaxed">
               &ldquo;{subtitle}&rdquo;
             </p>
           )}

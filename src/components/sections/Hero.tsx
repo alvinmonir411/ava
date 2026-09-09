@@ -23,21 +23,21 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center flex flex-col items-center">
         {/* Established Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#c6a052]/50 bg-[#1a2332]/70 text-[#dcc280] text-xs uppercase tracking-[0.2em] font-semibold mb-6 shadow-sm">
-          <Scale className="w-3.5 h-3.5 text-[#c6a052]" />
-          <span>Advocates & Solicitors • High Court of Malaya • Admitted 2011</span>
+        <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full border border-[#c6a052]/50 bg-[#1a2332]/70 text-[#dcc280] text-[10px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.2em] font-semibold mb-6 shadow-sm max-w-full text-center">
+          <Scale className="w-3.5 h-3.5 text-[#c6a052] shrink-0" />
+          <span className="truncate">Advocates & Solicitors • High Court of Malaya • Admitted 2011</span>
         </div>
 
         {/* Large Serif Headline */}
         <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.15] mb-6 drop-shadow-md">
           Messrs. Low Wah Chin & Co.
-          <span className="block text-2xl sm:text-3xl md:text-4xl text-[#dcc280] font-serif font-normal mt-2">
+          <span className="block text-xl sm:text-3xl md:text-4xl text-[#dcc280] font-serif font-normal mt-2">
             Advocates & Solicitors
           </span>
         </h1>
 
         {/* Short Tagline in lighter weight */}
-        <p className="font-serif italic text-[#f3efe6] text-lg sm:text-xl md:text-2xl font-light max-w-2xl mx-auto leading-relaxed mb-10 text-white/90">
+        <p className="font-serif italic text-[#f3efe6] text-base sm:text-xl md:text-2xl font-light max-w-2xl mx-auto leading-relaxed mb-10 text-white/90">
           &ldquo;Passion & Duty, Integrity & Care — To the Point.&rdquo;
         </p>
 
@@ -53,17 +53,17 @@ export default function Hero() {
         </div>
 
         {/* Trust Badges Bar */}
-        <div className="mt-14 pt-8 border-t border-[#c6a052]/30 w-full max-w-3xl grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-[#faf9f6]/80 font-medium">
+        <div className="mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-[#c6a052]/30 w-full max-w-3xl grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-xs text-[#faf9f6]/80 font-medium">
           <div className="flex items-center justify-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#c6a052]" />
+            <CheckCircle2 className="w-4 h-4 text-[#c6a052] shrink-0" />
             <span>Lincoln’s Inn Barrister (London)</span>
           </div>
           <div className="flex items-center justify-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#c6a052]" />
+            <CheckCircle2 className="w-4 h-4 text-[#c6a052] shrink-0" />
             <span>Malaysian Bar Council BC/L/2019</span>
           </div>
           <div className="flex items-center justify-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#c6a052]" />
+            <CheckCircle2 className="w-4 h-4 text-[#c6a052] shrink-0" />
             <span>Kuala Lumpur Chambers</span>
           </div>
         </div>

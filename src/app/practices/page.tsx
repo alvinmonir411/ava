@@ -151,20 +151,20 @@ export default async function PracticesPage() {
           </div>
 
           {/* Consultation Banner */}
-          <div className="mt-16 p-8 bg-white border border-[#c6a052]/40 rounded-lg shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div className="mt-16 p-6 sm:p-8 bg-white border border-[#c6a052]/40 rounded-lg shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div>
-              <h3 className="font-serif text-xl font-bold text-[#1a2332]">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1a2332]">
                 Need Legal Guidance on a Matter?
               </h3>
               <p className="text-xs sm:text-sm text-[#4b5563] mt-1">
                 Consult with Lincoln’s Inn Barrister & High Court Advocate Ava Rachel Low.
               </p>
             </div>
-            <div className="flex items-center gap-3">
-              <Link href="/contact" className="btn-gold px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+              <Link href="/contact" className="btn-gold px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider text-center">
                 Schedule Consultation
               </Link>
-              <WhatsAppButton variant="compact" label="WhatsApp" />
+              <WhatsAppButton variant="compact" label="WhatsApp" className="justify-center text-center" />
             </div>
           </div>
         </div>

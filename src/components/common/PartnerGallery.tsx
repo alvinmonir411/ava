@@ -63,20 +63,20 @@ export default function PartnerGallery() {
       </div>
 
       {/* 4-Image Luxury Grid */}
-      <div className="grid grid-cols-2 gap-3 sm:gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         {GALLERY_IMAGES.map((img, idx) => (
           <div
             key={idx}
             onClick={() => setSelectedImage(img)}
             className="group relative rounded-2xl overflow-hidden border border-[#c6a052]/30 bg-[#22122b] cursor-pointer shadow-md hover:border-[#c6a052] transition-all duration-300"
           >
-            <div className="relative h-44 sm:h-56 w-full overflow-hidden">
+            <div className="relative h-48 sm:h-56 w-full overflow-hidden">
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                sizes="(max-width: 768px) 50vw, 25vw"
-                className="object-cover object-top group-hover:scale-108 transition-transform duration-700 brightness-95"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                className="object-cover object-top group-hover:scale-105 transition-transform duration-700 brightness-95"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#170b1e] via-[#170b1e]/20 to-transparent" />
               
@@ -107,14 +107,14 @@ export default function PartnerGallery() {
       {/* Lightbox Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 bg-[#170b1e]/90 backdrop-blur-md flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-[#170b1e]/90 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
           onClick={() => setSelectedImage(null)}
         >
           <div
-            className="relative max-w-lg w-full bg-[#22122b] border-2 border-[#c6a052]/60 rounded-2xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200"
+            className="relative max-w-lg w-full max-h-[90vh] bg-[#22122b] border-2 border-[#c6a052]/60 rounded-2xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200 flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative h-96 sm:h-[480px] w-full bg-[#170b1e]">
+            <div className="relative h-64 sm:h-80 md:h-96 w-full bg-[#170b1e] shrink-0">
               <Image
                 src={selectedImage.src}
                 alt={selectedImage.alt}
@@ -125,16 +125,17 @@ export default function PartnerGallery() {
               <button
                 type="button"
                 onClick={() => setSelectedImage(null)}
+                aria-label="Close image modal"
                 className="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#170b1e]/80 text-white hover:text-[#e5c777] flex items-center justify-center border border-[#c6a052]/40 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <div className="p-5 bg-[#22122b] text-white">
+            <div className="p-4 sm:p-5 bg-[#22122b] text-white overflow-y-auto">
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#e5c777] block mb-1">
                 {selectedImage.badge}
               </span>
-              <h4 className="font-serif text-lg sm:text-xl font-bold text-[#faf9f6]">
+              <h4 className="font-serif text-base sm:text-xl font-bold text-[#faf9f6]">
                 {selectedImage.title}
               </h4>
               <p className="text-xs sm:text-sm text-[#faf9f6]/80 mt-1">

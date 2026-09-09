@@ -40,13 +40,13 @@ export default function GoogleReviewsSection() {
         </div>
 
         {/* Google Score & Chambers Trust Card */}
-        <div className="bg-[#101826] border-2 border-[#c6a052]/40 rounded-xl p-6 sm:p-8 mb-12 shadow-2xl">
+        <div className="bg-[#101826] border-2 border-[#c6a052]/40 rounded-xl p-5 sm:p-8 mb-12 shadow-2xl">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
             {/* Left: 5.0 Rating Display */}
-            <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-left">
               {/* Google G Logo Badge */}
-              <div className="w-20 h-20 rounded-2xl bg-white p-3 flex items-center justify-center shadow-md shrink-0">
-                <svg className="w-12 h-12" viewBox="0 0 24 24">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-2.5 sm:p-3 flex items-center justify-center shadow-md shrink-0">
+                <svg className="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 24 24">
                   <path
                     fill="#4285F4"
                     d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -68,16 +68,16 @@ export default function GoogleReviewsSection() {
 
               <div>
                 <div className="flex items-center justify-center sm:justify-start gap-2">
-                  <span className="font-serif text-4xl sm:text-5xl font-bold text-[#dcc280]">
+                  <span className="font-serif text-3xl sm:text-5xl font-bold text-[#dcc280]">
                     {GOOGLE_REVIEWS_META.rating.toFixed(1)}
                   </span>
                   <div className="flex flex-col items-start">
                     <div className="flex items-center gap-1 text-[#c6a052]">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-[#c6a052] text-[#c6a052]" />
+                        <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-[#c6a052] text-[#c6a052]" />
                       ))}
                     </div>
-                    <span className="text-xs text-[#faf9f6]/70 uppercase tracking-widest mt-1 font-semibold">
+                    <span className="text-[10px] sm:text-xs text-[#faf9f6]/70 uppercase tracking-widest mt-1 font-semibold">
                       34 Google Reviews · 100% 5-Star
                     </span>
                   </div>
@@ -85,32 +85,32 @@ export default function GoogleReviewsSection() {
                 <p className="text-xs text-[#faf9f6]/80 mt-2 line-clamp-1">
                   {GOOGLE_REVIEWS_META.business_name}
                 </p>
-                <p className="text-[11px] text-[#dcc280] font-mono mt-0.5">
+                <p className="text-[10.5px] sm:text-[11px] text-[#dcc280] font-mono mt-0.5">
                   Colony @ KLCC, 6 Jalan Kia Peng, 50450 Kuala Lumpur
                 </p>
               </div>
             </div>
 
             {/* Right: Direct Review Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto">
               <a
                 href={GOOGLE_REVIEWS_META.review_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#c6a052] text-[#1a2332] font-semibold text-xs sm:text-sm hover:bg-[#dcc280] transition-colors shadow-lg group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#c6a052] text-[#1a2332] font-semibold text-xs sm:text-sm hover:bg-[#dcc280] transition-colors shadow-lg group text-center"
               >
                 <span>Write a Review on Google</span>
-                <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
               </a>
 
               <a
                 href={GOOGLE_REVIEWS_META.google_maps_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#243044] text-[#faf9f6] border border-[#c6a052]/40 font-semibold text-xs sm:text-sm hover:bg-[#2c3b52] hover:text-[#dcc280] transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#243044] text-[#faf9f6] border border-[#c6a052]/40 font-semibold text-xs sm:text-sm hover:bg-[#2c3b52] hover:text-[#dcc280] transition-colors text-center"
               >
                 <span>View on Google Maps</span>
-                <ExternalLink className="w-3.5 h-3.5 text-[#c6a052]" />
+                <ExternalLink className="w-3.5 h-3.5 text-[#c6a052] shrink-0" />
               </a>
             </div>
           </div>

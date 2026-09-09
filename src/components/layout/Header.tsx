@@ -59,14 +59,14 @@ export default function Header() {
           {/* Left: Firm Name / Logo as Text Wordmark (Serif, Letter-spaced) */}
           <Link href="/" className="flex flex-col group">
             <div className="flex items-baseline gap-2">
-              <span className="font-serif text-2xl sm:text-3xl font-bold tracking-[0.2em] text-[#1a2332] group-hover:text-[#9d7835] transition-colors">
+              <span className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.14em] sm:tracking-[0.2em] text-[#1a2332] group-hover:text-[#9d7835] transition-colors">
                 LWCCO
               </span>
               <span className="text-xs font-serif italic text-[#9d7835] font-medium hidden sm:inline">
                 Messrs. Low Wah Chin & Co.
               </span>
             </div>
-            <span className="text-[9px] sm:text-[10px] uppercase font-sans tracking-[0.25em] text-[#4b5563] font-medium -mt-0.5">
+            <span className="text-[8.5px] sm:text-[10px] uppercase font-sans tracking-[0.2em] sm:tracking-[0.25em] text-[#4b5563] font-medium -mt-0.5">
               Advocates & Solicitors
             </span>
           </Link>
@@ -186,7 +186,7 @@ export default function Header() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-200 px-4 pt-3 pb-6 space-y-3 animate-in slide-in-from-top-3 duration-200 shadow-xl">
+          <div className="lg:hidden bg-white border-t border-gray-200 px-4 pt-3 pb-6 space-y-3 animate-in slide-in-from-top-3 duration-200 shadow-xl max-h-[calc(100vh-80px)] overflow-y-auto">
             <div className="space-y-1">
               {NAV_LINKS.map((link, index) => {
                 const isActive =
