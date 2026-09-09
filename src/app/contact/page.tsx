@@ -6,13 +6,17 @@ import ContactSection from '@/components/sections/ContactSection';
 import { Building, MapPin, Phone, Mail, Clock, ShieldCheck, Navigation } from 'lucide-react';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
 
+import { getFirmSettings } from '@/actions/settingsActions';
+
 export const metadata = constructMetadata({
   title: 'Contact Chambers & Schedule Consultation | Messrs. Low Wah Chin & Co.',
   description: 'Contact Messrs. Low Wah Chin & Co. Advocates & Solicitors. Located at Colony @ KLCC, Vipod Residences, Jalan Kia Peng, Kuala Lumpur. Call +60 17-548 3157.',
   canonicalUrl: `${SITE_CONFIG.url}/contact`,
 });
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const settings = await getFirmSettings();
+
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: SITE_CONFIG.url },
     { name: 'Contact Us', url: `${SITE_CONFIG.url}/contact` },
@@ -27,7 +31,7 @@ export default function ContactPage() {
         subtitle="Prompt, Confidential & Accessible Legal Representation"
         badge="Kuala Lumpur Chambers • Colony @ KLCC"
         breadcrumbs={[{ label: 'Home', href: '/' }]}
-        bgImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85"
+        bgImage={settings.heroImages?.contactHeroImage || "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85"}
       />
 
       {/* Main Contact Section */}

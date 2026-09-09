@@ -6,6 +6,8 @@ import PageHero from '@/components/layout/PageHero';
 import ArticleCard from '@/components/cards/ArticleCard';
 import { BookOpen, Sparkles, Award } from 'lucide-react';
 
+import { getFirmSettings } from '@/actions/settingsActions';
+
 export const metadata = constructMetadata({
   title: 'Legal Insights, Articles & Industry Reviews | Messrs. Low Wah Chin & Co.',
   description: 'Read legal analysis, industry recognitions, and statutory guides on Personal Injury, Property Conveyancing, Divorce, and Commercial Litigation in Malaysia by Low, Wah Chin & Co.',
@@ -13,6 +15,7 @@ export const metadata = constructMetadata({
 });
 
 export default async function ArticlesPage() {
+  const settings = await getFirmSettings();
   const articles = await getArticles();
   const featuredArticle = articles[0];
   const regularArticles = articles.slice(1);
@@ -32,7 +35,7 @@ export default async function ArticlesPage() {
         badge="Legal Insights & Accolades"
         badgeIcon={BookOpen}
         breadcrumbs={[{ label: 'Home', href: '/' }]}
-        bgImage="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=2000&q=85"
+        bgImage={settings.heroImages?.articlesHeroImage || "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=2000&q=85"}
       />
 
       {/* Main Articles Listing (Light Section) */}

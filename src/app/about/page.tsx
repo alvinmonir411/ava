@@ -22,13 +22,17 @@ import {
   GraduationCap,
 } from 'lucide-react';
 
+import { getFirmSettings } from '@/actions/settingsActions';
+
 export const metadata = constructMetadata({
   title: 'About Our Law Firm | Messrs. Low Wah Chin & Co. (LWCCO)',
   description: 'Learn about the heritage, judicial philosophy, and courtroom track record of Messrs. Low Wah Chin & Co., founded by Lincoln’s Inn Barrister Low Wah Chin (Ava Rachel).',
   canonicalUrl: `${SITE_CONFIG.url}/about`,
 });
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const settings = await getFirmSettings();
+
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: SITE_CONFIG.url },
     { name: 'About Us', url: `${SITE_CONFIG.url}/about` },
@@ -44,7 +48,7 @@ export default function AboutPage() {
         subtitle="Passion & Duty, Integrity & Care — To the Point."
         badge="Advocates & Solicitors • High Court of Malaya"
         breadcrumbs={[{ label: 'Home', href: '/' }]}
-        bgImage="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=85"
+        bgImage={settings.heroImages?.aboutHeroImage || "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=85"}
       />
 
       {/* 1. Main Firm Narrative & Principal Counsel (Light Section) */}

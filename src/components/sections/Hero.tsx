@@ -3,22 +3,28 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Scale, CheckCircle2 } from 'lucide-react';
 
-export default function Hero() {
+interface HeroProps {
+  bgImage?: string;
+}
+
+export default function Hero({
+  bgImage = 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2000&q=85',
+}: HeroProps) {
   return (
     <section className="relative w-full min-h-[80vh] lg:min-h-[85vh] flex items-center justify-center bg-[#1a2332] text-[#faf9f6] overflow-hidden">
-      {/* Full-width background image with dark overlay */}
+      {/* Full-width background image with balanced high-visibility overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2000&q=85"
+          src={bgImage}
           alt="Messrs. Low Wah Chin & Co. Advocates & Solicitors Kuala Lumpur Courtroom"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center brightness-90 contrast-105"
+          className="object-cover object-center opacity-85 sm:opacity-90 brightness-95 contrast-105"
         />
-        {/* Layered dark navy overlay for high readability */}
-        <div className="absolute inset-0 bg-[#101826]/80" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#101826] via-transparent to-[#101826]/60" />
+        {/* Layered dark navy overlay balanced for rich contrast and full image visibility */}
+        <div className="absolute inset-0 bg-[#101826]/65" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#101826]/90 via-transparent to-[#101826]/40" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center flex flex-col items-center">

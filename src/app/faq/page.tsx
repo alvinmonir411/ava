@@ -8,13 +8,17 @@ import ConsultationForm from '@/components/forms/ConsultationForm';
 import { HelpCircle, Phone } from 'lucide-react';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
 
+import { getFirmSettings } from '@/actions/settingsActions';
+
 export const metadata = constructMetadata({
   title: 'Frequently Asked Questions (FAQ) | Messrs. Low Wah Chin & Co.',
   description: 'Find answers to common legal questions regarding consultations, fees, court proceedings, personal injury claims, property conveyancing, and divorce law in Malaysia.',
   canonicalUrl: `${SITE_CONFIG.url}/faq`,
 });
 
-export default function FaqPage() {
+export default async function FaqPage() {
+  const settings = await getFirmSettings();
+
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: SITE_CONFIG.url },
     { name: 'Frequently Asked Questions', url: `${SITE_CONFIG.url}/faq` },
@@ -32,7 +36,7 @@ export default function FaqPage() {
         badge="Client Guidance & Clarity"
         badgeIcon={HelpCircle}
         breadcrumbs={[{ label: 'Home', href: '/' }]}
-        bgImage="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=2000&q=85"
+        bgImage={settings.heroImages?.faqHeroImage || "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=2000&q=85"}
       />
 
       {/* Main FAQ Section (Light Section) */}

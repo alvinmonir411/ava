@@ -34,6 +34,8 @@ import {
   Building,
 } from 'lucide-react';
 
+import { getFirmSettings } from '@/actions/settingsActions';
+
 export const metadata = constructMetadata({
   title: 'Managing Partner Low Wah Chin (Ava Rachel) 劉華晶 | Messrs. Low Wah Chin & Co.',
   description: 'Meet founder Low Wah Chin (Ava Rachel) 劉華晶, Lincoln’s Inn Barrister & High Court Advocate. 13+ years of trial, corporate advisory, appellate litigation, and conveyancing experience.',
@@ -41,6 +43,7 @@ export const metadata = constructMetadata({
 });
 
 export default async function OurTeamPage() {
+  const settings = await getFirmSettings();
   const team = await getTeamMembers();
   const leader = team[0] || TEAM_MEMBERS_DATA[0];
   const matters = (await getRepresentativeMatters()) || REPRESENTATIVE_MATTERS_DATA;
@@ -71,7 +74,7 @@ export default async function OurTeamPage() {
         subtitle="Where classical British Barrister trial craft meets 13+ years of Malaysian High Court, corporate, and conveyancing mastery."
         badge="Senior Chambers Leadership • Kuala Lumpur"
         breadcrumbs={[{ label: 'Home', href: '/' }]}
-        bgImage="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=85"
+        bgImage={settings.heroImages?.ourTeamHeroImage || "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85"}
       />
 
       {/* Main Leader Showcase Profile */}

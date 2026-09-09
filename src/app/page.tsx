@@ -8,16 +8,18 @@ import FirmOverview from '@/components/sections/FirmOverview';
 import ContactSection from '@/components/sections/ContactSection';
 import JsonLd from '@/components/common/JsonLd';
 import { getLegalServiceSchema } from '@/lib/metadata';
+import { getFirmSettings } from '@/actions/settingsActions';
 
 export default async function HomePage() {
   const legalServiceSchema = getLegalServiceSchema();
+  const settings = await getFirmSettings();
 
   return (
     <>
       <JsonLd data={legalServiceSchema} />
 
-      {/* 1. Hero Section (Full-width Dark) */}
-      <Hero />
+      {/* 1. Hero Section (Full-width Dark with dynamic admin-managed background) */}
+      <Hero bgImage={settings.heroImages?.homeHeroImage} />
 
       {/* 2. About the Principal Lawyer (Light Two-Column) */}
       <AboutPrincipal />
@@ -39,4 +41,3 @@ export default async function HomePage() {
     </>
   );
 }
-

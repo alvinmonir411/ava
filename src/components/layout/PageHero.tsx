@@ -27,18 +27,19 @@ export default function PageHero({
 }: PageHeroProps) {
   return (
     <section className="relative w-full bg-[#1a2332] text-[#faf9f6] py-14 sm:py-18 overflow-hidden border-b border-[#c6a052]/30">
-      {/* Background Image with Dark Navy Overlay */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Image with Enhanced Visibility and Contrast */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
           src={bgImage}
           alt={title}
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center opacity-30 brightness-85 contrast-110"
+          className="object-cover object-center opacity-80 sm:opacity-85 brightness-95 contrast-105"
         />
-        <div className="absolute inset-0 bg-[#101826]/85" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#101826] via-transparent to-[#101826]/40" />
+        {/* Directional gradient protecting text readability while keeping the image fully visible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#101826]/90 via-[#101826]/75 to-[#101826]/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#101826]/90 via-transparent to-[#101826]/30" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

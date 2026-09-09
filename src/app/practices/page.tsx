@@ -9,6 +9,8 @@ import PracticeCard from '@/components/cards/PracticeCard';
 import { Scale, ArrowRight, ShieldCheck, CheckCircle2, Phone, Briefcase, Building2, Users, FileCheck, Shield } from 'lucide-react';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
 
+import { getFirmSettings } from '@/actions/settingsActions';
+
 export const metadata = constructMetadata({
   title: 'Practice Areas & Legal Disciplines | Messrs. Low Wah Chin & Co.',
   description: 'Explore the full legal disciplines of Messrs. Low Wah Chin & Co. Advocates & Solicitors in Kuala Lumpur. Corporate Advisory, Conveyancing, Family Divorce, Estate Probate, Employment Law & Commercial Litigation.',
@@ -55,6 +57,7 @@ const PRIMARY_SIX = [
 ];
 
 export default async function PracticesPage() {
+  const settings = await getFirmSettings();
   const practiceAreas = await getPracticeAreas();
 
   const breadcrumbSchema = getBreadcrumbSchema([
@@ -71,7 +74,7 @@ export default async function PracticesPage() {
         subtitle="Comprehensive Legal Protection for Individuals, Families & Enterprises"
         badge="Advocates & Solicitors • High Court of Malaya"
         breadcrumbs={[{ label: 'Home', href: '/' }]}
-        bgImage="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=2000&q=85"
+        bgImage={settings.heroImages?.practicesHeroImage || "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=2000&q=85"}
       />
 
       {/* 1. Tradition of Talent: 6 Core Practice Disciplines (Full-Width Dark Navy Section) */}
