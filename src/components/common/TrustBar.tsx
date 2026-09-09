@@ -9,8 +9,8 @@ export default function TrustBar({ className = '' }: TrustBarProps) {
   const trustSignals = [
     {
       icon: ShieldCheck,
-      title: '15+ Years Court Practice',
-      subtitle: 'Called to Bar 2011',
+      title: '13+ Years Post-Call Practice',
+      subtitle: 'Called to Bar Nov 2011',
     },
     {
       icon: Landmark,

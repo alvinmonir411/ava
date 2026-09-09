@@ -2,11 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getTeamMembers, getRepresentativeMatters } from '@/db';
-import { TEAM_MEMBERS_DATA } from '@/db/seedData';
+import { TEAM_MEMBERS_DATA, REPRESENTATIVE_MATTERS_DATA } from '@/db/seedData';
 import { constructMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/metadata';
 import JsonLd from '@/components/common/JsonLd';
 import PageHero from '@/components/layout/PageHero';
-import ConsultationForm from '@/components/forms/ConsultationForm';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
 import {
   Scale,
@@ -20,26 +19,43 @@ import {
   Building2,
   FileText,
   Phone,
+  Mail,
+  MapPin,
+  Globe,
   ArrowRight,
   Sparkles,
+  HeartHandshake,
+  Languages,
+  BookOpen,
+  FolderGit2,
+  UserCheck,
+  Gavel,
+  Check,
+  Building,
 } from 'lucide-react';
 
 export const metadata = constructMetadata({
-  title: 'Managing Partner Ava Rachel Low (刘华律师) | Messrs. Low Wah Chin & Co.',
-  description: 'Meet founder Ava Rachel Low (刘华律师), Lincoln’s Inn Barrister & High Court Advocate. 15+ years of trial and appellate experience in civil, banking, corporate, and estate litigation.',
+  title: 'Managing Partner Low Wah Chin (Ava Rachel) 劉華晶 | Messrs. Low Wah Chin & Co.',
+  description: 'Meet founder Low Wah Chin (Ava Rachel) 劉華晶, Lincoln’s Inn Barrister & High Court Advocate. 13+ years of trial, corporate advisory, appellate litigation, and conveyancing experience.',
   canonicalUrl: `${SITE_CONFIG.url}/our-team`,
 });
 
 export default async function OurTeamPage() {
   const team = await getTeamMembers();
   const leader = team[0] || TEAM_MEMBERS_DATA[0];
-  const matters = await getRepresentativeMatters();
+  const matters = (await getRepresentativeMatters()) || REPRESENTATIVE_MATTERS_DATA;
 
   const credentials = leader.credentials || TEAM_MEMBERS_DATA[0].credentials;
   const careerHistory = leader.careerHistory || TEAM_MEMBERS_DATA[0].careerHistory || [];
+  const detailedCareer = leader.detailedCareerHistory || TEAM_MEMBERS_DATA[0].detailedCareerHistory || [];
+  const educationHistory = leader.educationHistory || TEAM_MEMBERS_DATA[0].educationHistory || [];
+  const earlyCareer = leader.earlyCareerAndInternships || TEAM_MEMBERS_DATA[0].earlyCareerAndInternships || [];
+  const activities = leader.activitiesAndAchievements || TEAM_MEMBERS_DATA[0].activitiesAndAchievements || [];
+  const skills = leader.skills || TEAM_MEMBERS_DATA[0].skills || [];
+  const languages = leader.languages || TEAM_MEMBERS_DATA[0].languages || [];
   const appellateExperience = leader.appellateExperience || TEAM_MEMBERS_DATA[0].appellateExperience || [];
   const bioParagraphs = Array.isArray(leader.bio) ? leader.bio : [leader.bio];
-  const photoUrl: string = leader.photo_url || '/lawyer-hero.jpg';
+  const photoUrl: string = leader.photo_url || '/lawyer-portrait-1.jpg';
 
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: SITE_CONFIG.url },
@@ -52,74 +68,159 @@ export default async function OurTeamPage() {
 
       <PageHero
         title="Our Leadership & Principal Counsel"
-        subtitle="Where legal mastery meets the art of strategy—navigating complexity with poise, discretion, and unwavering clarity."
+        subtitle="Where classical British Barrister trial craft meets 13+ years of Malaysian High Court, corporate, and conveyancing mastery."
         badge="Senior Chambers Leadership • Kuala Lumpur"
         breadcrumbs={[{ label: 'Home', href: '/' }]}
         bgImage="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=85"
       />
 
-      {/* 1. Leader Bio Profile (Light Section) */}
-      <section className="py-20 lg:py-28 bg-[#faf9f6] text-[#231f20] border-b border-[#e5e7eb]">
+      {/* Main Leader Showcase Profile */}
+      <section className="py-16 sm:py-24 bg-[#faf9f6] text-[#231f20] border-b border-[#e5e7eb]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            {/* Left Column: Portrait & Bar Badges (5 cols) */}
-            <div className="lg:col-span-5 static lg:sticky lg:top-28 space-y-6">
-              <div className="relative w-full max-w-[400px] mx-auto p-2 bg-white border border-[#c6a052]/40 rounded-lg shadow-md">
-                <div className="relative h-[480px] w-full rounded overflow-hidden bg-gray-100">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            
+            {/* Left Column: Sticky Profile Card (5 cols) */}
+            <div className="lg:col-span-5 static lg:sticky lg:top-24 space-y-6">
+              <div className="relative w-full max-w-[420px] mx-auto p-2 bg-white border border-[#c6a052]/40 rounded-xl shadow-lg">
+                <div className="relative h-[480px] sm:h-[520px] w-full rounded-lg overflow-hidden bg-gray-100">
                   <Image
                     src={photoUrl}
-                    alt="Ava Rachel Low (刘华律师) Advocate & Solicitor"
+                    alt="Low Wah Chin (Ava Rachel) 劉華晶 Advocate & Solicitor Messrs. Low Wah Chin & Co."
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover object-top"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#101826]/90 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded bg-[#1a2332]/95 border border-[#c6a052]/40 text-[#faf9f6]">
-                    <div className="flex items-center justify-between mb-0.5">
-                      <h2 className="font-serif text-lg font-bold text-white">
-                        {leader.name}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#101826]/95 via-[#101826]/20 to-transparent" />
+                  
+                  {/* Overlay Nameplate */}
+                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-lg bg-[#1a2332]/95 border border-[#c6a052]/50 text-[#faf9f6] backdrop-blur-md">
+                    <div className="flex items-baseline justify-between mb-1">
+                      <h2 className="font-serif text-xl font-bold text-white tracking-tight">
+                        Low Wah Chin <span className="text-sm font-normal text-[#e5c777]">(Ava Rachel)</span>
                       </h2>
-                      <span className="font-serif text-xs text-[#dcc280]">刘华律师</span>
+                      <span className="font-serif text-sm font-bold text-[#e5c777]">劉華晶</span>
                     </div>
-                    <p className="text-[#dcc280] text-[11px] font-semibold">
-                      Founder & Principal Counsel
+                    <p className="text-[#dcc280] text-xs font-semibold">
+                      Founder & Principal Legal Practitioner
                     </p>
-                    <p className="text-[10px] text-[#faf9f6]/70 mt-0.5">
-                      Lincoln’s Inn Barrister (UK) • High Court of Malaya (BC/L/2019)
+                    <p className="text-[11px] text-[#faf9f6]/80 mt-1 flex items-center gap-1.5">
+                      <Scale className="w-3.5 h-3.5 text-[#c6a052] shrink-0" />
+                      <span>Lincoln’s Inn Barrister (UK) • High Court of Malaya</span>
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Admissions & Academic Degrees */}
-              <div className="bg-white p-5 rounded-lg border border-[#e8e1d5] space-y-3 shadow-xs text-xs">
-                <h3 className="font-serif font-bold text-[#1a2332] uppercase tracking-wider border-b border-gray-100 pb-2 flex items-center gap-2">
-                  <GraduationCap className="w-4 h-4 text-[#c6a052]" />
-                  <span>Academic Qualifications & Admissions</span>
+              {/* Verified Admissions Card */}
+              <div className="bg-white p-5 rounded-xl border border-[#e8e1d5] space-y-3.5 shadow-sm text-xs">
+                <h3 className="font-serif font-bold text-[#1a2332] uppercase tracking-wider border-b border-gray-100 pb-2.5 flex items-center gap-2">
+                  <Landmark className="w-4 h-4 text-[#c6a052]" />
+                  <span>Statutory Bar Admissions</span>
                 </h3>
-                <ul className="space-y-2 text-[#4b5563]">
-                  {credentials.map((cred: string, idx: number) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#c6a052] mt-0.5 shrink-0" />
-                      <span>{cred}</span>
-                    </li>
+                <div className="space-y-2.5">
+                  <div className="p-3 bg-[#faf9f6] rounded-lg border border-[#e8e1d5]">
+                    <span className="font-mono text-[10px] font-bold text-[#9d7835] block mb-0.5">11TH NOVEMBER 2011</span>
+                    <strong className="text-[#1a2332] block font-serif text-xs">Advocate & Solicitor</strong>
+                    <span className="text-[#6b7280]">The High Court of Malaya, Malaysia</span>
+                  </div>
+                  <div className="p-3 bg-[#faf9f6] rounded-lg border border-[#e8e1d5]">
+                    <span className="font-mono text-[10px] font-bold text-[#9d7835] block mb-0.5">14TH OCTOBER 2010</span>
+                    <strong className="text-[#1a2332] block font-serif text-xs">Barrister-at-Law (Non-Practicing)</strong>
+                    <span className="text-[#6b7280]">The Honourable Society of Lincoln’s Inn, London, United Kingdom</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Direct Contact & Chambers Card */}
+              <div className="bg-white p-5 rounded-xl border border-[#e8e1d5] space-y-3.5 shadow-sm text-xs">
+                <h3 className="font-serif font-bold text-[#1a2332] uppercase tracking-wider border-b border-gray-100 pb-2.5 flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-[#c6a052]" />
+                  <span>Direct Chambers Contact</span>
+                </h3>
+                <div className="space-y-2 text-[#4b5563]">
+                  <div className="flex items-center gap-2.5">
+                    <Phone className="w-3.5 h-3.5 text-[#c6a052] shrink-0" />
+                    <a href="tel:+60175483157" className="font-semibold text-[#1a2332] hover:text-[#9d7835] transition-colors">
+                      +60 17-548 3157
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <Mail className="w-3.5 h-3.5 text-[#c6a052] shrink-0" />
+                    <a href="mailto:lwc.rachel@gmail.com" className="font-semibold text-[#1a2332] hover:text-[#9d7835] transition-colors">
+                      lwc.rachel@gmail.com
+                    </a>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#c6a052] shrink-0 mt-0.5" />
+                    <span className="leading-snug">
+                      Colony @ KLCC, Level 1, Vipod Residences, 6 Jalan Kia Peng, 50450 Kuala Lumpur
+                    </span>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-col gap-2">
+                  <WhatsAppButton variant="compact" label="Direct WhatsApp Inquiry" />
+                  <Link
+                    href="/contact"
+                    className="w-full text-center py-2.5 rounded-lg border border-[#c6a052] text-[#9d7835] hover:bg-[#c6a052]/10 font-bold uppercase tracking-wider text-[11px] transition-colors"
+                  >
+                    Schedule Consultation
+                  </Link>
+                </div>
+              </div>
+
+              {/* Language Proficiencies */}
+              <div className="bg-white p-5 rounded-xl border border-[#e8e1d5] space-y-3 shadow-sm text-xs">
+                <h3 className="font-serif font-bold text-[#1a2332] uppercase tracking-wider border-b border-gray-100 pb-2 flex items-center gap-2">
+                  <Languages className="w-4 h-4 text-[#c6a052]" />
+                  <span>Language Capabilities</span>
+                </h3>
+                <div className="grid grid-cols-2 gap-2">
+                  {languages.map((lang, idx) => (
+                    <div key={idx} className="p-2.5 rounded bg-[#faf9f6] border border-[#e8e1d5]">
+                      <strong className="text-[#1a2332] block font-serif text-xs">{lang.language}</strong>
+                      <span className="text-[10px] text-[#6b7280]">{lang.proficiency}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
+              </div>
+
+              {/* Core Skills & Competencies */}
+              <div className="bg-white p-5 rounded-xl border border-[#e8e1d5] space-y-3 shadow-sm text-xs">
+                <h3 className="font-serif font-bold text-[#1a2332] uppercase tracking-wider border-b border-gray-100 pb-2 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-[#c6a052]" />
+                  <span>Core Legal Competencies</span>
+                </h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {skills.map((skill, idx) => (
+                    <span
+                      key={idx}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#faf9f6] border border-[#e8e1d5] text-[#374151] text-[11px]"
+                    >
+                      <Check className="w-3 h-3 text-[#c6a052] shrink-0" />
+                      <span>{skill}</span>
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Right Column: Bio Narrative, Career History & Appellate Record (7 cols) */}
-            <div className="lg:col-span-7 space-y-10">
-              {/* Leader Narrative */}
+            {/* Right Column: Narrative, Career History, Education, Cases & Activities (7 cols) */}
+            <div className="lg:col-span-7 space-y-12">
+              
+              {/* 1. Executive Bio & Judicial Philosophy */}
               <div>
                 <div className="inline-flex items-center gap-2 text-[#9d7835] text-xs font-bold uppercase tracking-[0.2em] mb-2">
                   <Award className="w-3.5 h-3.5 text-[#c6a052]" />
-                  <span>Chambers Leadership</span>
+                  <span>Principal Counsel Profile</span>
                 </div>
-                <h3 className="font-serif text-3xl font-bold text-[#1a2332] leading-tight mb-4">
-                  Fearless Advocacy Grounded in Meticulous Preparation
-                </h3>
+                <h1 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a2332] leading-tight mb-4">
+                  Fearless Courtroom Advocacy Grounded in Deliberate Preparation
+                </h1>
+                <div className="p-4 bg-white border-l-4 border-[#c6a052] rounded-r-lg border border-gray-200 text-xs sm:text-sm text-[#1a2332] font-medium leading-relaxed shadow-xs mb-5">
+                  <strong>Low Wah Chin (Ava Rachel) 劉華晶</strong> brings Thirteen (13) years of post-qualification experience across civil, insurance, company, family & divorce, medical negligence, personal injury, property conveyancing, and will & estate distribution law practice with established Malaysian benchmark firms, listed multinational corporate counsel, and sole proprietorship practice.
+                </div>
                 <div className="space-y-4 text-sm sm:text-base text-[#374151] leading-relaxed">
                   {bioParagraphs.map((para: string, idx: number) => (
                     <p key={idx}>{para}</p>
@@ -127,71 +228,265 @@ export default async function OurTeamPage() {
                 </div>
               </div>
 
-              {/* Appellate Record & Practical Practice Areas */}
-              {appellateExperience && appellateExperience.length > 0 && (
-                <div className="p-6 sm:p-8 rounded-lg bg-white border border-[#e8e1d5] shadow-xs space-y-5">
-                  <h4 className="font-serif text-xl font-bold text-[#1a2332] flex items-center gap-2 border-b border-gray-100 pb-3">
-                    <Landmark className="w-5 h-5 text-[#c6a052]" />
-                    <span>Appellate & Trial Practice Record</span>
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                    {appellateExperience.map((item, idx) => (
-                      <div key={idx} className="p-3.5 rounded bg-[#faf9f6] border border-[#e8e1d5] text-xs">
-                        <span className="font-mono text-[10px] font-bold text-[#9d7835] uppercase block mb-1">
-                          Branch {item.code || idx + 1}
-                        </span>
-                        <h5 className="font-serif font-bold text-sm text-[#1a2332] mb-1">
-                          {item.title}
-                        </h5>
-                        <p className="text-[#4b5563] leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Career Milestone History */}
-              {careerHistory && careerHistory.length > 0 && (
-                <div className="p-6 sm:p-8 rounded-lg bg-white border border-[#e8e1d5] shadow-xs space-y-5">
-                  <h4 className="font-serif text-xl font-bold text-[#1a2332] flex items-center gap-2 border-b border-gray-100 pb-3">
+              {/* 2. Detailed Career Trajectory & Law Firm Experience (Full CV Breakdown) */}
+              <div className="p-6 sm:p-8 rounded-xl bg-white border border-[#e8e1d5] shadow-xs space-y-6">
+                <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1a2332] flex items-center gap-2.5">
                     <Briefcase className="w-5 h-5 text-[#c6a052]" />
                     <span>Practice History & Institutional Trajectory</span>
-                  </h4>
-                  <div className="space-y-3">
-                    {careerHistory.map((hist, hIdx) => (
-                      <div
-                        key={hIdx}
-                        className="flex items-start gap-3.5 p-3 rounded bg-[#faf9f6] border border-[#e8e1d5] text-xs"
-                      >
-                        <span className="font-mono font-bold text-[#9d7835] shrink-0 w-24">
-                          {hist.period}
-                        </span>
-                        <div className="flex-1">
-                          <strong className="text-[#1a2332] block font-serif text-xs sm:text-sm">
-                            {hist.firm}
-                          </strong>
-                          <span className="text-[#6b7280]">{hist.role}</span>
-                        </div>
-                      </div>
-                    ))}
-                    {/* TODO: insert verified prior firm experience from client CV */}
-                  </div>
+                  </h3>
+                  <span className="text-xs font-mono font-bold text-[#9d7835] bg-[#faf9f6] px-2.5 py-1 rounded border border-[#e8e1d5]">
+                    2010 – PRESENT
+                  </span>
                 </div>
-              )}
 
-              {/* Direct Actions */}
-              <div className="pt-4 border-t border-gray-200 flex flex-wrap gap-4">
-                <Link
-                  href="/contact"
-                  className="btn-gold px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 shadow-sm"
-                >
-                  <span>Request Consultation</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-                <WhatsAppButton variant="compact" label="Direct WhatsApp" />
+                <div className="space-y-6">
+                  {detailedCareer.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="p-5 rounded-lg bg-[#faf9f6] border border-[#e8e1d5] hover:border-[#c6a052] transition-colors space-y-3"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1.5 pb-2 border-b border-[#e8e1d5]/70">
+                        <div>
+                          <h4 className="font-serif text-base sm:text-lg font-bold text-[#1a2332]">
+                            {item.firm}
+                          </h4>
+                          <p className="text-xs font-semibold text-[#9d7835] mt-0.5">
+                            {item.role} {item.department && `• ${item.department}`}
+                          </p>
+                        </div>
+                        <span className="font-mono text-xs font-bold text-[#6b7280] shrink-0 bg-white px-2.5 py-1 rounded border border-[#e8e1d5] self-start sm:self-auto">
+                          {item.period}
+                        </span>
+                      </div>
+
+                      {item.supervisor && (
+                        <p className="text-xs text-[#6b7280] italic">
+                          Supervised by: <strong className="text-[#374151] font-medium">{item.supervisor}</strong>
+                        </p>
+                      )}
+
+                      {item.keyResponsibilities && item.keyResponsibilities.length > 0 && (
+                        <ul className="space-y-1.5 text-xs text-[#4b5563] pt-1">
+                          {item.keyResponsibilities.map((resp, rIdx) => (
+                            <li key={rIdx} className="flex items-start gap-2">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-[#c6a052] mt-0.5 shrink-0" />
+                              <span>{resp}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {item.notableMatters && item.notableMatters.length > 0 && (
+                        <div className="pt-2 border-t border-[#e8e1d5] mt-2">
+                          <p className="text-[11px] font-bold uppercase tracking-wider text-[#9d7835] mb-2">
+                            Key Matters & Experience Handled:
+                          </p>
+                          <ul className="space-y-1.5 text-xs text-[#374151]">
+                            {item.notableMatters.slice(0, 8).map((matter, mIdx) => (
+                              <li key={mIdx} className="flex items-start gap-2">
+                                <span className="text-[#c6a052] font-bold shrink-0">•</span>
+                                <span>{matter}</span>
+                              </li>
+                            ))}
+                            {item.notableMatters.length > 8 && (
+                              <li className="text-[11px] text-[#6b7280] italic pl-4">
+                                + {item.notableMatters.length - 8} additional corporate, litigation & conveyancing briefs successfully executed.
+                              </li>
+                            )}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
+
+              {/* 3. Education & Academic Background (Page 3 of CV) */}
+              <div className="p-5 sm:p-8 rounded-xl bg-white border border-[#e8e1d5] shadow-xs space-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-gray-100 pb-4">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1a2332] flex items-center gap-2.5">
+                    <GraduationCap className="w-5 h-5 text-[#c6a052] shrink-0" />
+                    <span>Academic Education & Distinctions</span>
+                  </h3>
+                  <span className="text-xs font-mono font-bold text-[#9d7835] bg-[#faf9f6] px-2.5 py-1 rounded border border-[#e8e1d5] self-start sm:self-auto">
+                    UK & MALAYSIA
+                  </span>
+                </div>
+
+                <div className="space-y-4">
+                  {educationHistory.map((edu, idx) => (
+                    <div
+                      key={idx}
+                      className="p-4 sm:p-5 rounded-lg bg-[#faf9f6] border border-[#e8e1d5] hover:border-[#c6a052]/60 transition-colors space-y-2.5 text-xs"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5">
+                        <span className="font-mono text-[10px] font-bold text-[#9d7835] uppercase tracking-wider bg-white px-2 py-0.5 rounded border border-[#e8e1d5] self-start">
+                          {edu.level}
+                        </span>
+                        <span className="font-mono font-bold text-[#6b7280] text-[11px]">
+                          {edu.period}
+                        </span>
+                      </div>
+
+                      <div className="space-y-1">
+                        <h4 className="font-serif text-base sm:text-lg font-bold text-[#1a2332] leading-snug">
+                          {edu.qualification}
+                        </h4>
+                        <p className="text-[#4b5563] font-medium text-xs">
+                          {edu.institution} {edu.location && `· ${edu.location}`}
+                        </p>
+                      </div>
+
+                      {edu.gradeOrDetails && (
+                        <div className="pt-2 border-t border-[#e8e1d5]/80 flex flex-wrap items-center gap-2">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-[#9d7835]">
+                            Results / Distinctions:
+                          </span>
+                          <span className="inline-block px-2.5 py-1 bg-white border border-[#c6a052]/50 text-[#1a2332] font-semibold text-[11.5px] rounded-md shadow-2xs">
+                            {edu.gradeOrDetails}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 4. Early Career, Pupillage & Legal Internships (Page 10 of CV) */}
+              <div className="p-6 sm:p-8 rounded-xl bg-white border border-[#e8e1d5] shadow-xs space-y-5">
+                <div className="border-b border-gray-100 pb-3">
+                  <h3 className="font-serif text-xl font-bold text-[#1a2332] flex items-center gap-2">
+                    <UserCheck className="w-5 h-5 text-[#c6a052]" />
+                    <span>Pupillage, Legal Internships & Academic Research</span>
+                  </h3>
+                  <p className="text-xs text-[#6b7280] mt-1">
+                    Formative professional training under respected senior legal practitioners and deans.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  {earlyCareer.map((item, idx) => (
+                    <div key={idx} className="p-3.5 rounded-lg bg-[#faf9f6] border border-[#e8e1d5] text-xs space-y-1">
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono text-[10px] font-bold text-[#9d7835] uppercase">
+                          {item.period}
+                        </span>
+                        <span className="text-[10px] text-[#6b7280] font-medium">{item.role}</span>
+                      </div>
+                      <h4 className="font-serif font-bold text-sm text-[#1a2332]">
+                        {item.firm}
+                      </h4>
+                      {item.supervisor && (
+                        <p className="text-[11px] text-[#6b7280]">
+                          Supervised by: <strong className="text-[#374151]">{item.supervisor}</strong>
+                        </p>
+                      )}
+                      {item.details && (
+                        <p className="text-[#4b5563] text-[11.5px] leading-relaxed pt-1">
+                          {item.details}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 5. Pro Bono & Student Leadership Achievements (Page 10 of CV) */}
+              <div className="p-6 sm:p-8 rounded-xl bg-white border border-[#e8e1d5] shadow-xs space-y-5">
+                <div className="border-b border-gray-100 pb-3">
+                  <h3 className="font-serif text-xl font-bold text-[#1a2332] flex items-center gap-2">
+                    <HeartHandshake className="w-5 h-5 text-[#c6a052]" />
+                    <span>Pro Bono Work & Student Union Leadership</span>
+                  </h3>
+                  <p className="text-xs text-[#6b7280] mt-1">
+                    Commitment to community service and international Malaysian student advocacy.
+                  </p>
+                </div>
+
+                <div className="space-y-3.5">
+                  {activities.map((act, idx) => (
+                    <div key={idx} className="p-4 rounded-lg bg-[#faf9f6] border border-[#e8e1d5] text-xs space-y-1.5">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                        <span className="font-mono text-[10px] font-bold text-[#9d7835] uppercase bg-white px-2 py-0.5 rounded border border-[#e8e1d5] self-start sm:self-auto">
+                          {act.date}
+                        </span>
+                        <span className="text-[10px] text-[#6b7280] font-semibold">{act.role}</span>
+                      </div>
+                      <h4 className="font-serif font-bold text-sm text-[#1a2332]">
+                        {act.title}
+                      </h4>
+                      <p className="text-[#9d7835] font-medium text-xs">
+                        {act.organization}
+                      </p>
+                      {act.details && (
+                        <p className="text-[#4b5563] text-[11.5px] leading-relaxed pt-1">
+                          {act.details}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 6. Selected Representative Matters & Courtroom Highlights */}
+              <div className="p-6 sm:p-8 rounded-xl bg-white border border-[#e8e1d5] shadow-xs space-y-6">
+                <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1a2332] flex items-center gap-2.5">
+                    <Gavel className="w-5 h-5 text-[#c6a052]" />
+                    <span>Verified Representative Case Matters</span>
+                  </h3>
+                  <Link href="/contact" className="text-xs font-semibold text-[#9d7835] hover:underline">
+                    Inquire on Case Merits →
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {matters.slice(0, 6).map((m, idx) => (
+                    <div key={idx} className="p-4 rounded-lg bg-[#faf9f6] border border-[#e8e1d5] text-xs space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono text-[9px] font-bold uppercase tracking-wider text-[#9d7835] bg-white px-2 py-0.5 rounded border border-[#e8e1d5]">
+                          {m.category}
+                        </span>
+                      </div>
+                      <h4 className="font-serif font-bold text-sm text-[#1a2332] leading-snug">
+                        {m.title}
+                      </h4>
+                      <p className="text-[#4b5563] text-[11.5px] line-clamp-3 leading-relaxed">
+                        {m.background}
+                      </p>
+                      <div className="pt-2 border-t border-gray-200/60 flex items-center justify-between text-[10px] text-[#6b7280]">
+                        <span className="font-medium text-[#1a2332]">{m.forum}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Direct Actions & Consultation Card */}
+              <div className="p-8 rounded-xl bg-[#1a2332] text-white border border-[#c6a052]/40 shadow-lg space-y-4">
+                <div className="inline-flex items-center gap-2 text-[#dcc280] text-xs font-bold uppercase tracking-[0.2em]">
+                  <Scale className="w-3.5 h-3.5 text-[#c6a052]" />
+                  <span>Direct Partner Access</span>
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-white">
+                  Schedule Direct Legal Consultation with Principal Counsel
+                </h3>
+                <p className="text-xs sm:text-sm text-[#faf9f6]/80 leading-relaxed max-w-2xl">
+                  Whether structuring cross-border corporate contracts, managing high-value real estate conveyancing, or prosecuting commercial and estate disputes in the High Court, receive seasoned, partner-led counsel without intermediaries.
+                </p>
+                <div className="pt-2 flex flex-wrap gap-4">
+                  <Link
+                    href="/contact"
+                    className="btn-gold px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 shadow-sm"
+                  >
+                    <span>Request Legal Consultation</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                  <WhatsAppButton variant="compact" label="Direct WhatsApp Briefing" />
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

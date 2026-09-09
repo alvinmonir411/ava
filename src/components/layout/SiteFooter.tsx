@@ -44,7 +44,7 @@ export default function SiteFooter() {
                   LWCCO
                 </span>
                 <span className="text-xs font-serif italic text-[#dcc280]">
-                  刘华律师
+                  劉華晶
                 </span>
               </div>
               <p className="font-serif text-sm font-semibold text-white/90 mt-1">
@@ -60,7 +60,7 @@ export default function SiteFooter() {
             </p>
 
             <p className="text-xs text-[#faf9f6]/75 leading-relaxed font-light">
-              Boutique Malaysian law firm led by principal lawyer Ava Rachel Low (刘华律师). Lincoln’s Inn Barrister (London) and Advocate & Solicitor of the High Court of Malaya. Providing seasoned corporate advisory and fearless trial advocacy across Malaysia.
+              Boutique Malaysian law firm led by principal lawyer Ava Rachel Low (劉華晶). Lincoln’s Inn Barrister (London) and Advocate & Solicitor of the High Court of Malaya. Providing seasoned corporate advisory and fearless trial advocacy across Malaysia.
             </p>
 
             {/* Google Rating Badge */}

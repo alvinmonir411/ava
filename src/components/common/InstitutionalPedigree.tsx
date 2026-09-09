@@ -14,14 +14,14 @@ export default function InstitutionalPedigree({ className = '', light = false }:
       year: 'Est. 1918 Tier-1 Heritage',
     },
     {
-      institution: 'Sreenevasan',
-      role: 'Commercial Trial & Appellate Advocacy',
-      year: 'Premier Dispute Practice',
-    },
-    {
-      institution: 'Azim, Tunku Farik & Wong (ATFW)',
+      institution: 'Azim, Tunku Farik & Wong',
       role: 'Banking & Professional Indemnity Defense',
       year: 'Insurance Litigation Leaders',
+    },
+    {
+      institution: 'KNM Group Berhad',
+      role: 'In-House Corporate & EPC Legal Exec',
+      year: 'Public Listed MNC (2016–2017)',
     },
     {
       institution: 'Lincoln’s Inn (London, UK)',
@@ -29,16 +29,16 @@ export default function InstitutionalPedigree({ className = '', light = false }:
       year: 'Called October 2010',
     },
     {
-      institution: 'Raja Eleena, Siew Ang & Assoc.',
-      role: 'Real Estate Conveyancing & Developer Advisory',
-      year: 'Land Title Transactions',
+      institution: 'Murali B. Pillai & Assoc.',
+      role: 'High Court Civil & Personal Injury Litigation',
+      year: 'Trial & Dispute Counsel',
     },
   ];
 
   return (
     <div className={`py-6 sm:py-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#1b0d25] via-[#161e31] to-[#1b0d25] border-y border-[#c6a052]/30 ${className}`}>
       <div className="max-w-7xl mx-auto">
-        {/* Singapore Legal Media & Regional Commendation Banner */}
+        {/* Trusted Malaysia & Editorial Commendation Banner */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 sm:gap-6 pb-5 sm:pb-6 border-b border-[#c6a052]/20">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#e5c777] via-[#c6a052] to-[#9d7835] p-0.5 flex items-center justify-center shrink-0 shadow-lg">
@@ -49,14 +49,14 @@ export default function InstitutionalPedigree({ className = '', light = false }:
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="text-xs sm:text-sm font-serif font-bold text-[#faf9f6] uppercase tracking-wide">
-                  Regional Legal Trust & Commendation
+                  Independent Legal Trust & Commendation
                 </span>
                 <span className="text-[9.5px] sm:text-[10px] uppercase font-bold text-[#e5c777] bg-[#c6a052]/25 border border-[#c6a052]/50 px-2 py-0.5 rounded-full shadow-xs">
-                  Singapore Media Featured
+                  Trusted Malaysia Selected
                 </span>
               </div>
               <p className="text-xs text-[#faf9f6]/80 mt-0.5 leading-snug">
-                Featured & Recommended by <strong className="text-[#e5c777]">Leading Singapore Legal Publications</strong> for Tenacious Advocacy & Professional Diligence.
+                Featured & Recommended by <strong className="text-[#e5c777]">Trusted Malaysia Editorial Review</strong> for Tenacious Advocacy & Professional Diligence.
               </p>
             </div>
           </div>

@@ -21,7 +21,7 @@ export default function FounderPhilosophy() {
                 <div className="relative h-[420px] sm:h-[480px] w-full rounded-xl overflow-hidden">
                   <Image
                     src="/lawyer-portrait-1.jpg"
-                    alt="Ava Rachel Low (刘华律师) Barrister-at-Law Lincoln's Inn London & Advocate High Court of Malaya"
+                    alt="Ava Rachel Low (劉華晶) Barrister-at-Law Lincoln's Inn London & Advocate High Court of Malaya"
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover object-top filter brightness-100 contrast-105"
@@ -34,7 +34,7 @@ export default function FounderPhilosophy() {
                   <div className="flex items-center justify-between">
                     <div>
                       <h4 className="font-serif text-base font-bold text-[#faf9f6]">
-                        Ava Rachel Low (刘华律师)
+                        Low Wah Chin (Ava Rachel) 劉華晶
                       </h4>
                       <p className="text-[#e5c777] text-xs font-semibold">
                         Barrister-at-Law • Lincoln’s Inn, London (Called 2010)
@@ -61,7 +61,7 @@ export default function FounderPhilosophy() {
             </h2>
 
             <p className="text-sm sm:text-base text-[#faf9f6]/90 leading-relaxed font-light">
-              Founded on <strong>11th November 2011</strong>, Messrs. Low, Wah Chin & Co. was conceived as an antidote to formulaic, impersonal legal practice. Principal counsel <strong>Ava Rachel Low (刘华律师)</strong> synthesizes classical British Barrister trial discipline with seasoned Malaysian corporate and litigation experience from leading national benchmark practices (including <em>Shook Lin & Bok</em>, <em>Sreenevasan</em>, and <em>Azim, Tunku Farik & Wong</em>).
+              Admitted to the Malaysian Bar on <strong>11th November 2011</strong>, principal counsel <strong>Low Wah Chin (Ava Rachel) 劉華晶</strong> synthesizes classical British Barrister trial discipline with 13+ years of Malaysian corporate and litigation experience from leading national benchmark practices (including <em>Shook Lin & Bok</em>, <em>Azim, Tunku Farik & Wong</em>, <em>Murali B. Pillai & Associates</em>, and <em>KNM Group Berhad</em>).
             </p>
 
             {/* 3 Pillar Statements */}

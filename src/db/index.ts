@@ -90,18 +90,21 @@ export async function getTeamMembers(): Promise<TeamMember[]> {
     try {
       const result = await db.select().from(schema.teamMembers);
       if (result && result.length > 0) {
-        return result.map((r) => ({
-          id: r.id,
-          name: r.name,
-          role: r.role,
-          credentials: [
-            'Advocate & Solicitor of the High Court of Malaya',
-            'Barrister-at-Law, Lincoln’s Inn, London',
-          ],
-          bio: r.bio,
-          photo_url: r.photo_url || TEAM_MEMBERS_DATA[0].photo_url,
-          display_order: r.display_order,
-        }));
+        return result.map((r, i) => {
+          const base = TEAM_MEMBERS_DATA[i] || TEAM_MEMBERS_DATA[0];
+          const validPhoto = r.photo_url && !r.photo_url.endsWith('.png') && !r.photo_url.endsWith('.avif') 
+            ? r.photo_url 
+            : base.photo_url || '/lawyer-portrait-1.jpg';
+          return {
+            ...base,
+            id: r.id,
+            name: r.name || base.name,
+            role: r.role || base.role,
+            bio: r.bio || base.bio,
+            photo_url: validPhoto,
+            display_order: r.display_order,
+          };
+        });
       }
     } catch (e) {
       console.warn('Neon DB not reached, using static team data:', e);

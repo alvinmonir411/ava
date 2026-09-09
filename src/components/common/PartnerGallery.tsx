@@ -54,7 +54,7 @@ export default function PartnerGallery() {
             PORTRAIT GALLERY & ACCREDITATIONS
           </span>
           <h3 className="font-serif text-2xl font-bold text-[#22122b]">
-            Ava Rachel Low (刘华律师)
+            Low Wah Chin (Ava Rachel) 劉華晶
           </h3>
         </div>
         <span className="text-xs font-semibold text-[#595355] hidden sm:inline-block">

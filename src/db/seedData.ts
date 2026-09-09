@@ -19,7 +19,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     ],
     fullDescription: `In commercial enterprise, a precisely drafted contract is the ultimate defense against operational disruption, financial loss, and costly litigation. Messrs. Low, Wah Chin & Co. provides bespoke contract drafting and commercial advisory services tailored to Malaysian businesses, multi-nationals, and growing SMEs.
 
-Drawing upon Ms. Ava Rachel Low’s extensive experience handling in-house corporate procurement and risk management for listed engineering corporation KNM Group Berhad alongside 15+ years in the High Court of Malaya, we draft agreements that anticipate operational contingencies rather than relying on generic off-the-shelf templates.
+Drawing upon Ms. Ava Rachel Low’s extensive experience handling in-house corporate procurement and risk management for listed engineering corporation KNM Group Berhad alongside 13+ years of post-qualification practice in the High Court of Malaya, we draft agreements that anticipate operational contingencies rather than relying on generic off-the-shelf templates.
 
 From standard commercial terms of supply and Service Level Agreements (SLA) to cross-border joint venture agreements, non-disclosure covenants, and licensing agreements, we safeguard your enterprise value and profitability under the Contracts Act 1950.`,
     whatWeHandle: [
@@ -93,7 +93,7 @@ Whenever viable, we initiate structured negotiation and mediation to secure fina
     keyBenefits: [
       'Fast pre-action evaluation identifying immediate statutory and equitable remedies',
       'Strategic negotiation preserving vital commercial relationships where possible',
-      'Tenacious High Court litigation backed by 15+ years trial experience',
+      'Tenacious High Court litigation backed by 13+ years of post-qualification practice',
       'Transparent legal cost forecasting with structured fee arrangements'
     ],
     proceduralTimeline: [
@@ -372,7 +372,7 @@ Ms. Ava Rachel Low was trained at premier litigation institutions including Shoo
       'Judicial Review applications against public authority and tribunal decisions'
     ],
     keyBenefits: [
-      'Lincoln’s Inn Barrister lead with 15+ years trial & appellate experience',
+      'Lincoln’s Inn Barrister lead with 13+ years trial & appellate experience',
       'Rigorous courtroom preparation and articulate witness cross-examination',
       'Clear, strategic risk evaluation at every phase of the proceedings',
       'Proven track record across reported Malaysian appellate judgments'
@@ -515,7 +515,7 @@ Messrs. Low, Wah Chin & Co. represents both corporate employers seeking complian
     iconName: 'Scale',
     fullDescription: `At Messrs. Low Wah Chin & Co. (LWCCO), our General Legal Advice & Consultation practice is founded upon the principle of providing sensible, realistic, and unvarnished legal counsel. Whether you are facing an impending dispute, seeking to safeguard personal rights, or requiring preliminary legal opinions before signing major commitments, our team offers prompt, confidential, and comprehensive legal reviews.
 
-With over 15 years of continuous legal experience in the High Court of Malaya and Appellate Courts, Ms. Ava Rachel Low and the legal team evaluate your situation not only from strict statutory perspectives, but also with practical business acumen and commercial foresight. We analyze potential liabilities, cost-benefit ratios of litigation versus settlement, and immediate legal remedies available under Malaysian law.
+With 13+ years of post-qualification legal experience in the High Court of Malaya and Appellate Courts, Ms. Ava Rachel Low and the legal team evaluate your situation not only from strict statutory perspectives, but also with practical business acumen and commercial foresight. We analyze potential liabilities, cost-benefit ratios of litigation versus settlement, and immediate legal remedies available under Malaysian law.
 
 Our consultation practice avoids legal jargon. We present your options with absolute clarity, outlining the exact legal steps, timeframes, and anticipated costs so that you can make informed, confident decisions.`,
     whatWeHandle: [
@@ -1464,77 +1464,424 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
   {
     id: 1,
     name: 'Low Wah Chin (Ava Rachel)',
+    chineseName: '劉華晶',
+    nricName: 'Low Wah Chin',
     role: 'Founder & Principal Counsel',
     title: 'Advocate & Solicitor, High Court of Malaya | Barrister-at-Law, Lincoln’s Inn, London',
-    photo_url: '/profile-image.avif',
+    photo_url: '/lawyer-portrait-1.jpg',
     display_order: 1,
+    contactInfo: {
+      phone: '+60175483157',
+      email: 'lwc.rachel@gmail.com',
+      chambersAddress: 'Colony @ KLCC, Level 1, Vipod Residences, 6 Jalan Kia Peng, 50450 Kuala Lumpur, Malaysia'
+    },
     credentials: [
-      'Advocate & Solicitor of the High Court of Malaya (Admitted Nov 2011)',
-      'Barrister-at-Law, The Honourable Society of Lincoln’s Inn, London, UK (Admitted Oct 2010)',
-      'Bar Vocational Course (BVC) Postgraduate Diploma, City University London, UK (2010)',
-      'LL.B. (Honours) Bachelor of Laws, University of Reading, UK (2009)',
-      'Registered Member of the Malaysian Bar'
+      'Advocate & Solicitor of the High Court of Malaya (Admitted 11th November 2011)',
+      'Barrister-at-Law (Non-Practicing), The Honourable Society of Lincoln’s Inn, London, England, UK (Admitted 14th October 2010)',
+      'Postgraduate Diploma in Professional Legal Skills (Bar Vocational Course 2009, Competent), City University London, UK (2009–2010)',
+      'Bachelor of Laws, L.L.B. (Hons.), Second Class Division (2), University of Reading, UK in collaboration with Taylor’s University College (2007–2009)',
+      'Cambridge A-Levels (Science: Physics, Biology, Chemistry - 3 Credits), Tunku Abdul Rahman College (2004–2006)',
+      'Malaysian Certificate of Education (SPM, Science Stream - 7 Distinctions, 2 Merits, 1 Credit), Sekolah Seri Cahaya (2000–2004)',
+      'Lower Secondary Evaluation (PMR, Science Stream with Mandarin - 8 Distinctions), Sekolah Seri Cahaya (2002)',
+      'Primary School Achievement Test (UPSR, Science Stream - 5 Distinctions), SK Bandar Baru Sri Damansara (1998–1999)',
+      '13+ Years of Post-Qualification Experience across Civil, Commercial, Conveyancing, Insurance & Family Law',
+      'Registered Member of the Malaysian Bar (BC/L/2019)'
     ],
     admissions: [
-      'High Court of Malaya — Admitted to the Roll on 11th November 2011',
-      'English Bar — Called to the Bar of England and Wales at Lincoln’s Inn in October 2010'
+      'High Court of Malaya, Malaysia — Admitted to the Roll as Advocate & Solicitor on 11th November 2011',
+      'The Honourable Society of Lincoln’s Inn, London, England, United Kingdom — Called to the English Bar as Barrister-at-Law (Non-Practicing) on 14th October 2010'
     ],
     education: [
-      'University of Reading, United Kingdom — Bachelor of Laws (LL.B. Hons), 2009',
-      'The City University London, United Kingdom — Bar Vocational Course (Postgraduate Diploma in Law), 2010'
+      'Postgraduate Diploma in Professional Legal Skills (Bar Vocational Course 2009, Competent) — City University London, UK (2009–2010)',
+      'L.L.B. (Hons.), Bachelor of Laws, Second Class Division (2) — University of Reading, UK in collaboration with Taylor’s University College (2007–2009)',
+      'Cambridge A-Levels (Science: Physics, Biology, Chemistry - 3 Credits) — Tunku Abdul Rahman College, Kuala Lumpur (2004–2006)',
+      'Malaysian Certificate of Education (SPM) & PMR (Science Stream with Mandarin - 7 SPM Distinctions, 8 PMR Distinctions) — Sekolah Seri Cahaya (2000–2004)',
+      'Primary Education (UPSR - 5 Distinctions) — SK Bandar Baru Sri Damansara, Sekolah Sri Bestari & SJK(C) Mun Choong (1994–1999)'
+    ],
+    educationHistory: [
+      {
+        period: 'September 2009 – July 2010',
+        level: 'Postgraduate Education',
+        qualification: 'Postgraduate Diploma in Professional Legal Skills (Bar Vocational Course 2009)',
+        institution: 'City University London',
+        location: 'London, England, United Kingdom',
+        gradeOrDetails: 'Competent'
+      },
+      {
+        period: 'January 2007 – July 2009',
+        level: 'Undergraduate Education',
+        qualification: 'L.L.B. (Hons.), Bachelor of Laws',
+        institution: 'University of Reading (in collaboration with Taylor’s University College)',
+        location: 'Reading, England, UK & Subang Jaya, Selangor, Malaysia',
+        gradeOrDetails: 'Second Class Division (2)'
+      },
+      {
+        period: 'June 2004 – June 2006',
+        level: 'Pre-University Education',
+        qualification: 'Cambridge A-Levels (Science: Physics, Biology, Chemistry)',
+        institution: 'Tunku Abdul Rahman College',
+        location: 'Setapak, Kuala Lumpur, Malaysia',
+        gradeOrDetails: '3 Credits'
+      },
+      {
+        period: 'January 2000 – July 2004',
+        level: 'High School Education',
+        qualification: 'Malaysian Certificate of Education (SPM) & Lower Secondary Evaluation (PMR)',
+        institution: 'Sekolah Seri Cahaya (Private School)',
+        location: 'Shah Alam, Selangor Darul Ehsan, Malaysia',
+        gradeOrDetails: 'SPM: 7 Distinctions, 2 Merits, 1 Credit | PMR: 8 Distinctions (Science Stream with additional Mandarin subject)'
+      },
+      {
+        period: 'January 1998 – December 1999',
+        level: 'Primary School Education (Std 5 & 6)',
+        qualification: 'Primary School Achievement Test (UPSR - Science Stream)',
+        institution: 'Sekolah Kebangsaan Bandar Baru Sri Damansara (Government School)',
+        location: 'Bandar Baru Sri Damansara, Kuala Lumpur, Malaysia',
+        gradeOrDetails: '5 Distinctions'
+      },
+      {
+        period: 'January 1996 – December 1997',
+        level: 'Primary School Education (Std 3 & 4)',
+        qualification: 'Primary Level Education',
+        institution: 'Sekolah Sri Bestari (Private School)',
+        location: 'Bandar Sri Damansara, Kuala Lumpur, Malaysia'
+      },
+      {
+        period: 'January 1994 – December 1995',
+        level: 'Primary School Education (Std 1 & 2)',
+        qualification: 'Chinese Primary Level Education',
+        institution: 'Sekolah Jenis Kebangsaan (Cina) Mun Choong [SJK(C) Mun Choong]',
+        location: 'Kampung Batu, Kuala Lumpur, Malaysia'
+      }
     ],
     careerHistory: [
-      { period: '2010–2011', firm: 'Shook Lin & Bok Malaysia', role: 'Pupillage under Senior Legal Counsel' },
-      { period: '2012', firm: 'Raja Eleena, Siew Ang & Associates', role: 'Conveyancing & Real Estate Practice' },
-      { period: '2013', firm: 'Azim, Tunku Farik & Wong', role: 'General Insurance, Professional Indemnity & Banking Litigation' },
-      { period: '2015', firm: 'Murali B. Pillai & Associates / K.S. Ong', role: 'Civil, Non-Motor Insurance, Medical Negligence & Divorce Claims' },
-      { period: '2016', firm: 'KNM Group Berhad (Public Listed Co.)', role: 'In-house Legal Advisory, Procurement & Engineering Risk Management' },
-      { period: '2017–2020', firm: 'Serena Paul Naveen & Associates', role: 'Partner — General Litigation Practice' },
-      /* TODO: insert verified prior firm experience from client CV */
-      { period: '2020–Present', firm: 'Messrs. Low Wah Chin & Co. (LWCCO)', role: 'Founder & Managing Partner' }
+      { period: '25th August 2020 – Present', firm: 'Messrs. Low Wah Chin & Co.', role: 'Sole Proprietor & Managing Counsel' },
+      { period: '1st June 2020 – 31st July 2020', firm: 'Messrs. Burton Tan, Syazwan & Co.', role: 'Legal Assistant' },
+      { period: '26th January 2018 – 31st May 2020', firm: 'Messrs. Low Wah Chin', role: 'Sole Proprietor' },
+      { period: '1st June 2017 – 5th December 2017', firm: 'Messrs. Serena Paul Naveen & Associates', role: 'Partner (General Litigation)' },
+      { period: '9th August 2016 – 13th April 2017', firm: 'KNM Group Berhad', role: 'Legal Executive (In-House Legal & Risk Management)' },
+      { period: '1st June 2015 – 17th May 2016', firm: 'Messrs. Murali B. Pillai & Associates', role: 'Legal Assistant (Non-Motor Insurance & Civil Litigation)' },
+      { period: '8th July 2013 – 31st May 2015', firm: 'Messrs. Azim, Tunku Farik & Wong', role: 'Legal Assistant (General, Insurance & Banking Litigation)' },
+      { period: 'December 2012 – February 2013', firm: 'Messrs. Lai & Associates', role: 'Legal Assistant (Civil Litigation)' },
+      { period: 'June 2012 – November 2012', firm: 'Messrs. Raja Eleena Siew Ang & Associates', role: 'Legal Assistant (Banking & Conveyancing)' },
+      { period: 'November 2011 – May 2012', firm: 'Messrs. Shook Lin & Bok', role: 'Legal Associate (Insurance, Shipping, Aviation & Civil Litigation)' }
+    ],
+    detailedCareerHistory: [
+      {
+        period: '25th August 2020 – Present',
+        firm: 'Messrs. Low Wah Chin & Co.',
+        role: 'Sole Proprietor & Principal Legal Practitioner',
+        department: 'General Practice, Litigation, Conveyancing & Corporate Advisory',
+        keyResponsibilities: [
+          'Full management and principal advocacy in sole proprietorship establishment providing hands-on client representation.',
+          'Attending trials, interlocutory hearings, drafting cause papers, structuring corporate and joint venture transactions, and managing complex estate and conveyancing portfolios.'
+        ],
+        notableMatters: [
+          'Negotiated tenancy terms with YTL Corporation and SME(s) for China Chinese corporate client.',
+          'Crafted bespoke Business and Joint Venture Agreements and Tenancy Agreements for China Chinese cross-border clients.',
+          'Attended to high-value conveyancing matters valued between RM1.65 Million to RM4.3 Million from Malaysian local clients to European clients.',
+          'High Court estate property litigation on the validity of last will and testament of deceased suffering from dementia (executing same-day Irrevocable Power of Attorney and Will naming different representatives and beneficiaries).',
+          'Grant of Probate extraction and conveyancing sale of dual estate properties valued at RM7.5 Million.',
+          'Directors’ Dispute Discovery Application for Accounting Records under Section 245 Companies Act 2016 and High Court hearings.',
+          'High Court Kuala Lumpur Medical Negligence Discovery Application for medical records over complaint of wrongful leg amputation.',
+          'Medical Negligence advisory and medical expert correspondence regarding urinary retention complications resulting from negligent treatment.',
+          'Motor Insurance Accident Claim with Motor Insurers’ Bureau of West Malaysia (MIB) securing compassionate payment of RM30,000 to widow.',
+          'Family law and single/joint divorce petition proceedings.',
+          'Tenancy agreements drafting, stamping, and tenancy dispute proceedings for pet policy breach and rental arrears default.',
+          'Estate administration involving Letters of Administration (< RM2 Million), replacement of lost Master Title Grants following developer liquidation, Discharge of Charge, and High Court transfer vesting orders.',
+          'Sub-sale conveyancing, strata and landed property transactions, and discharge of charges.',
+          'Drafted and executed Corporate Share Sale Agreement for private limited company at RM6.8 Million.',
+          'Property dispute with property developer regarding lawful termination of Sale and Purchase Agreement (SPA).',
+          'Legal Opinion writing on the statutory interpretation of 3 Wills under the Succession Laws of Western Australia for an Australian client.',
+          'Police report processes, investigations, and criminal court hearing assistance for an American client hit by spouse vehicle.',
+          'International Master Fee Agreements review, risk advice, and dispute settlement for European corporate client.',
+          'Formal replies to Letters of Demand (LOD) for construction payment claims and defamation actions.',
+          'Construction payment claims debt recovery advice, collections, and acted as mediating solicitor in Debt Recovery Settlement conferences.',
+          'Ongoing general advisory across Company Law, Employment Law, Tort Law, Property Law, Family & Divorce Law, and Estate Claims.'
+        ]
+      },
+      {
+        period: '1st June 2020 – 31st July 2020',
+        firm: 'Messrs. Burton Tan, Syazwan & Co.',
+        role: 'Legal Assistant',
+        department: 'General Litigation & Conveyancing',
+        keyResponsibilities: [
+          'Drafted pleadings and cause papers including Writs of Summons & Statements of Claim on land trespass and corporate professional legal fee recovery.',
+          'Prepared Agreed Facts to be Tried, Issues to be Tried, Summaries of Facts, and compiled Bundles of Documents for trial.',
+          'Handled conveyancing files for property sale, purchase, and title transfers.',
+          'Drafted investment agreements, attended will and estate distribution meetings, rendered public calling advice, and led client consultations.'
+        ]
+      },
+      {
+        period: '26th January 2018 – 31st May 2020',
+        firm: 'Messrs. Low Wah Chin',
+        role: 'Sole Proprietor',
+        department: 'Civil Litigation, Conveyancing & Corporate Practice',
+        keyResponsibilities: [
+          'Established initial sole proprietorship practice delivering hands-on legal counsel directly to private and corporate clients.',
+          'Attended civil litigation hearings and urgent criminal bail hearings in the Magistrates’ and Sessions Courts.',
+          'Conducted conveyancing files for property transactions and title transfers.',
+          'Drafted corporate agreements including Shareholders’ Agreements and Share Purchase Agreements.'
+        ]
+      },
+      {
+        period: '1st June 2017 – 5th December 2017',
+        firm: 'Messrs. Serena Paul Naveen & Associates',
+        role: 'Partner (Salary Partnership)',
+        department: 'General Litigation Practice',
+        keyResponsibilities: [
+          'Managed the firm’s general litigation department and supervised junior legal staff.',
+          'Drafted cause papers, handled case managements, and conducted court trials and hearings.'
+        ]
+      },
+      {
+        period: '9th August 2016 – 13th April 2017',
+        firm: 'KNM Group Berhad (Public Listed Company)',
+        role: 'Legal Executive (In-House Legal & Risk Management)',
+        department: 'Legal & Risk Management Department',
+        supervisor: 'Flavio Porro (Head of Legal & Risk Management) & Dalton Wen (Legal Manager)',
+        keyResponsibilities: [
+          'In-house legal advisory, risk mitigation, and corporate regulatory governance across international engineering and construction projects.',
+          'Monitored company litigation, liaised with external solicitors, attended court hearings, and prepared executive staff and trial documentation.',
+          'Assisted HR Manager with employment law matters and industrial employment hearings.',
+          'Drafted cross-border Non-Disclosure Agreements (NDAs) and Confidentiality Agreements for multi-million international tender projects.',
+          'Procured and reviewed Insurance Policy Schedules for cross-border engineering projects.',
+          'Drafted and commented on General and Special Terms & Conditions for Purchase Orders and corporate services.',
+          'Prepared Supplemental Loan Agreements for structured corporate financing.',
+          'Drafted Heads of Agreement (HOA) and Memoranda of Understanding (MOU) for cross-border ventures.',
+          'Advised on Engineering, Procurement and Construction (EPC) Contracts and prepared comprehensive term comparison tables.',
+          'Drafted demand letters, board minutes, cause papers, liaised with external auditors, and conducted statutory research.'
+        ]
+      },
+      {
+        period: '1st June 2015 – 17th May 2016',
+        firm: 'Messrs. Murali B. Pillai & Associates',
+        role: 'Legal Assistant',
+        department: 'General & Insurance Litigation (Non-Motor Claims Department)',
+        keyResponsibilities: [
+          'Conducted own trial matters and assisted Partners with general civil, insurance defense, and medical negligence litigation.',
+          'Assisted two Senior Counsels concurrently in defending medical practitioners against alleged medical negligence in diagnosis and surgical treatments (knee ligament damage, shoulder injury, sciatic nerve injury on hip, baby shoulder dystocia, spine infection, hearing loss, and skin infections in Sessions & High Court).',
+          'Assisted Senior Counsel with general insurance claims: recovered theft vehicle, displaced retaining wall during 2-storey bungalow construction, and Bus accident claims (Sessions, High Court, and KLRCA).',
+          'Assisted Senior Counsel in High Court matrimonial divorce and child custody hearings.',
+          'Conducted full trial involving contractor negligence over a dislodged sprinkler pipe causing water damage to 14 gaming machines (issued fourth-party proceedings against management in Sessions Court).',
+          'Conducted Sessions Court summary judgment hearing for payment on demand under contractor performance bond.',
+          'Conducted Federal Court hearing against insured’s motion for leave to appeal pursuant to Section 96 Courts of Judicature Act 1964 regarding medical insurance policy terms (motion dismissed with costs).',
+          'Conducted submission hearing after trial on damages awarded for doctor negligence during ACL surgery (Sessions Court).',
+          'Independently settled food poisoning claims, fire insurance claims, and bodily injury claims against state authorities for negligent road maintenance (Sessions & Magistrates Courts).',
+          'Attended Judgment in Default, Bankruptcy, Winding Up, and Distress hearings.',
+          'Attended mediations, hearings, and case managements across Malaysian courts up to Federal Court (Putrajaya, KL, Shah Alam, Ipoh, Malacca, Seremban, Kuantan, Johor Bahru).',
+          'Drafted legal opinions on Professional Indemnity Insurance for lawyers, Medical Negligence, and General Insurance.'
+        ]
+      },
+      {
+        period: '8th July 2013 – 31st May 2015',
+        firm: 'Messrs. Azim, Tunku Farik & Wong',
+        role: 'Legal Assistant',
+        department: 'General, Insurance & Banking Litigation Department',
+        supervisor: 'Wong Hok Mun',
+        keyResponsibilities: [
+          'Assisted Wong Hok Mun on Professional Indemnity Insurance for lawyers, general commercial disputes, and banking litigation.',
+          'Assisted in developer-lawyer conspiracy fraud lawsuit defrauding property purchasers (Sessions Court).',
+          'Assisted in criminal advocate professional negligence claim regarding 10-day appeal petition filing deadline under Section 307 Criminal Procedure Code in Court of Appeal (Sessions Court).',
+          'Assisted in 3-day High Court trial involving professional negligence suit against solicitor for wrong mode of action resulting in "loss of chance" litigation damages.',
+          'Assisted in 2-day High Court trial involving allegations of fraud for failure to present Charge documents at Land Office causing financier loss of property security.',
+          'Assisted in striking-out and appeal hearings for retailer against oil & gas corporation and Federal Land Commissioner over MRT line compulsory acquisition compensation (High Court).',
+          'Successfully argued before High Court Judge to oppose bank’s application for discovery against law firm over conveyancing documents in alleged dishonest assistance (application dismissed with costs).',
+          'Assisted in professional negligence suit on fraud allegations for failure to forward 10% deposit in SPA prior to partner demise (Sessions Court).',
+          'Handled legal fee professional negligence dispute between firm and client (Magistrates Court).',
+          'Handled bank account freezing losses dispute (High Court).',
+          'Conducted Court of Appeal and Federal Court hearings with co-counsels in estate dispute alleging fraud in obtaining Grant of Probate and Letters of Administration.',
+          'Assisted in Motions for Leave to Appeal and substantive appeals in Court of Appeal and Federal Court.',
+          'Conducted High Court interlocutory hearings for security for costs and discovery applications.',
+          'Attended case managements in KL, Shah Alam, Putrajaya, Muar, Kuantan, and Ipoh courts, mediations, and legal opinions on Professional Indemnity Claims.'
+        ]
+      },
+      {
+        period: 'December 2012 – February 2013',
+        firm: 'Messrs. Lai & Associates',
+        role: 'Legal Assistant',
+        department: 'Civil Litigation Department',
+        keyResponsibilities: [
+          'Assisted with general civil litigation matters in Sessions Court and High Court.'
+        ]
+      },
+      {
+        period: 'June 2012 – November 2012',
+        firm: 'Messrs. Raja Eleena Siew Ang & Associates',
+        role: 'Legal Assistant',
+        department: 'Banking & Conveyancing Department',
+        keyResponsibilities: [
+          'Assisted with conveyancing project work, Perfection of Transfer (Form 14A), Perfection of Charge (Form 16A), property title transfers, and Land Office auction matters.'
+        ]
+      },
+      {
+        period: 'November 2011 – May 2012',
+        firm: 'Messrs. Shook Lin & Bok',
+        role: 'Legal Associate',
+        department: 'Insurance, Shipping, Aviation, General & Civil Litigation Department',
+        supervisor: 'Porres P Royan, Sudharsanan Thillainathan, Lau Kee Sern',
+        keyResponsibilities: [
+          'Assisted in 10-day High Court trial involving fraud, conspiracy, breach of fiduciary duties, and breach of confidentiality by former automotive spare parts company employees.',
+          'Assisted in settlement negotiations for commercial disputes.',
+          'Assisted in 2-day High Court trial involving breach of Deed of Settlement and Guarantee & Indemnity for RM19 Million debt / RM17 Million claim over security land proceeds.',
+          'Assisted in arbitration matter regarding Services Agreement Incentive Sum computation (arbitrator challenge, defense, security for costs).',
+          'Assisted in defamation action involving Writ Out of Jurisdiction and renewal of expired writ (High Court conditional appearance and setting aside).',
+          'Assisted in Court of Appeal matter regarding construction of consent order terms.',
+          'Rendered advice on Insurance Coverage, Brokering, Breach of Contract, and Insurance Placement Negligence.',
+          'Advised on Construction of Wills and Testaments.',
+          'Advised on Directors and Officers (D&O) Liability Insurance defense cost claims and Percentage Shareholder Exclusion Endorsements.',
+          'Advised on corporate settlement & acquisition of 15% stake and dividend distribution under Sale & Purchase Agreement.'
+        ]
+      }
+    ],
+    earlyCareerAndInternships: [
+      {
+        period: 'November 2010 – August 2011',
+        firm: 'Messrs. Shook Lin & Bok',
+        role: 'Pupil-in-Chambers',
+        supervisor: 'Tharmy a/p Ramalingam (Banking & Finance) & Porres P Royan (Insurance/Civil)',
+        details: 'Completed 9-months statutory pupillage in Banking & Finance Litigation; successfully retained in June 2011 in Insurance, Shipping, Aviation, General & Civil Litigation.'
+      },
+      {
+        period: 'September 2011 – October 2011',
+        firm: 'Messrs. Shook Lin & Bok',
+        role: 'Paralegal',
+        details: 'Assisted litigation partners with cause papers, research, and court document preparations prior to Malaysian Bar call.'
+      },
+      {
+        period: 'September 2010 – October 2010',
+        firm: 'Messrs. Sreenevasan Young Advocates & Solicitors',
+        role: 'Paralegal',
+        supervisor: 'Mark Lau Chi-Ming',
+        details: 'Assisted in Civil & Banking Litigation research, case management, and cause papers drafting.'
+      },
+      {
+        period: 'June 2010 – August 2010',
+        firm: 'Taylor’s University College',
+        role: 'Research Assistant',
+        supervisor: 'Rajeswari Kanniah (Dean of Taylor’s Law School)',
+        details: 'Conducted academic and legal research on statutory jurisprudence and comparative common law frameworks.'
+      },
+      {
+        period: 'June 2008 – August 2008',
+        firm: 'Messrs. Sivananthan Advocates & Solicitors',
+        role: 'Summer Legal Intern',
+        supervisor: 'Mark Lau Chi-Ming',
+        details: 'Summer legal internship exposed to Civil & Banking Litigation pleadings, bundle preparations, and court attendances.'
+      },
+      {
+        period: 'June 2008',
+        firm: 'Messrs. Thomas Philip Advocates & Solicitors',
+        role: 'Legal Intern',
+        supervisor: 'Thomas Philip',
+        details: 'Internship exposure to civil litigation court practice, research, and client brief reviews.'
+      }
+    ],
+    activitiesAndAchievements: [
+      {
+        date: 'January 2010',
+        title: 'Pro Bono Legal Volunteer (McKenzie Friend)',
+        organization: 'National Centre for Domestic Violence (NCDV)',
+        role: 'McKenzie Friend Volunteer',
+        details: 'Volunteered in London providing pro bono court assistance, client moral support, and procedural guidance as a McKenzie Friend for domestic violence survivors.'
+      },
+      {
+        date: 'September 2009',
+        title: 'Events Director & Webmaster',
+        organization: 'United Kingdom Malaysian Law Student Union (KPUM)',
+        role: 'Executive Committee Member',
+        details: 'Managed digital operations, student outreach, and coordinated legal events for Malaysian law students across the United Kingdom.'
+      },
+      {
+        date: 'September 2009',
+        title: 'Organising Chairperson & Events Director',
+        organization: 'Law Careers Convention 2009 (KPUM)',
+        role: 'Organising Chairperson',
+        details: 'Spearheaded the flagship UK Law Careers Convention connecting hundreds of Malaysian law students with top-tier Malaysian and international legal practices.'
+      }
+    ],
+    skills: [
+      'Courtroom Advocacy & Trial Practice (Federal Court, Court of Appeal, High Court, Sessions & Magistrates Courts)',
+      'Legal Pleadings, Cause Papers & Submissions Drafting',
+      'Advanced Legal Research & Malaysian Case Law Jurisprudence',
+      'Formal Legal Opinion Writing & Risk Appraisal',
+      'Client Conferencing, Witness Examination & Depositions',
+      'Bespoke Commercial Contracts, Shareholder & JV Agreement Drafting',
+      'Real Estate Conveyancing, Form 14A/16A Transfers & Caveat Practice',
+      'Probate, Will Construction & Cross-Border Estate Administration',
+      'Corporate Insolvency, Section 466 Demand & Debt Recovery',
+      'Mediation, Out-of-Court Dispute Settlement & Negotiations',
+      'Teamworking & Corporate Inter-Departmental Risk Governance'
+    ],
+    languages: [
+      { language: 'English', proficiency: 'Fluent (Full Professional & Legal Drafting / Courtroom Submissions)' },
+      { language: 'Bahasa Malaysia', proficiency: 'Fluent (Full Professional & Court Cause Papers / Pleadings)' },
+      { language: 'Mandarin (华语)', proficiency: 'Fluent (Spoken / High-Level Client Advisory & Negotiations)' },
+      { language: 'Cantonese (粤语)', proficiency: 'Fluent (Spoken / Native Conversational & Client Conferencing)' }
     ],
     appellateExperience: [
       {
         code: 'A',
         title: 'General & Civil Litigation',
-        description: 'Advises and attends to general and civil litigation matters relating to negligence, trespass to land, family and divorce law, tenancy law, and employment & labour matters.'
+        description: 'Attends to trials, interlocutory hearings, land trespass actions, professional fee recoveries, family and divorce petitions, tenancy defaults, distress proceedings, and employment disputes.'
       },
       {
         code: 'B',
         title: 'Banking & Financial Litigation',
-        description: 'Advises and attends to general and banking litigation matters relating to performance bonds, freezing of customers\' bank accounts, bankruptcy, and corporate winding-up.'
+        description: 'Advises on performance bond demand calls, freezing of customer accounts, lender charge document fraud, bankruptcy petitions, Judgment Debtor Summons, and Section 466 corporate winding-up.'
       },
       {
         code: 'C',
-        title: 'Insurance & Professional Negligence',
-        description: 'Advises and attends to insurance litigation matters relating to legal professional negligence, medical negligence, contractors\' negligence, breach of contract, and personal injury claims.'
+        title: 'Insurance & Professional Negligence Defense',
+        description: 'Defends legal advocates and medical practitioners in High Court professional indemnity and medical malpractice actions; handles general insurance claims for contractors’ risks, fire, public liability, and road collisions.'
       },
       {
         code: 'D',
         title: 'Corporate & Commercial Disputes',
-        description: 'Advises and attends to company-related matters relating to oil and gas company licensing disputes, construction contracts, breach of contract matters, debt recovery, bankruptcy, and winding-up proceedings.'
+        description: 'Handles 10-day fraud trials, breach of fiduciary duty claims, shareholder disputes under Section 245/346 Companies Act, oil & gas retailer licensing compensation, and multi-million debt recoveries.'
       },
       {
         code: 'E',
-        title: 'Agreements Crafting & Corporate Advisory',
-        description: 'Advises and attends to bespoke commercial agreements crafting, shareholder structuring, and corporate advisory.'
+        title: 'Corporate Agreements Crafting & In-House Risk',
+        description: 'Drafts bespoke EPC contracts, multi-million share purchase agreements (RM6.8M), cross-border NDAs, joint venture deeds, commercial loan structures, and purchase order frameworks.'
       },
       {
         code: 'F',
-        title: 'Conveyancing, Land & Probate Practice',
-        description: 'Advises and attends to conveyancing practice, land registry caveats, as well as Probate & Administration with District Land Offices.'
+        title: 'Real Estate Conveyancing, Land & Probate',
+        description: 'Handles property sub-sales (RM1.65M–RM4.3M), perfection of transfer and charge, private caveats, High Court dementia will validity disputes, Grant of Probate and Letters of Administration transfers (RM7.5M).'
       },
       {
         code: 'G',
         title: 'Criminal Law & Bail Applications',
-        description: 'Advises and attends to criminal law matters, including urgent bail applications at the Magistrates’ & Sessions Courts.'
+        description: 'Advises on police report investigations, police procedures, and conducts urgent bail hearings in Magistrates’ and Sessions Courts.'
       }
     ],
+    summaryOfExperience: {
+      establishedFirmsSummary: [
+        'Practice work experience in civil, company & insurance law: professional indemnity insurance for lawyers, general insurance claims involving contractors’ all risks policy, public liability policy, performance bond over breach of performance on the part of the contractor, medical negligence claims, food poisoning claims, bodily injury claims.',
+        'Banking and company law: licensing agreements between oil and gas company and retailers, debt recovery and shareholders dispute.',
+        'Divorce and family law: joint divorce petitions and single divorce petitions.',
+        'Accident & personal injury law: car accidents & go-kart accident claims.',
+        'Probate & administration law: transfer of property from deceased parents to children, Grant of Probate, and Letters of Administration.',
+        'Tenancy and distress proceedings: tenancy agreements and disputes involving residential property and commercial lease such as retail malls.',
+        'Property & conveyancing law: transfer of property & sub-sale property transactions, perfection of transfer and charge, land caveats.',
+        'Drafting agreements: Confidentiality Agreements, Project Investment Agreements, Shareholders Agreements, and Share Purchase Agreements.',
+        'In summary, attended trials, interlocutory and appeal hearings, assisted Senior Counsels with trial and appeal matters involving Writs of Summons & Statements of Claim, Statements of Defence, Divorce Petitions, Motions for Leave to Appeal to the Federal Court and Court of Appeal, High Court discovery applications, striking-out applications under Order 18 Rule 19, summary judgment under Order 14, winding-up, bankruptcy, case managements, mediations, drafting cause papers, legal opinions, and client advisory.'
+      ],
+      inHouseSummary: [
+        'Engineering, procurement and construction (EPC) projects relating to advisory and regulatory work in corporate risk management.',
+        'Drafted and vetted corporate agreements: Non-Disclosure & Confidentiality Agreements, Purchase Orders, General & Special Terms and Conditions, Corporate Loan Structures, and EPC Contracts.',
+        'Assisted HR with employment issues and industrial hearings, monitored litigation with external solicitors, and liaised with company management board and external auditors.'
+      ],
+      soleProprietorSummary: [
+        'Full spectrum sole proprietorship practice: Directors’ disputes, accident claims, construction payment claims and defense, RM6.8M share sale agreements, property transfers, defamation and tort claims, tenancy drafting and disputes, cross-border Australian wills succession opinions, and mediated debt recovery settlements.'
+      ]
+    },
     bio: [
-      'Ms. Low Wah Chin (Ava Rachel) founded Messrs. Low Wah Chin & Co. Advocates & Solicitors (LWCCO) in 2020 after nearly a decade of distinguished legal practice in top-tier litigation and commercial law firms in Kuala Lumpur.',
-      'She commenced her legal practice in 2011 upon being admitted to the Malaysian Bar, following her graduation with an LL.B. (Hons) from the University of Reading and her call to the English Bar as a Barrister-at-Law of the Honourable Society of Lincoln’s Inn in London.',
-      'Throughout her career, Ms. Low has handled high-stakes civil litigation, corporate dispute resolution, conveyancing transactions, and complex insurance negligence claims up to the Appellate Courts of Malaysia.',
-      'Her founding philosophy for LWCCO is to provide high-calibre legal service anchored in humanity values—ensuring that every class of the community receives dependable, ethical, and fearless legal representation.'
+      'Ms. Low Wah Chin (Ava Rachel) 劉華晶 is the Founder and Principal Counsel of Messrs. Low Wah Chin & Co. (LWCCO). Admitted to the Malaysian Bar as an Advocate & Solicitor of the High Court of Malaya on 11th November 2011 and called to the English Bar as a Barrister-at-Law of the Honourable Society of Lincoln’s Inn, London on 14th October 2010, she brings 13+ years of post-qualification legal mastery to her clients.',
+      'Her comprehensive career encompasses top-tier Malaysian benchmark litigation firms—including Shook Lin & Bok, Azim, Tunku Farik & Wong, and Murali B. Pillai & Associates—where she handled complex professional indemnity insurance defense, banking disputes, multi-day commercial fraud trials, and appellate advocacy before the Court of Appeal and Federal Court of Malaysia.',
+      'In addition to private courtroom practice, Ms. Low gained invaluable commercial and industrial insight as In-House Legal Executive for publicly listed multinational KNM Group Berhad, managing risk for cross-border engineering, procurement, and construction (EPC) projects, tender non-disclosure agreements, and corporate financing structures.',
+      'Having established her own practice in 2018 and founding Messrs. Low Wah Chin & Co. in 2020 at Colony @ KLCC, she is dedicated to providing high-calibre, decisive legal craftsmanship rooted in humanity—ensuring every individual and corporate client receives ethical, transparent, and fearless legal counsel.'
     ]
   }
 ];
@@ -1677,91 +2024,135 @@ export const GENERAL_FAQS: FaqItem[] = [
 export const REPRESENTATIVE_MATTERS_DATA: RepresentativeMatter[] = [
   {
     id: 'matter-1',
-    title: 'Federal Court Shareholder Derivative Action & Minority Oppression Defense',
+    title: 'Federal Court Section 96 CJA Motion for Leave to Appeal Defense (Medical Insurance Policy)',
     category: 'Appellate Litigation',
     forum: 'Federal Court of Malaysia (Apex Court, Putrajaya)',
-    statutoryFramework: 'Companies Act 2016 (Section 346 & Section 347) • Rules of the Federal Court 1995',
-    background: 'Defended majority shareholders and founding directors of an established engineering services conglomerate against an adversarial minority oppression petition and derivative action seeking company dissolution and asset disposal.',
-    strategy: 'Formulated a comprehensive statutory defense demonstrating clean fiduciary compliance, proper board sanction, and commercial justification under business judgment rules. Successfully struck out unmerited derivative claims.',
-    outcome: 'Dismissal of the petition upheld with costs. Safeguarded majority corporate governance and preserved RM35,000,000 enterprise valuation.',
-    highlights: ['Apex Court Precedent', 'Corporate Valuation Preservation', 'Fiduciary Duties Vindicated']
+    statutoryFramework: 'Courts of Judicature Act 1964 (Section 96) • Rules of the Federal Court 1995',
+    background: 'Conducted hearing in the Federal Court defending insurer against the insured’s motion for leave to appeal pursuant to Section 96 of the Courts of Judicature Act 1964 with proposed questions of law regarding specific terms and liability exclusions in a medical insurance policy.',
+    strategy: 'Formulated authoritative submissions establishing that the proposed questions of law failed the threshold test under Section 96 and that the policy interpretation by the subordinate courts was sound.',
+    outcome: 'Insured’s motion for leave to appeal was dismissed with costs by the Federal Court, upholding the insurer’s stance in full.',
+    highlights: ['Federal Court Defense', 'Section 96 Threshold Dismissal', 'Insurance Policy Jurisprudence']
   },
   {
     id: 'matter-2',
-    title: 'Court of Appeal Worldwide Mareva Injunction & Asset Freezing in Multi-Party Commercial Fraud',
-    category: 'Commercial & Corporate',
-    forum: 'Court of Appeal Putrajaya / High Court of Malaya (Commercial Division)',
-    statutoryFramework: 'Rules of Court 2012 (Order 29 Rule 1) • Specific Relief Act 1950 (Section 50)',
-    background: 'Acted for an international trading entity in urgent proceedings to freeze dissipated banking assets following an unauthorized diversion of invoice factoring funds across multiple jurisdictions.',
-    strategy: 'Secured urgent ex-parte Mareva Injunction with ancillary disclosure orders against local and offshore banking institutions, subsequently maintaining injunction upon vigorous inter-partes challenge in the Court of Appeal.',
-    outcome: '100% preservation of RM12,400,000 disputed liquid funds in escrow, compelling counterparty to enter comprehensive structured settlement.',
-    highlights: ['Multi-Jurisdictional Tracing', 'Emergency Injunction Granted', 'Substantial Settlement Recovery']
+    title: 'Court of Appeal & Federal Court Multi-Party Estate Probate Fraud & Administration Dispute',
+    category: 'Appellate Litigation',
+    forum: 'Court of Appeal & Federal Court of Malaysia (Putrajaya)',
+    statutoryFramework: 'Probate and Administration Act 1959 • Courts of Judicature Act 1964',
+    background: 'Conducted Court of Appeal and Federal Court hearings in a contentious estate suit commenced by an elder brother over the estate of his late younger brother, alleging fraud against a law firm regarding the extraction of Grant of Probate and Letters of Administration.',
+    strategy: 'Co-ordinated complex appellate submissions across multiple court levels, addressing allegations of procedural irregularities and establishing the legitimacy of estate extraction.',
+    outcome: 'Successfully represented clients throughout appellate hearings, resolving high-stakes probate and administration dispute.',
+    highlights: ['Appellate Court Defense', 'Probate & Letters of Administration', 'Fraud Allegation Defense']
   },
   {
     id: 'matter-3',
-    title: 'High Court Specific Performance for Prime Commercial Land Acquisition',
-    category: 'Real Estate & Land',
-    forum: 'High Court of Malaya Kuala Lumpur (Commercial & Land Division)',
-    statutoryFramework: 'Specific Relief Act 1950 (Section 11 & Section 18) • National Land Code (Act 828)',
-    background: 'Represented corporate property developer when vendor unlawfully attempted to terminate an executed Sale & Purchase Agreement (SPA) following sharp post-signing market appreciation.',
-    strategy: 'Lodged immediate Private Caveats at Land Registry to protect beneficial interest, commenced High Court action for Specific Performance, and proved readiness and willingness of purchaser to complete financing.',
-    outcome: 'Judgment granted in favor of client for Full Specific Performance with title transfer order (Form 14A) and full indemnity costs against defaulting vendor.',
-    highlights: ['Specific Performance Decree', 'Private Caveat Enforcement', 'Full Title Transfer Secured']
+    title: '10-Day High Court Commercial Fraud, Fiduciary Breach & Confidentiality Trial',
+    category: 'Commercial & Corporate',
+    forum: 'High Court of Malaya Kuala Lumpur (Commercial Division)',
+    statutoryFramework: 'Companies Act • Law of Fiduciary Obligations • Specific Relief Act 1950',
+    background: 'Assisted in a major 10-day High Court trial involving allegations of corporate fraud, conspiracy, breach of fiduciary duties, and breach of confidentiality against former senior employees of a leading automotive spare parts enterprise.',
+    strategy: 'Marshalled multi-volume documentary evidence, conducted forensic document cross-referencing, and prepared trial witness bundles and cross-examination strategies.',
+    outcome: 'Vindicated client’s commercial position and negotiated comprehensive post-trial settlement terms protecting corporate trade secrets.',
+    highlights: ['10-Day High Court Trial', 'Corporate Fraud & Fiduciary Breach', 'Automotive Industry Enterprise']
   },
   {
     id: 'matter-4',
-    title: 'Corporate Insolvency & High-Velocity Section 466 Debt Recovery',
-    category: 'Debt & Insolvency',
-    forum: 'High Court of Malaya Shah Alam (Commercial & Insolvency Division)',
-    statutoryFramework: 'Companies Act 2016 (Section 466(1)(a)) • Companies (Winding-Up) Rules 1972',
-    background: 'Retained by tier-1 building materials supplier to recover RM4,850,000 in defaulted progress deliveries from a recalcitrant main contractor attempting asset dissipation.',
-    strategy: 'Executed precision statutory 21-day Section 466 Notice of Demand supported by watertight delivery orders and reconciliations, followed by expedited Winding-Up Petition filing.',
-    outcome: 'Debtor satisfied 100% of outstanding principal plus contractual interest within 14 days of petition service to avert court liquidation.',
-    highlights: ['Zero Haircut Principal Recovery', 'Section 466 Execution', 'Rapid 14-Day Settlement']
+    title: 'Cross-Border Succession Advisory & Statutory Interpretation of 3 Wills (Western Australia)',
+    category: 'Real Estate & Land',
+    forum: 'Messrs. Low Wah Chin & Co. / Western Australia Jurisdiction',
+    statutoryFramework: 'Succession Act & Wills Act of Western Australia • Common Law Testamentary Construction',
+    background: 'Retained by an Australian client to author an exhaustive legal opinion analyzing the conflicting terms and statutory interpretation of three (3) separate testamentary Wills executed across jurisdictions.',
+    strategy: 'Synthesized Australian succession jurisprudence with common law rules of construction, resolving ambiguities regarding testamentary intent, revocation clauses, and cross-border asset distribution.',
+    outcome: 'Delivered definitive legal opinion providing client with a clear roadmap to extract probate and distribute multi-jurisdictional estate assets without costly litigation.',
+    highlights: ['3 Wills Statutory Interpretation', 'Australian Succession Law', 'Cross-Border Estate Advisory']
   },
   {
     id: 'matter-5',
-    title: 'Complex Medical Malpractice & Neurological Catastrophic Injury Settlement',
-    category: 'Tort & Medical Negligence',
-    forum: 'High Court of Malaya Kuala Lumpur (Civil Division)',
-    statutoryFramework: 'Civil Law Act 1956 (Section 28A) • Bolam & Bolitho / Foo Fio Na Standard of Care',
-    background: 'Represented family of an infant who suffered severe hypoxic ischemic encephalopathy during delivery due to systemic obstetric delay and failure to monitor fetal distress.',
-    strategy: 'Marshalled international expert obstetrician testimony, formulated rigorous actuarial future care lifetime cost schedules, and established standard of care breaches under Malaysian medical jurisprudence.',
-    outcome: 'Court-sanctioned multi-million ringgit structured settlement establishing lifetime therapeutic care trust for the claimant.',
-    highlights: ['Top 6 Tort Practice', 'Actuarial Lifetime Compensation', 'Court Trust Fund Established']
+    title: 'High Court Estate Dementia Validity Challenge (Same-Day Irrevocable Power of Attorney & Will)',
+    category: 'Real Estate & Land',
+    forum: 'High Court of Malaya Kuala Lumpur (Civil & Probate Division)',
+    statutoryFramework: 'Probate and Administration Act 1959 • Wills Act 1959 • Powers of Attorney Act 1949',
+    background: 'Attended to complex High Court estate litigation challenging the validity of the deceased’s final will and testament, where the deceased suffered from dementia and had executed both an Irrevocable Power of Attorney and a Last Will on the exact same day, naming conflicting representatives and beneficiaries.',
+    strategy: 'Conducted forensic evidentiary review of contemporaneous medical capacity records and legal execution formalities, establishing lines of contestation on testamentary capacity.',
+    outcome: 'Protected client beneficiaries’ rights and successfully resolved multi-party High Court estate succession dispute.',
+    highlights: ['High Court Estate Litigation', 'Dementia Testamentary Capacity', 'Power of Attorney & Will Conflict']
   },
   {
     id: 'matter-6',
-    title: 'Industrial Court Executive Constructive Dismissal & Back-Wages Award',
-    category: 'Employment & Industrial',
-    forum: 'Industrial Court of Malaysia Kuala Lumpur (Court 12)',
-    statutoryFramework: 'Industrial Relations Act 1967 (Section 20(3)) • Employment Jurisprudence (Wong Chee Hong principle)',
-    background: 'Advocated for Vice President of Regional Operations subjected to unilateral demotion, salary slashing, and hostile corporate restructuring without just cause or excuse.',
-    strategy: 'Established breach of fundamental employment contract going to the root of employment relationship, proving constructive dismissal before Industrial Court Chairman.',
-    outcome: 'Full Industrial Court Award granting 24 months maximum statutory back-wages plus compensation in lieu of reinstatement with statutory interest.',
-    highlights: ['Executive Constructive Dismissal', 'Maximum Statutory Back-Wages', 'Industrial Court Victory']
+    title: 'RM7.5 Million Estate Grant of Probate Extraction & Dual Property Conveyancing Realization',
+    category: 'Real Estate & Land',
+    forum: 'High Court of Malaya / Land Registries Kuala Lumpur & Selangor',
+    statutoryFramework: 'Probate and Administration Act 1959 • National Land Code (Act 828) • Stamp Act 1949',
+    background: 'Retained to extract High Court Grant of Probate and execute the sub-sale conveyancing transfer of two prime estate properties valued at RM7,500,000 to third-party purchasers.',
+    strategy: 'Expedited High Court probate extraction, coordinated with estate executors, managed stamp duty adjudication with LHDN, and perfected Form 14A title transfers at Land Registry.',
+    outcome: 'Extracted Grant of Probate under court seal and completed 100% conveyancing transfer and asset distribution of RM7.5 Million estate properties.',
+    highlights: ['RM7.5M Estate Realization', 'Dual Property Conveyancing', 'High Court Grant of Probate']
   },
   {
     id: 'matter-7',
-    title: 'High Court Contentious Probate & Multi-Property Testamentary Capacity Dispute',
-    category: 'Real Estate & Land',
-    forum: 'High Court of Malaya Kuala Lumpur (Probate Division)',
-    statutoryFramework: 'Probate and Administration Act 1959 • Wills Act 1959 (Banks v Goodfellow test)',
-    background: 'Defended sole executor of a high-net-worth family estate against challenges to the validity of the deceased’s final testamentary will containing multi-million commercial real estate assets.',
-    strategy: 'Adduced contemporaneous medical and attesting witness testimonies proving full testamentary capacity and absence of undue influence under classical common law standards.',
-    outcome: 'Caveats removed, probate challenge dismissed with costs, and formal Grant of Probate issued under High Court seal.',
-    highlights: ['Wills Validity Upheld', 'Estate Asset Distribution', 'High Court Probate Seal']
+    title: 'High Court Medical Negligence Discovery Application for Hospital Records (Wrongful Amputation)',
+    category: 'Tort & Medical Negligence',
+    forum: 'High Court of Malaya Kuala Lumpur (Civil Division)',
+    statutoryFramework: 'Rules of Court 2012 (Order 24) • Civil Law Act 1956 • Medical Act 1971',
+    background: 'Represented patient claimant in a contested High Court Discovery Application against hospital and medical practitioners for pre-action release of surgical and clinical records regarding alleged wrongful leg amputation.',
+    strategy: 'Drafted compelling affidavit in support proving prima facie medical negligence in diagnosis and surgical indications, establishing legal necessity for comprehensive chart discovery.',
+    outcome: 'Secured High Court order for disclosure of complete hospital medical files, enabling formal quantum assessment and specialist liability opinion.',
+    highlights: ['High Court Discovery Order', 'Wrongful Amputation Action', 'Medical Negligence Defense/Claim']
   },
   {
     id: 'matter-8',
-    title: 'Cross-Border Supply Chain Breach & Summary Judgment Enforcement',
+    title: 'Sessions Court Trial on Contractor Negligence & Water Damage to 14 Gaming Machines',
     category: 'Commercial & Corporate',
-    forum: 'High Court of Malaya (Commercial Division) / Singapore Enforcement Coordination',
-    statutoryFramework: 'Rules of Court 2012 (Order 14) • Reciprocal Enforcement of Judgments Act 1958',
-    background: 'Prosecuted substantial contractual breach claim for regional distributor against defaulting overseas technology hardware manufacturer.',
-    strategy: 'Drafted airtight Order 14 Summary Judgment application proving no triable defense, defeating sham counterclaims on affidavit evidence alone.',
-    outcome: 'Summary Judgment extracted within 4 months of suit commencement and successfully registered for reciprocal cross-border enforcement.',
-    highlights: ['Order 14 Summary Judgment', 'Reciprocal Cross-Border Enforcement', 'Fast-Track Commercial Victory']
+    forum: 'Sessions Court Kuala Lumpur (Civil Division)',
+    statutoryFramework: 'Tort of Negligence • Civil Law Act 1956 • Rules of Court 2012',
+    background: 'Conducted full trial involving contractor negligence over a dislodged fire sprinkler pipe causing catastrophic water damage to 14 high-value gaming machines, issuing fourth-party proceedings against building management.',
+    strategy: 'Examined technical engineering experts, established chain of causation regarding contractor maintenance failures, and apportioned civil liability.',
+    outcome: 'Successfully prosecuted trial and secured judicial liability finding and damages award for property destruction.',
+    highlights: ['Sessions Court Full Trial', '14 Gaming Machines Damage', 'Fourth-Party Proceedings']
+  },
+  {
+    id: 'matter-9',
+    title: 'High Court 3-Day Professional Negligence & "Loss of Chance" Trial Defense',
+    category: 'Appellate Litigation',
+    forum: 'High Court of Malaya Kuala Lumpur (Civil & Professional Indemnity)',
+    statutoryFramework: 'Rules of Court 2012 • Civil Law Act 1956 • Professional Indemnity Insurance Jurisprudence',
+    background: 'Assisted in a 3-day High Court trial defending a legal practitioner in a professional negligence suit alleging wrong mode of action in a claim against the government, causing "loss of chance" litigation damages.',
+    strategy: 'Marshalled exhaustive common law authorities on causation and quantum in "loss of chance" claims, proving lack of proximate causation between legal advice and claimed damages.',
+    outcome: 'Successfully defended advocate’s professional standard and mitigated exposure under Professional Indemnity Insurance policy.',
+    highlights: ['3-Day High Court Trial', 'Professional Indemnity Defense', 'Loss of Chance Jurisprudence']
+  },
+  {
+    id: 'matter-10',
+    title: 'RM6.8 Million Corporate Share Sale & Purchase Agreement for Private Limited Company',
+    category: 'Commercial & Corporate',
+    forum: 'Corporate Practice / Private Transaction',
+    statutoryFramework: 'Companies Act 2016 (Act 777) • Contracts Act 1950 (Act 136) • Stamp Act 1949',
+    background: 'Retained to structure, draft, and oversee closing for a 100% corporate share sale and purchase transaction valued at RM6,800,000 for a private limited company.',
+    strategy: 'Drafted tailored Share Sale Agreement (SSA) with comprehensive vendor warranties, disclosure schedules, escrow retention mechanisms, and director indemnities.',
+    outcome: 'Completed transaction closing, stamp duty adjudication with LHDN, and statutory Register of Members transfer without delay.',
+    highlights: ['RM6.8M Corporate Acquisition', 'Bespoke Share Sale Agreement', 'Warranty & Escrow Structuring']
+  },
+  {
+    id: 'matter-11',
+    title: 'Cross-Border Tenancy & Joint Venture Negotiation with YTL Corporation for China Client',
+    category: 'Commercial & Corporate',
+    forum: 'Corporate Advisory / Commercial Negotiation',
+    statutoryFramework: 'Contracts Act 1950 • National Land Code (Act 828)',
+    background: 'Advised and led direct commercial and legal negotiations with conglomerate YTL Corporation and SME partners on behalf of a mainland Chinese corporate enterprise.',
+    strategy: 'Drafted and negotiated customized commercial lease terms, Joint Venture agreements, profit-sharing covenants, and risk allocation clauses protecting foreign investor capital.',
+    outcome: 'Successfully executed favorable commercial lease and joint venture frameworks, enabling seamless market entry for client.',
+    highlights: ['YTL Corporation Negotiation', 'China Cross-Border Investment', 'Commercial Lease & JV Structuring']
+  },
+  {
+    id: 'matter-12',
+    title: 'In-House Cross-Border EPC Contracts & Regulatory Risk Advisory at KNM Group Berhad',
+    category: 'Commercial & Corporate',
+    forum: 'In-House Legal & Risk Management / Multi-Jurisdictional Engineering Projects',
+    statutoryFramework: 'FIDIC / EPC Contract Standards • International Arbitration Rules • Companies Act',
+    background: 'Assisted Head of Legal & Risk Management in managing legal and regulatory affairs across international engineering, procurement, and construction (EPC) projects for public listed company.',
+    strategy: 'Drafted international tender NDAs, reviewed EPC contract terms, prepared terms comparison matrices, drafted Supplemental Loan Agreements, and structured MOUs for cross-border projects.',
+    outcome: 'Safeguarded corporate risk exposure across multi-million dollar engineering and procurement contracts worldwide.',
+    highlights: ['Listed Conglomerate In-House Counsel', 'Cross-Border EPC Contracts', 'Risk Management & Tender NDAs']
   }
 ];
 

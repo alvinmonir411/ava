@@ -35,7 +35,7 @@ export default function GoogleReviewsSection() {
           </h2>
 
           <p className="text-sm sm:text-base text-[#faf9f6]/80 leading-relaxed font-light">
-            Real feedback from individuals, corporations, and international clients represented by principal counsel Ava Rachel Low (刘华律师) at Messrs. Low Wah Chin & Co.
+            Real feedback from individuals, corporations, and international clients represented by principal counsel Low Wah Chin (Ava Rachel) 劉華晶 at Messrs. Low Wah Chin & Co.
           </p>
         </div>
 

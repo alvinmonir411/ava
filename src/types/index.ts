@@ -34,16 +34,69 @@ export interface Article {
   tags?: string[];
 }
 
+export interface EducationItem {
+  period: string;
+  level: string;
+  qualification: string;
+  institution: string;
+  location?: string;
+  gradeOrDetails?: string;
+}
+
+export interface CareerHistoryItem {
+  period: string;
+  firm: string;
+  role: string;
+  department?: string;
+  supervisor?: string;
+  keyResponsibilities?: string[];
+  notableMatters?: string[];
+}
+
+export interface InternshipItem {
+  period: string;
+  firm: string;
+  role: string;
+  supervisor?: string;
+  details?: string;
+}
+
+export interface ActivityItem {
+  date: string;
+  title: string;
+  organization: string;
+  role?: string;
+  details?: string;
+}
+
 export interface TeamMember {
   id: string | number;
   name: string;
+  chineseName?: string;
+  nricName?: string;
   role: string;
   title?: string;
   credentials: string[];
   admissions?: string[];
   education?: string[];
-  careerHistory?: { period: string; firm: string; role: string }[];
+  educationHistory?: EducationItem[];
+  careerHistory?: { period: string; firm: string; role: string; details?: string }[];
+  detailedCareerHistory?: CareerHistoryItem[];
+  earlyCareerAndInternships?: InternshipItem[];
+  activitiesAndAchievements?: ActivityItem[];
+  skills?: string[];
+  languages?: { language: string; proficiency: string }[];
   appellateExperience?: { code: string; title: string; description: string }[];
+  summaryOfExperience?: {
+    establishedFirmsSummary?: string[];
+    inHouseSummary?: string[];
+    soleProprietorSummary?: string[];
+  };
+  contactInfo?: {
+    phone: string;
+    email: string;
+    chambersAddress?: string;
+  };
   bio: string | string[];
   photo_url?: string | null;
   display_order?: number;

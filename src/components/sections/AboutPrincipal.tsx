@@ -15,7 +15,7 @@ export default function AboutPrincipal() {
               <div className="relative h-[440px] sm:h-[480px] w-full rounded overflow-hidden bg-gray-100">
                 <Image
                   src="/lawyer-portrait-1.jpg"
-                  alt="Ava Rachel Low (刘华律师) — Principal Counsel at Messrs. Low Wah Chin & Co."
+                  alt="Ava Rachel Low (劉華晶) — Principal Counsel at Messrs. Low Wah Chin & Co."
                   fill
                   sizes="(max-width: 768px) 100vw, 400px"
                   className="object-cover object-top"
@@ -24,7 +24,7 @@ export default function AboutPrincipal() {
               <div className="mt-3 text-center px-2 py-1">
                 <p className="font-serif text-base font-bold text-[#1a2332]">
                   Low Wah Chin (Ava Rachel)
-                  <span className="text-sm font-normal text-[#9d7835] ml-1.5">刘华律师</span>
+                  <span className="text-sm font-normal text-[#9d7835] ml-1.5">劉華晶</span>
                 </p>
                 <p className="text-xs text-[#4b5563] font-medium mt-0.5">
                   Founder & Principal Counsel
@@ -53,17 +53,14 @@ export default function AboutPrincipal() {
             {/* Paragraphs about experience & practice areas */}
             <div className="space-y-4 text-sm sm:text-base text-[#374151] leading-relaxed">
               <p>
-                Ms. Low Wah Chin (Ava Rachel) founded Messrs. Low Wah Chin & Co. (LWCCO) in 2020 after nearly a decade of distinguished legal practice in top-tier litigation and commercial law firms in Kuala Lumpur. Admitted to the Malaysian Bar in November 2011 and called to the English Bar at Lincoln’s Inn in 2010, she delivers fearless courtroom advocacy, meticulous contract drafting, and strategic corporate risk guidance.
+                Ms. Low Wah Chin (Ava Rachel) founded Messrs. Low Wah Chin & Co. (LWCCO) in 2020 after distinguished legal practice in top-tier litigation and commercial law firms in Kuala Lumpur. Admitted to the Malaysian Bar in November 2011 and called to the English Bar at Lincoln’s Inn in 2010, she delivers fearless courtroom advocacy, meticulous contract drafting, and strategic corporate risk guidance.
               </p>
               <p>
-                Throughout her career, Ms. Low has represented corporate clients, SMEs, and individuals in complex civil disputes, property conveyancing, family and divorce proceedings, probate administration, and high-stakes commercial disputes across the Malaysian judicial hierarchy.
+                With 13+ years of post-qualification practice at benchmark institutions including <em>Shook Lin & Bok</em>, <em>Azim, Tunku Farik & Wong</em>, <em>Murali B. Pillai & Associates</em>, and listed engineering group <em>KNM Group Berhad</em>, Ms. Low provides commanding trial representation and strategic corporate counsel.
               </p>
               <p>
                 Her founding philosophy is straightforward: provide high-calibre, to-the-point legal counsel anchored in deep ethical values—ensuring every client receives responsive, transparent, and unwavering representation.
               </p>
-
-              {/* Verified Prior Experience Placeholder */}
-              {/* TODO: insert verified prior firm experience from client CV */}
             </div>
 
             {/* Contact Line & Read More Button */}
@@ -74,8 +71,8 @@ export default function AboutPrincipal() {
                   +60 17-548 3157
                 </a>
                 <span className="mx-2">•</span>
-                <a href="mailto:lwclegal5@gmail.com" className="font-semibold text-[#1a2332] hover:text-[#9d7835] transition-colors">
-                  lwclegal5@gmail.com
+                <a href="mailto:lwc.rachel@gmail.com" className="font-semibold text-[#1a2332] hover:text-[#9d7835] transition-colors">
+                  lwc.rachel@gmail.com
                 </a>
               </div>
 

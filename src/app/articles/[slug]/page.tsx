@@ -166,7 +166,7 @@ export default async function IndividualArticlePage({ params }: Props) {
           <div className="mt-10 p-6 sm:p-8 rounded-lg bg-[#1a2332] text-white flex flex-col sm:flex-row items-center gap-6 shadow-md border border-[#c6a052]/40">
             <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-[#c6a052]">
               <Image
-                src="/profile-image.avif"
+                src="/lawyer-portrait-1.jpg"
                 alt={article.author}
                 fill
                 className="object-cover object-top"

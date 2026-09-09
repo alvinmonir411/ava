@@ -35,7 +35,7 @@ export default function BrandMonogram({
                 Low, Wah Chin & Co.
               </span>
               <span className="text-xs font-serif font-medium text-[#e5c777] tracking-wider">
-                刘华律师
+                劉華晶
               </span>
             </div>
             <span className="text-[10px] font-sans tracking-[0.22em] text-[#c6a052] uppercase font-semibold mt-0.5">
@@ -47,7 +47,7 @@ export default function BrandMonogram({
         {/* Founding Baseline */}
         <div className="mt-2.5 flex items-center gap-2 text-[10.5px] tracking-wider text-[#faf9f6]/70 uppercase font-medium">
           <span className="w-1.5 h-1.5 rounded-full bg-[#c6a052]" />
-          <span>Established 11 Nov 2011</span>
+          <span>Admitted 11 Nov 2011</span>
           <span className="text-[#c6a052]/50">•</span>
           <span>Bar Council No. BC/L/2019</span>
         </div>
@@ -77,7 +77,7 @@ export default function BrandMonogram({
                 Low, Wah Chin & Co.
               </span>
               <span className="text-xs font-serif text-[#e5c777]">
-                刘华律师
+                劉華晶
               </span>
             </div>
             <span className="text-[9px] font-sans tracking-[0.18em] text-[#c6a052] font-semibold uppercase">
@@ -110,7 +110,7 @@ export default function BrandMonogram({
             LOW, WAH CHIN & CO.
           </span>
           <span className="text-[9px] sm:text-[10px] font-serif font-medium text-[#e5c777] leading-none">
-            刘华律师
+            劉華晶
           </span>
         </div>
         <span className="text-[7.5px] sm:text-[9px] font-sans tracking-[0.15em] sm:tracking-[0.2em] text-[#c6a052] font-semibold uppercase leading-tight mt-0.5">

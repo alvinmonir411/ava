@@ -67,7 +67,7 @@ export default function AboutPage() {
                 <div className="mt-3 text-center px-2 py-1">
                   <p className="font-serif text-base font-bold text-[#1a2332]">
                     Low Wah Chin (Ava Rachel)
-                    <span className="text-sm font-normal text-[#9d7835] ml-1.5">刘华律师</span>
+                    <span className="text-sm font-normal text-[#9d7835] ml-1.5">劉華晶</span>
                   </p>
                   <p className="text-xs text-[#4b5563] font-medium mt-0.5">
                     Managing Partner & Principal Counsel
@@ -120,17 +120,17 @@ export default function AboutPage() {
 
               <div className="space-y-4 text-sm sm:text-base text-[#374151] leading-relaxed">
                 <p>
-                  Founded by senior advocate <strong>Low Wah Chin (Ava Rachel)</strong>, the firm was established with a clear mandate: to make top-tier legal advice accessible, transparent, and decisively effective. We bridge the gap between large, impersonal corporate law factories and small, single-issue practices by providing sophisticated counsel with dedicated, partner-led attention.
+                  Founded by senior advocate <strong>Low Wah Chin (Ava Rachel) 劉華晶</strong>, the firm was established with a clear mandate: to make top-tier legal advice accessible, transparent, and decisively effective. We bridge the gap between large, impersonal corporate law factories and single-issue practices by providing sophisticated counsel with dedicated, partner-led attention.
                 </p>
                 <p>
-                  Our litigation and advisory capabilities span civil disputes, corporate agreements, land conveyancing, probate administration, family restructuring, employment law, and tort liabilities. We represent clients at all tiers of the Malaysian judicial hierarchy—from Magistrates’ and Sessions Courts to the High Court, Court of Appeal, and the Federal Court of Malaysia.
+                  Ms. Low brings over 13 years of distinguished post-qualification experience across civil litigation, corporate agreements, land conveyancing, probate administration, family law, employment disputes, and insurance negligence. Her practice foundation was honed at benchmark Malaysian institutions—including <em>Shook Lin & Bok</em>, <em>Azim, Tunku Farik & Wong</em>, <em>Murali B. Pillai & Associates</em>, and as In-House Corporate Legal Executive for public listed multinational <em>KNM Group Berhad</em>.
+                </p>
+                <p>
+                  Our litigation and advisory capabilities span all tiers of the Malaysian judicial hierarchy—from Magistrates’ and Sessions Courts to the High Court of Malaya, Court of Appeal, and the Federal Court of Malaysia.
                 </p>
                 <p>
                   We operate with transparent fee frameworks, clear procedural timelines, and regular milestone updates so our clients always maintain strategic control of their legal positions.
                 </p>
-
-                {/* Verified Prior Experience Placeholder */}
-                {/* TODO: insert verified prior firm experience from client CV */}
               </div>
 
               {/* Bilingual Bahasa Melayu Callout */}
@@ -140,7 +140,7 @@ export default function AboutPage() {
                   <span>Mengenai Firma (Bahasa Melayu)</span>
                 </div>
                 <p className="text-white/95 text-xs sm:text-sm italic leading-relaxed">
-                  &ldquo;Tetuan Low, Wah Chin & Co. Peguambela & Peguamcara (LWCCO) di Kuala Lumpur diasaskan oleh peguam Low Wah Chin (Ava Rachel). Matlamat firma adalah untuk berkhidmat kepada masyarakat dan menyediakan perkhidmatan undang-undang yang paling waras dalam bidang nilai kemanusiaan, memastikan setiap lapisan komuniti dilayani dengan integriti dan kecemerlangan yang mendalam.&rdquo;
+                  &ldquo;Tetuan Low, Wah Chin & Co. Peguambela & Peguamcara (LWCCO) di Kuala Lumpur diasaskan oleh peguam Low Wah Chin (Ava Rachel) 劉華晶. Matlamat firma adalah untuk berkhidmat kepada masyarakat dan menyediakan perkhidmatan undang-undang yang paling waras dalam bidang nilai kemanusiaan, memastikan setiap lapisan komuniti dilayani dengan integriti dan kecemerlangan yang mendalam.&rdquo;
                 </p>
               </div>
 

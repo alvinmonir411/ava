@@ -25,7 +25,7 @@ export default function Hero() {
         {/* Established Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#c6a052]/50 bg-[#1a2332]/70 text-[#dcc280] text-xs uppercase tracking-[0.2em] font-semibold mb-6 shadow-sm">
           <Scale className="w-3.5 h-3.5 text-[#c6a052]" />
-          <span>Advocates & Solicitors • High Court of Malaya • Est. 2011</span>
+          <span>Advocates & Solicitors • High Court of Malaya • Admitted 2011</span>
         </div>
 
         {/* Large Serif Headline */}

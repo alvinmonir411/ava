@@ -153,7 +153,7 @@ Our firm prioritizes child welfare and equitable resolution while providing comp
       'Low Wah Chin (Ava Rachel)',
       'Managing Partner • Advocate & Solicitor',
       'Barrister-at-Law of Lincoln’s Inn, London, and Advocate & Solicitor of the High Court of Malaya with extensive courtroom experience across bodily injury claims, commercial disputes, property conveyancing, and family matters.',
-      '/profile-image.png',
+      '/profile-image.avif',
       1
     );
   `);
