@@ -89,13 +89,13 @@ export default async function IndividualPracticePage({ params }: Props) {
       />
 
       {/* 1. Main Practice Content Layout (Light Section) */}
-      <section className="py-20 lg:py-28 bg-[#faf7fc] text-[#1e0d33] border-b border-[#ebdff5]">
+      <section className="py-20 lg:py-28 bg-[#f8fafc] text-[#0F1F3D] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Column: In-depth Legal Content (8 cols) */}
             <div className="lg:col-span-8 space-y-10">
               {/* Featured Practice Photo Banner in thin frame */}
-              <div className="relative h-64 sm:h-80 w-full rounded-lg overflow-hidden border border-[#c6a052]/40 bg-[#1e0d33] shadow-sm">
+              <div className="relative h-64 sm:h-80 w-full rounded-lg overflow-hidden border border-slate-200 bg-[#0F1F3D] shadow-sm">
                 <Image
                   src={practice.heroImage}
                   alt={`${practice.title} Legal Counsel Kuala Lumpur`}
@@ -104,28 +104,28 @@ export default async function IndividualPracticePage({ params }: Props) {
                   sizes="(max-width: 1024px) 100vw, 65vw"
                   className="object-cover object-center brightness-95"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#120720]/90 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded bg-[#1e0d33]/90 border border-[#c6a052]/40 text-[#faf7fc] flex items-center justify-between">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#070E1C]/90 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded bg-[#0F1F3D]/90 border border-white/20 text-[#faf7fc] flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#dcc280] block">
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-purple-200 block">
                       Advocates & Solicitors • High Court of Malaya
                     </span>
                     <span className="font-serif text-xs sm:text-sm font-bold text-white">
                       Messrs. Low Wah Chin & Co. — {practice.title}
                     </span>
                   </div>
-                  <span className="hidden sm:inline-block px-2.5 py-0.5 rounded bg-[#c6a052]/20 text-[#dcc280] border border-[#c6a052]/30 text-xs font-semibold">
+                  <span className="hidden sm:inline-block px-2.5 py-0.5 rounded bg-white/10 text-white border border-white/15 text-xs font-semibold">
                     Kuala Lumpur Chambers
                   </span>
                 </div>
               </div>
 
               {/* Comprehensive Overview */}
-              <div className="bg-white p-6 sm:p-8 rounded-lg border border-[#ebdff5] shadow-xs">
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#1e0d33] mb-4">
+              <div className="bg-white p-6 sm:p-8 rounded-lg border border-slate-200 shadow-xs">
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#0F1F3D] mb-4">
                   Overview & Legal Representation
                 </h2>
-                <div className="prose text-[#4b3d56] leading-relaxed space-y-4 text-sm sm:text-base font-normal">
+                <div className="prose text-slate-700 leading-relaxed space-y-4 text-sm sm:text-base font-normal">
                   {practice.fullDescription.split('\n\n').map((paragraph, pIdx) => (
                     <p key={pIdx} className="leading-relaxed">
                       {paragraph}
@@ -136,9 +136,9 @@ export default async function IndividualPracticePage({ params }: Props) {
 
               {/* Malaysian Statutory & Regulatory Framework */}
               {practice.statutoryFramework && practice.statutoryFramework.length > 0 && (
-                <div className="p-6 sm:p-8 rounded-lg bg-[#180829] text-[#faf7fc] border border-[#c6a052]/40 shadow-sm">
-                  <div className="flex items-center gap-2 text-[#dcc280] text-xs font-bold uppercase tracking-wider mb-2">
-                    <BookOpen className="w-4 h-4 text-[#c6a052]" />
+                <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-[#070e1e] via-[#0d1738] to-[#1c0c30] text-[#faf7fc] border border-white/15 shadow-sm">
+                  <div className="flex items-center gap-2 text-purple-200 text-xs font-bold uppercase tracking-wider mb-2">
+                    <BookOpen className="w-4 h-4 text-purple-300" />
                     <span>Governing Laws & Malaysian Statutory Framework</span>
                   </div>
                   <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
@@ -151,9 +151,9 @@ export default async function IndividualPracticePage({ params }: Props) {
                     {practice.statutoryFramework.map((statute, sIdx) => (
                       <div
                         key={sIdx}
-                        className="p-3 rounded bg-white/5 border border-[#c6a052]/30 flex items-start gap-2.5 text-xs text-white/90"
+                        className="p-3 rounded bg-white/5 border border-white/15 flex items-start gap-2.5 text-xs text-white/90"
                       >
-                        <Scale className="w-4 h-4 text-[#c6a052] shrink-0 mt-0.5" />
+                        <Scale className="w-4 h-4 text-purple-300 shrink-0 mt-0.5" />
                         <span className="font-medium">{statute}</span>
                       </div>
                     ))}
@@ -162,15 +162,15 @@ export default async function IndividualPracticePage({ params }: Props) {
               )}
 
               {/* What We Handle Breakdown */}
-              <div className="p-6 sm:p-8 rounded-lg bg-white border border-[#ebdff5] space-y-5 shadow-xs">
-                <h3 className="font-serif text-2xl font-bold text-[#1e0d33]">
+              <div className="p-6 sm:p-8 rounded-lg bg-white border border-slate-200 space-y-5 shadow-xs">
+                <h3 className="font-serif text-2xl font-bold text-[#0F1F3D]">
                   What We Handle in This Practice Discipline
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   {practice.whatWeHandle.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 bg-[#faf7fc] p-3.5 rounded border border-[#ebdff5]">
-                      <CheckCircle2 className="w-4 h-4 text-[#c6a052] shrink-0 mt-0.5" />
-                      <span className="text-xs sm:text-sm text-[#4b3d56] font-medium leading-relaxed">
+                    <div key={idx} className="flex items-start gap-2.5 bg-[#f8fafc] p-3.5 rounded border border-slate-200">
+                      <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
+                      <span className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
                         {item}
                       </span>
                     </div>
@@ -180,35 +180,35 @@ export default async function IndividualPracticePage({ params }: Props) {
 
               {/* Procedural Pathway Timeline */}
               {practice.proceduralTimeline && practice.proceduralTimeline.length > 0 && (
-                <div className="p-6 sm:p-8 rounded-lg bg-white border border-[#ebdff5] shadow-xs space-y-5">
-                  <div className="flex items-center gap-2 text-[#9d7835] text-xs font-bold uppercase tracking-wider">
-                    <Compass className="w-4 h-4 text-[#c6a052]" />
+                <div className="p-6 sm:p-8 rounded-lg bg-white border border-slate-200 shadow-xs space-y-5">
+                  <div className="flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-wider">
+                    <Compass className="w-4 h-4 text-indigo-600" />
                     <span>Litigation Pathway & Matter Progression</span>
                   </div>
-                  <h3 className="font-serif text-2xl font-bold text-[#1e0d33]">
+                  <h3 className="font-serif text-2xl font-bold text-[#0F1F3D]">
                     How We Progress Your Matter
                   </h3>
                   <div className="space-y-3">
                     {practice.proceduralTimeline.map((item, tIdx) => (
                       <div
                         key={tIdx}
-                        className="flex items-start gap-3.5 p-3.5 rounded bg-[#faf7fc] border border-[#ebdff5]"
+                        className="flex items-start gap-3.5 p-3.5 rounded bg-[#f8fafc] border border-slate-200"
                       >
-                        <div className="w-7 h-7 rounded bg-[#1e0d33] text-[#dcc280] font-serif font-bold text-xs flex items-center justify-center shrink-0 border border-[#c6a052]/40">
+                        <div className="w-7 h-7 rounded bg-indigo-600 text-white font-serif font-bold text-xs flex items-center justify-center shrink-0 border border-indigo-400">
                           {item.step || tIdx + 1}
                         </div>
                         <div className="flex-1 text-xs">
                           <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
-                            <h4 className="font-serif font-bold text-sm text-[#1e0d33]">
+                            <h4 className="font-serif font-bold text-sm text-[#0F1F3D]">
                               {item.title}
                             </h4>
                             {item.duration && (
-                              <span className="text-[10px] font-semibold text-[#9d7835] bg-white px-2 py-0.5 rounded border border-[#ebdff5]">
+                              <span className="text-[10px] font-semibold text-indigo-600 bg-white px-2 py-0.5 rounded border border-slate-200">
                                 ⏱ {item.duration}
                               </span>
                             )}
                           </div>
-                          <p className="text-[#594d63] leading-relaxed">
+                          <p className="text-slate-600 leading-relaxed">
                             {item.description}
                           </p>
                         </div>
@@ -220,12 +220,12 @@ export default async function IndividualPracticePage({ params }: Props) {
 
               {/* Frequently Asked Questions */}
               {practice.faqs && practice.faqs.length > 0 && (
-                <div className="p-6 sm:p-8 rounded-lg bg-white border border-[#ebdff5] shadow-xs space-y-4">
-                  <div className="flex items-center gap-2 text-[#9d7835] text-xs font-bold uppercase tracking-wider">
-                    <HelpCircle className="w-4 h-4 text-[#c6a052]" />
+                <div className="p-6 sm:p-8 rounded-lg bg-white border border-slate-200 shadow-xs space-y-4">
+                  <div className="flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-wider">
+                    <HelpCircle className="w-4 h-4 text-indigo-600" />
                     <span>Common Questions</span>
                   </div>
-                  <h3 className="font-serif text-2xl font-bold text-[#1e0d33]">
+                  <h3 className="font-serif text-2xl font-bold text-[#0F1F3D]">
                     Frequently Asked Questions ({practice.title})
                   </h3>
                   <FaqAccordion items={practice.faqs} />
@@ -241,14 +241,14 @@ export default async function IndividualPracticePage({ params }: Props) {
               )}
 
               {/* Direct WhatsApp Callout */}
-              <div className="p-6 bg-white rounded-lg border border-[#c6a052]/40 shadow-xs space-y-3">
-                <span className="text-[10px] uppercase font-bold tracking-wider text-[#9d7835] block">
+              <div className="p-6 bg-white rounded-lg border border-slate-200 shadow-xs space-y-3">
+                <span className="text-[10px] uppercase font-bold tracking-wider text-indigo-600 block">
                   Quick Legal Inquiry
                 </span>
-                <h4 className="font-serif text-lg font-bold text-[#1e0d33]">
+                <h4 className="font-serif text-lg font-bold text-[#0F1F3D]">
                   Consult with Principal Counsel
                 </h4>
-                <p className="text-xs text-[#594d63] leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Have an urgent question regarding {practice.title}? Connect directly with our chambers.
                 </p>
                 <div className="pt-1">
@@ -261,8 +261,8 @@ export default async function IndividualPracticePage({ params }: Props) {
               </div>
 
               {/* All Practice Areas Quick Nav */}
-              <div className="p-5 bg-white rounded-lg border border-[#ebdff5] space-y-3 shadow-xs">
-                <h4 className="font-serif text-sm font-bold text-[#1e0d33] uppercase tracking-wider border-b border-[#ebdff5] pb-2">
+              <div className="p-5 bg-white rounded-lg border border-slate-200 space-y-3 shadow-xs">
+                <h4 className="font-serif text-sm font-bold text-[#0F1F3D] uppercase tracking-wider border-b border-slate-200 pb-2">
                   Other Practice Disciplines
                 </h4>
                 <ul className="space-y-1.5 text-xs">
@@ -270,8 +270,8 @@ export default async function IndividualPracticePage({ params }: Props) {
                     <li key={p.slug}>
                       <Link
                         href={`/practices/${p.slug}`}
-                        className={`block py-1 hover:text-[#9d7835] transition-colors line-clamp-1 ${
-                          p.slug === practice.slug ? 'font-bold text-[#9d7835]' : 'text-[#594d63]'
+                        className={`block py-1 hover:text-indigo-600 transition-colors line-clamp-1 ${
+                          p.slug === practice.slug ? 'font-bold text-indigo-600' : 'text-slate-600'
                         }`}
                       >
                         • {p.title}
@@ -286,7 +286,7 @@ export default async function IndividualPracticePage({ params }: Props) {
       </section>
 
       {/* 2. Consultation Booking (Alternating Dark Section) */}
-      <section id="consultation-box" className="py-20 bg-[#180829] text-white">
+      <section id="consultation-box" className="py-20 bg-gradient-to-br from-[#070e1e] via-[#0d1738] to-[#1c0c30] text-white border-t border-white/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">
@@ -296,7 +296,7 @@ export default async function IndividualPracticePage({ params }: Props) {
               All communications are strictly protected by Legal Professional Privilege.
             </p>
           </div>
-          <div className="bg-white text-[#1e0d33] p-6 sm:p-8 rounded-lg shadow-xl border border-[#c6a052]/30">
+          <div className="bg-white text-[#0F1F3D] p-6 sm:p-8 rounded-lg shadow-xl border border-slate-200">
             <ConsultationForm defaultPracticeArea={practice.title} />
           </div>
         </div>

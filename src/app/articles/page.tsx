@@ -46,11 +46,11 @@ export default async function ArticlesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Principal Author & Editorial Leadership Banner */}
-          <div className="mb-16 p-6 sm:p-8 bg-white border-2 border-[#c6a052]/40 rounded-2xl shadow-lg">
+          <div className="mb-16 p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-lg">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
               {/* Photo Frame */}
               <div className="md:col-span-4 lg:col-span-3 flex justify-center">
-                <div className="relative w-48 h-56 sm:w-52 sm:h-64 rounded-xl overflow-hidden border-2 border-[#c6a052] shadow-md bg-[#120720] group">
+                <div className="relative w-48 h-56 sm:w-52 sm:h-64 rounded-xl overflow-hidden border-2 border-indigo-400 shadow-md bg-[#120720] group">
                   <Image
                     src="/lawyer-portrait-3.jpg"
                     alt="Low Wah Chin (Ava Rachel) 劉華晶 Principal Legal Author"
@@ -59,7 +59,7 @@ export default async function ArticlesPage() {
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#120720]/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-2 left-2 right-2 text-center text-[#faf7fc] text-[10px] font-mono bg-[#1e0d33]/90 py-0.5 rounded border border-[#c6a052]/40">
+                  <div className="absolute bottom-2 left-2 right-2 text-center text-[#faf7fc] text-[10px] font-mono bg-[#1e0d33]/90 py-0.5 rounded border border-white/20">
                     Principal Legal Author
                   </div>
                 </div>
@@ -67,8 +67,8 @@ export default async function ArticlesPage() {
 
               {/* Author Details & Bio */}
               <div className="md:col-span-8 lg:col-span-9 space-y-3 text-center md:text-left">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#faf7fc] border border-[#c6a052]/40 text-[#9d7835] text-[11px] font-bold uppercase tracking-wider">
-                  <Scale className="w-3.5 h-3.5 text-[#c6a052]" />
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-[11px] font-bold uppercase tracking-wider">
+                  <Scale className="w-3.5 h-3.5 text-indigo-600" />
                   <span>Senior Counsel Commentary</span>
                 </div>
                 
@@ -83,7 +83,7 @@ export default async function ArticlesPage() {
                 <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
                   <Link
                     href="/our-team"
-                    className="btn-gold px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 shadow-sm"
+                    className="btn-gradient-royal px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 shadow-sm"
                   >
                     <span>View Principal Profile</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -97,8 +97,8 @@ export default async function ArticlesPage() {
           {/* Featured Article Spotlight */}
           {featuredArticle && (
             <div className="mb-16">
-              <div className="flex items-center gap-2 text-[#9d7835] text-xs font-bold uppercase tracking-[0.2em] mb-4">
-                <Sparkles className="w-4 h-4 text-[#c6a052]" />
+              <div className="flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-[0.2em] mb-4">
+                <Sparkles className="w-4 h-4 text-indigo-600" />
                 <span>Featured Publication</span>
               </div>
               <ArticleCard article={featuredArticle} featured />
@@ -107,8 +107,8 @@ export default async function ArticlesPage() {
 
           {/* All Articles Section */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 text-[#9d7835] text-xs font-bold uppercase tracking-[0.2em] mb-2">
-              <Award className="w-3.5 h-3.5 text-[#c6a052]" />
+            <div className="inline-flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-[0.2em] mb-2">
+              <Award className="w-3.5 h-3.5 text-indigo-600" />
               <span>All Publications</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1e0d33]">
@@ -129,4 +129,3 @@ export default async function ArticlesPage() {
     </>
   );
 }
-

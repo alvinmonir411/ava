@@ -30,14 +30,14 @@ export default function TrustBar({ className = '' }: TrustBarProps) {
   ];
 
   return (
-    <div className={`bg-[#170b1e] border-y border-[#c6a052]/30 py-5 sm:py-6 px-4 sm:px-6 lg:px-8 shadow-inner ${className}`}>
+    <div className={`bg-gradient-to-r from-[#070e1e] via-[#0f1738] to-[#1c0c30] border-y border-[#c6a052]/30 py-5 sm:py-6 px-4 sm:px-6 lg:px-8 shadow-inner ${className}`}>
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
         {trustSignals.map((item, index) => {
           const Icon = item.icon;
           return (
             <div
               key={index}
-              className="flex items-center gap-3.5 p-3.5 sm:p-4 rounded-xl bg-[#22122b]/80 border border-[#c6a052]/25 hover:border-[#c6a052]/60 hover:bg-[#2e173b] transition-all duration-300 group shadow-md"
+              className="flex items-center gap-3.5 p-3.5 sm:p-4 rounded-xl bg-[#0F1F3D]/80 border border-[#c6a052]/25 hover:border-[#c6a052]/60 hover:bg-[#1A2D4C] transition-all duration-300 group shadow-md"
             >
               <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#c6a052]/15 border border-[#c6a052]/40 flex items-center justify-center shrink-0 text-[#e5c777] group-hover:scale-105 group-hover:bg-[#c6a052] group-hover:text-[#170b1e] transition-all duration-300">
                 <Icon className="w-5 h-5" />

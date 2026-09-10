@@ -120,7 +120,7 @@ export default function EngagementWorkflow() {
 
         {/* Fee & Transparency Assurance Bar */}
         <ScrollReveal animation="fade-up" delay={300} duration={700}>
-          <div className="mt-10 sm:mt-14 p-5 sm:p-6 rounded-2xl bg-[#22122b] text-white border border-[#c6a052]/40 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="mt-10 sm:mt-14 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-[#070e1e] via-[#0d1738] to-[#1c0c30] text-white border border-[#c6a052]/40 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3.5 text-center md:text-left">
               <div className="w-10 h-10 rounded-xl bg-[#c6a052] text-[#170b1e] flex items-center justify-center font-bold shrink-0">
                 <Shield className="w-5 h-5" />

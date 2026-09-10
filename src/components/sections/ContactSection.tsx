@@ -32,32 +32,32 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-[#faf7fc] text-[#261833] border-b border-[#e7dbf2]">
+    <section id="contact" className="py-20 lg:py-28 bg-[#f8fafc] text-[#0F1F3D] border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: "Get in Touch" Information (5 cols) */}
           <div className="md:col-span-5 space-y-6">
             <div>
-              <div className="inline-flex items-center gap-2 text-[#9d7835] text-xs font-bold uppercase tracking-[0.2em] mb-2">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#c6a052]" />
+              <div className="inline-flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-[0.2em] mb-2">
+                <ShieldCheck className="w-3.5 h-3.5 text-indigo-600" />
                 <span>Confidential Inquiry</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1e0d33] leading-tight">
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#0F1F3D] leading-tight">
                 Get in Touch
               </h2>
             </div>
 
-            <p className="text-sm sm:text-base text-[#3c2a4f] leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
               We welcome your legal inquiries. Every submission is treated with strict Legal Professional Privilege under Section 126 of the Evidence Act 1950. Our senior advocates will review your matter and respond within one business day.
             </p>
 
             {/* Address & Direct Contact Block */}
-            <div className="p-6 bg-white rounded-lg border border-[#e7dbf2] space-y-4 text-xs sm:text-sm shadow-xs">
+            <div className="p-6 bg-white rounded-xl border border-slate-200 space-y-4 text-xs sm:text-sm shadow-xs">
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#c6a052] mt-0.5 shrink-0" />
+                <MapPin className="w-4 h-4 text-indigo-600 mt-0.5 shrink-0" />
                 <div>
-                  <strong className="text-[#1e0d33] block">Main Chambers</strong>
-                  <span className="text-[#564566] leading-relaxed block">
+                  <strong className="text-[#0F1F3D] block">Main Chambers</strong>
+                  <span className="text-slate-600 leading-relaxed block">
                     Colony @ KLCC, Level 1, Vipod Residences,<br />
                     6 Jalan Kia Peng, 50450 Kuala Lumpur
                   </span>
@@ -65,30 +65,30 @@ export default function ContactSection() {
               </div>
 
               <div className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-[#c6a052] mt-0.5 shrink-0" />
+                <Phone className="w-4 h-4 text-indigo-600 mt-0.5 shrink-0" />
                 <div>
-                  <strong className="text-[#1e0d33] block">Telephone</strong>
-                  <a href="tel:+60175483157" className="text-[#9d7835] hover:underline font-semibold">
+                  <strong className="text-[#0F1F3D] block">Telephone</strong>
+                  <a href="tel:+60175483157" className="text-indigo-600 hover:underline font-semibold">
                     +60 17-548 3157
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-[#c6a052] mt-0.5 shrink-0" />
+                <Mail className="w-4 h-4 text-indigo-600 mt-0.5 shrink-0" />
                 <div>
-                  <strong className="text-[#1e0d33] block">Email Inquiries</strong>
-                  <a href="mailto:lwclegal5@gmail.com" className="text-[#9d7835] hover:underline font-semibold">
+                  <strong className="text-[#0F1F3D] block">Email Inquiries</strong>
+                  <a href="mailto:lwclegal5@gmail.com" className="text-indigo-600 hover:underline font-semibold">
                     lwclegal5@gmail.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Clock className="w-4 h-4 text-[#c6a052] mt-0.5 shrink-0" />
+                <Clock className="w-4 h-4 text-indigo-600 mt-0.5 shrink-0" />
                 <div>
-                  <strong className="text-[#1e0d33] block">Consultation Hours</strong>
-                  <span className="text-[#564566]">Monday – Friday: 9:00 AM – 5:30 PM</span>
+                  <strong className="text-[#0F1F3D] block">Consultation Hours</strong>
+                  <span className="text-slate-600">Monday – Friday: 9:00 AM – 5:30 PM</span>
                 </div>
               </div>
             </div>
@@ -99,11 +99,11 @@ export default function ContactSection() {
           </div>
 
           {/* Right Column: Formal Contact Form (7 cols) */}
-          <div className="md:col-span-7 bg-white p-7 sm:p-9 rounded-lg border border-[#e7dbf2] shadow-sm">
-            <h3 className="font-serif text-2xl font-bold text-[#1e0d33] mb-2">
+          <div className="md:col-span-7 bg-white p-7 sm:p-9 rounded-xl border border-slate-200 shadow-sm">
+            <h3 className="font-serif text-2xl font-bold text-[#0F1F3D] mb-2">
               Schedule a Consultation
             </h3>
-            <p className="text-xs sm:text-sm text-[#564566] mb-6">
+            <p className="text-xs sm:text-sm text-slate-500 mb-6">
               Please provide brief details of your matter. All inquiries are strictly confidential.
             </p>
 
@@ -130,8 +130,8 @@ export default function ContactSection() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="firstName" className="block text-xs font-bold uppercase tracking-wider text-[#1e0d33] mb-1.5">
-                    First Name <span className="text-[#9d7835]">*</span>
+                  <label htmlFor="firstName" className="block text-xs font-bold uppercase tracking-wider text-[#0F1F3D] mb-1.5">
+                    First Name <span className="text-indigo-600">*</span>
                   </label>
                   <input
                     type="text"
@@ -139,7 +139,7 @@ export default function ContactSection() {
                     name="firstName"
                     required
                     placeholder="e.g. Rachel"
-                    className="w-full px-3.5 py-2.5 rounded border border-purple-200 text-sm text-[#1e0d33] focus:outline-none focus:border-[#c6a052] transition-colors bg-[#faf7fc]"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm text-[#0F1F3D] focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-colors bg-[#f8fafc]"
                   />
                   {formResponse?.errors?.firstName && (
                     <p className="text-[11px] text-red-600 mt-1">{formResponse.errors.firstName[0]}</p>
@@ -147,8 +147,8 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <label htmlFor="lastName" className="block text-xs font-bold uppercase tracking-wider text-[#1e0d33] mb-1.5">
-                    Last Name <span className="text-[#9d7835]">*</span>
+                  <label htmlFor="lastName" className="block text-xs font-bold uppercase tracking-wider text-[#0F1F3D] mb-1.5">
+                    Last Name <span className="text-indigo-600">*</span>
                   </label>
                   <input
                     type="text"
@@ -156,7 +156,7 @@ export default function ContactSection() {
                     name="lastName"
                     required
                     placeholder="e.g. Tan"
-                    className="w-full px-3.5 py-2.5 rounded border border-purple-200 text-sm text-[#1e0d33] focus:outline-none focus:border-[#c6a052] transition-colors bg-[#faf7fc]"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm text-[#0F1F3D] focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-colors bg-[#f8fafc]"
                   />
                   {formResponse?.errors?.lastName && (
                     <p className="text-[11px] text-red-600 mt-1">{formResponse.errors.lastName[0]}</p>
@@ -166,8 +166,8 @@ export default function ContactSection() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-[#1e0d33] mb-1.5">
-                    Email Address <span className="text-[#9d7835]">*</span>
+                  <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-[#0F1F3D] mb-1.5">
+                    Email Address <span className="text-indigo-600">*</span>
                   </label>
                   <input
                     type="email"
@@ -175,7 +175,7 @@ export default function ContactSection() {
                     name="email"
                     required
                     placeholder="e.g. name@example.com"
-                    className="w-full px-3.5 py-2.5 rounded border border-purple-200 text-sm text-[#1e0d33] focus:outline-none focus:border-[#c6a052] transition-colors bg-[#faf7fc]"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm text-[#0F1F3D] focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-colors bg-[#f8fafc]"
                   />
                   {formResponse?.errors?.email && (
                     <p className="text-[11px] text-red-600 mt-1">{formResponse.errors.email[0]}</p>
@@ -183,8 +183,8 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-[#1e0d33] mb-1.5">
-                    Phone / WhatsApp <span className="text-[#9d7835]">*</span>
+                  <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-[#0F1F3D] mb-1.5">
+                    Phone / WhatsApp <span className="text-indigo-600">*</span>
                   </label>
                   <input
                     type="tel"
@@ -192,7 +192,7 @@ export default function ContactSection() {
                     name="phone"
                     required
                     placeholder="e.g. +60 12-345 6789"
-                    className="w-full px-3.5 py-2.5 rounded border border-purple-200 text-sm text-[#1e0d33] focus:outline-none focus:border-[#c6a052] transition-colors bg-[#faf7fc]"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm text-[#0F1F3D] focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-colors bg-[#f8fafc]"
                   />
                   {formResponse?.errors?.phone && (
                     <p className="text-[11px] text-red-600 mt-1">{formResponse.errors.phone[0]}</p>
@@ -201,15 +201,15 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="practiceArea" className="block text-xs font-bold uppercase tracking-wider text-[#1e0d33] mb-1.5">
-                  Legal Matter Category <span className="text-[#9d7835]">*</span>
+                <label htmlFor="practiceArea" className="block text-xs font-bold uppercase tracking-wider text-[#0F1F3D] mb-1.5">
+                  Legal Matter Category <span className="text-indigo-600">*</span>
                 </label>
                 <select
                   id="practiceArea"
                   name="practiceArea"
                   required
                   defaultValue="Legal Advice & Consultation"
-                  className="w-full px-3.5 py-2.5 rounded border border-purple-200 text-sm text-[#1e0d33] focus:outline-none focus:border-[#c6a052] transition-colors bg-[#faf7fc]"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm text-[#0F1F3D] focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-colors bg-[#f8fafc]"
                 >
                   <option value="Legal Advice & Consultation">Legal Advice & Consultation</option>
                   <option value="Property & Conveyancing">Property & Conveyancing</option>
@@ -222,8 +222,8 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-[#1e0d33] mb-1.5">
-                  Summary of Legal Matter <span className="text-[#9d7835]">*</span>
+                <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-[#0F1F3D] mb-1.5">
+                  Summary of Legal Matter <span className="text-indigo-600">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -231,7 +231,7 @@ export default function ContactSection() {
                   required
                   rows={4}
                   placeholder="Please describe the nature of your legal issue, relevant dates, or questions..."
-                  className="w-full px-3.5 py-2.5 rounded border border-purple-200 text-sm text-[#1e0d33] focus:outline-none focus:border-[#c6a052] transition-colors bg-[#faf7fc]"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm text-[#0F1F3D] focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-colors bg-[#f8fafc]"
                 />
                 {formResponse?.errors?.message && (
                   <p className="text-[11px] text-red-600 mt-1">{formResponse.errors.message[0]}</p>
@@ -242,7 +242,7 @@ export default function ContactSection() {
                 <button
                   type="submit"
                   disabled={isPending}
-                  className="btn-gold w-full py-3.5 rounded-lg text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-md disabled:opacity-50"
+                  className="btn-gradient-royal w-full py-3.5 rounded-lg text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-md disabled:opacity-50"
                 >
                   {isPending ? (
                     <span>Submitting Confidential Inquiry...</span>

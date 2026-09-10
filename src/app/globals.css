@@ -87,137 +87,151 @@
 }
 
 /* Explicit Utility Classes for Maximum Visual Consistency */
-.bg-navy { background-color: #1e0d33 !important; }
-.bg-navy-dark { background-color: #120720 !important; }
-.bg-navy-light { background-color: #2d144a !important; }
-.text-navy { color: #1e0d33 !important; }
-.text-navy-light { color: #3d1b64 !important; }
-.border-navy { border-color: #1e0d33 !important; }
-.border-navy-light { border-color: #3d1b64 !important; }
+.bg-navy { background-color: #0F1F3D !important; }
+.bg-navy-dark { background-color: #070E1C !important; }
+.bg-navy-light { background-color: #1A2D4C !important; }
+.text-navy { color: #0F1F3D !important; }
+.text-navy-light { color: #1E3A8A !important; }
+.border-navy { border-color: #0F1F3D !important; }
+.border-navy-light { border-color: #1E3A8A !important; }
 
-.bg-plum { background-color: #1e0d33 !important; }
-.bg-plum-dark { background-color: #120720 !important; }
-.bg-plum-light { background-color: #2d144a !important; }
-.bg-plum-accent { background-color: #3d1b64 !important; }
-.bg-plum-surface { background-color: #24103d !important; }
-.text-plum { color: #1e0d33 !important; }
-.text-plum-light { color: #3d1b64 !important; }
-.border-plum { border-color: #1e0d33 !important; }
-.border-plum-light { border-color: #3d1b64 !important; }
+/* Royal Blue to Purple Unified Luxury Gradients */
+.bg-gradient-royal {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 35%, #7e22ce 75%, #6b21a8 100%) !important;
+}
 
-.bg-gold { background-color: #c6a052 !important; }
-.bg-gold-light { background-color: #dcc280 !important; }
-.bg-gold-dark { background-color: #9d7835 !important; }
-.text-gold { color: #c6a052 !important; }
-.text-gold-light { color: #dcc280 !important; }
-.text-gold-dark { color: #9d7835 !important; }
-.border-gold { border-color: #c6a052 !important; }
-.border-gold-light { border-color: #dcc280 !important; }
-.border-gold-dark { border-color: #9d7835 !important; }
+.bg-gradient-royal-rich {
+  background: linear-gradient(135deg, #1e3a8a 0%, #4338ca 45%, #6b21a8 85%, #581c87 100%) !important;
+}
 
-.bg-ivory { background-color: #faf7fc !important; }
-.bg-ivory-dark { background-color: #f3ecf9 !important; }
-.bg-ivory-accent { background-color: #e7dbf2 !important; }
-.text-ivory { color: #faf7fc !important; }
+.bg-gradient-royal-dark {
+  background: linear-gradient(135deg, #070e1e 0%, #0c1638 35%, #180b30 75%, #120520 100%) !important;
+}
 
-.text-charcoal { color: #1a092c !important; }
-.text-charcoal-muted { color: #564566 !important; }
-.text-charcoal-light { color: #776487 !important; }
+.bg-gradient-royal-surface {
+  background: linear-gradient(135deg, #0f1c3f 0%, #161c47 45%, #241242 85%, #1b0930 100%) !important;
+}
 
-.bg-brass { background-color: #c6a052 !important; }
-.bg-brass-light { background-color: #dcc280 !important; }
-.bg-brass-dark { background-color: #9d7835 !important; }
-.text-brass { color: #c6a052 !important; }
-.text-brass-light { color: #dcc280 !important; }
-.text-brass-dark { color: #9d7835 !important; }
-.border-brass { border-color: #c6a052 !important; }
+.bg-gradient-royal-subtle {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.07) 0%, rgba(126, 34, 206, 0.07) 100%) !important;
+}
 
-.bg-cream { background-color: #faf7fc !important; }
-.bg-cream-dark { background-color: #f3ecf9 !important; }
-.bg-cream-accent { background-color: #e7dbf2 !important; }
-.text-cream { color: #faf7fc !important; }
+.text-gradient-royal {
+  background: linear-gradient(135deg, #2563eb 0%, #6366f1 45%, #a855f7 80%, #9333ea 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
 
-/* Traditional Formal Law Practice Buttons */
-.btn-gold {
-  background: linear-gradient(135deg, #dcc280 0%, #c6a052 60%, #9d7835 100%) !important;
-  color: #101826 !important;
+.text-gradient-royal-light {
+  background: linear-gradient(135deg, #60a5fa 0%, #a5b4fc 40%, #e9d5ff 75%, #ffffff 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.border-gradient-royal {
+  border-image: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #9333ea 100%) 1 !important;
+}
+
+/* Primary Brand Buttons: 135deg Royal Blue to Purple Gradient */
+.btn-gradient-royal,
+.btn-gold,
+.btn-brass,
+.btn-plum,
+.btn-navy {
+  background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 30%, #7e22ce 70%, #6b21a8 100%) !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   letter-spacing: 0.03em;
-  transition: all 0.25s ease-in-out;
-  box-shadow: 0 3px 12px rgba(198, 160, 82, 0.22);
-}
-.btn-gold:hover {
-  background: linear-gradient(135deg, #f0e1b9 0%, #dcc280 60%, #c6a052 100%) !important;
-  color: #101826 !important;
-  box-shadow: 0 6px 18px rgba(198, 160, 82, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
 }
 
-.btn-outline-gold {
+.btn-gradient-royal:hover,
+.btn-gold:hover,
+.btn-brass:hover,
+.btn-plum:hover,
+.btn-navy:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 35%, #9333ea 75%, #7e22ce 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 24px rgba(126, 34, 206, 0.5);
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  transform: translateY(-1.5px);
+}
+
+.badge-gradient-royal {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(67, 56, 202, 0.8) 50%, rgba(107, 33, 168, 0.85) 100%) !important;
+  border: 1px solid rgba(168, 85, 247, 0.45) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(8px);
+}
+
+.divider-gradient-royal {
+  background: linear-gradient(90deg, #2563eb 0%, #6366f1 50%, #9333ea 100%) !important;
+}
+
+.bg-plum { background-color: #0F1F3D !important; }
+.bg-plum-dark { background-color: #070E1C !important; }
+.bg-plum-light { background-color: #1A2D4C !important; }
+.bg-plum-accent { background-color: #241242 !important; }
+.bg-plum-surface { background-color: #0f1c3f !important; }
+.text-plum { color: #0F1F3D !important; }
+.text-plum-light { color: #4338ca !important; }
+.border-plum { border-color: #0F1F3D !important; }
+.border-plum-light { border-color: #4338ca !important; }
+
+/* Dedicated Gold Tokens for Official Seal & Review Stars */
+.text-gold-seal { color: #dcc280 !important; }
+.bg-gold-seal { background-color: #c6a052 !important; }
+.border-gold-seal { border-color: #c6a052 !important; }
+.star-gold { color: #f59e0b !important; fill: #f59e0b !important; }
+
+.bg-ivory { background-color: #faf9f6 !important; }
+.bg-ivory-dark { background-color: #f1f5f9 !important; }
+.bg-ivory-accent { background-color: #e2e8f0 !important; }
+.text-ivory { color: #faf9f6 !important; }
+
+.text-charcoal { color: #0F1F3D !important; }
+.text-charcoal-muted { color: #475569 !important; }
+.text-charcoal-light { color: #64748b !important; }
+
+.bg-cream { background-color: #faf9f6 !important; }
+.bg-cream-dark { background-color: #f1f5f9 !important; }
+.bg-cream-accent { background-color: #e2e8f0 !important; }
+.text-cream { color: #faf9f6 !important; }
+
+/* Outlined & Ghost Buttons: Clean Platinum/White with Gradient Glow */
+.btn-outline-gold,
+.btn-outline-gradient {
   background-color: transparent !important;
-  color: #dcc280 !important;
-  border: 1.5px solid #c6a052 !important;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
   font-weight: 600 !important;
   letter-spacing: 0.03em;
   transition: all 0.25s ease-in-out;
 }
-.btn-outline-gold:hover {
-  background-color: rgba(198, 160, 82, 0.12) !important;
-  border-color: #dcc280 !important;
+.btn-outline-gold:hover,
+.btn-outline-gradient:hover {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.3) 0%, rgba(126, 34, 206, 0.35) 100%) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
   color: #ffffff !important;
+  transform: translateY(-1px);
 }
 
 .btn-ghost-light {
   background-color: transparent !important;
   color: #faf9f6 !important;
-  border: 1.5px solid rgba(250, 249, 246, 0.6) !important;
+  border: 1.5px solid rgba(250, 249, 246, 0.4) !important;
   font-weight: 600 !important;
   letter-spacing: 0.03em;
   transition: all 0.25s ease-in-out;
 }
 .btn-ghost-light:hover {
-  background-color: rgba(255, 255, 255, 0.12) !important;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(126, 34, 206, 0.25) 100%) !important;
   border-color: #ffffff !important;
   color: #ffffff !important;
-}
-
-.btn-plum {
-  background-color: #22122b !important;
-  color: #faf9f6 !important;
-  font-weight: 600 !important;
-  border: 1px solid #432056 !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.btn-plum:hover {
-  background-color: #2e173b !important;
-  color: #e5c777 !important;
-  border-color: #c6a052 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(23, 11, 30, 0.35);
-}
-
-.btn-brass {
-  background: linear-gradient(135deg, #e5c777 0%, #c6a052 60%, #9d7835 100%) !important;
-  color: #170b1e !important;
-  font-weight: 700 !important;
-  transition: all 0.3s ease-in-out;
-}
-.btn-brass:hover {
-  background: linear-gradient(135deg, #f5e4b8 0%, #e5c777 60%, #c6a052 100%) !important;
-  color: #170b1e !important;
-  box-shadow: 0 6px 20px rgba(198, 160, 82, 0.4);
-}
-
-.btn-navy {
-  background-color: #22122b !important;
-  color: #faf9f6 !important;
-  font-weight: 600 !important;
-  border: 1px solid #432056 !important;
-  transition: all 0.25s ease-in-out;
-}
-.btn-navy:hover {
-  background-color: #2e173b !important;
-  color: #e5c777 !important;
-  border-color: #c6a052 !important;
 }
 
 /* Shadows & Elevations */

@@ -96,7 +96,7 @@ export default function PreparationChecklistCard({
       </div>
 
       {/* Action Footer */}
-      <div className="p-4 rounded-xl bg-[#22122b] text-white flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="p-4 rounded-xl bg-gradient-to-r from-[#070e1e] via-[#0d1738] to-[#1c0c30] text-white flex flex-col sm:flex-row items-center justify-between gap-3">
         <div className="flex items-center gap-2 text-xs">
           <Shield className="w-4 h-4 text-[#c6a052] shrink-0" />
           <span className="text-[#faf9f6]/85">

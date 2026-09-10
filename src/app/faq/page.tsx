@@ -51,12 +51,12 @@ export default async function FaqPage() {
             </p>
           </div>
 
-          <div className="bg-white p-6 sm:p-8 rounded-lg border border-[#e8e1d5] shadow-xs">
+          <div className="bg-white p-6 sm:p-8 rounded-lg border border-slate-200 shadow-xs">
             <FaqAccordion items={GENERAL_FAQS} />
           </div>
 
           {/* Inquiry Callout Card */}
-          <div className="mt-12 p-8 rounded-lg bg-white border border-[#c6a052]/40 shadow-xs text-center">
+          <div className="mt-12 p-8 rounded-lg bg-white border border-slate-200 shadow-xs text-center">
             <h3 className="font-serif text-xl font-bold text-[#1a2332] mb-2">
               Have a Specific Legal Question Not Listed Here?
             </h3>
@@ -71,7 +71,7 @@ export default async function FaqPage() {
               />
               <a
                 href="tel:+60175483157"
-                className="btn-gold px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2"
+                className="btn-gradient-royal px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 shadow-sm"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>Call +60 17-548 3157</span>
@@ -82,7 +82,7 @@ export default async function FaqPage() {
       </section>
 
       {/* Consultation Form (Dark Section) */}
-      <section className="py-20 bg-[#1a2332] text-white">
+      <section className="py-20 bg-gradient-to-br from-[#070e1e] via-[#0d1738] to-[#1c0c30] text-white border-t border-white/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">

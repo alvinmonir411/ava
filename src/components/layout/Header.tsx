@@ -49,9 +49,9 @@ export default function Header() {
       {/* 1. Top Utility Bar: Thin, Dark Navy (#1a2332), Small Text */}
       <TopUtilityBar />
 
-      {/* 2. Main Nav: Lilac-tinted Off-White Background, Sits Below Utility Bar */}
+      {/* 2. Main Nav: Crisp Off-White Background, Sits Below Utility Bar */}
       <nav
-        className={`w-full bg-[#faf7fc] text-[#1e0d33] transition-all duration-200 border-b border-[#e7dbf2] ${
+        className={`w-full bg-white text-[#0F1F3D] transition-all duration-200 border-b border-gray-200 ${
           isScrolled ? 'py-3 shadow-md' : 'py-4'
         }`}
       >
@@ -59,14 +59,14 @@ export default function Header() {
           {/* Left: Firm Name / Logo as Text Wordmark (Serif, Letter-spaced) */}
           <Link href="/" className="flex flex-col group">
             <div className="flex items-baseline gap-2">
-              <span className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.14em] sm:tracking-[0.2em] text-[#1e0d33] group-hover:text-[#9d7835] transition-colors">
+              <span className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.14em] sm:tracking-[0.2em] text-[#0F1F3D] group-hover:text-indigo-700 transition-colors">
                 LWCCO
               </span>
-              <span className="text-xs font-serif italic text-[#9d7835] font-medium hidden sm:inline">
+              <span className="text-xs font-serif italic text-indigo-900 font-medium hidden sm:inline">
                 Messrs. Low Wah Chin & Co.
               </span>
             </div>
-            <span className="text-[8.5px] sm:text-[10px] uppercase font-sans tracking-[0.2em] sm:tracking-[0.25em] text-[#564566] font-medium -mt-0.5">
+            <span className="text-[8.5px] sm:text-[10px] uppercase font-sans tracking-[0.2em] sm:tracking-[0.25em] text-[#556987] font-medium -mt-0.5">
               Advocates & Solicitors
             </span>
           </Link>
@@ -90,26 +90,26 @@ export default function Header() {
                       href={link.href}
                       className={`relative py-1 text-sm font-medium tracking-wide transition-colors flex items-center gap-1 ${
                         isActive
-                          ? 'text-[#1e0d33] font-bold'
-                          : 'text-[#3c2a4f] hover:text-[#9d7835]'
+                          ? 'text-[#0F1F3D] font-bold'
+                          : 'text-[#334155] hover:text-indigo-600'
                       }`}
                     >
                       <span>{link.label}</span>
-                      <ChevronDown className="w-3.5 h-3.5 text-[#9d7835] transition-transform duration-200 group-hover:rotate-180" />
+                      <ChevronDown className="w-3.5 h-3.5 text-indigo-600 transition-transform duration-200 group-hover:rotate-180" />
                       {isActive && (
-                        <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#c6a052] rounded-full" />
+                        <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#2563eb] via-[#6366f1] to-[#7e22ce] rounded-full" />
                       )}
                     </Link>
 
                     {/* Practices Dropdown */}
                     <div
-                      className={`absolute top-full left-0 w-80 bg-white border border-[#e7dbf2] rounded-xl shadow-xl p-3 transition-all duration-200 z-50 ${
+                      className={`absolute top-full left-0 w-80 bg-white border border-slate-200 rounded-xl shadow-xl p-3 transition-all duration-200 z-50 ${
                         practicesDropdownOpen
                           ? 'opacity-100 visible translate-y-1'
                           : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#9d7835] px-3 py-1.5 border-b border-purple-50 mb-2">
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-indigo-600 px-3 py-1.5 border-b border-slate-100 mb-2">
                         Core Practice Areas
                       </div>
                       <div className="space-y-1">
@@ -117,16 +117,16 @@ export default function Header() {
                           <Link
                             key={pIdx}
                             href={p.href}
-                            className="block px-3 py-2 rounded-lg text-xs font-medium text-[#1e0d33] hover:bg-[#faf7fc] hover:text-[#9d7835] transition-colors"
+                            className="block px-3 py-2 rounded-lg text-xs font-medium text-[#0F1F3D] hover:bg-slate-50 hover:text-indigo-600 transition-colors"
                           >
                             {p.label}
                           </Link>
                         ))}
                       </div>
-                      <div className="pt-2 mt-2 border-t border-purple-50 px-3">
+                      <div className="pt-2 mt-2 border-t border-slate-100 px-3">
                         <Link
                           href="/practices"
-                          className="text-xs text-[#9d7835] hover:text-[#1e0d33] font-semibold flex items-center justify-between"
+                          className="text-xs text-indigo-600 hover:text-[#0F1F3D] font-semibold flex items-center justify-between"
                         >
                           <span>View All Practice Disciplines</span>
                           <span>→</span>
@@ -143,13 +143,13 @@ export default function Header() {
                   href={link.href}
                   className={`relative py-1 text-sm font-medium tracking-wide transition-colors ${
                     isActive
-                      ? 'text-[#1e0d33] font-bold'
-                      : 'text-[#3c2a4f] hover:text-[#9d7835]'
+                      ? 'text-[#0F1F3D] font-bold'
+                      : 'text-[#334155] hover:text-indigo-600'
                   }`}
                 >
                   <span>{link.label}</span>
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#c6a052] rounded-full" />
+                    <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#2563eb] via-[#6366f1] to-[#7e22ce] rounded-full" />
                   )}
                 </Link>
               );
@@ -158,7 +158,7 @@ export default function Header() {
             {/* Outlined / Ghost Contact Us button in Nav */}
             <Link
               href="/contact"
-              className="btn-gold px-5 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase"
+              className="btn-gradient-royal px-5 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase"
             >
               Contact Us
             </Link>
@@ -169,7 +169,7 @@ export default function Header() {
             <a
               href="tel:+60175483157"
               aria-label="Call LWCCO"
-              className="p-2 rounded-lg bg-[#f3ecf9] text-[#1e0d33] border border-[#e7dbf2]"
+              className="p-2 rounded-lg bg-gray-100 text-[#0F1F3D] border border-gray-200"
             >
               <Phone className="w-4 h-4" />
             </a>
@@ -177,7 +177,7 @@ export default function Header() {
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Navigation Menu"
-              className="p-2 rounded-lg bg-[#f3ecf9] text-[#1e0d33] border border-[#e7dbf2] focus:outline-none cursor-pointer"
+              className="p-2 rounded-lg bg-gray-100 text-[#0F1F3D] border border-gray-200 focus:outline-none cursor-pointer"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -186,7 +186,7 @@ export default function Header() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-[#e7dbf2] px-4 pt-3 pb-6 space-y-3 animate-in slide-in-from-top-3 duration-200 shadow-xl max-h-[calc(100vh-80px)] overflow-y-auto">
+          <div className="lg:hidden bg-white border-t border-slate-200 px-4 pt-3 pb-6 space-y-3 animate-in slide-in-from-top-3 duration-200 shadow-xl max-h-[calc(100vh-80px)] overflow-y-auto">
             <div className="space-y-1">
               {NAV_LINKS.map((link, index) => {
                 const isActive =
@@ -195,13 +195,13 @@ export default function Header() {
 
                 if (link.hasDropdown) {
                   return (
-                    <div key={index} className="rounded-lg border border-purple-100 bg-purple-50/40 overflow-hidden my-1">
+                    <div key={index} className="rounded-lg border border-slate-200 bg-slate-50/50 overflow-hidden my-1">
                       <div className="flex items-center justify-between px-3 py-2.5">
                         <Link
                           href={link.href}
                           onClick={() => setMobileMenuOpen(false)}
                           className={`text-sm font-serif font-bold ${
-                            isActive ? 'text-[#9d7835]' : 'text-[#1e0d33]'
+                            isActive ? 'text-indigo-600' : 'text-[#0F1F3D]'
                           }`}
                         >
                           {link.label}
@@ -209,19 +209,19 @@ export default function Header() {
                         <button
                           type="button"
                           onClick={() => setPracticesDropdownOpen(!practicesDropdownOpen)}
-                          className="p-1 rounded bg-white text-[#1e0d33] border border-[#e7dbf2] text-xs"
+                          className="p-1 rounded bg-white text-[#0F1F3D] border border-slate-200 text-xs"
                         >
                           <ChevronDown className={`w-4 h-4 transition-transform ${practicesDropdownOpen ? 'rotate-180' : ''}`} />
                         </button>
                       </div>
                       {practicesDropdownOpen && (
-                        <div className="px-3 pb-3 pt-1 space-y-1.5 bg-white border-t border-purple-100">
+                        <div className="px-3 pb-3 pt-1 space-y-1.5 bg-white border-t border-slate-200">
                           {PRIMARY_PRACTICES.map((p, pIdx) => (
                             <Link
                               key={pIdx}
                               href={p.href}
                               onClick={() => setMobileMenuOpen(false)}
-                              className="block py-1.5 px-2 text-xs text-[#3c2a4f] hover:text-[#9d7835]"
+                              className="block py-1.5 px-2 text-xs text-slate-700 hover:text-indigo-600"
                             >
                               • {p.label}
                             </Link>
@@ -239,12 +239,12 @@ export default function Header() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`flex items-center justify-between px-3.5 py-2.5 rounded-lg text-sm font-medium transition-all ${
                       isActive
-                        ? 'bg-[#1e0d33] text-[#faf7fc] font-bold'
-                        : 'text-[#1e0d33] hover:bg-purple-50'
+                        ? 'bg-gradient-to-r from-[#0F1F3D] via-[#1E1B4B] to-[#2E1065] text-white font-bold'
+                        : 'text-[#0F1F3D] hover:bg-slate-100'
                     }`}
                   >
                     <span>{link.label}</span>
-                    {isActive && <ArrowRight className="w-4 h-4 text-[#dcc280]" />}
+                    {isActive && <ArrowRight className="w-4 h-4 text-white" />}
                   </Link>
                 );
               })}
@@ -254,7 +254,7 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="btn-gold w-full py-3 rounded-lg text-center block text-xs font-bold uppercase tracking-wider"
+                className="btn-gradient-royal w-full py-3 rounded-lg text-center block text-xs font-bold uppercase tracking-wider"
               >
                 Request Legal Consultation
               </Link>

@@ -263,7 +263,7 @@ export default function ConsultationForm({
               name="email"
               required
               placeholder="e.g. client@example.com"
-              className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#c6a052] focus:border-[#c6a052] transition-all"
+              className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition-all"
             />
             {errors.email && (
               <p className="text-red-500 text-xs mt-1">{errors.email[0]}</p>
@@ -280,7 +280,7 @@ export default function ConsultationForm({
               name="phone"
               required
               placeholder="e.g. +60 12-345 6789"
-              className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#c6a052] focus:border-[#c6a052] transition-all"
+              className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition-all"
             />
             {errors.phone && (
               <p className="text-red-500 text-xs mt-1">{errors.phone[0]}</p>
@@ -299,7 +299,7 @@ export default function ConsultationForm({
               required
               value={selectedPractice}
               onChange={(e) => setSelectedPractice(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#c6a052] focus:border-[#c6a052] transition-all font-medium"
+              className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition-all font-medium"
             >
               <option value="" disabled>Select Practice Area</option>
               <optgroup label="Primary Malaysian Practice Disciplines (9 Core Areas)">
@@ -330,7 +330,7 @@ export default function ConsultationForm({
               id="preferredDate"
               name="preferredDate"
               placeholder="e.g. Urgent / This Week"
-              className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#c6a052] focus:border-[#c6a052] transition-all"
+              className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition-all"
             />
           </div>
         </div>
@@ -345,7 +345,7 @@ export default function ConsultationForm({
             rows={3}
             required
             placeholder="Please provide key facts, parties involved, relevant dates, and desired outcome..."
-            className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#c6a052] focus:border-[#c6a052] transition-all resize-y"
+            className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition-all resize-y"
           ></textarea>
           {errors.message && (
             <p className="text-red-500 text-xs mt-1">{errors.message[0]}</p>
@@ -356,11 +356,11 @@ export default function ConsultationForm({
           <button
             type="submit"
             disabled={isPending}
-            className="btn-gold w-full sm:w-auto px-7 py-3.5 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-lg disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+            className="btn-gradient-royal w-full sm:w-auto px-7 py-3.5 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-lg disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
           >
             {isPending ? (
               <>
-                <div className="w-4 h-4 border-2 border-[#170b1e] border-t-transparent rounded-full animate-spin"></div>
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 <span>Submitting Brief...</span>
               </>
             ) : (
@@ -372,7 +372,7 @@ export default function ConsultationForm({
           </button>
 
           <div className="flex items-center justify-center gap-2 text-[11px] sm:text-xs text-[#595355]">
-            <Shield className="w-4 h-4 text-[#c6a052] shrink-0" />
+            <Shield className="w-4 h-4 text-indigo-600 shrink-0" />
             <span>100% Confidential Legal Privilege</span>
           </div>
         </div>
@@ -380,7 +380,7 @@ export default function ConsultationForm({
 
       <div className="mt-6 pt-5 border-t border-[#f3efe6] flex flex-col sm:flex-row items-center justify-between gap-3.5 bg-[#faf9f6] p-3.5 sm:p-4 rounded-xl border border-[#e8e1d5]">
         <div className="flex items-center gap-3 text-center sm:text-left">
-          <PhoneCall className="w-4 h-4 text-[#c6a052] shrink-0 hidden sm:block" />
+          <PhoneCall className="w-4 h-4 text-indigo-600 shrink-0 hidden sm:block" />
           <div className="text-xs">
             <span className="font-bold text-[#22122b] block">Prefer Direct Conversation?</span>
             <span className="text-[#595355]">Call our KLCC chambers at +60 17-548 3157</span>
