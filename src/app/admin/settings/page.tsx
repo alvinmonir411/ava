@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useTransition } from 'react';
+import React, { useState, useEffect, useRef, useTransition } from 'react';
 import Image from 'next/image';
 import {
   getAdminSettingsAction,
@@ -46,6 +46,8 @@ import {
   Quote,
   Building2,
   UploadCloud,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 
 const PRESET_HERO_IMAGES = [
@@ -90,6 +92,42 @@ export default function AdminSettingsPage() {
   >('gallery');
   const [isPending, startTransition] = useTransition();
   const [savedSuccess, setSavedSuccess] = useState(false);
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const checkTabsScroll = () => {
+    if (tabsRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = tabsRef.current;
+      const maxScroll = scrollWidth - clientWidth;
+      if (maxScroll > 0) {
+        setScrollProgress((scrollLeft / maxScroll) * 100);
+      } else {
+        setScrollProgress(0);
+      }
+    }
+  };
+
+  useEffect(() => {
+    checkTabsScroll();
+    window.addEventListener('resize', checkTabsScroll);
+    return () => window.removeEventListener('resize', checkTabsScroll);
+  }, [settings]);
+
+  const scrollTabs = (direction: 'left' | 'right') => {
+    if (tabsRef.current) {
+      const scrollAmount = direction === 'left' ? -240 : 240;
+      tabsRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      setTimeout(checkTabsScroll, 200);
+    }
+  };
+
+  const handleSelectTab = (tabId: typeof activeTab) => {
+    setActiveTab(tabId);
+    const el = document.getElementById(`tab-btn-${tabId}`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+  };
 
   useEffect(() => {
     getAdminSettingsAction().then((s) => {
@@ -349,90 +387,102 @@ export default function AdminSettingsPage() {
           </div>
         )}
 
-        {/* Tab Selector with Visible Gold Scrollbar */}
-        <div className="space-y-1.5">
-          <div className="flex items-center justify-between text-[11px] text-[#CFA76F] font-semibold px-1 sm:hidden">
-            <span>Website Settings Category:</span>
-            <span className="text-[10px] text-white/60">Swipe tabs ➔</span>
+        {/* Tab Selector with Left/Right Buttons and Custom Gold Scrollbar */}
+        <div className="space-y-2">
+          <div className="flex items-center justify-between text-xs text-[#CFA76F] font-semibold px-1">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-[#B8935A] animate-pulse" />
+              Website Settings Category:
+            </span>
+            <div className="flex items-center gap-1 text-[11px] text-white/60">
+              <span>Scroll tabs</span>
+              <ChevronRight className="w-3.5 h-3.5 text-[#CFA76F]" />
+            </div>
           </div>
 
-          <div className="flex items-center gap-2 p-2 bg-[#0A1529] border border-[#B8935A]/35 rounded-2xl w-full gold-scrollbar pb-3 sm:pb-2">
+          <div className="relative flex items-center group">
+            {/* Desktop Scroll Left Button */}
             <button
               type="button"
-              onClick={() => setActiveTab('gallery')}
-              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
-                activeTab === 'gallery'
-                  ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                  : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
-              }`}
+              onClick={() => scrollTabs('left')}
+              className="absolute -left-3 z-10 p-2 rounded-xl bg-[#0F1F3D]/95 hover:bg-[#B8935A] text-[#CFA76F] hover:text-[#0A1529] border border-[#B8935A]/50 shadow-xl backdrop-blur-md transition-all active:scale-95 hidden md:flex items-center justify-center cursor-pointer"
+              title="Scroll Tabs Left"
             >
-              <Camera className="w-4 h-4" />
-              <span>Portrait Gallery ({settings.gallery?.items?.length || 5})</span>
+              <ChevronLeft className="w-4 h-4" />
             </button>
 
-            <button
-              type="button"
-              onClick={() => setActiveTab('hero')}
-              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
-                activeTab === 'hero'
-                  ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                  : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
-              }`}
+            {/* Scrollable Container with Gold Scrollbar */}
+            <div
+              ref={tabsRef}
+              onScroll={checkTabsScroll}
+              className="flex items-center gap-2.5 p-2.5 bg-[#0A1529] border border-[#B8935A]/35 rounded-2xl w-full overflow-x-auto gold-scrollbar pb-3.5 md:px-5 scroll-smooth"
             >
-              <Building2 className="w-4 h-4" />
-              <span>Hero & Headlines</span>
-            </button>
+              {[
+                { id: 'gallery' as const, label: `Portrait Gallery (${settings.gallery?.items?.length || 5})`, icon: Camera },
+                { id: 'hero' as const, label: 'Hero & Headlines', icon: Building2 },
+                { id: 'about' as const, label: 'About Principal Lawyer', icon: User },
+                { id: 'recognition' as const, label: 'Recognition & Accolades', icon: Award },
+                { id: 'heroes' as const, label: 'Hero Backgrounds (7 Pages)', icon: ImageIcon },
+                { id: 'firm' as const, label: 'Firm Profile & Contacts', icon: Scale },
+              ].map((tab) => {
+                const Icon = tab.icon;
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    id={`tab-btn-${tab.id}`}
+                    type="button"
+                    onClick={() => handleSelectTab(tab.id)}
+                    className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
+                      isActive
+                        ? 'bg-gradient-to-r from-[#B8935A] via-[#CFA76F] to-[#967440] text-[#0A1529] font-extrabold shadow-lg shadow-[#B8935A]/20 ring-1 ring-[#DCC280]'
+                        : 'text-white/75 hover:text-white hover:bg-[#0F1F3D] border border-transparent hover:border-[#B8935A]/25'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    <span>{tab.label}</span>
+                  </button>
+                );
+              })}
+            </div>
 
+            {/* Desktop Scroll Right Button */}
             <button
               type="button"
-              onClick={() => setActiveTab('about')}
-              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
-                activeTab === 'about'
-                  ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                  : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
-              }`}
+              onClick={() => scrollTabs('right')}
+              className="absolute -right-3 z-10 p-2 rounded-xl bg-[#0F1F3D]/95 hover:bg-[#B8935A] text-[#CFA76F] hover:text-[#0A1529] border border-[#B8935A]/50 shadow-xl backdrop-blur-md transition-all active:scale-95 hidden md:flex items-center justify-center cursor-pointer"
+              title="Scroll Tabs Right"
             >
-              <User className="w-4 h-4" />
-              <span>About Principal Lawyer</span>
+              <ChevronRight className="w-4 h-4" />
             </button>
+          </div>
 
+          {/* Luxury Visual Scroll Bar Indicator & Mobile Quick Scroll Chevrons */}
+          <div className="px-1 pt-1 flex items-center gap-2.5">
             <button
               type="button"
-              onClick={() => setActiveTab('recognition')}
-              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
-                activeTab === 'recognition'
-                  ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                  : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
-              }`}
+              onClick={() => scrollTabs('left')}
+              className="p-1.5 rounded-lg bg-[#0A1529] border border-[#B8935A]/30 text-[#CFA76F] hover:bg-[#B8935A] hover:text-[#0A1529] transition-all cursor-pointer shadow-sm active:scale-90"
+              title="Scroll Tabs Left"
             >
-              <Award className="w-4 h-4" />
-              <span>Recognition & Accolades</span>
+              <ChevronLeft className="w-3.5 h-3.5" />
             </button>
-
+            <div className="flex-1 bg-[#060D1A] h-2 rounded-full overflow-hidden border border-[#B8935A]/30 relative shadow-inner">
+              <div
+                className="h-full bg-gradient-to-r from-[#B8935A] via-[#DCC280] to-[#B8935A] rounded-full transition-all duration-150 shadow-sm"
+                style={{
+                  width: '35%',
+                  marginLeft: `${Math.min(65, (scrollProgress / 100) * 65)}%`,
+                }}
+              />
+            </div>
             <button
               type="button"
-              onClick={() => setActiveTab('heroes')}
-              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
-                activeTab === 'heroes'
-                  ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                  : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
-              }`}
+              onClick={() => scrollTabs('right')}
+              className="p-1.5 rounded-lg bg-[#0A1529] border border-[#B8935A]/30 text-[#CFA76F] hover:bg-[#B8935A] hover:text-[#0A1529] transition-all cursor-pointer shadow-sm active:scale-90"
+              title="Scroll Tabs Right"
             >
-              <ImageIcon className="w-4 h-4" />
-              <span>Hero Backgrounds (7 Pages)</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setActiveTab('firm')}
-              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
-                activeTab === 'firm'
-                  ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                  : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
-              }`}
-            >
-              <Scale className="w-4 h-4" />
-              <span>Firm Profile & Contacts</span>
+              <ChevronRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>

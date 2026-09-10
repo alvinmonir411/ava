@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useTransition } from 'react';
+import React, { useState, useEffect, useRef, useTransition } from 'react';
 import { getAdminPracticesAction, updatePracticeAreaAction } from '@/actions/practiceActions';
 import { PracticeArea } from '@/types';
 import AdminHeader from '@/components/admin/AdminHeader';
@@ -25,6 +25,8 @@ import {
   Search,
   Layers,
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 
 const PRESET_PRACTICE_HEROES = [
@@ -56,6 +58,22 @@ export default function AdminPracticesPage() {
   const [activeModalTab, setActiveModalTab] = useState<'overview' | 'media' | 'scope' | 'faqs' | 'seo'>('overview');
   const [isPending, startTransition] = useTransition();
   const [savedSuccess, setSavedSuccess] = useState(false);
+  const modalTabsRef = useRef<HTMLDivElement>(null);
+
+  const scrollModalTabs = (direction: 'left' | 'right') => {
+    if (modalTabsRef.current) {
+      const scrollAmount = direction === 'left' ? -200 : 200;
+      modalTabsRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  const handleSelectModalTab = (tabKey: typeof activeModalTab) => {
+    setActiveModalTab(tabKey);
+    const el = document.getElementById(`practice-tab-btn-${tabKey}`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+  };
 
   useEffect(() => {
     getAdminPracticesAction().then(setPractices);
@@ -343,71 +361,56 @@ export default function AdminPracticesPage() {
               </button>
             </div>
 
-            {/* Modal Navigation Tabs with Gold Scrollbar */}
-            <div className="px-4 sm:px-6 pt-3 pb-2.5 border-b border-[#B8935A]/20 bg-[#0A1529] flex items-center gap-2 shrink-0 gold-scrollbar">
+            {/* Modal Navigation Tabs with Left/Right controls and Gold Scrollbar */}
+            <div className="relative border-b border-[#B8935A]/20 bg-[#0A1529] flex items-center">
               <button
                 type="button"
-                onClick={() => setActiveModalTab('overview')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${
-                  activeModalTab === 'overview'
-                    ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                    : 'text-white/70 hover:text-white hover:bg-[#0F1F3D]'
-                }`}
+                onClick={() => scrollModalTabs('left')}
+                className="p-2 text-[#CFA76F] hover:text-white hover:bg-[#0F1F3D] shrink-0 border-r border-[#B8935A]/20 cursor-pointer"
+                title="Scroll Left"
               >
-                <FileText className="w-3.5 h-3.5" />
-                <span>Overview & Narrative</span>
+                <ChevronLeft className="w-4 h-4" />
               </button>
+
+              <div
+                ref={modalTabsRef}
+                className="px-3 sm:px-4 py-2.5 flex items-center gap-2 overflow-x-auto gold-scrollbar flex-1 scroll-smooth"
+              >
+                {[
+                  { key: 'overview' as const, label: 'Overview & Narrative', icon: FileText },
+                  { key: 'media' as const, label: 'Hero Photography & Upload', icon: ImageIcon },
+                  { key: 'scope' as const, label: `Scope Deliverables (${editingPractice.whatWeHandle?.length || 0})`, icon: ListChecks },
+                  { key: 'faqs' as const, label: `Client FAQs (${editingPractice.faqs?.length || 0})`, icon: HelpCircle },
+                  { key: 'seo' as const, label: 'SEO & Meta', icon: Search },
+                ].map((tab) => {
+                  const Icon = tab.icon;
+                  const isActive = activeModalTab === tab.key;
+                  return (
+                    <button
+                      key={tab.key}
+                      id={`practice-tab-btn-${tab.key}`}
+                      type="button"
+                      onClick={() => handleSelectModalTab(tab.key)}
+                      className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${
+                        isActive
+                          ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] font-extrabold shadow-md ring-1 ring-[#DCC280]/60'
+                          : 'text-white/70 hover:text-white hover:bg-[#0F1F3D]'
+                      }`}
+                    >
+                      <Icon className="w-3.5 h-3.5" />
+                      <span>{tab.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
 
               <button
                 type="button"
-                onClick={() => setActiveModalTab('media')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${
-                  activeModalTab === 'media'
-                    ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                    : 'text-white/70 hover:text-white hover:bg-[#0F1F3D]'
-                }`}
+                onClick={() => scrollModalTabs('right')}
+                className="p-2 text-[#CFA76F] hover:text-white hover:bg-[#0F1F3D] shrink-0 border-l border-[#B8935A]/20 cursor-pointer"
+                title="Scroll Right"
               >
-                <ImageIcon className="w-3.5 h-3.5" />
-                <span>Hero Photography & Upload</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setActiveModalTab('scope')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${
-                  activeModalTab === 'scope'
-                    ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                    : 'text-white/70 hover:text-white hover:bg-[#0F1F3D]'
-                }`}
-              >
-                <ListChecks className="w-3.5 h-3.5" />
-                <span>Scope Deliverables ({editingPractice.whatWeHandle?.length || 0})</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setActiveModalTab('faqs')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${
-                  activeModalTab === 'faqs'
-                    ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                    : 'text-white/70 hover:text-white hover:bg-[#0F1F3D]'
-                }`}
-              >
-                <HelpCircle className="w-3.5 h-3.5" />
-                <span>Client FAQs ({editingPractice.faqs?.length || 0})</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setActiveModalTab('seo')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${
-                  activeModalTab === 'seo'
-                    ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                    : 'text-white/70 hover:text-white hover:bg-[#0F1F3D]'
-                }`}
-              >
-                <Search className="w-3.5 h-3.5" />
-                <span>SEO & Meta</span>
+                <ChevronRight className="w-4 h-4" />
               </button>
             </div>
 
