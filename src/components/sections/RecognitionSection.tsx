@@ -76,8 +76,8 @@ export default function RecognitionSection() {
                     <span className="text-[10px] text-[#6b7280] uppercase tracking-wider font-medium">KL Law Firms</span>
                   </div>
                   <div className="p-2.5 bg-[#faf9f6] rounded-lg border border-gray-200/80">
-                    <span className="block font-serif text-base sm:text-lg font-bold text-[#1a2332]">13+ Yrs</span>
-                    <span className="text-[10px] text-[#6b7280] uppercase tracking-wider font-medium">Post-Call Practice</span>
+                    <span className="block font-serif text-base sm:text-lg font-bold text-[#1a2332]">15 Yrs</span>
+                    <span className="text-[10px] text-[#6b7280] uppercase tracking-wider font-medium">Practice Experience</span>
                   </div>
                 </div>
               </div>

@@ -19,7 +19,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     ],
     fullDescription: `In commercial enterprise, a precisely drafted contract is the ultimate defense against operational disruption, financial loss, and costly litigation. Messrs. Low, Wah Chin & Co. provides bespoke contract drafting and commercial advisory services tailored to Malaysian businesses, multi-nationals, and growing SMEs.
 
-Drawing upon Ms. Ava Rachel Low’s extensive experience handling in-house corporate procurement and risk management for listed engineering corporation KNM Group Berhad alongside 13+ years of post-qualification practice in the High Court of Malaya, we draft agreements that anticipate operational contingencies rather than relying on generic off-the-shelf templates.
+Drawing upon Ms. Ava Rachel Low’s experience handling in-house corporate procurement and risk management for 1 year with listed engineering corporation KNM Group Berhad alongside 15 years of practice experience in the High Court of Malaya (admitted 2011), we draft agreements that anticipate operational contingencies rather than relying on generic off-the-shelf templates.
 
 From standard commercial terms of supply and Service Level Agreements (SLA) to cross-border joint venture agreements, non-disclosure covenants, and licensing agreements, we safeguard your enterprise value and profitability under the Contracts Act 1950.`,
     whatWeHandle: [
@@ -93,7 +93,7 @@ Whenever viable, we initiate structured negotiation and mediation to secure fina
     keyBenefits: [
       'Fast pre-action evaluation identifying immediate statutory and equitable remedies',
       'Strategic negotiation preserving vital commercial relationships where possible',
-      'Tenacious High Court litigation backed by 13+ years of post-qualification practice',
+      'Tenacious High Court litigation backed by 15 years of practice experience',
       'Transparent legal cost forecasting with structured fee arrangements'
     ],
     proceduralTimeline: [
@@ -372,7 +372,7 @@ Ms. Ava Rachel Low was trained at premier litigation institutions including Shoo
       'Judicial Review applications against public authority and tribunal decisions'
     ],
     keyBenefits: [
-      'Lincoln’s Inn Barrister lead with 13+ years trial & appellate experience',
+      'Lincoln’s Inn Barrister lead with 15 years trial & appellate experience',
       'Rigorous courtroom preparation and articulate witness cross-examination',
       'Clear, strategic risk evaluation at every phase of the proceedings',
       'Proven track record across reported Malaysian appellate judgments'
@@ -515,7 +515,7 @@ Messrs. Low, Wah Chin & Co. represents both corporate employers seeking complian
     iconName: 'Scale',
     fullDescription: `At Messrs. Low Wah Chin & Co. (LWCCO), our General Legal Advice & Consultation practice is founded upon the principle of providing sensible, realistic, and unvarnished legal counsel. Whether you are facing an impending dispute, seeking to safeguard personal rights, or requiring preliminary legal opinions before signing major commitments, our team offers prompt, confidential, and comprehensive legal reviews.
 
-With 13+ years of post-qualification legal experience in the High Court of Malaya and Appellate Courts, Ms. Ava Rachel Low and the legal team evaluate your situation not only from strict statutory perspectives, but also with practical business acumen and commercial foresight. We analyze potential liabilities, cost-benefit ratios of litigation versus settlement, and immediate legal remedies available under Malaysian law.
+With 15 years of practice experience in the High Court of Malaya and Appellate Courts (admitted 2011), Ms. Ava Rachel Low and the legal team evaluate your situation not only from strict statutory perspectives, but also with practical business acumen and commercial foresight. We analyze potential liabilities, cost-benefit ratios of litigation versus settlement, and immediate legal remedies available under Malaysian law.
 
 Our consultation practice avoids legal jargon. We present your options with absolute clarity, outlining the exact legal steps, timeframes, and anticipated costs so that you can make informed, confident decisions.`,
     whatWeHandle: [
@@ -739,7 +739,7 @@ Our team also handles contentious probate proceedings, including challenges to w
     iconName: 'Briefcase',
     fullDescription: `In today’s fast-evolving commercial landscape, businesses require agile, proactive legal counsel that protects bottom-line profitability while minimizing regulatory and contractual vulnerabilities. Messrs. Low Wah Chin & Co. acts as a trusted legal advisor and litigation counsel to corporations, SMEs, tech startups, and individual entrepreneurs across Malaysia.
 
-Drawing on Ms. Ava Rachel Low’s experience serving in-house for procurement and risk management with public listed corporation KNM Group Berhad in 2016, alongside years of commercial litigation in Malaysian courts, our firm bridges commercial deal-making with aggressive courtroom protection. We draft bespoke commercial agreements tailored to your specific operations rather than relying on generic templates that fail during disputes.
+Drawing on Ms. Ava Rachel Low’s experience serving 1 year in-house as Legal Counsel for procurement and risk management with public listed corporation KNM Group Berhad, alongside 15 years of commercial litigation in Malaysian courts, our firm bridges commercial deal-making with aggressive courtroom protection. We draft bespoke commercial agreements tailored to your specific operations rather than relying on generic templates that fail during disputes.
 
 When commercial disputes arise—such as breaches of contract, non-payment of trade debts, shareholder oppression, or construction licensing conflicts—we execute targeted legal strategies ranging from injunctive relief (Mareva injunctions, Anton Piller orders) to statutory Section 466 winding-up petitions and civil recovery actions.`,
     whatWeHandle: [
@@ -1091,7 +1091,7 @@ Messrs. Low Wah Chin & Co. represents both landlords and tenants across resident
     iconName: 'Handshake',
     fullDescription: `Entering into complex commercial ventures or resolving high-stakes corporate standoffs requires more than basic contract templates—it demands seasoned negotiation acumen, commercial foresight, and deep knowledge of Malaysian company law.
 
-Founder Ms. Ava Rachel Low brings rare in-house commercial and procurement risk management experience from her tenure with public listed engineering giant KNM Group Berhad in 2016, combined with over a decade of commercial litigation. We represent business owners, shareholders, founders, and directors at every stage of the negotiation table.
+Founder Ms. Ava Rachel Low brings rare in-house commercial and procurement risk management experience from her 1-year tenure as Legal Counsel with public listed engineering giant KNM Group Berhad, combined with 15 years of practice experience since 2011. We represent business owners, shareholders, founders, and directors at every stage of the negotiation table.
 
 Whether you are structuring a multi-party Joint Venture, negotiating venture capital terms, drafting comprehensive Shareholder Agreements, or attempting to resolve an impending business dispute through private mediation, LWCCO protects your equity, intellectual assets, and commercial upside while minimizing exposure to future litigation.`,
     whatWeHandle: [
@@ -1223,7 +1223,7 @@ Messrs. Low Wah Chin & Co. provides rigorous legal representation to hold neglig
     iconName: 'Hammer',
     fullDescription: `Construction, refurbishment, and residential renovation projects are major financial undertakings fraught with technical risks. Negligent workmanship, use of substandard materials, structural tampering, site abandonment, and failure to meet statutory building codes (UBBL) can compromise safety and drain hundreds of thousands of Ringgit.
 
-Drawing on Ms. Ava Rachel Low’s experience in engineering risk management and construction contracts with listed entity KNM Group Berhad and subsequent construction litigation, Messrs. Low Wah Chin & Co. represents property owners, management corporations (JMB/MC), and commercial developers against defaulting main contractors and subcontractors.
+Drawing on Ms. Ava Rachel Low’s experience in engineering risk management and construction contracts from her 1 year as In-House Legal Counsel with listed entity KNM Group Berhad and subsequent construction litigation, Messrs. Low Wah Chin & Co. represents property owners, management corporations (JMB/MC), and commercial developers against defaulting main contractors and subcontractors.
 
 We work alongside certified structural engineers and quantity surveyors to document defect schedules, issue urgent statutory notices of breach, initiate adjudication proceedings under the Construction Industry Payment and Adjudication Act 2012 (CIPAA 2012), and litigate claims in the Sessions Court and High Court.`,
     whatWeHandle: [
@@ -1484,7 +1484,7 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
       'Malaysian Certificate of Education (SPM, Science Stream - 7 Distinctions, 2 Merits, 1 Credit), Sekolah Seri Cahaya (2000–2004)',
       'Lower Secondary Evaluation (PMR, Science Stream with Mandarin - 8 Distinctions), Sekolah Seri Cahaya (2002)',
       'Primary School Achievement Test (UPSR, Science Stream - 5 Distinctions), SK Bandar Baru Sri Damansara (1998–1999)',
-      '13+ Years of Post-Qualification Experience across Civil, Commercial, Conveyancing, Insurance & Family Law',
+      '15 Years of Practice Experience across Civil, Commercial, Conveyancing, Insurance & Family Law (Admitted 2011)',
       'Registered Member of the Malaysian Bar (BC/L/2019)'
     ],
     admissions: [
@@ -1559,7 +1559,7 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
       { period: '1st June 2020 – 31st July 2020', firm: 'Messrs. Burton Tan, Syazwan & Co.', role: 'Legal Assistant' },
       { period: '26th January 2018 – 31st May 2020', firm: 'Messrs. Low Wah Chin', role: 'Sole Proprietor' },
       { period: '1st June 2017 – 5th December 2017', firm: 'Messrs. Serena Paul Naveen & Associates', role: 'Partner (General Litigation)' },
-      { period: '9th August 2016 – 13th April 2017', firm: 'KNM Group Berhad', role: 'Legal Executive (In-House Legal & Risk Management)' },
+      { period: '9th August 2016 – 13th April 2017', firm: 'KNM Group Berhad', role: 'In-House Legal Counsel (In-House Legal & Risk Management)' },
       { period: '1st June 2015 – 17th May 2016', firm: 'Messrs. Murali B. Pillai & Associates', role: 'Legal Assistant (Non-Motor Insurance & Civil Litigation)' },
       { period: '8th July 2013 – 31st May 2015', firm: 'Messrs. Azim, Tunku Farik & Wong', role: 'Legal Assistant (General, Insurance & Banking Litigation)' },
       { period: 'December 2012 – February 2013', firm: 'Messrs. Lai & Associates', role: 'Legal Assistant (Civil Litigation)' },
@@ -1637,7 +1637,7 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
       {
         period: '9th August 2016 – 13th April 2017',
         firm: 'KNM Group Berhad (Public Listed Company)',
-        role: 'Legal Executive (In-House Legal & Risk Management)',
+        role: 'In-House Legal Counsel (Legal & Risk Management Department)',
         department: 'Legal & Risk Management Department',
         supervisor: 'Flavio Porro (Head of Legal & Risk Management) & Dalton Wen (Legal Manager)',
         keyResponsibilities: [
@@ -1648,7 +1648,7 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
           'Procured and reviewed Insurance Policy Schedules for cross-border engineering projects.',
           'Drafted and commented on General and Special Terms & Conditions for Purchase Orders and corporate services.',
           'Prepared Supplemental Loan Agreements for structured corporate financing.',
-          'Drafted Heads of Agreement (HOA) and Memoranda of Understanding (MOU) for cross-border ventures.',
+          'Drafted Heads of Agreement (HOA) and Memorandum of Understanding (MOU) for cross-border ventures.',
           'Advised on Engineering, Procurement and Construction (EPC) Contracts and prepared comprehensive term comparison tables.',
           'Drafted demand letters, board minutes, cause papers, liaised with external auditors, and conducted statutory research.'
         ]
@@ -1878,9 +1878,9 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
       ]
     },
     bio: [
-      'Ms. Low Wah Chin (Ava Rachel) 劉華晶 is the Founder and Principal Counsel of Messrs. Low Wah Chin & Co. (LWCCO). Admitted to the Malaysian Bar as an Advocate & Solicitor of the High Court of Malaya on 11th November 2011 and called to the English Bar as a Barrister-at-Law of the Honourable Society of Lincoln’s Inn, London on 14th October 2010, she brings 13+ years of post-qualification legal mastery to her clients.',
+      'Ms. Low Wah Chin (Ava Rachel) 劉華晶 is the Founder and Principal Counsel of Messrs. Low Wah Chin & Co. (LWCCO). Admitted to the Malaysian Bar as an Advocate & Solicitor of the High Court of Malaya on 11th November 2011 and called to the English Bar as a Barrister-at-Law of the Honourable Society of Lincoln’s Inn, London on 14th October 2010, she brings 15 years of practice experience to her clients.',
       'Her comprehensive career encompasses top-tier Malaysian benchmark litigation firms—including Shook Lin & Bok, Azim, Tunku Farik & Wong, and Murali B. Pillai & Associates—where she handled complex professional indemnity insurance defense, banking disputes, multi-day commercial fraud trials, and appellate advocacy before the Court of Appeal and Federal Court of Malaysia.',
-      'In addition to private courtroom practice, Ms. Low gained invaluable commercial and industrial insight as In-House Legal Executive for publicly listed multinational KNM Group Berhad, managing risk for cross-border engineering, procurement, and construction (EPC) projects, tender non-disclosure agreements, and corporate financing structures.',
+      'In addition to private courtroom practice, Ms. Low gained invaluable commercial and industrial insight during her 1-year tenure as In-House Legal Counsel for publicly listed multinational KNM Group Berhad, managing risk for cross-border engineering, procurement, and construction (EPC) projects, tender non-disclosure agreements, and corporate financing structures.',
       'Having established her own practice in 2018 and founding Messrs. Low Wah Chin & Co. in 2020 at Colony @ KLCC, she is dedicated to providing high-calibre, decisive legal craftsmanship rooted in humanity—ensuring every individual and corporate client receives ethical, transparent, and fearless legal counsel.'
     ]
   }

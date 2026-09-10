@@ -38,7 +38,7 @@ import { getFirmSettings } from '@/actions/settingsActions';
 
 export const metadata = constructMetadata({
   title: 'Managing Partner Low Wah Chin (Ava Rachel) 劉華晶 | Messrs. Low Wah Chin & Co.',
-  description: 'Meet founder Low Wah Chin (Ava Rachel) 劉華晶, Lincoln’s Inn Barrister & High Court Advocate. 13+ years of trial, corporate advisory, appellate litigation, and conveyancing experience.',
+  description: 'Meet founder Low Wah Chin (Ava Rachel) 劉華晶, Lincoln’s Inn Barrister & High Court Advocate. 15 years of practice experience across trial, corporate advisory, appellate litigation, and conveyancing.',
   canonicalUrl: `${SITE_CONFIG.url}/our-team`,
 });
 
@@ -71,7 +71,7 @@ export default async function OurTeamPage() {
 
       <PageHero
         title="Our Leadership & Principal Counsel"
-        subtitle="Where classical British Barrister trial craft meets 13+ years of Malaysian High Court, corporate, and conveyancing mastery."
+        subtitle="Where classical British Barrister trial craft meets 15 years of practice experience in Malaysian High Court, corporate, and conveyancing mastery."
         badge="Senior Chambers Leadership • Kuala Lumpur"
         breadcrumbs={[{ label: 'Home', href: '/' }]}
         bgImage={settings.heroImages?.ourTeamHeroImage || "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85"}
@@ -222,7 +222,7 @@ export default async function OurTeamPage() {
                   Fearless Courtroom Advocacy Grounded in Deliberate Preparation
                 </h1>
                 <div className="p-4 bg-white border-l-4 border-[#c6a052] rounded-r-lg border border-gray-200 text-xs sm:text-sm text-[#1a2332] font-medium leading-relaxed shadow-xs mb-5">
-                  <strong>Low Wah Chin (Ava Rachel) 劉華晶</strong> brings Thirteen (13) years of post-qualification experience across civil, insurance, company, family & divorce, medical negligence, personal injury, property conveyancing, and will & estate distribution law practice with established Malaysian benchmark firms, listed multinational corporate counsel, and sole proprietorship practice.
+                  <strong>Low Wah Chin (Ava Rachel) 劉華晶</strong> brings Fifteen (15) years of practice experience since her admission in 2011 across civil, insurance, company, family & divorce, medical negligence, personal injury, property conveyancing, and will & estate distribution law practice with established Malaysian benchmark firms, 1 year as In-House Legal Counsel with listed multinational KNM Group Berhad, and sole proprietorship practice.
                 </div>
                 <div className="space-y-4 text-sm sm:text-base text-[#374151] leading-relaxed">
                   {bioParagraphs.map((para: string, idx: number) => (

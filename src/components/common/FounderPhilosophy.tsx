@@ -61,7 +61,7 @@ export default function FounderPhilosophy() {
             </h2>
 
             <p className="text-sm sm:text-base text-[#faf9f6]/90 leading-relaxed font-light">
-              Admitted to the Malaysian Bar on <strong>11th November 2011</strong>, principal counsel <strong>Low Wah Chin (Ava Rachel) 劉華晶</strong> synthesizes classical British Barrister trial discipline with 13+ years of Malaysian corporate and litigation experience from leading national benchmark practices (including <em>Shook Lin & Bok</em>, <em>Azim, Tunku Farik & Wong</em>, <em>Murali B. Pillai & Associates</em>, and <em>KNM Group Berhad</em>).
+              Admitted to the Malaysian Bar on <strong>11th November 2011</strong>, principal counsel <strong>Low Wah Chin (Ava Rachel) 劉華晶</strong> synthesizes classical British Barrister trial discipline with 15 years of practice experience in Malaysian corporate and litigation law from leading national benchmark practices (including <em>Shook Lin & Bok</em>, <em>Azim, Tunku Farik & Wong</em>, <em>Murali B. Pillai & Associates</em>, and 1 year as In-House Legal Counsel at <em>KNM Group Berhad</em>).
             </p>
 
             {/* 3 Pillar Statements */}
