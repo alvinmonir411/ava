@@ -349,85 +349,92 @@ export default function AdminSettingsPage() {
           </div>
         )}
 
-        {/* Tab Selector */}
-        <div className="flex items-center gap-2 p-1.5 bg-[#0A1529] border border-[#B8935A]/30 rounded-2xl w-full overflow-x-auto scrollbar-none pb-2 sm:pb-1.5">
-          <button
-            type="button"
-            onClick={() => setActiveTab('gallery')}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
-              activeTab === 'gallery'
-                ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
-            }`}
-          >
-            <Camera className="w-4 h-4" />
-            <span>Portrait Gallery ({settings.gallery?.items?.length || 5})</span>
-          </button>
+        {/* Tab Selector with Visible Gold Scrollbar */}
+        <div className="space-y-1.5">
+          <div className="flex items-center justify-between text-[11px] text-[#CFA76F] font-semibold px-1 sm:hidden">
+            <span>Website Settings Category:</span>
+            <span className="text-[10px] text-white/60">Swipe tabs ➔</span>
+          </div>
 
-          <button
-            type="button"
-            onClick={() => setActiveTab('hero')}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
-              activeTab === 'hero'
-                ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
-            }`}
-          >
-            <Building2 className="w-4 h-4" />
-            <span>Hero & Headlines</span>
-          </button>
+          <div className="flex items-center gap-2 p-2 bg-[#0A1529] border border-[#B8935A]/35 rounded-2xl w-full gold-scrollbar pb-3 sm:pb-2">
+            <button
+              type="button"
+              onClick={() => setActiveTab('gallery')}
+              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
+                activeTab === 'gallery'
+                  ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
+                  : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
+              }`}
+            >
+              <Camera className="w-4 h-4" />
+              <span>Portrait Gallery ({settings.gallery?.items?.length || 5})</span>
+            </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveTab('about')}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
-              activeTab === 'about'
-                ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
-            }`}
-          >
-            <User className="w-4 h-4" />
-            <span>About Principal Lawyer</span>
-          </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('hero')}
+              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
+                activeTab === 'hero'
+                  ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
+                  : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
+              }`}
+            >
+              <Building2 className="w-4 h-4" />
+              <span>Hero & Headlines</span>
+            </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveTab('recognition')}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
-              activeTab === 'recognition'
-                ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
-            }`}
-          >
-            <Award className="w-4 h-4" />
-            <span>Recognition & Accolades</span>
-          </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('about')}
+              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
+                activeTab === 'about'
+                  ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
+                  : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
+              }`}
+            >
+              <User className="w-4 h-4" />
+              <span>About Principal Lawyer</span>
+            </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveTab('heroes')}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
-              activeTab === 'heroes'
-                ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
-            }`}
-          >
-            <ImageIcon className="w-4 h-4" />
-            <span>Hero Backgrounds (7 Pages)</span>
-          </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('recognition')}
+              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
+                activeTab === 'recognition'
+                  ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
+                  : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
+              }`}
+            >
+              <Award className="w-4 h-4" />
+              <span>Recognition & Accolades</span>
+            </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveTab('firm')}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
-              activeTab === 'firm'
-                ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
-                : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
-            }`}
-          >
-            <Scale className="w-4 h-4" />
-            <span>Firm Profile & Contacts</span>
-          </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('heroes')}
+              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
+                activeTab === 'heroes'
+                  ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
+                  : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
+              }`}
+            >
+              <ImageIcon className="w-4 h-4" />
+              <span>Hero Backgrounds (7 Pages)</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab('firm')}
+              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
+                activeTab === 'firm'
+                  ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
+                  : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
+              }`}
+            >
+              <Scale className="w-4 h-4" />
+              <span>Firm Profile & Contacts</span>
+            </button>
+          </div>
         </div>
 
         <form onSubmit={handleSave} className="space-y-6">

@@ -467,3 +467,32 @@
   perspective: 1000px;
 }
 
+/* Gold Admin Scrollbar for Mobile Tabs & Tables */
+.gold-scrollbar {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #b8935a #0a1529;
+}
+
+.gold-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.gold-scrollbar::-webkit-scrollbar-track {
+  background: #0f1f3d;
+  border-radius: 9999px;
+  margin: 0 4px;
+}
+
+.gold-scrollbar::-webkit-scrollbar-thumb {
+  background: #b8935a;
+  border-radius: 9999px;
+}
+
+.gold-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #cfa76f;
+}
+
+

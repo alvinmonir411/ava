@@ -343,12 +343,12 @@ export default function AdminPracticesPage() {
               </button>
             </div>
 
-            {/* Modal Navigation Tabs */}
-            <div className="px-5 sm:px-6 pt-3 pb-1 border-b border-[#B8935A]/20 bg-[#0A1529] flex flex-wrap gap-2 shrink-0">
+            {/* Modal Navigation Tabs with Gold Scrollbar */}
+            <div className="px-4 sm:px-6 pt-3 pb-2.5 border-b border-[#B8935A]/20 bg-[#0A1529] flex items-center gap-2 shrink-0 gold-scrollbar">
               <button
                 type="button"
                 onClick={() => setActiveModalTab('overview')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${
                   activeModalTab === 'overview'
                     ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
                     : 'text-white/70 hover:text-white hover:bg-[#0F1F3D]'
@@ -361,7 +361,7 @@ export default function AdminPracticesPage() {
               <button
                 type="button"
                 onClick={() => setActiveModalTab('media')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${
                   activeModalTab === 'media'
                     ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
                     : 'text-white/70 hover:text-white hover:bg-[#0F1F3D]'
@@ -374,7 +374,7 @@ export default function AdminPracticesPage() {
               <button
                 type="button"
                 onClick={() => setActiveModalTab('scope')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${
                   activeModalTab === 'scope'
                     ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
                     : 'text-white/70 hover:text-white hover:bg-[#0F1F3D]'
@@ -387,7 +387,7 @@ export default function AdminPracticesPage() {
               <button
                 type="button"
                 onClick={() => setActiveModalTab('faqs')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${
                   activeModalTab === 'faqs'
                     ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
                     : 'text-white/70 hover:text-white hover:bg-[#0F1F3D]'
@@ -400,7 +400,7 @@ export default function AdminPracticesPage() {
               <button
                 type="button"
                 onClick={() => setActiveModalTab('seo')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${
                   activeModalTab === 'seo'
                     ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
                     : 'text-white/70 hover:text-white hover:bg-[#0F1F3D]'

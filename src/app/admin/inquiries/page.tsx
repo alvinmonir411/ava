@@ -166,8 +166,8 @@ export default function AdminInquiriesPage() {
             />
           </div>
 
-          {/* Status Tabs */}
-          <div className="flex flex-wrap items-center gap-1.5">
+          {/* Status Tabs with Gold Scrollbar */}
+          <div className="flex items-center gap-1.5 overflow-x-auto gold-scrollbar pb-1.5 md:pb-0">
             {[
               { key: 'all', label: `All (${inquiries.length})` },
               { key: 'new', label: `New (${inquiries.filter((i) => i.status === 'new').length})` },
@@ -179,7 +179,7 @@ export default function AdminInquiriesPage() {
               <button
                 key={tab.key}
                 onClick={() => setStatusFilter(tab.key)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all shrink-0 whitespace-nowrap cursor-pointer ${
                   statusFilter === tab.key
                     ? 'bg-[#B8935A] text-[#0F1F3D] font-bold shadow-sm'
                     : 'bg-[#0F1F3D] text-white/70 hover:text-white border border-[#B8935A]/20'
