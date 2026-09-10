@@ -342,19 +342,19 @@ export default function AdminSettingsPage() {
         subtitle="Full dashboard control for non-technical users: upload photos with Cloudinary, edit hero banners, principal lawyer bio, recognition awards, and contact channels."
       />
 
-      <div className="p-6 sm:p-8 max-w-6xl w-full mx-auto space-y-6">
+      <div className="p-4 sm:p-6 lg:p-8 max-w-6xl w-full mx-auto space-y-6">
         {savedSuccess && (
-          <div className="p-4 bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 text-xs font-bold text-center rounded-2xl animate-in fade-in shadow-lg">
+          <div className="p-3.5 sm:p-4 bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 text-xs font-bold text-center rounded-2xl animate-in fade-in shadow-lg">
             ✓ All Website Content and Changes Published Live Successfully!
           </div>
         )}
 
         {/* Tab Selector */}
-        <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[#0A1529] border border-[#B8935A]/30 rounded-2xl w-full">
+        <div className="flex items-center gap-2 p-1.5 bg-[#0A1529] border border-[#B8935A]/30 rounded-2xl w-full overflow-x-auto scrollbar-none pb-2 sm:pb-1.5">
           <button
             type="button"
             onClick={() => setActiveTab('gallery')}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
               activeTab === 'gallery'
                 ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
                 : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
@@ -367,7 +367,7 @@ export default function AdminSettingsPage() {
           <button
             type="button"
             onClick={() => setActiveTab('hero')}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
               activeTab === 'hero'
                 ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
                 : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
@@ -380,7 +380,7 @@ export default function AdminSettingsPage() {
           <button
             type="button"
             onClick={() => setActiveTab('about')}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
               activeTab === 'about'
                 ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
                 : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
@@ -393,7 +393,7 @@ export default function AdminSettingsPage() {
           <button
             type="button"
             onClick={() => setActiveTab('recognition')}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
               activeTab === 'recognition'
                 ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
                 : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
@@ -406,7 +406,7 @@ export default function AdminSettingsPage() {
           <button
             type="button"
             onClick={() => setActiveTab('heroes')}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
               activeTab === 'heroes'
                 ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
                 : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'
@@ -419,7 +419,7 @@ export default function AdminSettingsPage() {
           <button
             type="button"
             onClick={() => setActiveTab('firm')}
-            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
               activeTab === 'firm'
                 ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md'
                 : 'text-white/75 hover:text-white hover:bg-[#0F1F3D]'

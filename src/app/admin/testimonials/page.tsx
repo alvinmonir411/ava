@@ -82,12 +82,12 @@ export default function AdminTestimonialsPage() {
         }
       />
 
-      <div className="p-6 sm:p-8 max-w-7xl w-full mx-auto space-y-6">
+      <div className="p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t) => (
             <div
               key={t.id}
-              className="bg-[#0A1529] rounded-2xl border border-[#B8935A]/30 p-6 shadow-xl flex flex-col justify-between space-y-4 hover:border-[#B8935A]/60 transition-all"
+              className="bg-[#0A1529] rounded-2xl border border-[#B8935A]/30 p-5 sm:p-6 shadow-xl flex flex-col justify-between space-y-4 hover:border-[#B8935A]/60 transition-all"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -119,14 +119,14 @@ export default function AdminTestimonialsPage() {
                 <div className="flex items-center gap-1.5">
                   <button
                     onClick={() => setEditingTestimonial({ ...t })}
-                    className="p-1.5 rounded-lg bg-[#1B2F57] text-[#CFA76F] hover:bg-[#B8935A] hover:text-[#0F1F3D] transition-colors"
+                    className="p-1.5 rounded-lg bg-[#1B2F57] text-[#CFA76F] hover:bg-[#B8935A] hover:text-[#0F1F3D] transition-colors cursor-pointer"
                     title="Edit Review"
                   >
                     <Edit className="w-3.5 h-3.5" />
                   </button>
                   <button
                     onClick={() => setTestimonialToDelete(t)}
-                    className="p-1.5 rounded-lg bg-rose-950/40 text-rose-400 hover:bg-rose-900/60 transition-colors"
+                    className="p-1.5 rounded-lg bg-rose-950/40 text-rose-400 hover:bg-rose-900/60 transition-colors cursor-pointer"
                     title="Delete Review"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
@@ -140,10 +140,10 @@ export default function AdminTestimonialsPage() {
 
       {/* Editor Modal */}
       {editingTestimonial && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
           <form
             onSubmit={handleSave}
-            className="w-full max-w-xl bg-[#0A1529] border-2 border-[#B8935A]/50 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-5 relative max-h-[92vh] overflow-y-auto"
+            className="w-full max-w-xl bg-[#0A1529] border-2 border-[#B8935A]/50 rounded-3xl p-5 sm:p-8 shadow-2xl space-y-5 relative max-h-[92vh] overflow-y-auto"
           >
             <div className="flex items-start justify-between border-b border-[#B8935A]/25 pb-4">
               <div>
@@ -164,7 +164,7 @@ export default function AdminTestimonialsPage() {
             </div>
 
             <div className="space-y-4 text-xs">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block font-bold text-white/80 mb-1">Client Name / Publication</label>
                   <input

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
+import { ExternalLink, Sparkles } from 'lucide-react';
 
 interface AdminHeaderProps {
   title: string;
@@ -12,27 +12,27 @@ interface AdminHeaderProps {
 
 export default function AdminHeader({ title, subtitle, action }: AdminHeaderProps) {
   return (
-    <header className="bg-[#0F1F3D] border-b border-[#B8935A]/30 px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-      <div>
-        <h1 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-tight">
+    <header className="bg-[#0A1529]/95 border-b border-[#B8935A]/30 px-4 sm:px-8 py-3.5 sm:py-5 flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 shrink-0 shadow-sm backdrop-blur-md">
+      <div className="space-y-0.5 min-w-0">
+        <h1 className="font-serif text-lg sm:text-2xl font-bold text-white tracking-tight truncate">
           {title}
         </h1>
         {subtitle && (
-          <p className="text-xs text-white/70 mt-0.5">
+          <p className="text-[11px] sm:text-xs text-white/70 leading-relaxed max-w-3xl">
             {subtitle}
           </p>
         )}
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center flex-wrap gap-2.5 shrink-0 self-start md:self-center">
         {action}
         <Link
           href="/"
           target="_blank"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1B2F57] text-[#CFA76F] border border-[#B8935A]/40 text-xs font-semibold hover:bg-[#1B2F57]/80 transition-colors"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#0F1F3D] hover:bg-[#1B2F57] text-[#CFA76F] border border-[#B8935A]/40 text-xs font-semibold transition-all shadow-xs"
         >
           <span>Live Site</span>
-          <ExternalLink className="w-3 h-3" />
+          <ExternalLink className="w-3.5 h-3.5" />
         </Link>
       </div>
     </header>

@@ -149,7 +149,7 @@ export default function AdminInquiriesPage() {
         }
       />
 
-      <div className="p-6 sm:p-8 max-w-7xl w-full mx-auto space-y-6">
+      <div className="p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto space-y-6">
         {/* Controls Bar: Search & Status Filters */}
         <div className="bg-[#0A1529] p-4 sm:p-5 rounded-2xl border border-[#B8935A]/30 flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center shadow-lg">
           {/* Search Box */}
@@ -371,15 +371,15 @@ export default function AdminInquiriesPage() {
 
       {/* Inquiry Detail Modal */}
       {selectedInquiry && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="w-full max-w-2xl bg-[#0A1529] border-2 border-[#B8935A]/50 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 relative max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="w-full max-w-2xl bg-[#0A1529] border-2 border-[#B8935A]/50 rounded-3xl p-5 sm:p-8 shadow-2xl space-y-6 relative max-h-[92vh] overflow-y-auto">
             {/* Modal Header */}
             <div className="flex items-start justify-between border-b border-[#B8935A]/25 pb-4">
               <div>
                 <span className="text-[10px] uppercase font-bold tracking-wider text-[#CFA76F] block">
                   Consultation Brief Record #{selectedInquiry.id}
                 </span>
-                <h3 className="font-serif text-2xl font-bold text-white mt-1">
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mt-1">
                   {selectedInquiry.name}
                 </h3>
               </div>
@@ -392,7 +392,7 @@ export default function AdminInquiriesPage() {
             </div>
 
             {/* Info Grid */}
-            <div className="grid grid-cols-2 gap-4 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs">
               <div className="p-3.5 rounded-xl bg-[#0F1F3D] border border-[#B8935A]/20">
                 <span className="text-white/50 block font-semibold mb-1">Phone Number:</span>
                 <a href={`tel:${selectedInquiry.phone}`} className="text-sm font-bold text-white hover:text-[#CFA76F]">
