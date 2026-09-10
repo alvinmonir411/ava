@@ -3,8 +3,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Award, GraduationCap, ArrowRight, CheckCircle2, Landmark, Scale, Briefcase } from 'lucide-react';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
+import { AboutPrincipalSettings, DEFAULT_FIRM_SETTINGS } from '@/types/settings';
 
-export default function AboutPrincipal() {
+interface AboutPrincipalProps {
+  content?: AboutPrincipalSettings;
+}
+
+export default function AboutPrincipal({ content }: AboutPrincipalProps) {
+  const c = content || DEFAULT_FIRM_SETTINGS.aboutPrincipal;
+
   return (
     <section className="pt-6 pb-12 sm:pt-14 sm:pb-20 lg:py-24 bg-[#faf9f6] text-[#231f20] border-b border-[#e5e7eb]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,18 +20,49 @@ export default function AboutPrincipal() {
         <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-12">
           <div className="inline-flex items-center gap-1.5 text-[#9d7835] text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] mb-1 sm:mb-2">
             <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#c6a052]" />
-            <span>Principal Counsel</span>
+            <span>{c.sectionTag || 'Principal Counsel'}</span>
           </div>
           <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-[#1a2332] tracking-tight">
-            About
+            {c.sectionTitle || 'About'}
           </h2>
           <div className="w-12 sm:w-16 h-0.5 bg-[#c6a052] mx-auto mt-1.5 sm:mt-3 rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           
-          {/* Left Column: Academic Credentials & Institutional Admissions Card (5 cols) */}
-          <div className="lg:col-span-5 space-y-4">
+          {/* Left Column: Portrait & Academic Credentials & Institutional Admissions Card (5 cols) */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* Principal Lawyer Portrait Card */}
+            <div className="relative w-full max-w-[420px] mx-auto p-2.5 bg-white border-2 border-[#c6a052]/40 rounded-2xl shadow-lg group">
+              <div className="relative h-[360px] sm:h-[400px] w-full rounded-xl overflow-hidden bg-gray-950">
+                <Image
+                  src={c.lawyerPhoto || '/lawyer-portrait-2.jpg'}
+                  alt={`${c.lawyerName || 'Low Wah Chin (Ava Rachel)'} ${c.lawyerChinese || '劉華晶'} Managing Partner Messrs. Low Wah Chin & Co.`}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#101826]/90 via-[#101826]/20 to-transparent" />
+                
+                {/* Bottom Overlay Label */}
+                <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-[#101826]/90 border border-[#c6a052]/40 text-white backdrop-blur-md">
+                  <div className="flex items-baseline justify-between">
+                    <p className="font-serif text-sm sm:text-base font-bold text-white">
+                      {c.lawyerName || 'Low Wah Chin'}
+                    </p>
+                    {c.lawyerChinese && (
+                      <span className="text-xs font-serif text-[#dcc280]">{c.lawyerChinese}</span>
+                    )}
+                  </div>
+                  <p className="text-[11px] text-[#dcc280] font-medium mt-0.5">
+                    Managing Partner & Principal Legal Practitioner
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="p-6 bg-white border-2 border-[#c6a052]/40 rounded-2xl shadow-md space-y-5">
               <div className="border-b border-gray-100 pb-3">
                 <div className="inline-flex items-center gap-2 text-[#9d7835] text-xs font-bold uppercase tracking-wider mb-1">
@@ -32,10 +70,10 @@ export default function AboutPrincipal() {
                   <span>Statutory Bar Admissions</span>
                 </div>
                 <h3 className="font-serif text-xl font-bold text-[#1a2332]">
-                  Low Wah Chin <span className="text-sm font-normal text-[#9d7835]">(Ava Rachel)</span>
+                  Statutory Accreditation
                 </h3>
                 <p className="text-xs text-[#4b5563] font-medium mt-0.5">
-                  Managing Partner & Principal Legal Practitioner
+                  The High Court of Malaya & Lincoln’s Inn, London
                 </p>
               </div>
 
@@ -112,16 +150,18 @@ export default function AboutPrincipal() {
             <div className="p-5 sm:p-6 bg-white rounded-xl border border-[#e8e1d5] shadow-xs space-y-4 text-xs sm:text-sm text-[#374151] leading-relaxed">
               <div className="p-3.5 bg-[#faf9f6] border-l-4 border-[#c6a052] rounded-r-lg border border-gray-200">
                 <p className="font-serif font-bold text-[#1a2332] text-sm sm:text-base">
-                  &ldquo;I am an Advocate & Solicitor Malaysia of 15 years in practice since 11th November 2011.&rdquo;
+                  {c.quote || '“I am an Advocate & Solicitor Malaysia of 15 years in practice since 11th November 2011.”'}
                 </p>
               </div>
 
               <p>
-                Founded by senior advocate <strong>Low Wah Chin (Ava Rachel) 劉華晶</strong>, Messrs. Low Wah Chin & Co. provides commanding courtroom advocacy, precise contract drafting, and strategic corporate risk guidance. Her legal foundation was honed across premier Malaysian institutions including <em>Shook Lin & Bok</em>, <em>Azim, Tunku Farik & Wong</em>, and <em>Murali B. Pillai & Associates</em>.
+                {c.bioParagraph1 ||
+                  'Founded by senior advocate Low Wah Chin (Ava Rachel) 劉華晶, Messrs. Low Wah Chin & Co. provides commanding courtroom advocacy, precise contract drafting, and strategic corporate risk guidance.'}
               </p>
 
               <p>
-                In addition to private trial practice, Ms. Low served <strong>1 year at KNM Group Berhad as In-House Legal Counsel</strong>, managing corporate risk, cross-border engineering, procurement, and construction (EPC) agreements, and international commercial transactions.
+                {c.bioParagraph2 ||
+                  'In addition to private trial practice, Ms. Low served 1 year at KNM Group Berhad as In-House Legal Counsel, managing corporate risk, cross-border engineering, procurement, and construction (EPC) agreements, and international commercial transactions.'}
               </p>
 
               <div className="pt-2">
@@ -129,7 +169,8 @@ export default function AboutPrincipal() {
                   Core Practice Areas:
                 </strong>
                 <p className="text-xs text-[#4b5563] leading-normal">
-                  Laws of Contract · Commercial Disputes · Tort & Negligence · Family & Divorce · Property Conveyancing · Corporate Advisory & MOUs · Wills & Estate Distribution · High Court Litigation
+                  {c.corePractices ||
+                    'Laws of Contract · Commercial Disputes · Tort & Negligence · Family & Divorce · Property Conveyancing · Corporate Advisory & MOUs · Wills & Estate Distribution · High Court Litigation'}
                 </p>
               </div>
             </div>

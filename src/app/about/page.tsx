@@ -5,6 +5,7 @@ import { constructMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/metad
 import JsonLd from '@/components/common/JsonLd';
 import PageHero from '@/components/layout/PageHero';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
+import PartnerGallery from '@/components/common/PartnerGallery';
 import {
   Scale,
   Award,
@@ -274,6 +275,15 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* 4. Principal Counsel & Chambers Portrait Gallery */}
+      <PartnerGallery
+        gallery={settings.gallery}
+        title="Chambers & Portrait Gallery"
+        subtitle="Principal Advocate & Solicitor Low Wah Chin (Ava Rachel) 劉華晶"
+        badge="Lincoln’s Inn London • High Court of Malaya"
+        isDark={false}
+      />
     </>
   );
 }

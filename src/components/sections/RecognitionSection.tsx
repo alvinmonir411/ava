@@ -2,8 +2,15 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Star, Award, ShieldCheck, CheckCircle2, Sparkles, Scale } from 'lucide-react';
 import TrustedMalaysiaBadge from '@/components/common/TrustedMalaysiaBadge';
+import { RecognitionContentSettings, DEFAULT_FIRM_SETTINGS } from '@/types/settings';
 
-export default function RecognitionSection() {
+interface RecognitionSectionProps {
+  content?: RecognitionContentSettings;
+}
+
+export default function RecognitionSection({ content }: RecognitionSectionProps) {
+  const c = content || DEFAULT_FIRM_SETTINGS.recognition;
+
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-[#faf9f6] text-[#231f20] border-b border-[#e5e7eb] relative overflow-hidden">
       {/* Subtle Background Pattern */}
@@ -24,21 +31,21 @@ export default function RecognitionSection() {
                 <div className="flex flex-wrap items-center gap-2.5">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#faf5ea] border border-[#c6a052]/40 text-[#9d7835] text-[11px] font-bold uppercase tracking-wider">
                     <Sparkles className="w-3.5 h-3.5 text-[#c6a052]" />
-                    <span>Official Editorial Selection</span>
+                    <span>{c.badgeLabel || 'Official Editorial Selection'}</span>
                   </div>
 
                   <div className="inline-flex items-center gap-1 text-[#c6a052] bg-white px-2.5 py-1 rounded-full border border-gray-200 text-xs font-semibold">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-3.5 h-3.5 fill-[#c6a052] text-[#c6a052]" />
                     ))}
-                    <span className="text-[11px] text-[#4b5563] ml-1">5.0 Star Commendation</span>
+                    <span className="text-[11px] text-[#4b5563] ml-1">{c.ratingText || '5.0 Star Commendation'}</span>
                   </div>
                 </div>
 
                 {/* Primary Heading */}
                 <div>
                   <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-[#1a2332] leading-tight tracking-tight">
-                    Best Law Firms in Kuala Lumpur
+                    {c.title || 'Best Law Firms in Kuala Lumpur'}
                   </h2>
                   <div className="w-20 h-1 bg-[#c6a052] mt-4 rounded-full" />
                 </div>
@@ -46,38 +53,48 @@ export default function RecognitionSection() {
                 {/* Editorial Subheading Quote Ribbon */}
                 <div className="p-4 bg-[#faf9f6] border-l-4 border-[#c6a052] rounded-r-lg">
                   <p className="text-sm sm:text-base text-[#9d7835] font-serif font-bold italic leading-relaxed">
-                    &ldquo;Thank You Trusted Malaysia. We are honored to be recommended on your site.&rdquo;
+                    {c.quote || '“Thank You Trusted Malaysia. We are honored to be recommended on your site.”'}
                   </p>
                 </div>
 
                 {/* 3 Editorial Paragraphs */}
                 <div className="space-y-4 text-xs sm:text-sm text-[#374151] leading-relaxed font-normal">
                   <p>
-                    <strong className="text-[#1a2332] font-semibold">Messrs. Low Wah Chin & Co. Advocates & Solicitors</strong> is a firm that provides high-quality legal services which exude passion, duty, integrity, and care for you as their client. They aim to work closely with you in order to thoroughly understand your case and be able to address your individual needs and the reason why you availed of their services.
+                    {c.paragraph1 ||
+                      'Messrs. Low Wah Chin & Co. Advocates & Solicitors is a firm that provides high-quality legal services which exude passion, duty, integrity, and care for you as their client.'}
                   </p>
 
                   <p>
-                    They are highly commended to be professional and thorough in every case that they take up in which all of their staff are equally competent as well. Rest assured that each of them is a <span className="text-[#1a2332] font-semibold bg-[#faf5ea] px-1.5 py-0.5 rounded border border-[#c6a052]/30">Registered Member of the Malaysian Bar</span> which ensures that you are in good hands.
-                  </p>
-
-                  <p>
-                    We highly recommend this firm for your legal needs due to their highly qualified lawyers and staff which enables them to guide you throughout the whole process as a whole.
+                    {c.paragraph2 ||
+                      'They are highly commended to be professional and thorough in every case that they take up in which all of their staff are equally competent as well.'}
                   </p>
                 </div>
 
                 {/* Micro Key Credentials Strip */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-2 border-t border-gray-100 text-center">
                   <div className="p-2.5 bg-[#faf9f6] rounded-lg border border-gray-200/80">
-                    <span className="block font-serif text-base sm:text-lg font-bold text-[#1a2332]">100%</span>
-                    <span className="text-[10px] text-[#6b7280] uppercase tracking-wider font-medium">Bar Certified</span>
+                    <span className="block font-serif text-base sm:text-lg font-bold text-[#1a2332]">
+                      {c.stat1Value || '100%'}
+                    </span>
+                    <span className="text-[10px] text-[#6b7280] uppercase tracking-wider font-medium">
+                      {c.stat1Label || 'Bar Certified'}
+                    </span>
                   </div>
                   <div className="p-2.5 bg-[#faf9f6] rounded-lg border border-gray-200/80">
-                    <span className="block font-serif text-base sm:text-lg font-bold text-[#1a2332]">Top 10</span>
-                    <span className="text-[10px] text-[#6b7280] uppercase tracking-wider font-medium">KL Law Firms</span>
+                    <span className="block font-serif text-base sm:text-lg font-bold text-[#1a2332]">
+                      {c.stat2Value || 'Top 10'}
+                    </span>
+                    <span className="text-[10px] text-[#6b7280] uppercase tracking-wider font-medium">
+                      {c.stat2Label || 'KL Law Firms'}
+                    </span>
                   </div>
                   <div className="p-2.5 bg-[#faf9f6] rounded-lg border border-gray-200/80">
-                    <span className="block font-serif text-base sm:text-lg font-bold text-[#1a2332]">15 Yrs</span>
-                    <span className="text-[10px] text-[#6b7280] uppercase tracking-wider font-medium">Practice Experience</span>
+                    <span className="block font-serif text-base sm:text-lg font-bold text-[#1a2332]">
+                      {c.stat3Value || '15 Yrs'}
+                    </span>
+                    <span className="text-[10px] text-[#6b7280] uppercase tracking-wider font-medium">
+                      {c.stat3Label || 'Practice Experience'}
+                    </span>
                   </div>
                 </div>
               </div>

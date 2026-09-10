@@ -8,6 +8,62 @@ export interface HeroImagesSettings {
   contactHeroImage: string;
 }
 
+export interface HeroContentSettings {
+  firmName: string;
+  firmSubtitle: string;
+  motto: string;
+  establishedBadge: string;
+  heroLawyerPhoto: string;
+  heroLawyerName: string;
+  heroLawyerChinese: string;
+  heroLawyerTitle: string;
+  heroLawyerSub: string;
+}
+
+export interface AboutPrincipalSettings {
+  sectionTag: string;
+  sectionTitle: string;
+  lawyerPhoto: string;
+  lawyerName: string;
+  lawyerChinese: string;
+  quote: string;
+  bioParagraph1: string;
+  bioParagraph2: string;
+  corePractices: string;
+}
+
+export interface RecognitionContentSettings {
+  badgeLabel: string;
+  ratingText: string;
+  title: string;
+  quote: string;
+  paragraph1: string;
+  paragraph2: string;
+  stat1Value: string;
+  stat1Label: string;
+  stat2Value: string;
+  stat2Label: string;
+  stat3Value: string;
+  stat3Label: string;
+}
+
+export interface GalleryItem {
+  id: string;
+  src: string;
+  alt: string;
+  title: string;
+  subtitle: string;
+  badge: string;
+  description?: string;
+}
+
+export interface GallerySectionSettings {
+  sectionTitle: string;
+  sectionSubtitle: string;
+  sectionBadge: string;
+  items: GalleryItem[];
+}
+
 export interface FirmSettings {
   companyName: string;
   qualificationTitle: string;
@@ -18,7 +74,59 @@ export interface FirmSettings {
   operatingHours: string;
   googleMapsUrl: string;
   heroImages: HeroImagesSettings;
+  heroContent: HeroContentSettings;
+  aboutPrincipal: AboutPrincipalSettings;
+  recognition: RecognitionContentSettings;
+  gallery: GallerySectionSettings;
 }
+
+export const DEFAULT_GALLERY_ITEMS: GalleryItem[] = [
+  {
+    id: '1',
+    src: '/lawyer-hero.jpg',
+    alt: 'Ava Rachel Low in Court Robe and Bands - Principal Advocate & Solicitor',
+    title: 'Courtroom Trial Advocate',
+    subtitle: 'Appellate & High Court of Malaya Representation',
+    badge: 'Senior Trial Counsel',
+    description: 'Admitted to the High Court of Malaya on 11th November 2011 with 15 years of courtroom practice experience across trial advocacy, corporate litigation, and dispute resolution.',
+  },
+  {
+    id: '2',
+    src: '/lawyer-portrait-1.jpg',
+    alt: 'Ava Rachel Low in Court Gown - Lincoln’s Inn Barrister London',
+    title: 'Barrister-at-Law (Lincoln’s Inn)',
+    subtitle: 'The Honourable Society of Lincoln’s Inn, London, UK',
+    badge: 'English Bar 2010',
+    description: 'Called to the English Bar at Lincoln’s Inn following postgraduate Bar Vocational Course (BVC) in London, upholding classic British common law advocacy traditions.',
+  },
+  {
+    id: '3',
+    src: '/lawyer-portrait-2.jpg',
+    alt: 'Ava Rachel Low Portrait - Managing Partner Messrs. Low Wah Chin & Co.',
+    title: 'Managing Partner & Principal',
+    subtitle: 'Messrs. Low Wah Chin & Co. Advocates & Solicitors',
+    badge: 'Chambers Leadership',
+    description: 'Founding principal directing commercial advisory, corporate contracts, land conveyancing, and strategic dispute resolution with transparent client commitment.',
+  },
+  {
+    id: '4',
+    src: '/lawyer-portrait-3.jpg',
+    alt: 'Ava Rachel Low Chambers Portrait - Kuala Lumpur Legal Practice',
+    title: 'Senior Chambers Counsel',
+    subtitle: 'Strategic Commercial & Civil Practice',
+    badge: 'Colony @ KLCC',
+    description: 'Providing partner-led, meticulous legal counsel in our central Kuala Lumpur chambers at Colony @ KLCC, Vipod Residences.',
+  },
+  {
+    id: '5',
+    src: '/lawyer-portrait-4.jpg',
+    alt: 'Ava Rachel Low - Client Consultation & Legal Diligence',
+    title: 'Client Advocacy & Advisory',
+    subtitle: 'Compassionate & Humanity-Centric Legal Diligence',
+    badge: 'Dedicated Counsel',
+    description: 'Rooted in our core motto: Passion & Duty, Integrity & Care — To the Point. Providing accessible and decisive legal roadmaps for individuals and enterprises.',
+  },
+];
 
 export const DEFAULT_FIRM_SETTINGS: FirmSettings = {
   companyName: 'Low Wah Chin & Co.',
@@ -38,4 +146,48 @@ export const DEFAULT_FIRM_SETTINGS: FirmSettings = {
     faqHeroImage: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=2000&q=85',
     contactHeroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85',
   },
+  heroContent: {
+    firmName: 'Messrs. Low Wah Chin & Co.',
+    firmSubtitle: 'Advocates & Solicitors',
+    motto: '“Passion & Duty, Integrity & Care — To the Point.”',
+    establishedBadge: 'Advocates & Solicitors • High Court of Malaya',
+    heroLawyerPhoto: '/lawyer-portrait-1.jpg',
+    heroLawyerName: 'Low Wah Chin (Ava Rachel)',
+    heroLawyerChinese: '劉華晶',
+    heroLawyerTitle: 'Managing Partner & Principal Legal Practitioner',
+    heroLawyerSub: 'Lincoln’s Inn Barrister (London) • Malayan Bar (2011)',
+  },
+  aboutPrincipal: {
+    sectionTag: 'Principal Counsel',
+    sectionTitle: 'About',
+    lawyerPhoto: '/lawyer-portrait-2.jpg',
+    lawyerName: 'Low Wah Chin (Ava Rachel)',
+    lawyerChinese: '劉華晶',
+    quote: '“I am an Advocate & Solicitor Malaysia of 15 years in practice since 11th November 2011.”',
+    bioParagraph1: 'Founded by senior advocate Low Wah Chin (Ava Rachel) 劉華晶, Messrs. Low Wah Chin & Co. provides commanding courtroom advocacy, precise contract drafting, and strategic corporate risk guidance. Her legal foundation was honed across premier Malaysian institutions including Shook Lin & Bok, Azim, Tunku Farik & Wong, and Murali B. Pillai & Associates.',
+    bioParagraph2: 'In addition to private trial practice, Ms. Low served 1 year at KNM Group Berhad as In-House Legal Counsel, managing corporate risk, cross-border engineering, procurement, and construction (EPC) agreements, and international commercial transactions.',
+    corePractices: 'Laws of Contract · Commercial Disputes · Tort & Negligence · Family & Divorce · Property Conveyancing · Corporate Advisory & MOUs · Wills & Estate Distribution · High Court Litigation',
+  },
+  recognition: {
+    badgeLabel: 'Official Editorial Selection',
+    ratingText: '5.0 Star Commendation',
+    title: 'Best Law Firms in Kuala Lumpur',
+    quote: '“Thank You Trusted Malaysia. We are honored to be recommended on your site.”',
+    paragraph1: 'Messrs. Low Wah Chin & Co. Advocates & Solicitors is a firm that provides high-quality legal services which exude passion, duty, integrity, and care for you as their client. They aim to work closely with you in order to thoroughly understand your case and be able to address your individual needs and the reason why you availed of their services.',
+    paragraph2: 'They are highly commended to be professional and thorough in every case that they take up in which all of their staff are equally competent as well. Rest assured that each of them is a Registered Member of the Malaysian Bar which ensures that you are in good hands.',
+    stat1Value: '100%',
+    stat1Label: 'Bar Certified',
+    stat2Value: 'Top 10',
+    stat2Label: 'KL Law Firms',
+    stat3Value: '15 Yrs',
+    stat3Label: 'Practice Experience',
+  },
+  gallery: {
+    sectionTitle: 'Portraits & Chambers Leadership Gallery',
+    sectionSubtitle: 'Principal Counsel Low Wah Chin (Ava Rachel) 劉華晶',
+    sectionBadge: 'Advocate & Solicitor • Lincoln’s Inn Barrister',
+    items: DEFAULT_GALLERY_ITEMS,
+  },
 };
+
+

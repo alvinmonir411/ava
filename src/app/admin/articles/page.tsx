@@ -8,6 +8,7 @@ import {
 } from '@/actions/articleActions';
 import { Article } from '@/types';
 import AdminHeader from '@/components/admin/AdminHeader';
+import ImageUploadButton from '@/components/admin/ImageUploadButton';
 import { toast } from 'sonner';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -264,16 +265,26 @@ export default function AdminArticlesPage() {
               </div>
 
               {/* Cover Image */}
-              <div>
-                <label className="block text-xs font-bold text-white/80 mb-1.5">
-                  Cover Photography URL
-                </label>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <label className="block text-xs font-bold text-white/80">
+                    Cover Photography URL
+                  </label>
+                  <ImageUploadButton
+                    onUploaded={(url) =>
+                      setEditingArticle({ ...editingArticle, cover_image_url: url })
+                    }
+                    label="Upload Image (Cloudinary)"
+                    variant="button"
+                  />
+                </div>
                 <input
                   type="url"
                   value={editingArticle.cover_image_url || ''}
                   onChange={(e) =>
                     setEditingArticle({ ...editingArticle, cover_image_url: e.target.value })
                   }
+                  placeholder="https://res.cloudinary.com/... or https://..."
                   className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-xs text-white focus:outline-none focus:border-[#CFA76F]"
                 />
               </div>

@@ -1,10 +1,13 @@
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { getArticles } from '@/db';
 import { constructMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/metadata';
 import JsonLd from '@/components/common/JsonLd';
 import PageHero from '@/components/layout/PageHero';
 import ArticleCard from '@/components/cards/ArticleCard';
-import { BookOpen, Sparkles, Award } from 'lucide-react';
+import WhatsAppButton from '@/components/common/WhatsAppButton';
+import { BookOpen, Sparkles, Award, Scale, ArrowRight, ShieldCheck } from 'lucide-react';
 
 import { getFirmSettings } from '@/actions/settingsActions';
 
@@ -41,6 +44,56 @@ export default async function ArticlesPage() {
       {/* Main Articles Listing (Light Section) */}
       <section className="py-20 lg:py-28 bg-[#faf9f6] text-[#231f20] border-b border-[#e5e7eb]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Principal Author & Editorial Leadership Banner */}
+          <div className="mb-16 p-6 sm:p-8 bg-white border-2 border-[#c6a052]/40 rounded-2xl shadow-lg">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              {/* Photo Frame */}
+              <div className="md:col-span-4 lg:col-span-3 flex justify-center">
+                <div className="relative w-48 h-56 sm:w-52 sm:h-64 rounded-xl overflow-hidden border-2 border-[#c6a052] shadow-md bg-[#101826] group">
+                  <Image
+                    src="/lawyer-portrait-3.jpg"
+                    alt="Low Wah Chin (Ava Rachel) 劉華晶 Principal Legal Author"
+                    fill
+                    sizes="(max-width: 768px) 192px, 208px"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#101826]/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-2 left-2 right-2 text-center text-white text-[10px] font-mono bg-[#101826]/90 py-0.5 rounded border border-[#c6a052]/40">
+                    Principal Legal Author
+                  </div>
+                </div>
+              </div>
+
+              {/* Author Details & Bio */}
+              <div className="md:col-span-8 lg:col-span-9 space-y-3 text-center md:text-left">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#faf5ea] border border-[#c6a052]/40 text-[#9d7835] text-[11px] font-bold uppercase tracking-wider">
+                  <Scale className="w-3.5 h-3.5 text-[#c6a052]" />
+                  <span>Senior Counsel Commentary</span>
+                </div>
+                
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1a2332]">
+                  Legal Commentary by Low Wah Chin (Ava Rachel) 劉華晶
+                </h3>
+                
+                <p className="text-xs sm:text-sm text-[#4b5563] leading-relaxed max-w-3xl">
+                  Lincoln’s Inn Barrister & Advocate & Solicitor of the High Court of Malaya. Delivering authoritative analysis on Malaysian jurisprudence, corporate commercial contract structuring, conveyancing regulations, and courtroom dispute precedents.
+                </p>
+
+                <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
+                  <Link
+                    href="/our-team"
+                    className="btn-gold px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 shadow-sm"
+                  >
+                    <span>View Principal Profile</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                  <WhatsAppButton variant="compact" label="Inquire on Case Merits" />
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Featured Article Spotlight */}
           {featuredArticle && (
             <div className="mb-16">
@@ -76,3 +129,4 @@ export default async function ArticlesPage() {
     </>
   );
 }
+

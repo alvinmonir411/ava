@@ -1,16 +1,21 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Scale, CheckCircle2, Award, Landmark, Phone, MessageSquare } from 'lucide-react';
+import { ArrowRight, Scale, CheckCircle2 } from 'lucide-react';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
+import { HeroContentSettings, DEFAULT_FIRM_SETTINGS } from '@/types/settings';
 
 interface HeroProps {
   bgImage?: string;
+  content?: HeroContentSettings;
 }
 
 export default function Hero({
   bgImage = 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2000&q=85',
+  content,
 }: HeroProps) {
+  const c = content || DEFAULT_FIRM_SETTINGS.heroContent;
+
   return (
     <section className="relative w-full min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center bg-[#101826] text-[#faf9f6] overflow-hidden py-12 sm:py-16 lg:py-20">
       {/* Full-width atmospheric background with deep royal navy & obsidian vignette */}
@@ -36,22 +41,22 @@ export default function Hero({
             {/* Established Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#c6a052]/50 bg-[#1a2332]/80 text-[#dcc280] text-xs uppercase tracking-[0.15em] font-semibold shadow-md backdrop-blur-sm">
               <Scale className="w-3.5 h-3.5 text-[#c6a052] shrink-0" />
-              <span>Advocates & Solicitors • High Court of Malaya</span>
+              <span>{c.establishedBadge || 'Advocates & Solicitors • High Court of Malaya'}</span>
             </div>
 
             {/* Firm Master Headline */}
             <div>
               <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12] drop-shadow-md">
-                Messrs. Low Wah Chin & Co.
+                {c.firmName || 'Messrs. Low Wah Chin & Co.'}
                 <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#dcc280] font-serif font-normal mt-2">
-                  Advocates & Solicitors
+                  {c.firmSubtitle || 'Advocates & Solicitors'}
                 </span>
               </h1>
             </div>
 
             {/* Firm Motto / Tagline */}
             <p className="font-serif italic text-[#f3efe6] text-base sm:text-xl font-light leading-relaxed max-w-2xl text-white/90">
-              &ldquo;Passion & Duty, Integrity & Care — To the Point.&rdquo;
+              {c.motto || '“Passion & Duty, Integrity & Care — To the Point.”'}
             </p>
 
             {/* Micro Credential Badges */}
@@ -102,8 +107,8 @@ export default function Hero({
               {/* Portrait Photo */}
               <div className="relative h-[400px] sm:h-[450px] w-full rounded-xl overflow-hidden bg-gray-900">
                 <Image
-                  src="/lawyer-portrait-1.jpg"
-                  alt="Low Wah Chin (Ava Rachel) 劉華晶 Advocate & Solicitor Messrs. Low Wah Chin & Co."
+                  src={c.heroLawyerPhoto || '/lawyer-portrait-1.jpg'}
+                  alt={`${c.heroLawyerName} Advocate & Solicitor Messrs. Low Wah Chin & Co.`}
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 380px"
@@ -114,14 +119,16 @@ export default function Hero({
                 {/* Overlay Nameplate */}
                 <div className="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-[#101826]/95 border border-[#c6a052]/40 backdrop-blur-md text-white text-center">
                   <h3 className="font-serif text-base sm:text-lg font-bold text-white tracking-wide">
-                    Low Wah Chin <span className="font-normal text-[#dcc280]">(Ava Rachel)</span>
-                    <span className="text-xs font-serif text-[#dcc280] ml-1.5">劉華晶</span>
+                    {c.heroLawyerName || 'Low Wah Chin (Ava Rachel)'}
+                    {c.heroLawyerChinese && (
+                      <span className="text-xs font-serif text-[#dcc280] ml-1.5">{c.heroLawyerChinese}</span>
+                    )}
                   </h3>
                   <p className="text-[#dcc280] text-xs font-medium mt-0.5">
-                    Managing Partner & Principal Legal Practitioner
+                    {c.heroLawyerTitle || 'Managing Partner & Principal Legal Practitioner'}
                   </p>
                   <p className="text-[11px] text-[#faf9f6]/75 mt-1">
-                    Lincoln’s Inn Barrister (London) • Malayan Bar (2011)
+                    {c.heroLawyerSub || 'Lincoln’s Inn Barrister (London) • Malayan Bar (2011)'}
                   </p>
                 </div>
               </div>
@@ -134,3 +141,4 @@ export default function Hero({
     </section>
   );
 }
+

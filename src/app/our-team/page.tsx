@@ -7,6 +7,7 @@ import { constructMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/metad
 import JsonLd from '@/components/common/JsonLd';
 import PageHero from '@/components/layout/PageHero';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
+import PartnerGallery from '@/components/common/PartnerGallery';
 import {
   Scale,
   Award,
@@ -494,6 +495,15 @@ export default async function OurTeamPage() {
           </div>
         </div>
       </section>
+
+      {/* Leadership & Portrait Gallery Section */}
+      <PartnerGallery
+        gallery={settings.gallery}
+        title="Principal Counsel Photo Showcase"
+        subtitle="Courtroom Advocacy, Lincoln’s Inn Barrister & Chambers Consultation"
+        badge="Accreditations & Portraits"
+        isDark={true}
+      />
     </>
   );
 }

@@ -22,10 +22,10 @@ export default function AdminLoginPage() {
             </div>
           </div>
           <h1 className="font-serif text-2xl font-bold text-white tracking-tight">
-            Low Wah Chin & Co.
+            Messrs. Low Wah Chin & Co.
           </h1>
           <p className="text-[11px] font-sans tracking-widest text-[#CFA76F] uppercase font-semibold mt-1">
-            Advocates & Solicitors • Management Portal
+            Advocates & Solicitors • Secure Admin Portal
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export default function AdminLoginPage() {
         <form action={formAction} className="space-y-5">
           <div>
             <label className="block text-xs font-semibold uppercase tracking-wider text-white/80 mb-2">
-              Admin Access Password
+              Admin Security Password
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#CFA76F]">
@@ -50,25 +50,24 @@ export default function AdminLoginPage() {
                 type="password"
                 name="password"
                 required
-                placeholder="Enter password (default: lwcco2026 or admin123)"
-                className="w-full pl-10 pr-4 py-3 bg-[#0F1F3D] border border-[#B8935A]/40 rounded-xl text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#CFA76F] focus:ring-1 focus:ring-[#CFA76F] transition-all"
+                autoComplete="current-password"
+                placeholder="Enter admin password"
+                className="w-full pl-10 pr-4 py-3 bg-[#0F1F3D] border border-[#B8935A]/40 rounded-xl text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#CFA76F] focus:ring-1 focus:ring-[#CFA76F] transition-all"
               />
             </div>
-            <p className="text-[11px] text-white/50 mt-2">
-              Default password: <code className="text-[#CFA76F] font-bold">lwcco2026</code> or <code className="text-[#CFA76F] font-bold">admin123</code>
-            </p>
           </div>
 
           <button
             type="submit"
             disabled={isPending}
-            className="btn-brass w-full py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-[1.02] disabled:opacity-50"
+            className="btn-brass w-full py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-[1.02] disabled:opacity-50 cursor-pointer"
           >
             {isPending ? (
-              <span>Authenticating...</span>
+              <span>Verifying Credentials...</span>
             ) : (
               <>
-                <span>Enter Admin Dashboard</span>
+                <ShieldCheck className="w-4 h-4" />
+                <span>Authorize & Sign In</span>
                 <ArrowRight className="w-4 h-4" />
               </>
             )}
@@ -88,3 +87,4 @@ export default function AdminLoginPage() {
     </div>
   );
 }
+

@@ -3,9 +3,27 @@
 import { revalidatePath } from 'next/cache';
 import fs from 'fs';
 import path from 'path';
-import { FirmSettings, HeroImagesSettings, DEFAULT_FIRM_SETTINGS } from '@/types/settings';
+import {
+  FirmSettings,
+  HeroImagesSettings,
+  HeroContentSettings,
+  AboutPrincipalSettings,
+  RecognitionContentSettings,
+  GallerySectionSettings,
+  GalleryItem,
+  DEFAULT_FIRM_SETTINGS,
+} from '@/types/settings';
+import { isAuthenticated } from '@/lib/auth';
 
-export type { FirmSettings, HeroImagesSettings };
+export type {
+  FirmSettings,
+  HeroImagesSettings,
+  HeroContentSettings,
+  AboutPrincipalSettings,
+  RecognitionContentSettings,
+  GallerySectionSettings,
+  GalleryItem,
+};
 
 let memorySettings: FirmSettings | null = null;
 
@@ -30,6 +48,26 @@ export async function getFirmSettings(): Promise<FirmSettings> {
           ...DEFAULT_FIRM_SETTINGS.heroImages,
           ...(parsed.heroImages || {}),
         },
+        heroContent: {
+          ...DEFAULT_FIRM_SETTINGS.heroContent,
+          ...(parsed.heroContent || {}),
+        },
+        aboutPrincipal: {
+          ...DEFAULT_FIRM_SETTINGS.aboutPrincipal,
+          ...(parsed.aboutPrincipal || {}),
+        },
+        recognition: {
+          ...DEFAULT_FIRM_SETTINGS.recognition,
+          ...(parsed.recognition || {}),
+        },
+        gallery: {
+          ...DEFAULT_FIRM_SETTINGS.gallery,
+          ...(parsed.gallery || {}),
+          items:
+            parsed.gallery?.items && Array.isArray(parsed.gallery.items) && parsed.gallery.items.length > 0
+              ? parsed.gallery.items
+              : DEFAULT_FIRM_SETTINGS.gallery.items,
+        },
       };
       return memorySettings as FirmSettings;
     }
@@ -49,6 +87,15 @@ export async function updateAdminSettingsAction(
   newSettings: Partial<FirmSettings>
 ): Promise<{ success: boolean; settings: FirmSettings; message?: string }> {
   try {
+    const isAuth = await isAuthenticated();
+    if (!isAuth) {
+      return {
+        success: false,
+        settings: memorySettings || DEFAULT_FIRM_SETTINGS,
+        message: 'Unauthorized. Please sign in to save changes.',
+      };
+    }
+
     const current = await getFirmSettings();
     const updated: FirmSettings = {
       ...current,
@@ -56,6 +103,23 @@ export async function updateAdminSettingsAction(
       heroImages: {
         ...current.heroImages,
         ...(newSettings.heroImages || {}),
+      },
+      heroContent: {
+        ...current.heroContent,
+        ...(newSettings.heroContent || {}),
+      },
+      aboutPrincipal: {
+        ...current.aboutPrincipal,
+        ...(newSettings.aboutPrincipal || {}),
+      },
+      recognition: {
+        ...current.recognition,
+        ...(newSettings.recognition || {}),
+      },
+      gallery: {
+        ...current.gallery,
+        ...(newSettings.gallery || {}),
+        items: newSettings.gallery?.items ?? current.gallery.items,
       },
     };
 
@@ -68,7 +132,7 @@ export async function updateAdminSettingsAction(
       console.warn('Could not persist settings to file (read-only environment), keeping in memory:', fsErr);
     }
 
-    // Revalidate all pages so the hero image and contact details immediately update
+    // Revalidate all pages so updates are immediately visible live
     revalidatePath('/', 'layout');
     revalidatePath('/');
     revalidatePath('/about');
@@ -79,9 +143,11 @@ export async function updateAdminSettingsAction(
     revalidatePath('/contact');
     revalidatePath('/admin/settings');
 
-    return { success: true, settings: updated, message: 'Settings & Hero images updated successfully!' };
+    return { success: true, settings: updated, message: 'All website settings and content updated successfully!' };
   } catch (err) {
     console.error('Error updating admin settings:', err);
     return { success: false, settings: memorySettings || DEFAULT_FIRM_SETTINGS, message: 'Failed to update settings.' };
   }
 }
+
+

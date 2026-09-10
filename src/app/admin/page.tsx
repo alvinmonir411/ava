@@ -284,6 +284,26 @@ export default async function AdminDashboardPage() {
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-white group-hover:text-[#CFA76F] transition-colors">
+                        Portrait Gallery & Photos
+                      </h4>
+                      <p className="text-[11px] text-white/60">
+                        Update photos, badges, titles & captions
+                      </p>
+                    </div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-[#CFA76F] transition-colors" />
+                </Link>
+
+                <Link
+                  href="/admin/settings"
+                  className="p-3.5 rounded-xl bg-[#0F1F3D] hover:bg-[#1B2F57] border border-[#B8935A]/25 transition-all flex items-center justify-between group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#B8935A]/20 text-[#CFA76F] flex items-center justify-center">
+                      <Scale className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-white group-hover:text-[#CFA76F] transition-colors">
                         Firm Profile & Contacts
                       </h4>
                       <p className="text-[11px] text-white/60">
