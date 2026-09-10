@@ -42,12 +42,12 @@ export default function AdminSidebar() {
   }
 
   const SidebarContent = () => (
-    <div className="flex flex-col h-full bg-[#0A1529] text-white">
+    <div className="flex flex-col h-full bg-[#120720] text-white">
       {/* Brand Header */}
-      <div className="p-5 border-b border-[#B8935A]/25 flex items-center justify-between">
+      <div className="p-5 border-b border-[#c6a052]/25 flex items-center justify-between">
         <Link href="/admin" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#CFA76F] to-[#967440] p-0.5 flex items-center justify-center shrink-0 shadow-md">
-            <div className="w-full h-full bg-[#0F1F3D] rounded-[9px] flex items-center justify-center text-[#CFA76F]">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#dcc280] to-[#9d7835] p-0.5 flex items-center justify-center shrink-0 shadow-md">
+            <div className="w-full h-full bg-[#1e0d33] rounded-[9px] flex items-center justify-center text-[#dcc280]">
               <Scale className="w-5 h-5" />
             </div>
           </div>
@@ -55,7 +55,7 @@ export default function AdminSidebar() {
             <h1 className="font-serif text-sm font-bold text-white tracking-tight leading-tight block">
               Low Wah Chin & Co.
             </h1>
-            <span className="text-[10px] tracking-widest text-[#CFA76F] font-semibold uppercase block mt-0.5">
+            <span className="text-[10px] tracking-widest text-[#dcc280] font-semibold uppercase block mt-0.5">
               Admin Portal
             </span>
           </div>
@@ -65,7 +65,7 @@ export default function AdminSidebar() {
         <button
           type="button"
           onClick={() => setMobileMenuOpen(false)}
-          className="lg:hidden p-2 rounded-xl text-white/70 hover:text-white hover:bg-[#1B2F57] transition-colors"
+          className="lg:hidden p-2 rounded-xl text-white/70 hover:text-white hover:bg-[#2d144a] transition-colors"
           title="Close Navigation"
         >
           <X className="w-5 h-5" />
@@ -73,8 +73,8 @@ export default function AdminSidebar() {
       </div>
 
       {/* Navigation Links */}
-      <nav className="flex-1 px-3 py-6 space-y-1.5 overflow-y-auto">
-        <div className="px-3 pb-2 text-[10px] font-bold uppercase tracking-widest text-[#CFA76F]/80">
+      <nav className="flex-1 px-3 py-6 space-y-1.5 overflow-y-auto gold-scrollbar">
+        <div className="px-3 pb-2 text-[10px] font-bold uppercase tracking-widest text-[#dcc280]/80">
           Main Navigation
         </div>
         {NAV_ITEMS.map((item) => {
@@ -89,16 +89,16 @@ export default function AdminSidebar() {
               onClick={() => setMobileMenuOpen(false)}
               className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
                 isActive
-                  ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] shadow-md font-bold'
-                  : 'text-white/80 hover:bg-[#0F1F3D] hover:text-[#CFA76F]'
+                  ? 'bg-gradient-to-r from-[#c6a052] to-[#9d7835] text-[#120720] shadow-md font-bold'
+                  : 'text-white/80 hover:bg-[#1e0d33] hover:text-[#dcc280]'
               }`}
             >
               <div className="flex items-center gap-3">
-                <Icon className={`w-4 h-4 ${isActive ? 'text-[#0F1F3D]' : 'text-[#CFA76F]'}`} />
+                <Icon className={`w-4 h-4 ${isActive ? 'text-[#120720]' : 'text-[#c6a052]'}`} />
                 <span>{item.label}</span>
               </div>
               <ChevronRight
-                className={`w-3.5 h-3.5 opacity-60 ${isActive ? 'text-[#0F1F3D]' : 'text-white/40'}`}
+                className={`w-3.5 h-3.5 opacity-60 ${isActive ? 'text-[#120720]' : 'text-white/40'}`}
               />
             </Link>
           );
@@ -106,13 +106,13 @@ export default function AdminSidebar() {
       </nav>
 
       {/* Bottom Footer Action */}
-      <div className="p-4 border-t border-[#B8935A]/20 space-y-2 bg-[#070E1C]/60">
+      <div className="p-4 border-t border-[#c6a052]/20 space-y-2 bg-[#0e0517]">
         <Link
           href="/"
           target="_blank"
-          className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-white/80 hover:text-white hover:bg-[#0F1F3D] transition-colors border border-transparent hover:border-[#B8935A]/25"
+          className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-white/80 hover:text-white hover:bg-[#1e0d33] transition-colors border border-transparent hover:border-[#c6a052]/25"
         >
-          <Globe className="w-4 h-4 text-[#CFA76F]" />
+          <Globe className="w-4 h-4 text-[#dcc280]" />
           <span>View Live Public Website</span>
         </Link>
 
@@ -132,26 +132,26 @@ export default function AdminSidebar() {
   return (
     <>
       {/* 1. MOBILE TOP NAVIGATION BAR (Visible ONLY on < lg screens) */}
-      <div className="lg:hidden w-full bg-[#0A1529] border-b border-[#B8935A]/30 px-4 py-3 flex items-center justify-between sticky top-0 z-40 shadow-md">
+      <div className="lg:hidden w-full bg-[#120720] border-b border-[#c6a052]/30 px-4 py-3 flex items-center justify-between sticky top-0 z-40 shadow-md">
         <div className="flex items-center gap-2.5">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="p-2 rounded-xl bg-[#0F1F3D] border border-[#B8935A]/30 text-[#CFA76F] hover:text-white transition-colors cursor-pointer"
+            className="p-2 rounded-xl bg-[#1e0d33] border border-[#c6a052]/30 text-[#dcc280] hover:text-white transition-colors cursor-pointer"
             aria-label="Toggle Navigation Menu"
           >
             <Menu className="w-5 h-5" />
           </button>
 
           <Link href="/admin" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-[#B8935A]/20 border border-[#B8935A]/40 flex items-center justify-center text-[#CFA76F]">
+            <div className="w-8 h-8 rounded-lg bg-[#c6a052]/20 border border-[#c6a052]/40 flex items-center justify-center text-[#dcc280]">
               <Scale className="w-4 h-4" />
             </div>
             <div>
               <span className="font-serif text-xs font-bold text-white leading-tight block">
                 Low Wah Chin & Co.
               </span>
-              <span className="text-[9px] uppercase tracking-wider text-[#CFA76F] font-bold block">
+              <span className="text-[9px] uppercase tracking-wider text-[#dcc280] font-bold block">
                 Admin Panel
               </span>
             </div>
@@ -162,7 +162,7 @@ export default function AdminSidebar() {
           <Link
             href="/"
             target="_blank"
-            className="p-2 rounded-xl bg-[#0F1F3D] border border-[#B8935A]/30 text-[#CFA76F] hover:text-white text-xs font-medium flex items-center gap-1.5"
+            className="p-2 rounded-xl bg-[#1e0d33] border border-[#c6a052]/30 text-[#dcc280] hover:text-white text-xs font-medium flex items-center gap-1.5"
             title="Preview Live Site"
           >
             <Globe className="w-4 h-4" />
@@ -181,14 +181,14 @@ export default function AdminSidebar() {
           />
 
           {/* Drawer Container */}
-          <div className="relative w-72 max-w-[85vw] h-full shadow-2xl z-10 animate-in slide-in-from-left duration-250 border-r border-[#B8935A]/40">
+          <div className="relative w-72 max-w-[85vw] h-full shadow-2xl z-10 animate-in slide-in-from-left duration-250 border-r border-[#c6a052]/40">
             <SidebarContent />
           </div>
         </div>
       )}
 
       {/* 3. DESKTOP PERMANENT SIDEBAR (Visible ONLY on >= lg screens) */}
-      <aside className="hidden lg:flex w-64 bg-[#0A1529] text-white border-r border-[#B8935A]/30 flex-col shrink-0 min-h-screen sticky top-0 h-screen">
+      <aside className="hidden lg:flex w-64 bg-[#120720] text-white border-r border-[#c6a052]/30 flex-col shrink-0 min-h-screen sticky top-0 h-screen">
         <SidebarContent />
       </aside>
     </>

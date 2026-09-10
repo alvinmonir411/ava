@@ -95,35 +95,35 @@ export default async function IndividualArticlePage({ params }: Props) {
       />
 
       {/* Main Article Content (Light Section) */}
-      <section className="py-20 lg:py-28 bg-[#faf9f6] text-[#231f20] border-b border-[#e5e7eb]">
+      <section className="py-20 lg:py-28 bg-[#faf7fc] text-[#1e0d33] border-b border-[#ebdff5]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Article Lead / Excerpt */}
-          <div className="p-6 sm:p-8 bg-white rounded-lg border-l-4 border-[#c6a052] mb-10 shadow-xs border border-[#e8e1d5]">
-            <p className="font-serif italic text-base sm:text-lg text-[#1a2332] leading-relaxed">
+          <div className="p-6 sm:p-8 bg-white rounded-lg border-l-4 border-[#c6a052] mb-10 shadow-xs border border-[#ebdff5]">
+            <p className="font-serif italic text-base sm:text-lg text-[#1e0d33] leading-relaxed">
               {article.excerpt}
             </p>
           </div>
 
           {/* Body Prose */}
-          <div className="bg-white p-6 sm:p-10 rounded-lg border border-[#e8e1d5] shadow-xs space-y-6 text-[#374151] leading-relaxed">
+          <div className="bg-white p-6 sm:p-10 rounded-lg border border-[#ebdff5] shadow-xs space-y-6 text-[#4b3d56] leading-relaxed">
             {article.content.split('\n\n').map((block, idx) => {
               if (block.startsWith('### ')) {
                 return (
-                  <h3 key={idx} className="font-serif text-2xl font-bold text-[#1a2332] pt-4 border-b border-gray-100 pb-2">
+                  <h3 key={idx} className="font-serif text-2xl font-bold text-[#1e0d33] pt-4 border-b border-[#ebdff5] pb-2">
                     {block.replace('### ', '')}
                   </h3>
                 );
               }
               if (block.startsWith('#### ')) {
                 return (
-                  <h4 key={idx} className="font-serif text-lg font-bold text-[#1a2332] pt-2">
+                  <h4 key={idx} className="font-serif text-lg font-bold text-[#1e0d33] pt-2">
                     {block.replace('#### ', '')}
                   </h4>
                 );
               }
               if (block.startsWith('> ')) {
                 return (
-                  <blockquote key={idx} className="border-l-4 border-[#c6a052] pl-4 py-2 italic text-[#1a2332] bg-[#faf9f6] my-4 rounded-r-md">
+                  <blockquote key={idx} className="border-l-4 border-[#c6a052] pl-4 py-2 italic text-[#1e0d33] bg-[#faf7fc] my-4 rounded-r-md">
                     {block.replace('> ', '').replace(/\*/g, '')}
                   </blockquote>
                 );
@@ -142,18 +142,18 @@ export default async function IndividualArticlePage({ params }: Props) {
                 );
               }
               return (
-                <p key={idx} className="text-base sm:text-lg leading-relaxed text-[#374151]" dangerouslySetInnerHTML={{ __html: block.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*(.*?)\*/g, '<em>$1</em>') }} />
+                <p key={idx} className="text-base sm:text-lg leading-relaxed text-[#4b3d56]" dangerouslySetInnerHTML={{ __html: block.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*(.*?)\*/g, '<em>$1</em>') }} />
               );
             })}
 
             {/* Tags */}
             {article.tags && article.tags.length > 0 && (
-              <div className="pt-6 mt-8 border-t border-gray-100 flex flex-wrap items-center gap-2">
-                <span className="text-xs font-bold text-[#6b7280] uppercase tracking-wider mr-2">Topic Tags:</span>
+              <div className="pt-6 mt-8 border-t border-[#ebdff5] flex flex-wrap items-center gap-2">
+                <span className="text-xs font-bold text-[#6b587a] uppercase tracking-wider mr-2">Topic Tags:</span>
                 {article.tags.map((tag, tIdx) => (
                   <span
                     key={tIdx}
-                    className="bg-[#faf9f6] text-[#1a2332] text-xs font-medium px-2.5 py-1 rounded border border-[#e8e1d5]"
+                    className="bg-[#faf7fc] text-[#1e0d33] text-xs font-medium px-2.5 py-1 rounded border border-[#ebdff5]"
                   >
                     #{tag}
                   </span>
@@ -163,7 +163,7 @@ export default async function IndividualArticlePage({ params }: Props) {
           </div>
 
           {/* Author Bio Callout */}
-          <div className="mt-10 p-6 sm:p-8 rounded-lg bg-[#1a2332] text-white flex flex-col sm:flex-row items-center gap-6 shadow-md border border-[#c6a052]/40">
+          <div className="mt-10 p-6 sm:p-8 rounded-lg bg-[#180829] text-white flex flex-col sm:flex-row items-center gap-6 shadow-md border border-[#c6a052]/40">
             <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-[#c6a052]">
               <Image
                 src="/lawyer-portrait-1.jpg"
@@ -179,7 +179,7 @@ export default async function IndividualArticlePage({ params }: Props) {
               <h4 className="font-serif text-lg font-bold text-white mb-1">
                 {article.author}
               </h4>
-              <p className="text-xs text-white/80 leading-relaxed font-light">
+              <p className="text-xs text-[#faf7fc]/80 leading-relaxed font-light">
                 Advocate & Solicitor of the High Court of Malaya and Lincoln’s Inn Barrister (London, UK). Providing fearless advocacy and compassionate legal counsel in Kuala Lumpur.
               </p>
             </div>
@@ -190,9 +190,9 @@ export default async function IndividualArticlePage({ params }: Props) {
 
       {/* Related Articles (Alternating Section) */}
       {relatedArticles.length > 0 && (
-        <section className="py-16 bg-white border-t border-[#e5e7eb]">
+        <section className="py-16 bg-white border-t border-[#ebdff5]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 className="font-serif text-2xl font-bold text-[#1a2332] mb-8 text-center">
+            <h3 className="font-serif text-2xl font-bold text-[#1e0d33] mb-8 text-center">
               More Legal Insights & Commentary
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -205,17 +205,17 @@ export default async function IndividualArticlePage({ params }: Props) {
       )}
 
       {/* Booking Form (Dark Section) */}
-      <section className="py-20 bg-[#1a2332] text-white">
+      <section className="py-20 bg-[#180829] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">
               Request a Legal Consultation
             </h3>
-            <p className="text-xs text-[#faf9f6]/75">
+            <p className="text-xs text-[#faf7fc]/75">
               Strictly confidential communications under Legal Professional Privilege.
             </p>
           </div>
-          <div className="bg-white text-[#231f20] p-6 sm:p-8 rounded-lg shadow-xl">
+          <div className="bg-white text-[#1e0d33] p-6 sm:p-8 rounded-lg shadow-xl border border-[#c6a052]/30">
             <ConsultationForm />
           </div>
         </div>

@@ -77,11 +77,11 @@ export default async function PracticesPage() {
         bgImage={settings.heroImages?.practicesHeroImage || "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=2000&q=85"}
       />
 
-      {/* 1. Tradition of Talent: 6 Core Practice Disciplines (Full-Width Dark Navy Section) */}
-      <section className="py-20 lg:py-28 bg-[#1a2332] text-[#faf9f6] border-b border-[#c6a052]/30">
+      {/* 1. Tradition of Talent: 6 Core Practice Disciplines (Full-Width Royal Purple Section) */}
+      <section className="py-20 lg:py-28 bg-[#180829] text-[#faf7fc] border-b border-[#c6a052]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#c6a052]/40 bg-[#1a2332]/80 text-[#dcc280] text-xs font-bold uppercase tracking-[0.2em] mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#c6a052]/40 bg-[#1e0d33]/80 text-[#dcc280] text-xs font-bold uppercase tracking-[0.2em] mb-4">
               <Scale className="w-3.5 h-3.5 text-[#c6a052]" />
               <span>Core Disciplines</span>
             </div>
@@ -91,7 +91,7 @@ export default async function PracticesPage() {
             <p className="font-serif italic text-[#dcc280] text-base mb-3">
               &ldquo;Meticulous Legal Craftsmanship & Steadfast Courtroom Advocacy&rdquo;
             </p>
-            <p className="text-xs sm:text-sm text-[#faf9f6]/80 font-light leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#faf7fc]/80 font-light leading-relaxed">
               Serving corporate entities, families, and individuals throughout Malaysia with transparent counsel and relentless trial execution.
             </p>
           </div>
@@ -103,7 +103,7 @@ export default async function PracticesPage() {
                 <Link
                   key={idx}
                   href={`/practices/${area.slug}`}
-                  className="group block p-6 rounded-none border border-[#c6a052]/40 bg-transparent hover:border-[#dcc280] hover:bg-[#243044]/30 transition-all duration-300"
+                  className="group block p-6 rounded-none border border-[#c6a052]/40 bg-transparent hover:border-[#dcc280] hover:bg-[#2d144a]/40 transition-all duration-300"
                 >
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div className="p-2.5 rounded border border-[#c6a052]/30 text-[#dcc280] group-hover:text-white group-hover:border-[#dcc280] transition-colors">
@@ -116,7 +116,7 @@ export default async function PracticesPage() {
                     {area.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#faf9f6]/75 leading-relaxed font-light line-clamp-3 mb-4">
+                  <p className="text-xs sm:text-sm text-[#faf7fc]/75 leading-relaxed font-light line-clamp-3 mb-4">
                     {area.description}
                   </p>
 
@@ -132,17 +132,17 @@ export default async function PracticesPage() {
       </section>
 
       {/* 2. Full Directory of Practice Disciplines (Light Section) */}
-      <section className="py-20 lg:py-28 bg-[#faf9f6] text-[#231f20] border-b border-[#e5e7eb]">
+      <section className="py-20 lg:py-28 bg-[#faf7fc] text-[#1e0d33] border-b border-[#ebdff5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 text-[#9d7835] text-xs font-bold uppercase tracking-[0.2em] mb-2">
               <Briefcase className="w-3.5 h-3.5 text-[#c6a052]" />
               <span>Full Practice Directory</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a2332]">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1e0d33]">
               All Legal Practice Areas & Statutory Scopes
             </h2>
-            <p className="text-xs sm:text-sm text-[#4b5563] mt-2 font-light">
+            <p className="text-xs sm:text-sm text-[#594d63] mt-2 font-light">
               Detailed procedural frameworks, preparation checklists, and statutory references.
             </p>
           </div>
@@ -156,10 +156,10 @@ export default async function PracticesPage() {
           {/* Consultation Banner */}
           <div className="mt-16 p-6 sm:p-8 bg-white border border-[#c6a052]/40 rounded-lg shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1a2332]">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1e0d33]">
                 Need Legal Guidance on a Matter?
               </h3>
-              <p className="text-xs sm:text-sm text-[#4b5563] mt-1">
+              <p className="text-xs sm:text-sm text-[#594d63] mt-1">
                 Consult with Lincoln’s Inn Barrister & High Court Advocate Ava Rachel Low.
               </p>
             </div>

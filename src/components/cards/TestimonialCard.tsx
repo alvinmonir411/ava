@@ -10,7 +10,7 @@ interface TestimonialCardProps {
 export default function TestimonialCard({ testimonial, className = '' }: TestimonialCardProps) {
   return (
     <div
-      className={`bg-white rounded-2xl border border-[#e8e1d5] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-[#c6a052] hover:shadow-xl relative shadow-sm ${className}`}
+      className={`bg-white rounded-2xl border border-[#ebdff5] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-[#c6a052] hover:shadow-xl relative shadow-sm ${className}`}
     >
       <div>
         <div className="flex items-center justify-between mb-4">
@@ -22,18 +22,18 @@ export default function TestimonialCard({ testimonial, className = '' }: Testimo
           <Quote className="w-8 h-8 text-[#c6a052]/30" />
         </div>
 
-        <p className="text-[#231f20] text-sm sm:text-base leading-relaxed italic mb-6">
+        <p className="text-[#2c1d3b] text-sm sm:text-base leading-relaxed italic mb-6">
           &ldquo;{testimonial.quote}&rdquo;
         </p>
       </div>
 
-      <div className="pt-4 border-t border-[#f3efe6] flex items-center justify-between">
+      <div className="pt-4 border-t border-[#ebdff5]/60 flex items-center justify-between">
         <div>
-          <h4 className="font-serif font-bold text-[#22122b] text-sm sm:text-base">
+          <h4 className="font-serif font-bold text-[#1e0d33] text-sm sm:text-base">
             {testimonial.client_name}
           </h4>
           {testimonial.title && (
-            <p className="text-xs text-[#595355]">
+            <p className="text-xs text-[#6b587a]">
               {testimonial.title}
             </p>
           )}

@@ -14,9 +14,9 @@ export default async function AdminLayout({
   
   // Note: /admin/login handles its own layout and redirects if already authenticated
   return (
-    <div className="min-h-screen bg-[#070D18] flex flex-col lg:flex-row text-white font-sans antialiased">
+    <div className="min-h-screen bg-[#0e0517] flex flex-col lg:flex-row text-white font-sans antialiased">
       <AdminSidebar />
-      <main className="flex-1 min-w-0 flex flex-col bg-[#070D18] overflow-y-auto min-h-screen">
+      <main className="flex-1 min-w-0 flex flex-col bg-[#0e0517] overflow-y-auto min-h-screen gold-scrollbar">
         {children}
       </main>
     </div>

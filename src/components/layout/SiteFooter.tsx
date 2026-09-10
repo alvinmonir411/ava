@@ -32,7 +32,7 @@ export default function SiteFooter() {
   ];
 
   return (
-    <footer className="bg-[#101826] text-[#faf9f6] border-t-2 border-[#c6a052]/40 pt-16 pb-8">
+    <footer className="bg-[#120720] text-[#faf7fc] border-t-2 border-[#c6a052]/40 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 4-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#c6a052]/20">
@@ -59,7 +59,7 @@ export default function SiteFooter() {
               &ldquo;Passion & Duty, Integrity & Care — To the Point.&rdquo;
             </p>
 
-            <p className="text-xs text-[#faf9f6]/75 leading-relaxed font-light">
+            <p className="text-xs text-[#faf7fc]/75 leading-relaxed font-light">
               Boutique Malaysian law firm led by principal lawyer Ava Rachel Low (劉華晶). Lincoln’s Inn Barrister (London) and Advocate & Solicitor of the High Court of Malaya. Providing seasoned corporate advisory and fearless trial advocacy across Malaysia.
             </p>
 
@@ -68,7 +68,7 @@ export default function SiteFooter() {
               href="https://share.google/4f6BOdPxefdpTafG3"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 p-2.5 bg-[#1a2332] rounded border border-[#c6a052]/30 hover:border-[#c6a052] transition-colors group"
+              className="inline-flex items-center gap-2 p-2.5 bg-[#1e0d33] rounded border border-[#c6a052]/30 hover:border-[#c6a052] transition-colors group"
             >
               <span className="text-[#dcc280] font-bold text-xs">★ 5.0 Rating</span>
               <span className="text-[#c6a052]/40">•</span>

@@ -26,7 +26,7 @@ export default function PageHero({
   bgImage = 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2000&q=85',
 }: PageHeroProps) {
   return (
-    <section className="relative w-full bg-[#1a2332] text-[#faf9f6] py-14 sm:py-18 overflow-hidden border-b border-[#c6a052]/30">
+    <section className="relative w-full bg-[#180829] text-[#faf7fc] py-14 sm:py-18 overflow-hidden border-b border-[#c6a052]/30">
       {/* Background Image with Enhanced Visibility and Contrast */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
@@ -38,15 +38,15 @@ export default function PageHero({
           className="object-cover object-center opacity-80 sm:opacity-85 brightness-95 contrast-105"
         />
         {/* Directional gradient protecting text readability while keeping the image fully visible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#101826]/90 via-[#101826]/75 to-[#101826]/45" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#101826]/90 via-transparent to-[#101826]/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#120720]/95 via-[#120720]/80 to-[#120720]/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#120720]/95 via-transparent to-[#120720]/35" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           {/* Breadcrumbs */}
           {breadcrumbs && breadcrumbs.length > 0 && (
-            <nav className="flex flex-wrap items-center gap-1.5 text-xs text-[#faf9f6]/70 mb-4" aria-label="Breadcrumb">
+            <nav className="flex flex-wrap items-center gap-1.5 text-xs text-[#faf7fc]/70 mb-4" aria-label="Breadcrumb">
               {breadcrumbs.map((item, idx) => (
                 <React.Fragment key={idx}>
                   {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-[#c6a052]/60 shrink-0" />}
@@ -66,7 +66,7 @@ export default function PageHero({
 
           {/* Badge Pill */}
           {badge && (
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#c6a052]/40 bg-[#1a2332]/80 text-[#dcc280] text-[10.5px] sm:text-xs font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] mb-3 shadow-xs max-w-full">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#c6a052]/40 bg-[#1e0d33]/85 text-[#dcc280] text-[10.5px] sm:text-xs font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] mb-3 shadow-xs max-w-full">
               {BadgeIcon && <BadgeIcon className="w-3.5 h-3.5 text-[#c6a052] shrink-0" />}
               <span className="truncate">{badge}</span>
             </div>

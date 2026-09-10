@@ -1,19 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  /* Traditional Formal Law Firm Dark Palette */
-  --color-navy: #1a2332;
-  --color-navy-dark: #101826;
-  --color-navy-light: #243044;
-  --color-navy-surface: #1e2a3c;
-  --color-navy-accent: #2e3e57;
+  /* Royal Imperial Purple & Deep Plum Palette */
+  --color-navy: #1e0d33;
+  --color-navy-dark: #120720;
+  --color-navy-light: #2d144a;
+  --color-navy-surface: #24103d;
+  --color-navy-accent: #3d1b64;
 
-  /* Classic Midnight & Plum Compatibility */
-  --color-plum: #1a2332;
-  --color-plum-dark: #101826;
-  --color-plum-light: #243044;
-  --color-plum-accent: #2e3e57;
-  --color-plum-surface: #1e2a3c;
+  /* Royal Plum & Midnight Amethyst */
+  --color-plum: #1e0d33;
+  --color-plum-dark: #120720;
+  --color-plum-light: #2d144a;
+  --color-plum-accent: #3d1b64;
+  --color-plum-surface: #24103d;
+
+  /* Radiant Purple / Amethyst Accents */
+  --color-purple: #7e22ce;
+  --color-purple-dark: #581c87;
+  --color-purple-light: #a855f7;
+  --color-purple-accent: #c084fc;
 
   /* Polished Muted Gold / Brass - CTAs, Borders & Accents */
   --color-gold: #c6a052;
@@ -22,22 +28,22 @@
   --color-gold-accent: #b89047;
   --color-gold-shimmer: #f0e1b9;
 
-  /* Warm Off-White / Cream Canvas */
+  /* Warm Off-White / Lilac-Cream Canvas */
   --color-ivory: #ffffff;
-  --color-ivory-warm: #faf9f6;
-  --color-ivory-dark: #f3efe6;
-  --color-ivory-accent: #e8e1d5;
+  --color-ivory-warm: #faf7fc;
+  --color-ivory-dark: #f3ecf9;
+  --color-ivory-accent: #e7dbf2;
 
-  --color-cream: #faf9f6;
+  --color-cream: #faf7fc;
   --color-cream-light: #ffffff;
-  --color-cream-dark: #f3efe6;
-  --color-cream-accent: #e8e1d5;
+  --color-cream-dark: #f3ecf9;
+  --color-cream-accent: #e7dbf2;
 
-  /* Traditional Charcoal / High-Legibility Typography */
-  --color-charcoal: #111827;
-  --color-charcoal-body: #231f20;
-  --color-charcoal-muted: #4b5563;
-  --color-charcoal-light: #6b7280;
+  /* Deep Violet / High-Legibility Charcoal Typography */
+  --color-charcoal: #1a092c;
+  --color-charcoal-body: #261833;
+  --color-charcoal-muted: #564566;
+  --color-charcoal-light: #776487;
 
   /* Brass aliases */
   --color-brass: #c6a052;
@@ -59,8 +65,8 @@
   }
 
   body {
-    background-color: #faf9f6;
-    color: #231f20;
+    background-color: #faf7fc;
+    color: #261833;
     font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -81,23 +87,23 @@
 }
 
 /* Explicit Utility Classes for Maximum Visual Consistency */
-.bg-navy { background-color: #1a2332 !important; }
-.bg-navy-dark { background-color: #101826 !important; }
-.bg-navy-light { background-color: #243044 !important; }
-.text-navy { color: #1a2332 !important; }
-.text-navy-light { color: #2e3e57 !important; }
-.border-navy { border-color: #1a2332 !important; }
-.border-navy-light { border-color: #2e3e57 !important; }
+.bg-navy { background-color: #1e0d33 !important; }
+.bg-navy-dark { background-color: #120720 !important; }
+.bg-navy-light { background-color: #2d144a !important; }
+.text-navy { color: #1e0d33 !important; }
+.text-navy-light { color: #3d1b64 !important; }
+.border-navy { border-color: #1e0d33 !important; }
+.border-navy-light { border-color: #3d1b64 !important; }
 
-.bg-plum { background-color: #1a2332 !important; }
-.bg-plum-dark { background-color: #101826 !important; }
-.bg-plum-light { background-color: #243044 !important; }
-.bg-plum-accent { background-color: #2e3e57 !important; }
-.bg-plum-surface { background-color: #1e2a3c !important; }
-.text-plum { color: #1a2332 !important; }
-.text-plum-light { color: #2e3e57 !important; }
-.border-plum { border-color: #1a2332 !important; }
-.border-plum-light { border-color: #2e3e57 !important; }
+.bg-plum { background-color: #1e0d33 !important; }
+.bg-plum-dark { background-color: #120720 !important; }
+.bg-plum-light { background-color: #2d144a !important; }
+.bg-plum-accent { background-color: #3d1b64 !important; }
+.bg-plum-surface { background-color: #24103d !important; }
+.text-plum { color: #1e0d33 !important; }
+.text-plum-light { color: #3d1b64 !important; }
+.border-plum { border-color: #1e0d33 !important; }
+.border-plum-light { border-color: #3d1b64 !important; }
 
 .bg-gold { background-color: #c6a052 !important; }
 .bg-gold-light { background-color: #dcc280 !important; }
@@ -109,14 +115,14 @@
 .border-gold-light { border-color: #dcc280 !important; }
 .border-gold-dark { border-color: #9d7835 !important; }
 
-.bg-ivory { background-color: #faf9f6 !important; }
-.bg-ivory-dark { background-color: #f3efe6 !important; }
-.bg-ivory-accent { background-color: #e8e1d5 !important; }
-.text-ivory { color: #faf9f6 !important; }
+.bg-ivory { background-color: #faf7fc !important; }
+.bg-ivory-dark { background-color: #f3ecf9 !important; }
+.bg-ivory-accent { background-color: #e7dbf2 !important; }
+.text-ivory { color: #faf7fc !important; }
 
-.text-charcoal { color: #231f20 !important; }
-.text-charcoal-muted { color: #4b5563 !important; }
-.text-charcoal-light { color: #6b7280 !important; }
+.text-charcoal { color: #1a092c !important; }
+.text-charcoal-muted { color: #564566 !important; }
+.text-charcoal-light { color: #776487 !important; }
 
 .bg-brass { background-color: #c6a052 !important; }
 .bg-brass-light { background-color: #dcc280 !important; }
@@ -126,10 +132,10 @@
 .text-brass-dark { color: #9d7835 !important; }
 .border-brass { border-color: #c6a052 !important; }
 
-.bg-cream { background-color: #faf9f6 !important; }
-.bg-cream-dark { background-color: #f3efe6 !important; }
-.bg-cream-accent { background-color: #e8e1d5 !important; }
-.text-cream { color: #faf9f6 !important; }
+.bg-cream { background-color: #faf7fc !important; }
+.bg-cream-dark { background-color: #f3ecf9 !important; }
+.bg-cream-accent { background-color: #e7dbf2 !important; }
+.text-cream { color: #faf7fc !important; }
 
 /* Traditional Formal Law Practice Buttons */
 .btn-gold {
@@ -472,7 +478,7 @@
   overflow-x: auto !important;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  scrollbar-color: #b8935a #060d1a;
+  scrollbar-color: #b8935a #0e0517;
 }
 
 .gold-scrollbar::-webkit-scrollbar {
@@ -482,7 +488,7 @@
 }
 
 .gold-scrollbar::-webkit-scrollbar-track {
-  background: #060d1a;
+  background: #0e0517;
   border-radius: 9999px;
   border: 1px solid rgba(184, 147, 90, 0.2);
   margin: 0 4px;
@@ -491,7 +497,11 @@
 .gold-scrollbar::-webkit-scrollbar-thumb {
   background: linear-gradient(90deg, #b8935a 0%, #dcc280 50%, #b8935a 100%);
   border-radius: 9999px;
-  border: 1px solid rgba(15, 31, 61, 0.6);
+  border: 1px solid rgba(30, 13, 51, 0.6);
+}
+
+.gold-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #cfa76f 0%, #f3efe6 50%, #cfa76f 100%);
 }
 
 .gold-scrollbar::-webkit-scrollbar-thumb:hover {
