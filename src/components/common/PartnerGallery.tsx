@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ChevronRight, X, ZoomIn, Sparkles } from 'lucide-react';
 import { GallerySectionSettings, GalleryItem, DEFAULT_GALLERY_ITEMS } from '@/types/settings';
@@ -24,6 +24,23 @@ export default function PartnerGallery({
 }: PartnerGalleryProps) {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedImage(null);
+    };
+    if (selectedImage) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage]);
+
   const displayTitle = title || gallery?.sectionTitle || 'Portraits & Chambers Leadership Gallery';
   const displaySubtitle = subtitle || gallery?.sectionSubtitle || 'Principal Counsel Low Wah Chin (Ava Rachel) 劉華晶';
   const displayBadge = badge || gallery?.sectionBadge || 'Advocate & Solicitor • Lincoln’s Inn Barrister';
@@ -36,8 +53,7 @@ export default function PartnerGallery({
   const cardBg = 'bg-gradient-to-b from-[#0F1F3D] via-[#16183e] to-[#201035]';
   const cardGradient = 'from-[#070e1e]/95 via-transparent to-transparent';
   const badgeBg = 'bg-gradient-to-r from-[#0F1F3D]/95 via-[#1E1B4B]/95 to-[#2E1065]/95';
-  const modalBg = 'bg-gradient-to-b from-[#0F1F3D] via-[#16183e] to-[#1c0c30]';
-  const modalHeaderBg = 'bg-[#070e1e]';
+  const modalBg = 'bg-gradient-to-b from-[#0F1F3D] via-[#131b38] to-[#1a112c]';
 
   return (
     <section className={`py-16 sm:py-20 lg:py-24 ${sectionBg} border-b border-white/10 relative overflow-hidden`}>
@@ -67,23 +83,34 @@ export default function PartnerGallery({
               className={`group relative rounded-2xl overflow-hidden border border-white/15 ${cardBg} cursor-pointer shadow-lg hover:border-purple-400/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between`}
             >
               {/* Photo Area */}
-              <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-gray-950">
+              <div className="relative h-72 sm:h-80 md:h-84 xl:h-76 w-full overflow-hidden bg-[#050b18] flex items-center justify-center">
+                {/* Ambient Blur Fill */}
                 <Image
                   src={img.src}
-                  alt={img.alt}
+                  alt=""
                   fill
+                  aria-hidden="true"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
-                  className="object-cover object-top filter brightness-95 group-hover:scale-105 group-hover:brightness-105 transition-all duration-700"
+                  className="object-cover filter blur-md opacity-25 scale-110"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t ${cardGradient} opacity-80 group-hover:opacity-60 transition-opacity`} />
+                <div className="relative h-full w-full z-10 flex items-center justify-center">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                    className="object-contain filter brightness-95 group-hover:scale-105 group-hover:brightness-105 transition-all duration-500 p-2"
+                  />
+                </div>
+                <div className={`absolute inset-0 bg-gradient-to-t ${cardGradient} opacity-50 group-hover:opacity-30 transition-opacity z-20 pointer-events-none`} />
                 
                 {/* Badge Top Left */}
-                <div className={`absolute top-3 left-3 px-2.5 py-1 rounded-md ${badgeBg} backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm`}>
+                <div className={`absolute top-3 left-3 px-2.5 py-1 rounded-md ${badgeBg} backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm z-30`}>
                   {img.badge}
                 </div>
 
                 {/* Zoom Indicator Top Right */}
-                <div className={`absolute top-3 right-3 w-8 h-8 rounded-full ${badgeBg} text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all border border-white/20 shadow-sm`}>
+                <div className={`absolute top-3 right-3 w-8 h-8 rounded-full ${badgeBg} text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all border border-white/20 shadow-sm z-30`}>
                   <ZoomIn className="w-4 h-4" />
                 </div>
               </div>
@@ -100,7 +127,7 @@ export default function PartnerGallery({
                 </div>
                 
                 <div className="pt-3 mt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-purple-300">
-                  <span>View Details</span>
+                  <span>View Full Portrait</span>
                   <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -118,42 +145,52 @@ export default function PartnerGallery({
         {/* Lightbox Modal */}
         {selectedImage && (
           <div
-            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
             onClick={() => setSelectedImage(null)}
           >
             <div
-              className={`relative max-w-2xl w-full ${modalBg} border-2 border-purple-500/80 rounded-2xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200 flex flex-col my-auto`}
+              className={`relative max-w-2xl w-full ${modalBg} border-2 border-purple-500/60 rounded-2xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200 flex flex-col my-auto max-h-[92vh]`}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Image Header */}
-              <div className={`relative h-80 sm:h-96 md:h-[420px] w-full ${modalHeaderBg} shrink-0`}>
+              <div className="relative h-[360px] sm:h-[460px] md:h-[500px] w-full bg-[#050b18] shrink-0 overflow-hidden flex items-center justify-center">
+                {/* Ambient blurred backdrop */}
                 <Image
                   src={selectedImage.src}
-                  alt={selectedImage.alt}
+                  alt=""
                   fill
-                  priority
-                  className="object-cover object-top"
+                  aria-hidden="true"
+                  className="object-cover filter blur-3xl opacity-35 scale-125"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t ${modalBg} via-transparent to-transparent opacity-60`} />
+                <div className="relative h-full w-full z-10 flex items-center justify-center p-3 sm:p-6">
+                  <Image
+                    src={selectedImage.src}
+                    alt={selectedImage.alt}
+                    fill
+                    priority
+                    className="object-contain drop-shadow-2xl"
+                  />
+                </div>
+                <div className={`absolute inset-0 bg-gradient-to-t ${modalBg} via-transparent to-transparent opacity-40 z-20 pointer-events-none`} />
                 
                 {/* Close Button */}
                 <button
                   type="button"
                   onClick={() => setSelectedImage(null)}
                   aria-label="Close image modal"
-                  className={`absolute top-4 right-4 w-9 h-9 rounded-full ${badgeBg} text-white hover:text-purple-300 flex items-center justify-center border border-white/20 cursor-pointer shadow-lg transition-colors`}
+                  className={`absolute top-4 right-4 w-9 h-9 rounded-full ${badgeBg} text-white hover:text-purple-300 flex items-center justify-center border border-white/20 cursor-pointer shadow-lg transition-colors z-30 hover:scale-105 active:scale-95`}
                 >
                   <X className="w-5 h-5" />
                 </button>
 
                 {/* Badge on Modal */}
-                <div className={`absolute top-4 left-4 px-3 py-1 rounded-md ${badgeBg} border border-white/20 text-xs font-bold uppercase tracking-wider text-white shadow-md`}>
+                <div className={`absolute top-4 left-4 px-3 py-1 rounded-md ${badgeBg} border border-white/20 text-xs font-bold uppercase tracking-wider text-white shadow-md z-30`}>
                   {selectedImage.badge}
                 </div>
               </div>
 
               {/* Modal Content */}
-              <div className={`p-6 ${modalBg} text-white space-y-3`}>
+              <div className={`p-5 sm:p-6 ${modalBg} text-white space-y-3 overflow-y-auto`}>
                 <div>
                   <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
                     {selectedImage.title}
@@ -182,5 +219,3 @@ export default function PartnerGallery({
     </section>
   );
 }
-
-

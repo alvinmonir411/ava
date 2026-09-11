@@ -49,6 +49,7 @@ export interface CareerHistoryItem {
   role: string;
   department?: string;
   supervisor?: string;
+  principal?: string;
   keyResponsibilities?: string[];
   notableMatters?: string[];
 }
@@ -145,7 +146,7 @@ export interface PracticeArea {
 export interface RepresentativeMatter {
   id: string;
   title: string;
-  category: 'Appellate Litigation' | 'Commercial & Corporate' | 'Real Estate & Land' | 'Debt & Insolvency' | 'Tort & Medical Negligence' | 'Employment & Industrial';
+  category: 'Appellate Litigation' | 'Commercial & Corporate' | 'Real Estate & Land' | 'Family & Matrimonial Law' | 'Debt & Insolvency' | 'Tort & Medical Negligence' | 'Employment & Industrial';
   forum: string;
   statutoryFramework: string;
   background: string;

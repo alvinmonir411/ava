@@ -93,7 +93,7 @@ export default async function OurTeamPage() {
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover object-top"
+                    className="object-cover object-[center_15%]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#070e1e]/95 via-[#070e1e]/20 to-transparent" />
                   
@@ -167,7 +167,7 @@ export default async function OurTeamPage() {
                   <WhatsAppButton variant="compact" label="Direct WhatsApp Inquiry" />
                   <Link
                     href="/contact"
-                    className="w-full text-center py-2.5 rounded-lg border border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-bold uppercase tracking-wider text-[11px] transition-colors"
+                    className="btn-gradient-royal w-full text-center py-2.5 rounded-lg font-bold uppercase tracking-wider text-[11px] block transition-all shadow-sm"
                   >
                     Schedule Consultation
                   </Link>
@@ -211,21 +211,21 @@ export default async function OurTeamPage() {
             </div>
 
             {/* Right Column: Narrative, Career History, Education, Cases & Activities (7 cols) */}
-            <div className="lg:col-span-7 space-y-12">
+            <div className="lg:col-span-7 space-y-12 pt-2 sm:pt-4">
               
               {/* 1. Executive Bio & Judicial Philosophy */}
-              <div>
-                <div className="inline-flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-[0.2em] mb-2">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-[0.2em] mb-1">
                   <Award className="w-3.5 h-3.5 text-indigo-600" />
                   <span>Principal Counsel Profile</span>
                 </div>
-                <h1 className="font-serif text-3xl sm:text-4xl font-bold text-[#1e0d33] leading-tight mb-4">
+                <h1 className="font-serif text-3xl sm:text-4xl font-bold text-[#1e0d33] leading-tight">
                   Fearless Courtroom Advocacy Grounded in Deliberate Preparation
                 </h1>
-                <div className="p-4 bg-white border-l-4 border-indigo-600 rounded-r-lg border border-slate-200 text-xs sm:text-sm text-[#1e0d33] font-medium leading-relaxed shadow-xs mb-5">
-                  <strong>Low Wah Chin (Ava Rachel) 劉華晶</strong> brings Fifteen (15) years of practice experience since her admission in 2011 across civil, insurance, company, family & divorce, medical negligence, personal injury, property conveyancing, and will & estate distribution law practice with established Malaysian benchmark firms, 1 year as In-House Legal Counsel with listed multinational KNM Group Berhad, and sole proprietorship practice.
+                <div className="p-4 bg-white border-l-4 border-indigo-600 rounded-r-lg border border-slate-200 text-xs sm:text-sm text-[#1e0d33] font-medium leading-relaxed shadow-xs">
+                  <strong>Low Wah Chin (Ava Rachel) 劉華晶</strong> brings Fifteen (15) years of practice experience since her admission in 2011 across civil, insurance, company, family & divorce, medical negligence, personal injury, property conveyancing, and will & estate distribution law practice with established Malaysian benchmark firms, ~9 months as In-House Legal Counsel with listed multinational KNM Group Berhad, and sole proprietorship practice.
                 </div>
-                <div className="space-y-4 text-sm sm:text-base text-[#4b3d56] leading-relaxed">
+                <div className="space-y-4 text-sm sm:text-base text-[#4b3d56] leading-relaxed pt-2">
                   {bioParagraphs.map((para: string, idx: number) => (
                     <p key={idx}>{para}</p>
                   ))}
@@ -233,7 +233,7 @@ export default async function OurTeamPage() {
               </div>
 
               {/* 2. Detailed Career Trajectory & Law Firm Experience (Full CV Breakdown) */}
-              <div className="p-6 sm:p-8 rounded-xl bg-white border border-slate-200 shadow-xs space-y-6">
+              <div id="practice-history" className="scroll-mt-32 p-6 sm:p-8 rounded-xl bg-white border border-slate-200 shadow-xs space-y-6 mt-8">
                 <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                   <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1e0d33] flex items-center gap-2.5">
                     <Briefcase className="w-5 h-5 text-indigo-600" />
@@ -263,6 +263,12 @@ export default async function OurTeamPage() {
                           {item.period}
                         </span>
                       </div>
+
+                      {item.principal && (
+                        <p className="text-xs text-[#6b587a] italic">
+                          Principal: <strong className="text-[#374151] font-medium">{item.principal}</strong>
+                        </p>
+                      )}
 
                       {item.supervisor && (
                         <p className="text-xs text-[#6b587a] italic">

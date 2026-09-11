@@ -19,7 +19,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     ],
     fullDescription: `In commercial enterprise, a precisely drafted contract is the ultimate defense against operational disruption, financial loss, and costly litigation. Messrs. Low, Wah Chin & Co. provides bespoke contract drafting and commercial advisory services tailored to Malaysian businesses, multi-nationals, and growing SMEs.
 
-Drawing upon Ms. Ava Rachel Low’s experience handling in-house corporate procurement and risk management for 1 year with listed engineering corporation KNM Group Berhad alongside 15 years of practice experience in the High Court of Malaya (admitted 2011), we draft agreements that anticipate operational contingencies rather than relying on generic off-the-shelf templates.
+Drawing upon Ms. Ava Rachel Low’s experience handling in-house corporate procurement and risk management for ~9 months with listed engineering corporation KNM Group Berhad alongside 15 years of practice experience in the High Court of Malaya (admitted 2011), we draft agreements that anticipate operational contingencies rather than relying on generic off-the-shelf templates.
 
 From standard commercial terms of supply and Service Level Agreements (SLA) to cross-border joint venture agreements, non-disclosure covenants, and licensing agreements, we safeguard your enterprise value and profitability under the Contracts Act 1950.`,
     whatWeHandle: [
@@ -739,7 +739,7 @@ Our team also handles contentious probate proceedings, including challenges to w
     iconName: 'Briefcase',
     fullDescription: `In today’s fast-evolving commercial landscape, businesses require agile, proactive legal counsel that protects bottom-line profitability while minimizing regulatory and contractual vulnerabilities. Messrs. Low Wah Chin & Co. acts as a trusted legal advisor and litigation counsel to corporations, SMEs, tech startups, and individual entrepreneurs across Malaysia.
 
-Drawing on Ms. Ava Rachel Low’s experience serving 1 year in-house as Legal Counsel for procurement and risk management with public listed corporation KNM Group Berhad, alongside 15 years of commercial litigation in Malaysian courts, our firm bridges commercial deal-making with aggressive courtroom protection. We draft bespoke commercial agreements tailored to your specific operations rather than relying on generic templates that fail during disputes.
+Drawing on Ms. Ava Rachel Low’s experience serving ~9 months in-house as Legal Counsel for procurement and risk management with public listed corporation KNM Group Berhad, alongside 15 years of commercial litigation in Malaysian courts, our firm bridges commercial deal-making with aggressive courtroom protection. We draft bespoke commercial agreements tailored to your specific operations rather than relying on generic templates that fail during disputes.
 
 When commercial disputes arise—such as breaches of contract, non-payment of trade debts, shareholder oppression, or construction licensing conflicts—we execute targeted legal strategies ranging from injunctive relief (Mareva injunctions, Anton Piller orders) to statutory Section 466 winding-up petitions and civil recovery actions.`,
     whatWeHandle: [
@@ -1091,7 +1091,7 @@ Messrs. Low Wah Chin & Co. represents both landlords and tenants across resident
     iconName: 'Handshake',
     fullDescription: `Entering into complex commercial ventures or resolving high-stakes corporate standoffs requires more than basic contract templates—it demands seasoned negotiation acumen, commercial foresight, and deep knowledge of Malaysian company law.
 
-Founder Ms. Ava Rachel Low brings rare in-house commercial and procurement risk management experience from her 1-year tenure as Legal Counsel with public listed engineering giant KNM Group Berhad, combined with 15 years of practice experience since 2011. We represent business owners, shareholders, founders, and directors at every stage of the negotiation table.
+Founder Ms. Ava Rachel Low brings rare in-house commercial and procurement risk management experience from her ~9-month tenure as Legal Counsel with public listed engineering giant KNM Group Berhad, combined with 15 years of practice experience since 2011. We represent business owners, shareholders, founders, and directors at every stage of the negotiation table.
 
 Whether you are structuring a multi-party Joint Venture, negotiating venture capital terms, drafting comprehensive Shareholder Agreements, or attempting to resolve an impending business dispute through private mediation, LWCCO protects your equity, intellectual assets, and commercial upside while minimizing exposure to future litigation.`,
     whatWeHandle: [
@@ -1223,7 +1223,7 @@ Messrs. Low Wah Chin & Co. provides rigorous legal representation to hold neglig
     iconName: 'Hammer',
     fullDescription: `Construction, refurbishment, and residential renovation projects are major financial undertakings fraught with technical risks. Negligent workmanship, use of substandard materials, structural tampering, site abandonment, and failure to meet statutory building codes (UBBL) can compromise safety and drain hundreds of thousands of Ringgit.
 
-Drawing on Ms. Ava Rachel Low’s experience in engineering risk management and construction contracts from her 1 year as In-House Legal Counsel with listed entity KNM Group Berhad and subsequent construction litigation, Messrs. Low Wah Chin & Co. represents property owners, management corporations (JMB/MC), and commercial developers against defaulting main contractors and subcontractors.
+Drawing on Ms. Ava Rachel Low’s experience in engineering risk management and construction contracts from her ~9 months as In-House Legal Counsel with listed entity KNM Group Berhad and subsequent construction litigation, Messrs. Low Wah Chin & Co. represents property owners, management corporations (JMB/MC), and commercial developers against defaulting main contractors and subcontractors.
 
 We work alongside certified structural engineers and quantity surveyors to document defect schedules, issue urgent statutory notices of breach, initiate adjudication proceedings under the Construction Industry Payment and Adjudication Act 2012 (CIPAA 2012), and litigate claims in the Sessions Court and High Court.`,
     whatWeHandle: [
@@ -1468,7 +1468,7 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
     nricName: 'Low Wah Chin',
     role: 'Founder & Principal Counsel',
     title: 'Advocate & Solicitor, High Court of Malaya | Barrister-at-Law, Lincoln’s Inn, London',
-    photo_url: '/lawyer-portrait-1.jpg',
+    photo_url: '/hero_image.jpeg',
     display_order: 1,
     contactInfo: {
       phone: '+60175483157',
@@ -1555,28 +1555,32 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
       }
     ],
     careerHistory: [
-      { period: '25th August 2020 – Present', firm: 'Messrs. Low Wah Chin & Co.', role: 'Sole Proprietor & Managing Counsel' },
-      { period: '1st June 2020 – 31st July 2020', firm: 'Messrs. Burton Tan, Syazwan & Co.', role: 'Legal Assistant' },
-      { period: '26th January 2018 – 31st May 2020', firm: 'Messrs. Low Wah Chin', role: 'Sole Proprietor' },
-      { period: '1st June 2017 – 5th December 2017', firm: 'Messrs. Serena Paul Naveen & Associates', role: 'Partner (General Litigation)' },
-      { period: '9th August 2016 – 13th April 2017', firm: 'KNM Group Berhad', role: 'In-House Legal Counsel (In-House Legal & Risk Management)' },
-      { period: '1st June 2015 – 17th May 2016', firm: 'Messrs. Murali B. Pillai & Associates', role: 'Legal Assistant (Non-Motor Insurance & Civil Litigation)' },
-      { period: '8th July 2013 – 31st May 2015', firm: 'Messrs. Azim, Tunku Farik & Wong', role: 'Legal Assistant (General, Insurance & Banking Litigation)' },
+      { period: '25th August 2020 – Present', firm: 'Messrs. Low Wah Chin & Co.', role: 'Principal: Ava Rachel Low Wah Chin (Sole Proprietor & Principal Legal Practitioner)' },
+      { period: '1st June 2020 – 31st July 2020', firm: 'Messrs. Burton Tan, Syazwan & Co.', role: 'Legal Assistant (Supervised by Burton Tan)' },
+      { period: '26th January 2018 – 31st May 2020', firm: 'Messrs. Low Wah Chin', role: 'Sole Proprietor (Principal: Ava Rachel Low Wah Chin)' },
+      { period: '1st June 2017 – 5th December 2017', firm: 'Messrs. Serena Paul Naveen', role: 'Partner (Supervised by Serena Paul Naveen)' },
+      { period: '9th August 2016 – 13th April 2017', firm: 'KNM Group Berhad', role: 'In-House Legal Counsel (~9 Months — Legal & Risk Management)' },
+      { period: '1st June 2015 – 17th May 2016', firm: 'Messrs. Murali B. Pillai & Associates (Messrs. Murali & Co.)', role: 'Legal Assistant (Supervised by Amuda Jayaratnam and Sreether Sundaram)' },
+      { period: '8th July 2013 – 31st May 2015', firm: 'Messrs. Azim, Tunku Farik & Wong', role: 'Legal Assistant (Supervised by Wong Hok Mun)' },
       { period: 'December 2012 – February 2013', firm: 'Messrs. Lai & Associates', role: 'Legal Assistant (Civil Litigation)' },
       { period: 'June 2012 – November 2012', firm: 'Messrs. Raja Eleena Siew Ang & Associates', role: 'Legal Assistant (Banking & Conveyancing)' },
-      { period: 'November 2011 – May 2012', firm: 'Messrs. Shook Lin & Bok', role: 'Legal Associate (Insurance, Shipping, Aviation & Civil Litigation)' }
+      { period: 'November 2011 – May 2012', firm: 'Messrs. Shook Lin & Bok', role: 'Legal Associate (Supervised by Porres P Royan, Sudharsanan Thillainathan, Lau Kee Sern)' }
     ],
     detailedCareerHistory: [
       {
         period: '25th August 2020 – Present',
         firm: 'Messrs. Low Wah Chin & Co.',
-        role: 'Sole Proprietor & Principal Legal Practitioner',
+        role: 'Principal: Ava Rachel Low Wah Chin',
         department: 'General Practice, Litigation, Conveyancing & Corporate Advisory',
+        principal: 'Ava Rachel Low Wah Chin (Sole Proprietor & Principal Legal Practitioner)',
         keyResponsibilities: [
           'Full management and principal advocacy in sole proprietorship establishment providing hands-on client representation.',
-          'Attending trials, interlocutory hearings, drafting cause papers, structuring corporate and joint venture transactions, and managing complex estate and conveyancing portfolios.'
+          'Attending trials, interlocutory hearings, drafting cause papers, structuring corporate and joint venture transactions, and managing complex estate, family, and conveyancing portfolios.'
         ],
         notableMatters: [
+          'Drafted and executed Corporate Share Sale & Purchase Agreement for private limited company at RM6.8 Million.',
+          'Motor Insurance Accident Claim with Motor Insurers’ Bureau of West Malaysia (MIB) securing compassionate payment of RM30,000 to widow.',
+          'Family Law & Matrimonial Practice: Joint Petitions for Divorce (Section 52 LRA 1976), Single Divorce Petitions (Section 53/54 LRA 1976), and comprehensive Divorce Settlements covering matrimonial property distribution, child custody under Section 88 LRA 1976, care and control, and spousal maintenance.',
           'Negotiated tenancy terms with YTL Corporation and SME(s) for China Chinese corporate client.',
           'Crafted bespoke Business and Joint Venture Agreements and Tenancy Agreements for China Chinese cross-border clients.',
           'Attended to high-value conveyancing matters valued between RM1.65 Million to RM4.3 Million from Malaysian local clients to European clients.',
@@ -1585,12 +1589,9 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
           'Directors’ Dispute Discovery Application for Accounting Records under Section 245 Companies Act 2016 and High Court hearings.',
           'High Court Kuala Lumpur Medical Negligence Discovery Application for medical records over complaint of wrongful leg amputation.',
           'Medical Negligence advisory and medical expert correspondence regarding urinary retention complications resulting from negligent treatment.',
-          'Motor Insurance Accident Claim with Motor Insurers’ Bureau of West Malaysia (MIB) securing compassionate payment of RM30,000 to widow.',
-          'Family law and single/joint divorce petition proceedings.',
           'Tenancy agreements drafting, stamping, and tenancy dispute proceedings for pet policy breach and rental arrears default.',
           'Estate administration involving Letters of Administration (< RM2 Million), replacement of lost Master Title Grants following developer liquidation, Discharge of Charge, and High Court transfer vesting orders.',
           'Sub-sale conveyancing, strata and landed property transactions, and discharge of charges.',
-          'Drafted and executed Corporate Share Sale Agreement for private limited company at RM6.8 Million.',
           'Property dispute with property developer regarding lawful termination of Sale and Purchase Agreement (SPA).',
           'Legal Opinion writing on the statutory interpretation of 3 Wills under the Succession Laws of Western Australia for an Australian client.',
           'Police report processes, investigations, and criminal court hearing assistance for an American client hit by spouse vehicle.',
@@ -1605,6 +1606,7 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
         firm: 'Messrs. Burton Tan, Syazwan & Co.',
         role: 'Legal Assistant',
         department: 'General Litigation & Conveyancing',
+        supervisor: 'Burton Tan',
         keyResponsibilities: [
           'Drafted pleadings and cause papers including Writs of Summons & Statements of Claim on land trespass and corporate professional legal fee recovery.',
           'Prepared Agreed Facts to be Tried, Issues to be Tried, Summaries of Facts, and compiled Bundles of Documents for trial.',
@@ -1617,6 +1619,7 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
         firm: 'Messrs. Low Wah Chin',
         role: 'Sole Proprietor',
         department: 'Civil Litigation, Conveyancing & Corporate Practice',
+        principal: 'Ava Rachel Low Wah Chin',
         keyResponsibilities: [
           'Established initial sole proprietorship practice delivering hands-on legal counsel directly to private and corporate clients.',
           'Attended civil litigation hearings and urgent criminal bail hearings in the Magistrates’ and Sessions Courts.',
@@ -1626,22 +1629,23 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
       },
       {
         period: '1st June 2017 – 5th December 2017',
-        firm: 'Messrs. Serena Paul Naveen & Associates',
+        firm: 'Messrs. Serena Paul Naveen',
         role: 'Partner (Salary Partnership)',
         department: 'General Litigation Practice',
+        supervisor: 'Serena Paul Naveen',
         keyResponsibilities: [
           'Managed the firm’s general litigation department and supervised junior legal staff.',
           'Drafted cause papers, handled case managements, and conducted court trials and hearings.'
         ]
       },
       {
-        period: '9th August 2016 – 13th April 2017',
+        period: '9th August 2016 – 13th April 2017 (~9 Months)',
         firm: 'KNM Group Berhad (Public Listed Company)',
         role: 'In-House Legal Counsel (Legal & Risk Management Department)',
         department: 'Legal & Risk Management Department',
         supervisor: 'Flavio Porro (Head of Legal & Risk Management) & Dalton Wen (Legal Manager)',
         keyResponsibilities: [
-          'In-house legal advisory, risk mitigation, and corporate regulatory governance across international engineering and construction projects.',
+          'In-house legal advisory, risk mitigation, and corporate regulatory governance across international engineering and construction projects (~9-month tenure).',
           'Monitored company litigation, liaised with external solicitors, attended court hearings, and prepared executive staff and trial documentation.',
           'Assisted HR Manager with employment law matters and industrial employment hearings.',
           'Drafted cross-border Non-Disclosure Agreements (NDAs) and Confidentiality Agreements for multi-million international tender projects.',
@@ -1655,9 +1659,10 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
       },
       {
         period: '1st June 2015 – 17th May 2016',
-        firm: 'Messrs. Murali B. Pillai & Associates',
+        firm: 'Messrs. Murali B. Pillai & Associates (Messrs. Murali & Co.)',
         role: 'Legal Assistant',
         department: 'General & Insurance Litigation (Non-Motor Claims Department)',
+        supervisor: 'Amuda Jayaratnam and Sreether Sundaram',
         keyResponsibilities: [
           'Conducted own trial matters and assisted Partners with general civil, insurance defense, and medical negligence litigation.',
           'Assisted two Senior Counsels concurrently in defending medical practitioners against alleged medical negligence in diagnosis and surgical treatments (knee ligament damage, shoulder injury, sciatic nerve injury on hip, baby shoulder dystocia, spine infection, hearing loss, and skin infections in Sessions & High Court).',
@@ -1880,7 +1885,7 @@ export const TEAM_MEMBERS_DATA: TeamMember[] = [
     bio: [
       'Ms. Low Wah Chin (Ava Rachel) 劉華晶 is the Founder and Principal Counsel of Messrs. Low Wah Chin & Co. (LWCCO). Admitted to the Malaysian Bar as an Advocate & Solicitor of the High Court of Malaya on 11th November 2011 and called to the English Bar as a Barrister-at-Law of the Honourable Society of Lincoln’s Inn, London on 14th October 2010, she brings 15 years of practice experience to her clients.',
       'Her comprehensive career encompasses top-tier Malaysian benchmark litigation firms—including Shook Lin & Bok, Azim, Tunku Farik & Wong, and Murali B. Pillai & Associates—where she handled complex professional indemnity insurance defense, banking disputes, multi-day commercial fraud trials, and appellate advocacy before the Court of Appeal and Federal Court of Malaysia.',
-      'In addition to private courtroom practice, Ms. Low gained invaluable commercial and industrial insight during her 1-year tenure as In-House Legal Counsel for publicly listed multinational KNM Group Berhad, managing risk for cross-border engineering, procurement, and construction (EPC) projects, tender non-disclosure agreements, and corporate financing structures.',
+      'In addition to private courtroom practice, Ms. Low gained invaluable commercial and industrial insight during her ~9-month tenure (August 2016 – April 2017) as In-House Legal Counsel for publicly listed multinational KNM Group Berhad, managing risk for cross-border engineering, procurement, and construction (EPC) projects, tender non-disclosure agreements, and corporate financing structures.',
       'Having established her own practice in 2018 and founding Messrs. Low Wah Chin & Co. in 2020 at Colony @ KLCC, she is dedicated to providing high-calibre, decisive legal craftsmanship rooted in humanity—ensuring every individual and corporate client receives ethical, transparent, and fearless legal counsel.'
     ]
   }
@@ -2149,10 +2154,32 @@ export const REPRESENTATIVE_MATTERS_DATA: RepresentativeMatter[] = [
     category: 'Commercial & Corporate',
     forum: 'In-House Legal & Risk Management / Multi-Jurisdictional Engineering Projects',
     statutoryFramework: 'FIDIC / EPC Contract Standards • International Arbitration Rules • Companies Act',
-    background: 'Assisted Head of Legal & Risk Management in managing legal and regulatory affairs across international engineering, procurement, and construction (EPC) projects for public listed company.',
+    background: 'Assisted Head of Legal & Risk Management in managing legal and regulatory affairs across international engineering, procurement, and construction (EPC) projects for public listed company (~9-month tenure).',
     strategy: 'Drafted international tender NDAs, reviewed EPC contract terms, prepared terms comparison matrices, drafted Supplemental Loan Agreements, and structured MOUs for cross-border projects.',
     outcome: 'Safeguarded corporate risk exposure across multi-million dollar engineering and procurement contracts worldwide.',
     highlights: ['Listed Conglomerate In-House Counsel', 'Cross-Border EPC Contracts', 'Risk Management & Tender NDAs']
+  },
+  {
+    id: 'matter-13',
+    title: 'Motor Insurers’ Bureau of West Malaysia (MIB) Fatal Accident Compassionate Claim (RM30,000)',
+    category: 'Tort & Medical Negligence',
+    forum: 'Motor Insurers’ Bureau of West Malaysia (MIB) / High Court of Malaya',
+    statutoryFramework: 'Motor Insurers’ Bureau Agreement 1968 • Road Transport Act 1987 • Civil Law Act 1956',
+    background: 'Represented surviving widow in a compassionate ex-gratia claim before the Motor Insurers’ Bureau of West Malaysia (MIB) following a fatal road accident involving an untraced motor vehicle.',
+    strategy: 'Compiled police traffic investigation dossiers, coroner death reports, and statutory dependency documentation under Section 7 Civil Law Act 1956 to establish MIB compensation criteria.',
+    outcome: 'Successfully secured an ex-gratia compassionate award of RM30,000 for the surviving widow without the cost and delay of protracted court litigation.',
+    highlights: ['MIB Compassionate Claim', 'RM30,000 Ex-Gratia Settlement', 'Widow Fatal Accident Relief']
+  },
+  {
+    id: 'matter-14',
+    title: 'High Court Joint & Single Divorce Petitions, Matrimonial Asset Division & Custody Settlements',
+    category: 'Family & Matrimonial Law',
+    forum: 'High Court of Malaya (Family & Matrimonial Division)',
+    statutoryFramework: 'Law Reform (Marriage and Divorce) Act 1976 (Act 164) • Divorce & Matrimonial Proceedings Rules 1980',
+    background: 'Advised and represented spouses across both mutual consent Joint Petitions (Section 52 LRA 1976) and contested Single Petitions for Divorce (Section 53/54 LRA 1976), JPN Marriage Tribunal reconciliation exemptions, and contentious matrimonial asset division.',
+    strategy: 'Formulated strategic settlement roadmaps prioritizing the paramount welfare of children under Section 88 LRA 1976, structuring Deeds of Settlement for equitable real estate and savings distribution.',
+    outcome: 'Successfully extracted Decrees Nisi and Decrees Absolute, executing comprehensive matrimonial settlements, child custody orders, and clean-break financial arrangements.',
+    highlights: ['Joint & Single Divorce Petitions', 'Section 88 Child Custody Orders', 'Matrimonial Asset Settlements']
   }
 ];
 

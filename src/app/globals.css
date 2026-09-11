@@ -134,19 +134,19 @@
   border-image: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #9333ea 100%) 1 !important;
 }
 
-/* Primary Brand Buttons: 135deg Royal Blue to Purple Gradient */
+/* Primary Brand Buttons: Refined Subdued Luxury Royal Navy Palette */
 .btn-gradient-royal,
 .btn-gold,
 .btn-brass,
 .btn-plum,
 .btn-navy {
-  background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 30%, #7e22ce 70%, #6b21a8 100%) !important;
+  background: linear-gradient(135deg, #0a1529 0%, #0F1F3D 55%, #182b4d 100%) !important;
   color: #ffffff !important;
   font-weight: 700 !important;
   letter-spacing: 0.03em;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 4px 14px rgba(15, 31, 61, 0.25);
+  border: 1px solid rgba(226, 232, 240, 0.25) !important;
 }
 
 .btn-gradient-royal:hover,
@@ -154,10 +154,10 @@
 .btn-brass:hover,
 .btn-plum:hover,
 .btn-navy:hover {
-  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 35%, #9333ea 75%, #7e22ce 100%) !important;
+  background: linear-gradient(135deg, #112240 0%, #172d52 55%, #233f70 100%) !important;
   color: #ffffff !important;
-  box-shadow: 0 6px 24px rgba(126, 34, 206, 0.5);
-  border-color: rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 6px 20px rgba(15, 31, 61, 0.35);
+  border-color: rgba(198, 160, 82, 0.55) !important;
   transform: translateY(-1.5px);
 }
 

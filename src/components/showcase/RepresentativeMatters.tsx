@@ -17,6 +17,7 @@ const CATEGORIES = [
   'Appellate Litigation',
   'Commercial & Corporate',
   'Real Estate & Land',
+  'Family & Matrimonial Law',
   'Debt & Insolvency',
   'Tort & Medical Negligence',
   'Employment & Industrial',

@@ -78,11 +78,11 @@ const PRESET_HERO_IMAGES = [
 ];
 
 const PRESET_PORTRAITS = [
-  { name: '1. Court Robes & Bands (Main)', url: '/lawyer-hero.jpg' },
-  { name: '2. Lincoln’s Inn Barrister Gown', url: '/lawyer-portrait-1.jpg' },
-  { name: '3. Managing Partner (Formal Black)', url: '/lawyer-portrait-2.jpg' },
-  { name: '4. Chambers Consultation (KLCC)', url: '/lawyer-portrait-3.jpg' },
-  { name: '5. Client Advisory & Diligence', url: '/lawyer-portrait-4.jpg' },
+  { name: '1. Primary Hero Portrait (Seated Court Dress - Grey Background)', url: '/hero_image.jpeg' },
+  { name: '2. Lincoln’s Inn Barrister (Seated Court Dress - Dark Background)', url: '/lawyer-portrait-1.jpg' },
+  { name: '3. Managing Partner & Principal (3/4 Profile Court Dress)', url: '/lawyer-portrait-4.jpg' },
+  { name: '4. Executive Chambers Portrait (Glasses & Tie)', url: '/lawyer-hero.jpg' },
+  { name: '5. Client Advocacy & Diligence (Hands Clasped)', url: '/lawyer-portrait-2.jpg' },
 ];
 
 export default function AdminSettingsPage() {
@@ -796,11 +796,11 @@ export default function AdminSettingsPage() {
 
                   <div className="relative h-80 w-full rounded-xl overflow-hidden border-2 border-[#B8935A]/40 bg-[#0A1529]">
                     <Image
-                      src={settings.heroContent?.heroLawyerPhoto || '/lawyer-portrait-1.jpg'}
+                      src={settings.heroContent?.heroLawyerPhoto || '/hero_image.jpeg'}
                       alt="Hero Lawyer Portrait Preview"
                       fill
                       sizes="(max-width: 768px) 100vw, 350px"
-                      className="object-cover object-top"
+                      className="object-cover object-[center_15%]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0A1529]/90 via-transparent to-transparent" />
                     <div className="absolute bottom-2 left-2 right-2 p-2 bg-[#0A1529]/90 border border-[#B8935A]/30 rounded-lg text-center">

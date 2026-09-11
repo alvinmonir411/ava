@@ -32,10 +32,6 @@ function getSettingsFilePath(): string {
 }
 
 export async function getFirmSettings(): Promise<FirmSettings> {
-  if (memorySettings) {
-    return memorySettings;
-  }
-
   try {
     const filePath = getSettingsFilePath();
     if (fs.existsSync(filePath)) {

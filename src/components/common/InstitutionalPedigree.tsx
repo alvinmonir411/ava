@@ -21,7 +21,7 @@ export default function InstitutionalPedigree({ className = '', light = false }:
     {
       institution: 'KNM Group Berhad',
       role: 'In-House Corporate Legal Counsel',
-      year: 'Public Listed MNC (1 Year / 2016–2017)',
+      year: 'Public Listed MNC (~9 Months / 2016–2017)',
     },
     {
       institution: 'Lincoln’s Inn (London, UK)',

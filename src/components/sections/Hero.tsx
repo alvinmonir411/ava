@@ -107,12 +107,12 @@ export default function Hero({
               {/* Portrait Photo */}
               <div className="relative h-[400px] sm:h-[450px] w-full rounded-xl overflow-hidden bg-gray-900">
                 <Image
-                  src={c.heroLawyerPhoto || '/lawyer-portrait-1.jpg'}
+                  src={c.heroLawyerPhoto || '/hero_image.jpeg'}
                   alt={`${c.heroLawyerName} Advocate & Solicitor Messrs. Low Wah Chin & Co.`}
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 380px"
-                  className="object-cover object-top filter brightness-100 contrast-105 group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover object-[center_15%] filter brightness-100 contrast-105 group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#070e1e]/95 via-[#070e1e]/20 to-transparent" />
 

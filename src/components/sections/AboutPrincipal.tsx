@@ -37,12 +37,12 @@ export default function AboutPrincipal({ content }: AboutPrincipalProps) {
             <div className="relative w-full max-w-[420px] mx-auto p-2.5 bg-white border border-slate-200 rounded-2xl shadow-lg group">
               <div className="relative h-[360px] sm:h-[400px] w-full rounded-xl overflow-hidden bg-gray-950">
                 <Image
-                  src={c.lawyerPhoto || '/lawyer-portrait-2.jpg'}
+                  src={c.lawyerPhoto || '/lawyer-portrait-4.jpg'}
                   alt={`${c.lawyerName || 'Low Wah Chin (Ava Rachel)'} ${c.lawyerChinese || '劉華晶'} Managing Partner Messrs. Low Wah Chin & Co.`}
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 420px"
-                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A1529]/90 via-[#0A1529]/20 to-transparent" />
                 
@@ -53,39 +53,34 @@ export default function AboutPrincipal({ content }: AboutPrincipalProps) {
                       {c.lawyerName || 'Low Wah Chin'}
                     </p>
                     {c.lawyerChinese && (
-                      <span className="text-xs font-serif text-purple-300">{c.lawyerChinese}</span>
+                      <span className="font-serif text-xs sm:text-sm font-bold text-indigo-300">
+                        {c.lawyerChinese}
+                      </span>
                     )}
                   </div>
-                  <p className="text-[11px] text-purple-200 font-medium mt-0.5">
+                  <p className="text-[11px] text-indigo-300 font-semibold mt-0.5">
                     Managing Partner & Principal Legal Practitioner
+                  </p>
+                  <p className="text-[10px] text-gray-300 flex items-center gap-1 mt-1">
+                    <Scale className="w-3 h-3 text-indigo-300 shrink-0" />
+                    <span>Lincoln’s Inn Barrister (London) • Malayan Bar (2011)</span>
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-md space-y-5">
-              <div className="border-b border-gray-100 pb-3">
-                <div className="inline-flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-1">
-                  <Landmark className="w-4 h-4 text-indigo-600" />
-                  <span>Statutory Bar Admissions</span>
-                </div>
-                <h3 className="font-serif text-xl font-bold text-[#0F1F3D]">
-                  Statutory Accreditation
-                </h3>
-                <p className="text-xs text-[#556987] font-medium mt-0.5">
-                  The High Court of Malaya & Lincoln’s Inn, London
-                </p>
-              </div>
+            {/* Statutory Bar Admissions Card */}
+            <div className="p-4 sm:p-5 bg-white rounded-xl border border-gray-200 shadow-xs space-y-3 text-xs">
+              <h4 className="font-serif font-bold text-[#0F1F3D] uppercase tracking-wider border-b border-gray-100 pb-2 flex items-center gap-2">
+                <Landmark className="w-4 h-4 text-indigo-600" />
+                <span>Statutory Bar Admissions</span>
+              </h4>
 
-              {/* Admission Items */}
-              <div className="space-y-3 text-xs">
+              <div className="space-y-2 text-xs">
                 <div className="p-3.5 bg-[#faf9f6] rounded-xl border border-gray-200">
                   <span className="font-mono text-[10px] font-bold text-indigo-600 block mb-0.5">11TH NOVEMBER 2011</span>
                   <strong className="text-[#0F1F3D] block font-serif text-sm">Advocate & Solicitor</strong>
                   <span className="text-[#556987]">The High Court of Malaya, Malaysia</span>
-                  <span className="inline-block mt-1 text-[10px] font-mono text-[#6b7280] bg-white px-2 py-0.5 rounded border border-gray-200">
-                    Bar No: BC/L/2019
-                  </span>
                 </div>
 
                 <div className="p-3.5 bg-[#faf9f6] rounded-xl border border-gray-200">
@@ -103,7 +98,7 @@ export default function AboutPrincipal({ content }: AboutPrincipalProps) {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
-                  <span>Corporate In-House: 1 Year Legal Counsel at KNM Group Berhad</span>
+                  <span>Corporate In-House: ~9 Months Legal Counsel at KNM Group Berhad</span>
                 </div>
               </div>
             </div>
@@ -161,7 +156,7 @@ export default function AboutPrincipal({ content }: AboutPrincipalProps) {
 
               <p>
                 {c.bioParagraph2 ||
-                  'In addition to private trial practice, Ms. Low served 1 year at KNM Group Berhad as In-House Legal Counsel, managing corporate risk, cross-border engineering, procurement, and construction (EPC) agreements, and international commercial transactions.'}
+                  'In addition to private trial practice, Ms. Low served ~9 months at KNM Group Berhad as In-House Legal Counsel, managing corporate risk, cross-border engineering, procurement, and construction (EPC) agreements, and international commercial transactions.'}
               </p>
 
               <div className="pt-2">

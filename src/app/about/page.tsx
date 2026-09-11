@@ -61,12 +61,12 @@ export default async function AboutPage() {
               <div className="relative w-full max-w-[380px] p-2 bg-white border border-slate-200 rounded-lg shadow-md mb-6">
                 <div className="relative h-[440px] sm:h-[480px] w-full rounded overflow-hidden bg-[#0F1F3D]/10">
                   <Image
-                    src="/lawyer-hero.jpg"
+                    src="/hero_image.jpeg"
                     alt="Low Wah Chin (Ava Rachel) Advocate and Solicitor Messrs. Low Wah Chin & Co."
                     fill
                     priority
                     sizes="(max-width: 768px) 100vw, 400px"
-                    className="object-cover object-top"
+                    className="object-cover object-[center_15%]"
                   />
                 </div>
                 <div className="mt-3 text-center px-2 py-1">
@@ -128,7 +128,7 @@ export default async function AboutPage() {
                   Founded by senior advocate <strong>Low Wah Chin (Ava Rachel) 劉華晶</strong>, the firm was established with a clear mandate: to make top-tier legal advice accessible, transparent, and decisively effective. We bridge the gap between large, impersonal corporate law factories and single-issue practices by providing sophisticated counsel with dedicated, partner-led attention.
                 </p>
                 <p>
-                  Ms. Low brings 15 years of distinguished practice experience since her admission in 2011 across civil litigation, corporate agreements, land conveyancing, probate administration, family law, employment disputes, and insurance negligence. Her practice foundation was honed at benchmark Malaysian institutions—including <em>Shook Lin & Bok</em>, <em>Azim, Tunku Farik & Wong</em>, <em>Murali B. Pillai & Associates</em>, and 1 year as In-House Legal Counsel for public listed multinational <em>KNM Group Berhad</em>.
+                  Ms. Low brings 15 years of distinguished practice experience since her admission in 2011 across civil litigation, corporate agreements, land conveyancing, probate administration, family law, employment disputes, and insurance negligence. Her practice foundation was honed at benchmark Malaysian institutions—including <em>Shook Lin & Bok</em>, <em>Azim, Tunku Farik & Wong</em>, <em>Murali B. Pillai & Associates</em>, and ~9 months as In-House Legal Counsel for public listed multinational <em>KNM Group Berhad</em>.
                 </p>
                 <p>
                   Our litigation and advisory capabilities span all tiers of the Malaysian judicial hierarchy—from Magistrates’ and Sessions Courts to the High Court of Malaya, Court of Appeal, and the Federal Court of Malaysia.
