@@ -35,28 +35,28 @@ export default function PreparationChecklistCard({
   const completedCount = Object.values(checkedState).filter(Boolean).length;
 
   return (
-    <div className={`p-6 sm:p-8 rounded-2xl bg-white border border-[#c6a052]/40 shadow-xl ${className}`}>
+    <div className={`p-6 sm:p-8 rounded-2xl bg-white border border-[#E5DFD3] shadow-xl ${className}`}>
       {/* Top Header */}
-      <div className="flex items-start justify-between gap-4 mb-4 pb-4 border-b border-[#f3efe6]">
+      <div className="flex items-start justify-between gap-4 mb-4 pb-4 border-b border-[#E5DFD3]">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#c6a052]/15 text-[#9d7835] text-[10.5px] font-bold uppercase tracking-wider mb-2">
-            <ClipboardCheck className="w-3.5 h-3.5 text-[#c6a052]" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#4B2A7B]/10 text-[#4B2A7B] text-[10.5px] font-bold uppercase tracking-wider mb-2">
+            <ClipboardCheck className="w-3.5 h-3.5 text-[#4B2A7B]" />
             <span>Consultation Preparation Checklist</span>
           </div>
-          <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#22122b]">
+          <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#2B2D33]">
             What to Prepare Before Your Consultation
           </h3>
-          <p className="text-xs text-[#595355] mt-1 leading-relaxed">
+          <p className="text-xs text-[#2B2D33]/70 mt-1 leading-relaxed">
             For {practiceTitle}. Having these documents ready enables senior counsel to evaluate your statutory merits swiftly.
           </p>
         </div>
 
         {/* Progress Badge */}
-        <div className="text-center p-2.5 rounded-xl bg-[#faf9f6] border border-[#e8e1d5] shrink-0">
-          <span className="font-mono text-base font-bold text-[#9d7835]">
+        <div className="text-center p-2.5 rounded-xl bg-[#FAF8F2] border border-[#E5DFD3] shrink-0">
+          <span className="font-mono text-base font-bold text-[#4B2A7B]">
             {completedCount}/{items.length}
           </span>
-          <span className="block text-[9px] uppercase font-semibold text-[#595355]">
+          <span className="block text-[9px] uppercase font-semibold text-[#2B2D33]/70">
             Ready
           </span>
         </div>
@@ -72,20 +72,20 @@ export default function PreparationChecklistCard({
               onClick={() => toggleCheck(idx)}
               className={`p-3 rounded-xl border transition-all duration-200 flex items-start gap-3 cursor-pointer ${
                 isChecked
-                  ? 'bg-[#c6a052]/10 border-[#c6a052] text-[#22122b]'
-                  : 'bg-[#faf9f6] border-[#e8e1d5] hover:border-[#c6a052]/50 text-[#231f20]'
+                  ? 'bg-[#4B2A7B]/10 border-[#4B2A7B] text-[#2B2D33]'
+                  : 'bg-[#FAF8F2] border-[#E5DFD3] hover:border-[#4B2A7B]/50 text-[#2B2D33]'
               }`}
             >
-              <div className="mt-0.5 shrink-0 text-[#c6a052]">
+              <div className="mt-0.5 shrink-0 text-[#4B2A7B]">
                 {isChecked ? (
-                  <CheckSquare className="w-4 h-4 text-[#c6a052]" />
+                  <CheckSquare className="w-4 h-4 text-[#4B2A7B]" />
                 ) : (
-                  <Square className="w-4 h-4 text-[#595355]/40" />
+                  <Square className="w-4 h-4 text-[#2B2D33]/40" />
                 )}
               </div>
               <span
                 className={`text-xs leading-relaxed select-none ${
-                  isChecked ? 'font-semibold text-[#22122b]' : 'text-[#595355]'
+                  isChecked ? 'font-semibold text-[#2B2D33]' : 'text-[#2B2D33]/80'
                 }`}
               >
                 {item}
@@ -96,10 +96,10 @@ export default function PreparationChecklistCard({
       </div>
 
       {/* Action Footer */}
-      <div className="p-4 rounded-xl bg-gradient-to-r from-[#070e1e] via-[#0d1738] to-[#1c0c30] text-white flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="p-4 rounded-xl bg-[#FAF8F2] border border-[#E5DFD3] text-[#2B2D33] flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xs">
         <div className="flex items-center gap-2 text-xs">
-          <Shield className="w-4 h-4 text-[#c6a052] shrink-0" />
-          <span className="text-[#faf9f6]/85">
+          <Shield className="w-4 h-4 text-[#4B2A7B] shrink-0" />
+          <span className="text-[#2B2D33]/85">
             Documents submitted are protected by 100% Legal Privilege.
           </span>
         </div>

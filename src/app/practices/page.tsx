@@ -77,21 +77,21 @@ export default async function PracticesPage() {
         bgImage={settings.heroImages?.practicesHeroImage || "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=2000&q=85"}
       />
 
-      {/* 1. Tradition of Talent: 6 Core Practice Disciplines (Full-Width Royal Dark Section) */}
-      <section className="py-20 lg:py-28 bg-gradient-to-br from-[#070e1e] via-[#0d1738] to-[#1c0c30] text-[#faf7fc] border-b border-white/10">
+      {/* 1. Tradition of Talent: 6 Core Practice Disciplines */}
+      <section className="py-20 lg:py-28 bg-[#FAF8F2] text-[#2B2D33] border-b border-[#E5DFD3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full badge-gradient-royal text-white text-xs font-bold uppercase tracking-[0.2em] mb-4">
-              <Scale className="w-3.5 h-3.5 text-purple-300" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#D8C7F0] text-[#4B2A7B] text-xs font-bold uppercase tracking-[0.2em] mb-4 shadow-xs">
+              <Scale className="w-3.5 h-3.5 text-[#4B2A7B]" />
               <span>Core Disciplines</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-3">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2B2D33] mb-3">
               A Tradition of Talent
             </h2>
-            <p className="font-serif italic text-purple-200 text-base mb-3">
+            <p className="font-serif italic text-[#4B2A7B] text-base mb-3">
               &ldquo;Meticulous Legal Craftsmanship & Steadfast Courtroom Advocacy&rdquo;
             </p>
-            <p className="text-xs sm:text-sm text-[#faf7fc]/80 font-light leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#2B2D33]/80 font-light leading-relaxed">
               Serving corporate entities, families, and individuals throughout Malaysia with transparent counsel and relentless trial execution.
             </p>
           </div>
@@ -103,24 +103,24 @@ export default async function PracticesPage() {
                 <Link
                   key={idx}
                   href={`/practices/${area.slug}`}
-                  className="group block p-6 rounded-xl border border-white/15 bg-white/[0.02] hover:border-purple-400/60 hover:bg-white/[0.06] transition-all duration-300"
+                  className="group block p-6 rounded-xl border border-[#E5DFD3] bg-white hover:border-[#4B2A7B] hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex items-start justify-between gap-4 mb-4">
-                    <div className="p-2.5 rounded-lg border border-white/15 text-white group-hover:text-purple-300 group-hover:border-purple-400 transition-colors">
+                    <div className="p-2.5 rounded-lg border border-[#E5DFD3] bg-[#FAF8F2] text-[#4B2A7B] group-hover:bg-[#4B2A7B] group-hover:text-white transition-colors">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-xs font-mono text-white/40">0{idx + 1}</span>
+                    <span className="text-xs font-mono text-[#4B2A7B]/60">0{idx + 1}</span>
                   </div>
 
-                  <h3 className="font-serif text-lg font-bold text-white group-hover:text-purple-200 transition-colors mb-2">
+                  <h3 className="font-serif text-lg font-bold text-[#2B2D33] group-hover:text-[#4B2A7B] transition-colors mb-2">
                     {area.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#faf7fc]/75 leading-relaxed font-light line-clamp-3 mb-4">
+                  <p className="text-xs sm:text-sm text-[#2B2D33]/75 leading-relaxed font-light line-clamp-3 mb-4">
                     {area.description}
                   </p>
 
-                  <div className="flex items-center gap-1.5 text-xs uppercase font-bold tracking-wider text-purple-300 group-hover:translate-x-1 transition-transform">
+                  <div className="flex items-center gap-1.5 text-xs uppercase font-bold tracking-wider text-[#4B2A7B] group-hover:text-[#3A1F60] group-hover:translate-x-1 transition-transform">
                     <span>View Discipline Details</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </div>
@@ -132,17 +132,17 @@ export default async function PracticesPage() {
       </section>
 
       {/* 2. Full Directory of Practice Disciplines (Light Section) */}
-      <section className="py-20 lg:py-28 bg-[#f8fafc] text-[#0F1F3D] border-b border-slate-200">
+      <section className="py-20 lg:py-28 bg-[#FAF8F2] text-[#2B2D33] border-b border-[#E5DFD3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-[0.2em] mb-2">
-              <Briefcase className="w-3.5 h-3.5 text-indigo-600" />
+            <div className="inline-flex items-center gap-2 text-[#4B2A7B] text-xs font-bold uppercase tracking-[0.2em] mb-2">
+              <Briefcase className="w-3.5 h-3.5 text-[#4B2A7B]" />
               <span>Full Practice Directory</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#0F1F3D]">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2B2D33]">
               All Legal Practice Areas & Statutory Scopes
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 mt-2 font-light">
+            <p className="text-xs sm:text-sm text-[#2B2D33]/70 mt-2 font-light">
               Detailed procedural frameworks, preparation checklists, and statutory references.
             </p>
           </div>
@@ -154,12 +154,12 @@ export default async function PracticesPage() {
           </div>
 
           {/* Consultation Banner */}
-          <div className="mt-16 p-6 sm:p-8 bg-white border border-slate-200 rounded-lg shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div className="mt-16 p-6 sm:p-8 bg-white border border-[#E5DFD3] rounded-lg shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#0F1F3D]">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#2B2D33]">
                 Need Legal Guidance on a Matter?
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 mt-1">
+              <p className="text-xs sm:text-sm text-[#2B2D33]/70 mt-1">
                 Consult with Lincoln’s Inn Barrister & High Court Advocate Ava Rachel Low.
               </p>
             </div>

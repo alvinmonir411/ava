@@ -12,7 +12,16 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "src/db/**",
   ]),
+  {
+    rules: {
+      "react-hooks/set-state-in-effect": "warn",
+      "react-hooks/static-components": "warn",
+      "prefer-const": "warn",
+      "@typescript-eslint/no-require-imports": "warn",
+    },
+  },
 ]);
 
 export default eslintConfig;

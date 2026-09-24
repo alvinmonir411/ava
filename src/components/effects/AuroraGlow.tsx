@@ -16,9 +16,9 @@ export default function AuroraGlow({
   rounded = 'rounded-2xl',
 }: AuroraGlowProps) {
   const glowStyles = {
-    gold: 'from-[#e5c777]/40 via-[#c6a052]/20 to-transparent',
-    violet: 'from-[#7928ca]/40 via-[#3b174f]/20 to-transparent',
-    multi: 'from-[#c6a052]/35 via-[#7928ca]/30 to-[#3b82f6]/25',
+    gold: 'from-[#4B2A7B]/40 via-[#3A1F60]/20 to-transparent',
+    violet: 'from-[#4B2A7B]/40 via-[#3A1F60]/20 to-transparent',
+    multi: 'from-[#4B2A7B]/35 via-[#3A1F60]/30 to-[#4B2A7B]/15',
   };
 
   return (

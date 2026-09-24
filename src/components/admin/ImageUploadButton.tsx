@@ -75,16 +75,16 @@ export default function ImageUploadButton({
           type="button"
           onClick={triggerInput}
           disabled={isUploading}
-          className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#1B2F57] hover:bg-[#253F75] text-[#CFA76F] border border-[#B8935A]/40 transition-all flex items-center gap-1.5 shadow-sm disabled:opacity-50 cursor-pointer"
+          className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#4B2A7B] hover:bg-[#3A1F60] text-white border border-[#4B2A7B] transition-all flex items-center gap-1.5 shadow-xs disabled:opacity-50 cursor-pointer"
         >
           {isUploading ? (
             <>
-              <Loader2 className="w-3.5 h-3.5 animate-spin text-[#CFA76F]" />
+              <Loader2 className="w-3.5 h-3.5 animate-spin text-white" />
               <span>Uploading to Cloudinary...</span>
             </>
           ) : (
             <>
-              <Upload className="w-3.5 h-3.5 text-[#CFA76F]" />
+              <Upload className="w-3.5 h-3.5 text-white" />
               <span>{label}</span>
             </>
           )}
@@ -96,7 +96,7 @@ export default function ImageUploadButton({
           type="button"
           onClick={triggerInput}
           disabled={isUploading}
-          className="p-1.5 rounded-lg bg-[#0A1529] hover:bg-[#1B2F57] text-[#CFA76F] border border-[#B8935A]/30 transition-colors disabled:opacity-50 cursor-pointer"
+          className="p-1.5 rounded-lg bg-white hover:bg-[#FAF8F2] text-[#4B2A7B] border border-[#E5DFD3] hover:border-[#4B2A7B] transition-colors disabled:opacity-50 cursor-pointer shadow-xs"
           title="Upload new image from device"
         >
           {isUploading ? (
@@ -112,22 +112,22 @@ export default function ImageUploadButton({
           onClick={triggerInput}
           className={`border-2 border-dashed rounded-xl p-4 text-center cursor-pointer transition-colors ${
             isUploading
-              ? 'border-[#CFA76F] bg-[#0A1529]/80'
-              : 'border-[#B8935A]/30 hover:border-[#CFA76F] bg-[#0A1529]/40 hover:bg-[#0A1529]/80'
+              ? 'border-[#4B2A7B] bg-[#4B2A7B]/5'
+              : 'border-[#E5DFD3] hover:border-[#4B2A7B] bg-white hover:bg-[#FAF8F2]'
           }`}
         >
           {isUploading ? (
-            <div className="flex items-center justify-center gap-2 text-xs text-[#CFA76F] font-semibold">
+            <div className="flex items-center justify-center gap-2 text-xs text-[#4B2A7B] font-semibold">
               <Loader2 className="w-4 h-4 animate-spin" />
               <span>Uploading image to Cloudinary...</span>
             </div>
           ) : (
             <div className="flex flex-col items-center gap-1.5">
-              <Upload className="w-5 h-5 text-[#CFA76F]" />
-              <span className="text-xs font-bold text-white">
+              <Upload className="w-5 h-5 text-[#4B2A7B]" />
+              <span className="text-xs font-bold text-[#2B2D33]">
                 Click or Drop to Upload New Photo
               </span>
-              <span className="text-[10px] text-white/50">
+              <span className="text-[10px] text-[#2B2D33]/60">
                 Directly uploads to Cloudinary CDN (JPG, PNG, WebP)
               </span>
             </div>

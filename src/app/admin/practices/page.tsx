@@ -178,16 +178,16 @@ export default function AdminPracticesPage() {
       <div className="p-6 sm:p-8 max-w-7xl w-full mx-auto space-y-10">
         {/* Section 1: Core Practice Disciplines (Top 6) */}
         <div className="space-y-4">
-          <div className="flex items-center justify-between border-b border-[#B8935A]/30 pb-3">
+          <div className="flex items-center justify-between border-b border-[#E5DFD3] pb-3">
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#CFA76F]">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#4B2A7B]">
                 Priority Section (1–6)
               </span>
-              <h2 className="font-serif text-xl font-bold text-white">
+              <h2 className="font-serif text-xl font-bold text-[#2B2D33]">
                 Core Practice Disciplines (6)
               </h2>
             </div>
-            <span className="text-xs text-white/60">
+            <span className="text-xs text-[#2B2D33]/60">
               Shown first in navigation & directory
             </span>
           </div>
@@ -196,10 +196,10 @@ export default function AdminPracticesPage() {
             {corePractices.map((practice, idx) => (
               <div
                 key={practice.slug}
-                className="bg-[#0A1529] rounded-2xl border border-[#B8935A]/30 overflow-hidden shadow-lg hover:border-[#B8935A]/60 transition-all flex flex-col"
+                className="bg-white rounded-2xl border border-[#E5DFD3] overflow-hidden shadow-xs hover:border-[#4B2A7B]/40 transition-all flex flex-col"
               >
                 {/* Hero Thumbnail */}
-                <div className="relative h-44 w-full bg-[#0F1F3D]">
+                <div className="relative h-44 w-full bg-[#FAF8F2]">
                   <Image
                     src={practice.heroImage}
                     alt={practice.title}
@@ -207,7 +207,7 @@ export default function AdminPracticesPage() {
                     sizes="(max-width: 1024px) 100vw, 33vw"
                     className="object-cover brightness-90"
                   />
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#0A1529]/90 backdrop-blur-md border border-[#B8935A]/40 text-[10px] font-bold text-[#CFA76F]">
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-md border border-[#E5DFD3] text-[10px] font-bold text-[#4B2A7B]">
                     Core #{idx + 1}
                   </div>
                 </div>
@@ -215,24 +215,24 @@ export default function AdminPracticesPage() {
                 {/* Content */}
                 <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
                   <div>
-                    <h3 className="font-serif text-base font-bold text-white leading-tight">
+                    <h3 className="font-serif text-base font-bold text-[#2B2D33] leading-tight">
                       {practice.title}
                     </h3>
-                    <p className="text-xs text-[#CFA76F] font-medium line-clamp-1 mt-1">
+                    <p className="text-xs text-[#4B2A7B] font-medium line-clamp-1 mt-1">
                       {practice.tagline}
                     </p>
-                    <p className="text-xs text-white/70 line-clamp-2 mt-2 leading-relaxed">
+                    <p className="text-xs text-[#2B2D33]/70 line-clamp-2 mt-2 leading-relaxed">
                       {practice.shortDescription}
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-[#B8935A]/20 flex items-center justify-between">
+                  <div className="pt-3 border-t border-[#E5DFD3] flex items-center justify-between">
                     <button
                       onClick={() => {
                         setEditingPractice({ ...practice });
                         setActiveModalTab('overview');
                       }}
-                      className="btn-brass px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-sm cursor-pointer"
+                      className="bg-[#4B2A7B] hover:bg-[#3A1F60] text-white px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-xs transition-colors cursor-pointer"
                     >
                       <Edit className="w-3.5 h-3.5" />
                       <span>Edit Content</span>
@@ -241,7 +241,7 @@ export default function AdminPracticesPage() {
                     <Link
                       href={`/practices/${practice.slug}`}
                       target="_blank"
-                      className="text-xs text-white/70 hover:text-[#CFA76F] flex items-center gap-1 font-medium"
+                      className="text-xs text-[#2B2D33]/70 hover:text-[#4B2A7B] flex items-center gap-1 font-medium"
                     >
                       <span>Public Page</span>
                       <ExternalLink className="w-3 h-3" />
@@ -255,16 +255,16 @@ export default function AdminPracticesPage() {
 
         {/* Section 2: Specialized Service Offerings & Scope (Following 12) */}
         <div className="space-y-4">
-          <div className="flex items-center justify-between border-b border-[#B8935A]/30 pb-3">
+          <div className="flex items-center justify-between border-b border-[#E5DFD3] pb-3">
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#CFA76F]">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#4B2A7B]">
                 Secondary Scope (7–18)
               </span>
-              <h2 className="font-serif text-xl font-bold text-white">
+              <h2 className="font-serif text-xl font-bold text-[#2B2D33]">
                 Specialized Service Offerings & Scope (12)
               </h2>
             </div>
-            <span className="text-xs text-white/60">
+            <span className="text-xs text-[#2B2D33]/60">
               Specific claims and dispute procedures
             </span>
           </div>
@@ -273,10 +273,10 @@ export default function AdminPracticesPage() {
             {serviceOfferings.map((practice, idx) => (
               <div
                 key={practice.slug}
-                className="bg-[#0A1529] rounded-2xl border border-[#B8935A]/30 overflow-hidden shadow-lg hover:border-[#B8935A]/60 transition-all flex flex-col"
+                className="bg-white rounded-2xl border border-[#E5DFD3] overflow-hidden shadow-xs hover:border-[#4B2A7B]/40 transition-all flex flex-col"
               >
                 {/* Hero Thumbnail */}
-                <div className="relative h-44 w-full bg-[#0F1F3D]">
+                <div className="relative h-44 w-full bg-[#FAF8F2]">
                   <Image
                     src={practice.heroImage}
                     alt={practice.title}
@@ -284,7 +284,7 @@ export default function AdminPracticesPage() {
                     sizes="(max-width: 1024px) 100vw, 33vw"
                     className="object-cover brightness-90"
                   />
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#0A1529]/90 backdrop-blur-md border border-[#B8935A]/40 text-[10px] font-bold text-white/80">
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-md border border-[#E5DFD3] text-[10px] font-bold text-[#4B2A7B]">
                     Scope #{idx + 7}
                   </div>
                 </div>
@@ -292,24 +292,24 @@ export default function AdminPracticesPage() {
                 {/* Content */}
                 <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
                   <div>
-                    <h3 className="font-serif text-base font-bold text-white leading-tight">
+                    <h3 className="font-serif text-base font-bold text-[#2B2D33] leading-tight">
                       {practice.title}
                     </h3>
-                    <p className="text-xs text-[#CFA76F] font-medium line-clamp-1 mt-1">
+                    <p className="text-xs text-[#4B2A7B] font-medium line-clamp-1 mt-1">
                       {practice.tagline}
                     </p>
-                    <p className="text-xs text-white/70 line-clamp-2 mt-2 leading-relaxed">
+                    <p className="text-xs text-[#2B2D33]/70 line-clamp-2 mt-2 leading-relaxed">
                       {practice.shortDescription}
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-[#B8935A]/20 flex items-center justify-between">
+                  <div className="pt-3 border-t border-[#E5DFD3] flex items-center justify-between">
                     <button
                       onClick={() => {
                         setEditingPractice({ ...practice });
                         setActiveModalTab('overview');
                       }}
-                      className="btn-brass px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-sm cursor-pointer"
+                      className="bg-[#4B2A7B] hover:bg-[#3A1F60] text-white px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-xs transition-colors cursor-pointer"
                     >
                       <Edit className="w-3.5 h-3.5" />
                       <span>Edit Content</span>
@@ -318,7 +318,7 @@ export default function AdminPracticesPage() {
                     <Link
                       href={`/practices/${practice.slug}`}
                       target="_blank"
-                      className="text-xs text-white/70 hover:text-[#CFA76F] flex items-center gap-1 font-medium"
+                      className="text-xs text-[#2B2D33]/70 hover:text-[#4B2A7B] flex items-center gap-1 font-medium"
                     >
                       <span>Public Page</span>
                       <ExternalLink className="w-3 h-3" />
@@ -333,20 +333,20 @@ export default function AdminPracticesPage() {
 
       {/* STATE-OF-THE-ART LUXURY PRACTICE EDITOR MODAL */}
       {editingPractice && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#040812]/85 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="w-full max-w-4xl bg-gradient-to-b from-[#0D1B33] via-[#0A1529] to-[#070E1C] border-2 border-[#B8935A]/50 rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8),0_0_35px_rgba(184,147,90,0.15)] flex flex-col max-h-[92vh] overflow-hidden relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#2B2D33]/60 backdrop-blur-xs animate-in fade-in duration-200">
+          <div className="w-full max-w-4xl bg-white border border-[#E5DFD3] rounded-3xl shadow-2xl flex flex-col max-h-[92vh] overflow-hidden relative">
             
-            {/* Top Gold Filigree Accent Ribbon */}
-            <div className="h-1.5 bg-gradient-to-r from-[#8C6D38] via-[#F4D085] to-[#8C6D38] w-full shrink-0" />
+            {/* Top Accent Ribbon */}
+            <div className="h-1.5 bg-gradient-to-r from-[#3A1F60] via-[#4B2A7B] to-[#3A1F60] w-full shrink-0" />
 
             {/* Modal Header */}
-            <div className="p-5 sm:p-6 border-b border-[#B8935A]/25 bg-[#0F1F3D]/60 flex items-start justify-between gap-4 shrink-0">
+            <div className="p-5 sm:p-6 border-b border-[#E5DFD3] bg-[#FAF8F2] flex items-start justify-between gap-4 shrink-0">
               <div className="space-y-1">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1B2F57]/80 border border-[#B8935A]/40 text-[#CFA76F] text-[10px] font-bold uppercase tracking-widest">
-                  <Scale className="w-3.5 h-3.5 text-[#CFA76F]" />
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4B2A7B]/10 border border-[#4B2A7B]/20 text-[#4B2A7B] text-[10px] font-bold uppercase tracking-widest">
+                  <Scale className="w-3.5 h-3.5 text-[#4B2A7B]" />
                   <span>Editing Practice Discipline</span>
                 </div>
-                <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight">
+                <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-[#2B2D33] tracking-tight">
                   {editingPractice.title}
                 </h3>
               </div>
@@ -354,19 +354,19 @@ export default function AdminPracticesPage() {
               <button
                 type="button"
                 onClick={() => setEditingPractice(null)}
-                className="p-2 rounded-xl text-white/60 hover:text-white hover:bg-[#1B2F57] border border-transparent hover:border-[#B8935A]/30 transition-all cursor-pointer"
+                className="p-2 rounded-xl text-[#2B2D33]/60 hover:text-[#2B2D33] hover:bg-white border border-transparent hover:border-[#E5DFD3] transition-all cursor-pointer"
                 title="Close Modal"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Modal Navigation Tabs with Left/Right controls and Gold Scrollbar */}
-            <div className="relative border-b border-[#B8935A]/20 bg-[#0A1529] flex items-center">
+            {/* Modal Navigation Tabs */}
+            <div className="relative border-b border-[#E5DFD3] bg-white flex items-center">
               <button
                 type="button"
                 onClick={() => scrollModalTabs('left')}
-                className="p-2 text-[#CFA76F] hover:text-white hover:bg-[#0F1F3D] shrink-0 border-r border-[#B8935A]/20 cursor-pointer"
+                className="p-2 text-[#4B2A7B] hover:text-[#2B2D33] hover:bg-[#FAF8F2] shrink-0 border-r border-[#E5DFD3] cursor-pointer"
                 title="Scroll Left"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -374,7 +374,7 @@ export default function AdminPracticesPage() {
 
               <div
                 ref={modalTabsRef}
-                className="px-3 sm:px-4 py-2.5 flex items-center gap-2 overflow-x-auto gold-scrollbar flex-1 scroll-smooth"
+                className="px-3 sm:px-4 py-2.5 flex items-center gap-2 overflow-x-auto flex-1 scroll-smooth"
               >
                 {[
                   { key: 'overview' as const, label: 'Overview & Narrative', icon: FileText },
@@ -393,8 +393,8 @@ export default function AdminPracticesPage() {
                       onClick={() => handleSelectModalTab(tab.key)}
                       className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${
                         isActive
-                          ? 'bg-gradient-to-r from-[#B8935A] to-[#967440] text-[#0F1F3D] font-extrabold shadow-md ring-1 ring-[#DCC280]/60'
-                          : 'text-white/70 hover:text-white hover:bg-[#0F1F3D]'
+                          ? 'bg-[#4B2A7B] text-white font-extrabold shadow-xs'
+                          : 'text-[#2B2D33]/70 hover:text-[#2B2D33] hover:bg-[#FAF8F2]'
                       }`}
                     >
                       <Icon className="w-3.5 h-3.5" />
@@ -407,7 +407,7 @@ export default function AdminPracticesPage() {
               <button
                 type="button"
                 onClick={() => scrollModalTabs('right')}
-                className="p-2 text-[#CFA76F] hover:text-white hover:bg-[#0F1F3D] shrink-0 border-l border-[#B8935A]/20 cursor-pointer"
+                className="p-2 text-[#4B2A7B] hover:text-[#2B2D33] hover:bg-[#FAF8F2] shrink-0 border-l border-[#E5DFD3] cursor-pointer"
                 title="Scroll Right"
               >
                 <ChevronRight className="w-4 h-4" />
@@ -417,7 +417,7 @@ export default function AdminPracticesPage() {
             {/* Scrollable Form Body */}
             <form onSubmit={handleSave} className="flex-1 overflow-y-auto p-5 sm:p-6 space-y-6">
               {savedSuccess && (
-                <div className="p-3.5 bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 text-xs font-bold text-center rounded-xl animate-in fade-in shadow-md">
+                <div className="p-3.5 bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-bold text-center rounded-xl animate-in fade-in shadow-xs">
                   ✓ Practice Area Content Updated & Published Live Successfully!
                 </div>
               )}
@@ -427,7 +427,7 @@ export default function AdminPracticesPage() {
                 <div className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-white/90 mb-1.5">
+                      <label className="block text-xs font-bold text-[#2B2D33] mb-1.5">
                         Practice Title (English)
                       </label>
                       <input
@@ -437,12 +437,12 @@ export default function AdminPracticesPage() {
                         onChange={(e) =>
                           setEditingPractice({ ...editingPractice, title: e.target.value })
                         }
-                        className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-xs text-white focus:outline-none focus:border-[#CFA76F] focus:ring-1 focus:ring-[#CFA76F]"
+                        className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-xs text-[#2B2D33] placeholder-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-white/90 mb-1.5">
+                      <label className="block text-xs font-bold text-[#2B2D33] mb-1.5">
                         Chinese Practice Title (Optional)
                       </label>
                       <input
@@ -452,13 +452,13 @@ export default function AdminPracticesPage() {
                           setEditingPractice({ ...editingPractice, chineseTitle: e.target.value })
                         }
                         placeholder="e.g. 合同起草与商业咨询"
-                        className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-xs text-white focus:outline-none focus:border-[#CFA76F] focus:ring-1 focus:ring-[#CFA76F]"
+                        className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-xs text-[#2B2D33] placeholder-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-white/90 mb-1.5">
+                    <label className="block text-xs font-bold text-[#2B2D33] mb-1.5">
                       Tagline / Subheading
                     </label>
                     <input
@@ -469,12 +469,12 @@ export default function AdminPracticesPage() {
                         setEditingPractice({ ...editingPractice, tagline: e.target.value })
                       }
                       placeholder="e.g. Bespoke Business Agreements & Strategic Commercial Risk Guidance"
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-xs text-white focus:outline-none focus:border-[#CFA76F] focus:ring-1 focus:ring-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-xs text-[#2B2D33] placeholder-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-white/90 mb-1.5">
+                    <label className="block text-xs font-bold text-[#2B2D33] mb-1.5">
                       Short Summary Description (Displayed on cards & preview grids)
                     </label>
                     <textarea
@@ -484,12 +484,12 @@ export default function AdminPracticesPage() {
                       onChange={(e) =>
                         setEditingPractice({ ...editingPractice, shortDescription: e.target.value })
                       }
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-xs text-white focus:outline-none focus:border-[#CFA76F] focus:ring-1 focus:ring-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-xs text-[#2B2D33] placeholder-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-white/90 mb-1.5">
+                    <label className="block text-xs font-bold text-[#2B2D33] mb-1.5">
                       Full Page Comprehensive Legal Narrative
                     </label>
                     <textarea
@@ -499,7 +499,7 @@ export default function AdminPracticesPage() {
                       onChange={(e) =>
                         setEditingPractice({ ...editingPractice, fullDescription: e.target.value })
                       }
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-xs text-white focus:outline-none focus:border-[#CFA76F] focus:ring-1 focus:ring-[#CFA76F] font-mono leading-relaxed"
+                      className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-xs text-[#2B2D33] placeholder-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B] font-mono leading-relaxed"
                     />
                   </div>
                 </div>
@@ -509,20 +509,20 @@ export default function AdminPracticesPage() {
               {activeModalTab === 'media' && (
                 <div className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-                    {/* Left: Big Live Preview Box (5 cols) */}
+                    {/* Left: Live Banner Preview Box (5 cols) */}
                     <div className="md:col-span-5 space-y-2">
-                      <span className="text-xs font-bold text-white/80 block">
+                      <span className="text-xs font-bold text-[#2B2D33] block">
                         Live Active Banner Preview
                       </span>
-                      <div className="relative h-56 w-full rounded-2xl overflow-hidden border-2 border-[#B8935A]/40 bg-[#0F1F3D] group shadow-lg">
+                      <div className="relative h-56 w-full rounded-2xl overflow-hidden border-2 border-[#E5DFD3] bg-[#FAF8F2] group shadow-sm">
                         <Image
                           src={editingPractice.heroImage || PRESET_PRACTICE_HEROES[0].url}
                           alt={editingPractice.title}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1529]/90 via-transparent to-transparent" />
-                        <div className="absolute bottom-2.5 left-2.5 right-2.5 p-2 bg-[#0A1529]/90 border border-[#B8935A]/30 rounded-xl text-[11px] text-white text-center truncate">
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#2B2D33]/60 via-transparent to-transparent" />
+                        <div className="absolute bottom-2.5 left-2.5 right-2.5 p-2 bg-white/95 border border-[#E5DFD3] rounded-xl text-[11px] text-[#2B2D33] font-semibold text-center truncate">
                           {editingPractice.title}
                         </div>
                       </div>
@@ -531,11 +531,11 @@ export default function AdminPracticesPage() {
                     {/* Right: Upload & Presets (7 cols) */}
                     <div className="md:col-span-7 space-y-4">
                       {/* Cloudinary Direct Upload */}
-                      <div className="p-4 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-2xl space-y-2">
-                        <span className="text-xs font-bold text-white block">
+                      <div className="p-4 bg-[#FAF8F2] border border-[#E5DFD3] rounded-2xl space-y-2">
+                        <span className="text-xs font-bold text-[#2B2D33] block">
                           Upload Custom Photo to Cloudinary
                         </span>
-                        <p className="text-[11px] text-white/60">
+                        <p className="text-[11px] text-[#2B2D33]/60">
                           Select any PNG, JPG or WebP image from your computer or phone.
                         </p>
                         <ImageUploadButton
@@ -550,7 +550,7 @@ export default function AdminPracticesPage() {
 
                       {/* Photo URL Input */}
                       <div>
-                        <label className="block text-xs font-bold text-white/90 mb-1.5">
+                        <label className="block text-xs font-bold text-[#2B2D33] mb-1.5">
                           Direct Photography URL
                         </label>
                         <input
@@ -561,13 +561,13 @@ export default function AdminPracticesPage() {
                             setEditingPractice({ ...editingPractice, heroImage: e.target.value })
                           }
                           placeholder="https://res.cloudinary.com/... or https://..."
-                          className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-xs text-white font-mono focus:outline-none focus:border-[#CFA76F]"
+                          className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-xs text-[#2B2D33] font-mono focus:outline-none focus:border-[#4B2A7B]"
                         />
                       </div>
 
                       {/* Curated Presets */}
                       <div className="pt-2">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#CFA76F] block mb-1.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#4B2A7B] block mb-1.5">
                           Or Select Curated Law Preset:
                         </span>
                         <div className="flex flex-wrap gap-1.5">
@@ -578,10 +578,10 @@ export default function AdminPracticesPage() {
                               onClick={() =>
                                 setEditingPractice({ ...editingPractice, heroImage: preset.url })
                               }
-                              className={`px-2.5 py-1 rounded-lg text-[11px] transition-colors ${
+                              className={`px-2.5 py-1 rounded-lg text-[11px] transition-colors cursor-pointer ${
                                 editingPractice.heroImage === preset.url
-                                  ? 'bg-[#B8935A] text-[#0F1F3D] font-bold'
-                                  : 'bg-[#0F1F3D] text-white/70 hover:text-white border border-white/10'
+                                  ? 'bg-[#4B2A7B] text-white font-bold'
+                                  : 'bg-[#FAF8F2] text-[#2B2D33]/70 hover:text-[#2B2D33] border border-[#E5DFD3]'
                               }`}
                             >
                               {preset.name}
@@ -597,19 +597,19 @@ export default function AdminPracticesPage() {
               {/* TAB 3: SCOPE DELIVERABLES */}
               {activeModalTab === 'scope' && (
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-[#B8935A]/20 pb-3">
+                  <div className="flex items-center justify-between border-b border-[#E5DFD3] pb-3">
                     <div>
-                      <h4 className="font-serif text-sm font-bold text-white">
+                      <h4 className="font-serif text-sm font-bold text-[#2B2D33]">
                         Service Scope & Matters Handled
                       </h4>
-                      <p className="text-[11px] text-white/60">
+                      <p className="text-[11px] text-[#2B2D33]/60">
                         Bullet points displayed in the &ldquo;What We Handle&rdquo; section on the live page.
                       </p>
                     </div>
                     <button
                       type="button"
                       onClick={handleAddScopeItem}
-                      className="btn-brass px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shadow-sm cursor-pointer"
+                      className="bg-[#4B2A7B] hover:bg-[#3A1F60] text-white px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shadow-xs transition-colors cursor-pointer"
                     >
                       <Plus className="w-3.5 h-3.5" />
                       <span>Add Item</span>
@@ -618,28 +618,28 @@ export default function AdminPracticesPage() {
 
                   <div className="space-y-2.5">
                     {(!editingPractice.whatWeHandle || editingPractice.whatWeHandle.length === 0) ? (
-                      <div className="p-6 rounded-xl bg-[#0F1F3D]/50 border border-dashed border-[#B8935A]/30 text-center text-xs text-white/50">
+                      <div className="p-6 rounded-xl bg-[#FAF8F2] border border-dashed border-[#E5DFD3] text-center text-xs text-[#2B2D33]/50">
                         No scope items added yet. Click &ldquo;Add Item&rdquo; above.
                       </div>
                     ) : (
                       editingPractice.whatWeHandle.map((item, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center gap-2.5 p-2 bg-[#0F1F3D] border border-[#B8935A]/20 rounded-xl"
+                          className="flex items-center gap-2.5 p-2 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl"
                         >
-                          <span className="w-5 h-5 rounded-full bg-[#1B2F57] text-[#CFA76F] text-[10px] font-bold flex items-center justify-center shrink-0">
+                          <span className="w-5 h-5 rounded-full bg-[#4B2A7B]/10 text-[#4B2A7B] text-[10px] font-bold flex items-center justify-center shrink-0">
                             {idx + 1}
                           </span>
                           <input
                             type="text"
                             value={item}
                             onChange={(e) => handleUpdateScopeItem(idx, e.target.value)}
-                            className="flex-1 px-3 py-1.5 bg-[#0A1529] border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-[#CFA76F]"
+                            className="flex-1 px-3 py-1.5 bg-white border border-[#E5DFD3] rounded-lg text-xs text-[#2B2D33] focus:outline-none focus:border-[#4B2A7B]"
                           />
                           <button
                             type="button"
                             onClick={() => handleRemoveScopeItem(idx)}
-                            className="p-1.5 rounded-lg bg-rose-950/60 text-rose-300 hover:bg-rose-900 border border-rose-500/30 transition-colors"
+                            className="p-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 border border-rose-200 transition-colors"
                             title="Delete Item"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
@@ -654,19 +654,19 @@ export default function AdminPracticesPage() {
               {/* TAB 4: CLIENT FAQS */}
               {activeModalTab === 'faqs' && (
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-[#B8935A]/20 pb-3">
+                  <div className="flex items-center justify-between border-b border-[#E5DFD3] pb-3">
                     <div>
-                      <h4 className="font-serif text-sm font-bold text-white">
+                      <h4 className="font-serif text-sm font-bold text-[#2B2D33]">
                         Practice Frequently Asked Questions
                       </h4>
-                      <p className="text-[11px] text-white/60">
+                      <p className="text-[11px] text-[#2B2D33]/60">
                         Q&A accordion displayed on this specific practice area page.
                       </p>
                     </div>
                     <button
                       type="button"
                       onClick={handleAddFaq}
-                      className="btn-brass px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shadow-sm cursor-pointer"
+                      className="bg-[#4B2A7B] hover:bg-[#3A1F60] text-white px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shadow-xs transition-colors cursor-pointer"
                     >
                       <Plus className="w-3.5 h-3.5" />
                       <span>Add FAQ</span>
@@ -675,23 +675,23 @@ export default function AdminPracticesPage() {
 
                   <div className="space-y-4">
                     {(!editingPractice.faqs || editingPractice.faqs.length === 0) ? (
-                      <div className="p-6 rounded-xl bg-[#0F1F3D]/50 border border-dashed border-[#B8935A]/30 text-center text-xs text-white/50">
+                      <div className="p-6 rounded-xl bg-[#FAF8F2] border border-dashed border-[#E5DFD3] text-center text-xs text-[#2B2D33]/50">
                         No FAQs added yet. Click &ldquo;Add FAQ&rdquo; above.
                       </div>
                     ) : (
                       editingPractice.faqs.map((faq, idx) => (
                         <div
                           key={idx}
-                          className="p-4 bg-[#0F1F3D] border border-[#B8935A]/25 rounded-2xl space-y-3"
+                          className="p-4 bg-[#FAF8F2] border border-[#E5DFD3] rounded-2xl space-y-3"
                         >
-                          <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-2">
-                            <span className="text-[11px] font-bold text-[#CFA76F] uppercase tracking-wider">
+                          <div className="flex items-center justify-between gap-2 border-b border-[#E5DFD3] pb-2">
+                            <span className="text-[11px] font-bold text-[#4B2A7B] uppercase tracking-wider">
                               FAQ #{idx + 1}
                             </span>
                             <button
                               type="button"
                               onClick={() => handleRemoveFaq(idx)}
-                              className="p-1 rounded-lg text-rose-300 hover:bg-rose-950 transition-colors"
+                              className="p-1 rounded-lg text-rose-600 hover:bg-rose-50 transition-colors"
                               title="Delete FAQ"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
@@ -699,7 +699,7 @@ export default function AdminPracticesPage() {
                           </div>
 
                           <div>
-                            <label className="block text-[11px] font-bold text-white/80 mb-1">
+                            <label className="block text-[11px] font-bold text-[#2B2D33] mb-1">
                               Question:
                             </label>
                             <input
@@ -707,12 +707,12 @@ export default function AdminPracticesPage() {
                               value={faq.question}
                               onChange={(e) => handleUpdateFaq(idx, 'question', e.target.value)}
                               placeholder="e.g. How long does contract drafting typically take?"
-                              className="w-full px-3 py-2 bg-[#0A1529] border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-[#CFA76F]"
+                              className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-lg text-xs text-[#2B2D33] focus:outline-none focus:border-[#4B2A7B]"
                             />
                           </div>
 
                           <div>
-                            <label className="block text-[11px] font-bold text-white/80 mb-1">
+                            <label className="block text-[11px] font-bold text-[#2B2D33] mb-1">
                               Answer:
                             </label>
                             <textarea
@@ -720,7 +720,7 @@ export default function AdminPracticesPage() {
                               value={faq.answer}
                               onChange={(e) => handleUpdateFaq(idx, 'answer', e.target.value)}
                               placeholder="Detailed response explaining timeline, statutory procedures..."
-                              className="w-full px-3 py-2 bg-[#0A1529] border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-[#CFA76F]"
+                              className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-lg text-xs text-[#2B2D33] focus:outline-none focus:border-[#4B2A7B]"
                             />
                           </div>
                         </div>
@@ -733,25 +733,25 @@ export default function AdminPracticesPage() {
               {/* TAB 5: SEO & META */}
               {activeModalTab === 'seo' && (
                 <div className="space-y-5">
-                  <div className="p-4 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-2xl space-y-2">
-                    <span className="text-xs font-bold text-white block">
+                  <div className="p-4 bg-[#FAF8F2] border border-[#E5DFD3] rounded-2xl space-y-2">
+                    <span className="text-xs font-bold text-[#2B2D33] block">
                       Google Search Snippet Preview
                     </span>
-                    <div className="p-3 bg-white rounded-xl text-left space-y-1">
-                      <span className="text-xs text-[#1a0dab] font-semibold hover:underline block truncate">
+                    <div className="p-3 bg-white border border-[#E5DFD3] rounded-xl text-left space-y-1">
+                      <span className="text-xs text-[#4B2A7B] font-semibold hover:underline block truncate">
                         {editingPractice.seoTitle || `${editingPractice.title} | Low Wah Chin & Co.`}
                       </span>
-                      <span className="text-[10px] text-[#006621] block">
+                      <span className="text-[10px] text-emerald-700 block">
                         https://lowwahchin.com/practices/{editingPractice.slug}
                       </span>
-                      <p className="text-xs text-[#545454] line-clamp-2">
+                      <p className="text-xs text-[#2B2D33]/70 line-clamp-2">
                         {editingPractice.seoDescription || editingPractice.shortDescription}
                       </p>
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-white/90 mb-1.5">
+                    <label className="block text-xs font-bold text-[#2B2D33] mb-1.5">
                       SEO Meta Title Tag
                     </label>
                     <input
@@ -761,12 +761,12 @@ export default function AdminPracticesPage() {
                         setEditingPractice({ ...editingPractice, seoTitle: e.target.value })
                       }
                       placeholder="e.g. Contract Drafting & Commercial Advisory | Low Wah Chin & Co."
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-xs text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-xs text-[#2B2D33] placeholder-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-white/90 mb-1.5">
+                    <label className="block text-xs font-bold text-[#2B2D33] mb-1.5">
                       SEO Meta Description Tag
                     </label>
                     <textarea
@@ -776,18 +776,18 @@ export default function AdminPracticesPage() {
                         setEditingPractice({ ...editingPractice, seoDescription: e.target.value })
                       }
                       placeholder="e.g. Experienced contract lawyers in Kuala Lumpur drafting commercial agreements, MOUs, NDAs..."
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-xs text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-xs text-[#2B2D33] placeholder-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B]"
                     />
                   </div>
                 </div>
               )}
 
               {/* Sticky Modal Action Footer */}
-              <div className="sticky bottom-0 pt-4 pb-1 border-t border-[#B8935A]/25 bg-[#0A1529]/95 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div className="sticky bottom-0 pt-4 pb-1 border-t border-[#E5DFD3] bg-white/95 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-3">
                 <Link
                   href={`/practices/${editingPractice.slug}`}
                   target="_blank"
-                  className="text-xs text-[#CFA76F] hover:underline flex items-center gap-1 font-semibold self-start sm:self-auto"
+                  className="text-xs text-[#4B2A7B] hover:underline flex items-center gap-1 font-semibold self-start sm:self-auto"
                 >
                   <span>Preview Live Practice Page</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -797,7 +797,7 @@ export default function AdminPracticesPage() {
                   <button
                     type="button"
                     onClick={() => setEditingPractice(null)}
-                    className="px-5 py-2.5 rounded-xl bg-[#1B2F57] hover:bg-[#253F75] text-white text-xs font-semibold transition-colors cursor-pointer"
+                    className="px-5 py-2.5 rounded-xl bg-[#FAF8F2] hover:bg-white text-[#2B2D33] border border-[#E5DFD3] text-xs font-semibold transition-colors cursor-pointer"
                   >
                     Cancel
                   </button>
@@ -805,7 +805,7 @@ export default function AdminPracticesPage() {
                   <button
                     type="submit"
                     disabled={isPending}
-                    className="btn-brass px-7 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md disabled:opacity-50 cursor-pointer"
+                    className="bg-[#4B2A7B] hover:bg-[#3A1F60] text-white px-7 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-xs disabled:opacity-50 cursor-pointer transition-colors"
                   >
                     <Save className="w-4 h-4" />
                     <span>{isPending ? 'Publishing Changes...' : 'Save & Publish Updates'}</span>

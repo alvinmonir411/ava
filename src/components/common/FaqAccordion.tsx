@@ -29,29 +29,29 @@ export default function FaqAccordion({ items, className = '' }: FaqAccordionProp
             key={index}
             className={`border rounded-2xl transition-all duration-300 overflow-hidden ${
               isOpen
-                ? 'bg-white border-indigo-600 shadow-md ring-1 ring-indigo-500/30'
-                : 'bg-white/90 border-slate-200 hover:border-indigo-400'
+                ? 'bg-white border-[#4B2A7B] shadow-md ring-1 ring-[#4B2A7B]/30'
+                : 'bg-white border-[#E5DFD3] hover:border-[#4B2A7B]/40'
             }`}
           >
             <button
               type="button"
               onClick={() => toggle(index)}
               aria-expanded={isOpen}
-              className="w-full py-4 sm:py-5 px-5 sm:px-6 text-left flex items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 cursor-pointer"
+              className="w-full py-4 sm:py-5 px-5 sm:px-6 text-left flex items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4B2A7B] cursor-pointer"
             >
               <span className={`font-serif text-base sm:text-lg font-bold pr-2 transition-colors ${
-                isOpen ? 'text-indigo-600' : 'text-[#22122b]'
+                isOpen ? 'text-[#4B2A7B]' : 'text-[#2B2D33]'
               }`}>
                 {item.question}
               </span>
               <ChevronDown
-                className={`w-5 h-5 text-indigo-600 shrink-0 transition-transform duration-300 ${
-                  isOpen ? 'rotate-180 text-indigo-600' : ''
+                className={`w-5 h-5 text-[#4B2A7B] shrink-0 transition-transform duration-300 ${
+                  isOpen ? 'rotate-180 text-[#4B2A7B]' : ''
                 }`}
               />
             </button>
             {isOpen && (
-              <div className="px-5 sm:px-6 pb-5 pt-1 text-sm sm:text-base leading-relaxed text-[#595355] border-t border-slate-100">
+              <div className="px-5 sm:px-6 pb-5 pt-1 text-sm sm:text-base leading-relaxed text-[#2B2D33]/80 border-t border-[#E5DFD3]">
                 <p className="whitespace-pre-line">{item.answer}</p>
               </div>
             )}

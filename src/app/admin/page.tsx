@@ -41,7 +41,7 @@ export default async function AdminDashboardPage() {
         action={
           <Link
             href="/admin/inquiries"
-            className="btn-brass px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-md"
+            className="bg-[#4B2A7B] hover:bg-[#3A1F60] text-white px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-xs transition-colors"
           >
             <Inbox className="w-3.5 h-3.5" />
             <span>View Inquiries ({inquiries.length})</span>
@@ -53,73 +53,73 @@ export default async function AdminDashboardPage() {
         {/* Top KPI Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {/* Card 1: Total Leads */}
-          <div className="bg-[#0A1529] p-6 rounded-2xl border border-[#B8935A]/30 shadow-lg">
+          <div className="bg-white p-6 rounded-2xl border border-[#E5DFD3] shadow-xs">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-10 h-10 rounded-xl bg-[#B8935A]/20 text-[#CFA76F] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-[#4B2A7B]/10 text-[#4B2A7B] flex items-center justify-center">
                 <Inbox className="w-5 h-5" />
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded-full border border-emerald-500/30">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
                 Live CRM
               </span>
             </div>
-            <span className="text-3xl font-bold font-serif text-white block">
+            <span className="text-3xl font-bold font-serif text-[#2B2D33] block">
               {inquiries.length}
             </span>
-            <span className="text-xs text-white/70 font-medium block mt-1">
+            <span className="text-xs text-[#2B2D33]/70 font-medium block mt-1">
               Total Inquiries Received
             </span>
           </div>
 
           {/* Card 2: New Pending */}
-          <div className="bg-[#0A1529] p-6 rounded-2xl border border-[#B8935A]/30 shadow-lg">
+          <div className="bg-white p-6 rounded-2xl border border-[#E5DFD3] shadow-xs">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center">
                 <AlertCircle className="w-5 h-5" />
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-rose-300 bg-rose-950/60 px-2.5 py-1 rounded-full border border-rose-500/30">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-rose-700 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-200">
                 Action Required
               </span>
             </div>
-            <span className="text-3xl font-bold font-serif text-white block">
+            <span className="text-3xl font-bold font-serif text-[#2B2D33] block">
               {newInquiries.length}
             </span>
-            <span className="text-xs text-white/70 font-medium block mt-1">
+            <span className="text-xs text-[#2B2D33]/70 font-medium block mt-1">
               New Pending Inquiries
             </span>
           </div>
 
           {/* Card 3: Practice Areas */}
-          <div className="bg-[#0A1529] p-6 rounded-2xl border border-[#B8935A]/30 shadow-lg">
+          <div className="bg-white p-6 rounded-2xl border border-[#E5DFD3] shadow-xs">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-10 h-10 rounded-xl bg-[#B8935A]/20 text-[#CFA76F] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-[#4B2A7B]/10 text-[#4B2A7B] flex items-center justify-center">
                 <Scale className="w-5 h-5" />
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#CFA76F] bg-[#B8935A]/15 px-2.5 py-1 rounded-full border border-[#B8935A]/30">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#4B2A7B] bg-[#4B2A7B]/10 px-2.5 py-1 rounded-full border border-[#4B2A7B]/20">
                 6 Core + 12 Scope
               </span>
             </div>
-            <span className="text-3xl font-bold font-serif text-white block">
+            <span className="text-3xl font-bold font-serif text-[#2B2D33] block">
               {practices.length}
             </span>
-            <span className="text-xs text-white/70 font-medium block mt-1">
+            <span className="text-xs text-[#2B2D33]/70 font-medium block mt-1">
               Active Practice Disciplines
             </span>
           </div>
 
           {/* Card 4: Articles */}
-          <div className="bg-[#0A1529] p-6 rounded-2xl border border-[#B8935A]/30 shadow-lg">
+          <div className="bg-white p-6 rounded-2xl border border-[#E5DFD3] shadow-xs">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-10 h-10 rounded-xl bg-[#B8935A]/20 text-[#CFA76F] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-[#4B2A7B]/10 text-[#4B2A7B] flex items-center justify-center">
                 <FileText className="w-5 h-5" />
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-sky-400 bg-sky-950/60 px-2.5 py-1 rounded-full border border-sky-500/30">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#4B2A7B] bg-[#4B2A7B]/10 px-2.5 py-1 rounded-full border border-[#4B2A7B]/20">
                 Published
               </span>
             </div>
-            <span className="text-3xl font-bold font-serif text-white block">
+            <span className="text-3xl font-bold font-serif text-[#2B2D33] block">
               {articles.length}
             </span>
-            <span className="text-xs text-white/70 font-medium block mt-1">
+            <span className="text-xs text-[#2B2D33]/70 font-medium block mt-1">
               Published Legal Insights
             </span>
           </div>
@@ -128,19 +128,19 @@ export default async function AdminDashboardPage() {
         {/* Two-Column Grid: Recent Inquiries & Quick Management */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Recent Inquiries List (7 cols) */}
-          <div className="lg:col-span-7 bg-[#0A1529] border border-[#B8935A]/30 rounded-3xl p-6 shadow-xl space-y-5">
-            <div className="flex items-center justify-between border-b border-[#B8935A]/20 pb-4">
+          <div className="lg:col-span-7 bg-white border border-[#E5DFD3] rounded-3xl p-6 shadow-xs space-y-5">
+            <div className="flex items-center justify-between border-b border-[#E5DFD3] pb-4">
               <div>
-                <h2 className="font-serif text-lg font-bold text-white">
+                <h2 className="font-serif text-lg font-bold text-[#2B2D33]">
                   Recent Consultation Leads
                 </h2>
-                <p className="text-xs text-white/60">
+                <p className="text-xs text-[#2B2D33]/60">
                   Latest client inquiries from website booking forms
                 </p>
               </div>
               <Link
                 href="/admin/inquiries"
-                className="text-xs text-[#CFA76F] hover:underline font-semibold flex items-center gap-1"
+                className="text-xs text-[#4B2A7B] hover:underline font-semibold flex items-center gap-1"
               >
                 <span>View Full CRM</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -149,14 +149,14 @@ export default async function AdminDashboardPage() {
 
             <div className="space-y-3">
               {inquiries.length === 0 ? (
-                <div className="p-8 rounded-xl bg-[#0F1F3D]/50 border border-dashed border-[#B8935A]/30 text-center space-y-2">
-                  <div className="w-10 h-10 rounded-full bg-[#B8935A]/20 text-[#CFA76F] mx-auto flex items-center justify-center">
+                <div className="p-8 rounded-xl bg-[#FAF8F2] border border-dashed border-[#E5DFD3] text-center space-y-2">
+                  <div className="w-10 h-10 rounded-full bg-[#4B2A7B]/10 text-[#4B2A7B] mx-auto flex items-center justify-center">
                     <Inbox className="w-5 h-5" />
                   </div>
-                  <strong className="text-xs font-bold text-white block">
+                  <strong className="text-xs font-bold text-[#2B2D33] block">
                     No Pending Consultation Leads
                   </strong>
-                  <p className="text-[11px] text-white/50 max-w-sm mx-auto">
+                  <p className="text-[11px] text-[#2B2D33]/50 max-w-sm mx-auto">
                     Client consultation inquiries submitted through your website booking forms will appear here in real-time.
                   </p>
                 </div>
@@ -171,21 +171,21 @@ export default async function AdminDashboardPage() {
                   return (
                     <div
                       key={inquiry.id}
-                      className="p-4 rounded-xl bg-[#0F1F3D] border border-[#B8935A]/20 hover:border-[#B8935A]/50 transition-all space-y-2.5"
+                      className="p-4 rounded-xl bg-[#FAF8F2] border border-[#E5DFD3] hover:border-[#4B2A7B]/40 transition-all space-y-2.5"
                     >
                       <div className="flex items-start justify-between gap-3">
                         <div>
                           <div className="flex items-center gap-2">
-                            <strong className="text-sm font-bold text-white">
+                            <strong className="text-sm font-bold text-[#2B2D33]">
                               {inquiry.name}
                             </strong>
                             {isNew && (
-                              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-rose-500/20 text-rose-300 border border-rose-500/40 animate-pulse">
+                              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-rose-50 text-rose-700 border border-rose-200">
                                 New Lead
                               </span>
                             )}
                           </div>
-                          <span className="text-xs text-[#CFA76F] font-semibold block mt-0.5">
+                          <span className="text-xs text-[#4B2A7B] font-semibold block mt-0.5">
                             {inquiry.practice_area}
                           </span>
                         </div>
@@ -195,14 +195,14 @@ export default async function AdminDashboardPage() {
                             href={waLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2 rounded-lg bg-[#25D366]/20 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors"
+                            className="p-2 rounded-lg bg-[#25D366]/15 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors"
                             title="Chat on WhatsApp"
                           >
                             <MessageCircle className="w-4 h-4" />
                           </a>
                           <a
                             href={`tel:${inquiry.phone}`}
-                            className="p-2 rounded-lg bg-[#1B2F57] text-[#CFA76F] hover:bg-[#B8935A] hover:text-[#0F1F3D] transition-colors"
+                            className="p-2 rounded-lg bg-[#4B2A7B]/10 text-[#4B2A7B] hover:bg-[#4B2A7B] hover:text-white transition-colors"
                             title="Call Client"
                           >
                             <Phone className="w-4 h-4" />
@@ -210,11 +210,11 @@ export default async function AdminDashboardPage() {
                         </div>
                       </div>
 
-                      <p className="text-xs text-white/75 line-clamp-2 leading-relaxed">
+                      <p className="text-xs text-[#2B2D33]/80 line-clamp-2 leading-relaxed">
                         {inquiry.message}
                       </p>
 
-                      <div className="flex items-center justify-between text-[11px] text-white/50 pt-2 border-t border-white/5">
+                      <div className="flex items-center justify-between text-[11px] text-[#2B2D33]/50 pt-2 border-t border-[#E5DFD3]">
                         <span>{inquiry.phone} • {inquiry.email}</span>
                         <span>{new Date(inquiry.created_at).toLocaleDateString('en-MY')}</span>
                       </div>
@@ -228,110 +228,110 @@ export default async function AdminDashboardPage() {
           {/* Quick Management Cards (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
             {/* Quick Actions Card */}
-            <div className="bg-[#0A1529] border border-[#B8935A]/30 rounded-3xl p-6 shadow-xl space-y-4">
-              <h3 className="font-serif text-base font-bold text-white border-b border-[#B8935A]/20 pb-3">
+            <div className="bg-white border border-[#E5DFD3] rounded-3xl p-6 shadow-xs space-y-4">
+              <h3 className="font-serif text-base font-bold text-[#2B2D33] border-b border-[#E5DFD3] pb-3">
                 Quick Content Management
               </h3>
 
               <div className="space-y-2.5">
                 <Link
                   href="/admin/practices"
-                  className="p-3.5 rounded-xl bg-[#0F1F3D] hover:bg-[#1B2F57] border border-[#B8935A]/25 transition-all flex items-center justify-between group"
+                  className="p-3.5 rounded-xl bg-[#FAF8F2] hover:bg-white border border-[#E5DFD3] hover:border-[#4B2A7B]/40 hover:shadow-xs transition-all flex items-center justify-between group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#B8935A]/20 text-[#CFA76F] flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-[#4B2A7B]/10 text-[#4B2A7B] flex items-center justify-center">
                       <Scale className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold text-white group-hover:text-[#CFA76F] transition-colors">
+                      <h4 className="text-xs font-bold text-[#2B2D33] group-hover:text-[#4B2A7B] transition-colors">
                         Edit Practice Areas
                       </h4>
-                      <p className="text-[11px] text-white/60">
+                      <p className="text-[11px] text-[#2B2D33]/60">
                         Update hero photos, scopes & FAQs
                       </p>
                     </div>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-[#CFA76F] transition-colors" />
+                  <ArrowRight className="w-4 h-4 text-[#2B2D33]/40 group-hover:text-[#4B2A7B] transition-colors" />
                 </Link>
 
                 <Link
                   href="/admin/articles"
-                  className="p-3.5 rounded-xl bg-[#0F1F3D] hover:bg-[#1B2F57] border border-[#B8935A]/25 transition-all flex items-center justify-between group"
+                  className="p-3.5 rounded-xl bg-[#FAF8F2] hover:bg-white border border-[#E5DFD3] hover:border-[#4B2A7B]/40 hover:shadow-xs transition-all flex items-center justify-between group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#B8935A]/20 text-[#CFA76F] flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-[#4B2A7B]/10 text-[#4B2A7B] flex items-center justify-center">
                       <FileText className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold text-white group-hover:text-[#CFA76F] transition-colors">
+                      <h4 className="text-xs font-bold text-[#2B2D33] group-hover:text-[#4B2A7B] transition-colors">
                         Manage Articles & Insights
                       </h4>
-                      <p className="text-[11px] text-white/60">
+                      <p className="text-[11px] text-[#2B2D33]/60">
                         Publish new legal updates and press
                       </p>
                     </div>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-[#CFA76F] transition-colors" />
+                  <ArrowRight className="w-4 h-4 text-[#2B2D33]/40 group-hover:text-[#4B2A7B] transition-colors" />
                 </Link>
 
                 <Link
                   href="/admin/settings"
-                  className="p-3.5 rounded-xl bg-[#0F1F3D] hover:bg-[#1B2F57] border border-[#B8935A]/25 transition-all flex items-center justify-between group"
+                  className="p-3.5 rounded-xl bg-[#FAF8F2] hover:bg-white border border-[#E5DFD3] hover:border-[#4B2A7B]/40 hover:shadow-xs transition-all flex items-center justify-between group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#B8935A]/20 text-[#CFA76F] flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-[#4B2A7B]/10 text-[#4B2A7B] flex items-center justify-center">
                       <UserCheck className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold text-white group-hover:text-[#CFA76F] transition-colors">
+                      <h4 className="text-xs font-bold text-[#2B2D33] group-hover:text-[#4B2A7B] transition-colors">
                         Portrait Gallery & Photos
                       </h4>
-                      <p className="text-[11px] text-white/60">
+                      <p className="text-[11px] text-[#2B2D33]/60">
                         Update photos, badges, titles & captions
                       </p>
                     </div>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-[#CFA76F] transition-colors" />
+                  <ArrowRight className="w-4 h-4 text-[#2B2D33]/40 group-hover:text-[#4B2A7B] transition-colors" />
                 </Link>
 
                 <Link
                   href="/admin/settings"
-                  className="p-3.5 rounded-xl bg-[#0F1F3D] hover:bg-[#1B2F57] border border-[#B8935A]/25 transition-all flex items-center justify-between group"
+                  className="p-3.5 rounded-xl bg-[#FAF8F2] hover:bg-white border border-[#E5DFD3] hover:border-[#4B2A7B]/40 hover:shadow-xs transition-all flex items-center justify-between group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#B8935A]/20 text-[#CFA76F] flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-[#4B2A7B]/10 text-[#4B2A7B] flex items-center justify-center">
                       <Scale className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold text-white group-hover:text-[#CFA76F] transition-colors">
+                      <h4 className="text-xs font-bold text-[#2B2D33] group-hover:text-[#4B2A7B] transition-colors">
                         Firm Profile & Contacts
                       </h4>
-                      <p className="text-[11px] text-white/60">
-                        Update phone, WhatsApp & Bar Council No.
+                      <p className="text-[11px] text-[#2B2D33]/60">
+                        Update phone, WhatsApp & Bar Council details
                       </p>
                     </div>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-[#CFA76F] transition-colors" />
+                  <ArrowRight className="w-4 h-4 text-[#2B2D33]/40 group-hover:text-[#4B2A7B] transition-colors" />
                 </Link>
               </div>
             </div>
 
             {/* Firm Status Summary */}
-            <div className="bg-gradient-to-br from-[#0F1F3D] to-[#0A1529] border border-[#B8935A]/40 rounded-3xl p-6 shadow-xl space-y-3">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[#CFA76F] block">
+            <div className="bg-white border border-[#E5DFD3] rounded-3xl p-6 shadow-xs space-y-3 text-[#2B2D33]">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#4B2A7B] block">
                 Firm Identity Active
               </span>
-              <h4 className="font-serif text-base font-bold text-white">
+              <h4 className="font-serif text-base font-bold text-[#2B2D33]">
                 Low Wah Chin & Co.
               </h4>
-              <p className="text-xs text-white/80 leading-relaxed font-light">
-                Advocates & Solicitors • Member of the Malaysian Bar Council No. <strong>BC/L/2019</strong>. Head office located at Colony @ KLCC, Vipod Residences, Kuala Lumpur.
+              <p className="text-xs text-[#2B2D33]/80 leading-relaxed font-light">
+                Advocates & Solicitors • Member of the Malaysian Bar Council. Head office located at Colony @ KLCC, Vipod Residences, Kuala Lumpur.
               </p>
               <div className="pt-2">
                 <Link
                   href="/"
                   target="_blank"
-                  className="btn-brass px-4 py-2 rounded-lg text-xs font-bold inline-flex items-center gap-1.5"
+                  className="bg-[#4B2A7B] hover:bg-[#3A1F60] text-white px-4 py-2 rounded-lg text-xs font-bold inline-flex items-center gap-1.5 transition-colors shadow-xs"
                 >
                   <span>Preview Public Website</span>
                   <ArrowRight className="w-3.5 h-3.5" />

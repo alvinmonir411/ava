@@ -39,29 +39,29 @@ export default function RepresentativeMatters({
 
   return (
     <AuroraBackground
-      intensity="medium"
-      showGrid={true}
-      className={`py-16 sm:py-24 bg-gradient-to-br from-[#070e1e] via-[#0d1738] to-[#1c0c30] text-[#faf9f6] border-y border-white/10 ${className}`}
+      intensity="subtle"
+      showGrid={false}
+      className={`py-16 sm:py-24 bg-[#FAF8F2] text-[#2B2D33] border-y border-[#E5DFD3] ${className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <ScrollReveal animation="fade-up" duration={700}>
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-gradient-royal text-white text-xs font-bold uppercase tracking-wider mb-3 animate-float-slow">
-              <Landmark className="w-3.5 h-3.5 text-purple-300" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#D8C7F0] text-[#4B2A7B] text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
+              <Landmark className="w-3.5 h-3.5 text-[#4B2A7B]" />
               <span>Judicial Track Record & Representative Briefs</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-4 aurora-text-gradient">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-4 text-[#2B2D33]">
               Notable Matters & Landmark Decisions
             </h2>
-            <p className="text-sm sm:text-base text-[#faf9f6]/85 leading-relaxed font-light">
+            <p className="text-sm sm:text-base text-[#2B2D33]/80 leading-relaxed font-light">
               A curated selection of representative High Court and Appellate decisions illustrating our tactical litigation, statutory precision, and commercial problem-solving across Malaysian and cross-border arenas.
             </p>
 
             {/* Confidentiality Assurance Notice */}
-            <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-[11px] text-[#faf9f6]/80 shadow-md">
-              <Lock className="w-3 h-3 text-purple-300" />
+            <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E5DFD3] text-[11px] text-[#2B2D33]/70 shadow-xs">
+              <Lock className="w-3 h-3 text-[#4B2A7B]" />
               <span>
                 Matters summarized with client confidentiality preserved pursuant to the <em>Legal Profession Act 1976</em>.
               </span>
@@ -81,8 +81,8 @@ export default function RepresentativeMatters({
                   onClick={() => setActiveCategory(cat)}
                   className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300 cursor-pointer ${
                     isActive
-                      ? 'bg-gradient-to-r from-[#2563eb] via-[#6366f1] to-[#7e22ce] text-white font-bold shadow-[0_0_20px_rgba(126,34,206,0.45)] scale-105 border border-white/40'
-                      : 'bg-white/5 text-white/80 border border-white/10 hover:border-purple-400/50 hover:text-white backdrop-blur-md'
+                      ? 'bg-[#4B2A7B] text-white font-bold shadow-xs border border-[#4B2A7B]'
+                      : 'bg-white text-[#2B2D33]/70 border border-[#E5DFD3] hover:border-[#4B2A7B] hover:text-[#4B2A7B]'
                   }`}
                 >
                   {cat}
@@ -101,56 +101,56 @@ export default function RepresentativeMatters({
               delay={mIdx * 80}
               duration={600}
             >
-              <div className="group h-full aurora-glass rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-purple-400/60 transition-all duration-300 relative overflow-hidden">
+              <div className="group h-full bg-white border border-[#E5DFD3] rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-[#4B2A7B] hover:shadow-lg transition-all duration-300 relative overflow-hidden">
                 {/* Top Corner Gradient Accent */}
-                <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-purple-500/20 via-blue-500/10 to-transparent rounded-bl-3xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-[#4B2A7B]/5 to-transparent rounded-bl-3xl pointer-events-none" />
 
                 <div>
                   {/* Category & Forum Bar */}
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-purple-200 bg-purple-950/60 border border-purple-500/40 px-2.5 py-0.5 rounded-full shadow-inner">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#4B2A7B] bg-[#FAF8F2] border border-[#D8C7F0] px-2.5 py-0.5 rounded-full">
                       {matter.category}
                     </span>
-                    <span className="text-[10.5px] font-mono text-[#faf9f6]/75 flex items-center gap-1.5">
-                      <Scale className="w-3 h-3 text-purple-300" />
+                    <span className="text-[10.5px] font-mono text-[#2B2D33]/70 flex items-center gap-1.5">
+                      <Scale className="w-3 h-3 text-[#4B2A7B]" />
                       <span className="truncate max-w-[240px]">{matter.forum}</span>
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#faf9f6] group-hover:text-purple-200 transition-colors leading-snug mb-3">
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#2B2D33] group-hover:text-[#4B2A7B] transition-colors leading-snug mb-3">
                     {matter.title}
                   </h3>
 
                   {/* Statutory Framework Tag */}
-                  <div className="mb-4 pb-3 border-b border-white/10 flex items-start gap-2 text-xs text-purple-200">
-                    <BookOpen className="w-3.5 h-3.5 shrink-0 mt-0.5 text-purple-300" />
-                    <span className="font-medium text-[11.5px] text-purple-200/95 leading-tight">
+                  <div className="mb-4 pb-3 border-b border-[#E5DFD3] flex items-start gap-2 text-xs text-[#4B2A7B]">
+                    <BookOpen className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#4B2A7B]" />
+                    <span className="font-medium text-[11.5px] text-[#4B2A7B] leading-tight">
                       {matter.statutoryFramework}
                     </span>
                   </div>
 
                   {/* Narrative Breakdown */}
-                  <div className="space-y-2.5 text-xs text-[#faf9f6]/85 leading-relaxed mb-4">
+                  <div className="space-y-2.5 text-xs text-[#2B2D33]/80 leading-relaxed mb-4">
                     <p>
-                      <strong className="text-white">Brief / Challenge:</strong>{' '}
+                      <strong className="text-[#2B2D33]">Brief / Challenge:</strong>{' '}
                       {matter.background}
                     </p>
                     <p>
-                      <strong className="text-white">Tactical Strategy:</strong>{' '}
+                      <strong className="text-[#2B2D33]">Tactical Strategy:</strong>{' '}
                       {matter.strategy}
                     </p>
                   </div>
                 </div>
 
                 {/* Strategic Outcome Box */}
-                <div className="mt-2 pt-3 border-t border-white/10 space-y-3">
-                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/15 shadow-inner">
-                    <div className="flex items-center gap-1.5 text-[10.5px] font-bold text-purple-200 uppercase tracking-wider mb-1">
-                      <Award className="w-3.5 h-3.5 text-purple-300" />
+                <div className="mt-2 pt-3 border-t border-[#E5DFD3] space-y-3">
+                  <div className="p-3.5 rounded-xl bg-[#FAF8F2] border border-[#E5DFD3]">
+                    <div className="flex items-center gap-1.5 text-[10.5px] font-bold text-[#4B2A7B] uppercase tracking-wider mb-1">
+                      <Award className="w-3.5 h-3.5 text-[#4B2A7B]" />
                       <span>Strategic Outcome</span>
                     </div>
-                    <p className="text-xs font-semibold text-[#faf9f6] leading-snug">
+                    <p className="text-xs font-semibold text-[#2B2D33] leading-snug">
                       {matter.outcome}
                     </p>
                   </div>
@@ -160,7 +160,7 @@ export default function RepresentativeMatters({
                     {matter.highlights.map((h, hIdx) => (
                       <span
                         key={hIdx}
-                        className="text-[10px] font-semibold text-[#faf9f6]/90 bg-white/5 px-2.5 py-0.5 rounded border border-white/10 shadow-xs"
+                        className="text-[10px] font-semibold text-[#2B2D33]/80 bg-white px-2.5 py-0.5 rounded border border-[#E5DFD3] shadow-xs"
                       >
                         ✓ {h}
                       </span>

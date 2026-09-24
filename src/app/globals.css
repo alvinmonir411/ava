@@ -1,54 +1,110 @@
 @import "tailwindcss";
 
+:root {
+  /* Core Palette Design Tokens */
+  --background: #FAF8F2; /* Soft Ivory */
+  --foreground: #2B2D33; /* Midnight Charcoal */
+
+  --card: #FFFFFF; /* Pure White for cards/inputs where contrast is needed */
+  --card-foreground: #2B2D33;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #2B2D33;
+
+  --primary: #4B2A7B; /* Deep Royal Purple */
+  --primary-hover: #3A1F60; /* Darker Purple Variant */
+  --primary-light: #7044A5;
+  --primary-subtle: #F4EFFC;
+  --primary-foreground: #FFFFFF;
+
+  --accent: #4B2A7B;
+  --accent-hover: #3A1F60;
+  --accent-light: #F4EFFC;
+  --accent-foreground: #FFFFFF;
+
+  --charcoal: #2B2D33;
+  --charcoal-muted: #5C5E66;
+  --charcoal-light: #7E808A;
+
+  --ivory: #FAF8F2;
+  --ivory-warm: #FAF8F2;
+  --ivory-dark: #F0EAE0;
+  --ivory-accent: #E5DFD3;
+  --ivory-card: #FFFFFF;
+
+  --border: #E5DFD3;
+  --border-subtle: #EFE9DE;
+  --input: #E5DFD3;
+  --ring: #4B2A7B;
+  --radius: 0.5rem;
+}
+
 @theme {
-  /* Royal Imperial Purple & Deep Plum Palette */
-  --color-navy: #1e0d33;
-  --color-navy-dark: #120720;
-  --color-navy-light: #2d144a;
-  --color-navy-surface: #24103d;
-  --color-navy-accent: #3d1b64;
+  --color-background: #FAF8F2;
+  --color-foreground: #2B2D33;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #2B2D33;
 
-  /* Royal Plum & Midnight Amethyst */
-  --color-plum: #1e0d33;
-  --color-plum-dark: #120720;
-  --color-plum-light: #2d144a;
-  --color-plum-accent: #3d1b64;
-  --color-plum-surface: #24103d;
+  --color-primary: #4B2A7B;
+  --color-primary-hover: #3A1F60;
+  --color-primary-light: #7044A5;
+  --color-primary-subtle: #F4EFFC;
+  --color-primary-foreground: #FFFFFF;
 
-  /* Radiant Purple / Amethyst Accents */
-  --color-purple: #7e22ce;
-  --color-purple-dark: #581c87;
-  --color-purple-light: #a855f7;
-  --color-purple-accent: #c084fc;
+  --color-accent: #4B2A7B;
+  --color-accent-hover: #3A1F60;
+  --color-accent-light: #F4EFFC;
+  --color-accent-foreground: #FFFFFF;
 
-  /* Polished Muted Gold / Brass - CTAs, Borders & Accents */
-  --color-gold: #c6a052;
-  --color-gold-light: #dcc280;
-  --color-gold-dark: #9d7835;
-  --color-gold-accent: #b89047;
-  --color-gold-shimmer: #f0e1b9;
+  /* Midnight Charcoal Typography Tokens */
+  --color-charcoal: #2B2D33;
+  --color-charcoal-body: #2B2D33;
+  --color-charcoal-muted: #5C5E66;
+  --color-charcoal-light: #7E808A;
 
-  /* Warm Off-White / Lilac-Cream Canvas */
-  --color-ivory: #ffffff;
-  --color-ivory-warm: #faf7fc;
-  --color-ivory-dark: #f3ecf9;
-  --color-ivory-accent: #e7dbf2;
+  /* Soft Ivory Canvas Tokens */
+  --color-ivory: #FAF8F2;
+  --color-ivory-warm: #FAF8F2;
+  --color-ivory-dark: #F0EAE0;
+  --color-ivory-accent: #E5DFD3;
+  --color-ivory-card: #FFFFFF;
 
-  --color-cream: #faf7fc;
-  --color-cream-light: #ffffff;
-  --color-cream-dark: #f3ecf9;
-  --color-cream-accent: #e7dbf2;
+  --color-cream: #FAF8F2;
+  --color-cream-light: #FFFFFF;
+  --color-cream-dark: #F0EAE0;
+  --color-cream-accent: #E5DFD3;
 
-  /* Deep Violet / High-Legibility Charcoal Typography */
-  --color-charcoal: #1a092c;
-  --color-charcoal-body: #261833;
-  --color-charcoal-muted: #564566;
-  --color-charcoal-light: #776487;
+  /* Deep Royal Purple Accent Tokens */
+  --color-purple: #4B2A7B;
+  --color-purple-dark: #3A1F60;
+  --color-purple-royal: #4B2A7B;
+  --color-purple-hover: #3A1F60;
+  --color-purple-light: #7044A5;
+  --color-purple-subtle: #F4EFFC;
+  --color-purple-border: #D8C7F0;
 
-  /* Brass aliases */
-  --color-brass: #c6a052;
-  --color-brass-light: #dcc280;
-  --color-brass-dark: #9d7835;
+  /* Centralized mappings for legacy color utility names */
+  --color-navy: #4B2A7B;
+  --color-navy-dark: #3A1F60;
+  --color-navy-light: #5E3699;
+  --color-navy-surface: #3A1F60;
+  --color-navy-accent: #7044A5;
+
+  --color-plum: #4B2A7B;
+  --color-plum-dark: #3A1F60;
+  --color-plum-light: #5E3699;
+  --color-plum-accent: #7044A5;
+  --color-plum-surface: #3A1F60;
+
+  --color-gold: #4B2A7B;
+  --color-gold-light: #D8C7F0;
+  --color-gold-dark: #3A1F60;
+  --color-gold-accent: #4B2A7B;
+  --color-gold-shimmer: #E9D5FF;
+
+  --color-brass: #4B2A7B;
+  --color-brass-light: #D8C7F0;
+  --color-brass-dark: #3A1F60;
 
   --font-serif: var(--font-playfair), Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -65,8 +121,8 @@
   }
 
   body {
-    background-color: #faf7fc;
-    color: #261833;
+    background-color: #FAF8F2;
+    color: #2B2D33;
     font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -86,67 +142,67 @@
   }
 }
 
-/* Explicit Utility Classes for Maximum Visual Consistency */
-.bg-navy { background-color: #0F1F3D !important; }
-.bg-navy-dark { background-color: #070E1C !important; }
-.bg-navy-light { background-color: #1A2D4C !important; }
-.text-navy { color: #0F1F3D !important; }
-.text-navy-light { color: #1E3A8A !important; }
-.border-navy { border-color: #0F1F3D !important; }
-.border-navy-light { border-color: #1E3A8A !important; }
+/* Explicit Utility Classes Centralized to Royal Purple & Charcoal */
+.bg-navy { background-color: #4B2A7B !important; }
+.bg-navy-dark { background-color: #3A1F60 !important; }
+.bg-navy-light { background-color: #5E3699 !important; }
+.text-navy { color: #4B2A7B !important; }
+.text-navy-light { color: #7044A5 !important; }
+.border-navy { border-color: #4B2A7B !important; }
+.border-navy-light { border-color: #7044A5 !important; }
 
-/* Royal Blue to Purple Unified Luxury Gradients */
+/* Royal Purple Gradients */
 .bg-gradient-royal {
-  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 35%, #7e22ce 75%, #6b21a8 100%) !important;
+  background: linear-gradient(135deg, #4B2A7B 0%, #3A1F60 100%) !important;
 }
 
 .bg-gradient-royal-rich {
-  background: linear-gradient(135deg, #1e3a8a 0%, #4338ca 45%, #6b21a8 85%, #581c87 100%) !important;
+  background: linear-gradient(135deg, #4B2A7B 0%, #3A1F60 100%) !important;
 }
 
 .bg-gradient-royal-dark {
-  background: linear-gradient(135deg, #070e1e 0%, #0c1638 35%, #180b30 75%, #120520 100%) !important;
+  background: linear-gradient(135deg, #3A1F60 0%, #4B2A7B 100%) !important;
 }
 
 .bg-gradient-royal-surface {
-  background: linear-gradient(135deg, #0f1c3f 0%, #161c47 45%, #241242 85%, #1b0930 100%) !important;
+  background: linear-gradient(135deg, #4B2A7B 0%, #3A1F60 100%) !important;
 }
 
 .bg-gradient-royal-subtle {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.07) 0%, rgba(126, 34, 206, 0.07) 100%) !important;
+  background: linear-gradient(135deg, rgba(75, 42, 123, 0.08) 0%, rgba(58, 31, 96, 0.08) 100%) !important;
 }
 
 .text-gradient-royal {
-  background: linear-gradient(135deg, #2563eb 0%, #6366f1 45%, #a855f7 80%, #9333ea 100%) !important;
+  background: linear-gradient(135deg, #4B2A7B 0%, #7044A5 50%, #3A1F60 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
 }
 
 .text-gradient-royal-light {
-  background: linear-gradient(135deg, #60a5fa 0%, #a5b4fc 40%, #e9d5ff 75%, #ffffff 100%) !important;
+  background: linear-gradient(135deg, #E9D5FF 0%, #D8C7F0 50%, #FFFFFF 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
 }
 
 .border-gradient-royal {
-  border-image: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #9333ea 100%) 1 !important;
+  border-color: #4B2A7B !important;
 }
 
-/* Primary Brand Buttons: Refined Subdued Luxury Royal Navy Palette */
+/* Primary Brand Buttons: Deep Royal Purple (#4B2A7B) with #3A1F60 Hover */
 .btn-gradient-royal,
 .btn-gold,
 .btn-brass,
 .btn-plum,
 .btn-navy {
-  background: linear-gradient(135deg, #0a1529 0%, #0F1F3D 55%, #182b4d 100%) !important;
+  background: #4B2A7B !important;
   color: #ffffff !important;
   font-weight: 700 !important;
   letter-spacing: 0.03em;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(15, 31, 61, 0.25);
-  border: 1px solid rgba(226, 232, 240, 0.25) !important;
+  box-shadow: 0 4px 14px rgba(75, 42, 123, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 .btn-gradient-royal:hover,
@@ -154,110 +210,114 @@
 .btn-brass:hover,
 .btn-plum:hover,
 .btn-navy:hover {
-  background: linear-gradient(135deg, #112240 0%, #172d52 55%, #233f70 100%) !important;
+  background: #3A1F60 !important;
   color: #ffffff !important;
-  box-shadow: 0 6px 20px rgba(15, 31, 61, 0.35);
-  border-color: rgba(198, 160, 82, 0.55) !important;
+  box-shadow: 0 6px 20px rgba(58, 31, 96, 0.35);
+  border-color: rgba(216, 199, 240, 0.5) !important;
   transform: translateY(-1.5px);
 }
 
 .badge-gradient-royal {
-  background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(67, 56, 202, 0.8) 50%, rgba(107, 33, 168, 0.85) 100%) !important;
-  border: 1px solid rgba(168, 85, 247, 0.45) !important;
+  background: linear-gradient(135deg, rgba(75, 42, 123, 0.9) 0%, rgba(58, 31, 96, 0.95) 100%) !important;
+  border: 1px solid rgba(216, 199, 240, 0.4) !important;
   color: #ffffff !important;
   backdrop-filter: blur(8px);
 }
 
 .divider-gradient-royal {
-  background: linear-gradient(90deg, #2563eb 0%, #6366f1 50%, #9333ea 100%) !important;
+  background: linear-gradient(90deg, #4B2A7B 0%, #7044A5 50%, #3A1F60 100%) !important;
 }
 
-.bg-plum { background-color: #0F1F3D !important; }
-.bg-plum-dark { background-color: #070E1C !important; }
-.bg-plum-light { background-color: #1A2D4C !important; }
-.bg-plum-accent { background-color: #241242 !important; }
-.bg-plum-surface { background-color: #0f1c3f !important; }
-.text-plum { color: #0F1F3D !important; }
-.text-plum-light { color: #4338ca !important; }
-.border-plum { border-color: #0F1F3D !important; }
-.border-plum-light { border-color: #4338ca !important; }
+.bg-plum { background-color: #4B2A7B !important; }
+.bg-plum-dark { background-color: #3A1F60 !important; }
+.bg-plum-light { background-color: #5E3699 !important; }
+.bg-plum-accent { background-color: #7044A5 !important; }
+.bg-plum-surface { background-color: #3A1F60 !important; }
+.text-plum { color: #4B2A7B !important; }
+.text-plum-light { color: #7044A5 !important; }
+.border-plum { border-color: #4B2A7B !important; }
+.border-plum-light { border-color: #7044A5 !important; }
 
-/* Dedicated Gold Tokens for Official Seal & Review Stars */
-.text-gold-seal { color: #dcc280 !important; }
-.bg-gold-seal { background-color: #c6a052 !important; }
-.border-gold-seal { border-color: #c6a052 !important; }
+/* Review Stars & Seal Tokens */
+.text-gold-seal { color: #4B2A7B !important; }
+.bg-gold-seal { background-color: #4B2A7B !important; }
+.border-gold-seal { border-color: #4B2A7B !important; }
 .star-gold { color: #f59e0b !important; fill: #f59e0b !important; }
 
-.bg-ivory { background-color: #faf9f6 !important; }
-.bg-ivory-dark { background-color: #f1f5f9 !important; }
-.bg-ivory-accent { background-color: #e2e8f0 !important; }
-.text-ivory { color: #faf9f6 !important; }
+/* Ivory & White Tokens */
+.bg-ivory { background-color: #FAF8F2 !important; }
+.bg-ivory-dark { background-color: #F0EAE0 !important; }
+.bg-ivory-accent { background-color: #E5DFD3 !important; }
+.text-ivory { color: #FAF8F2 !important; }
 
-.text-charcoal { color: #0F1F3D !important; }
-.text-charcoal-muted { color: #475569 !important; }
-.text-charcoal-light { color: #64748b !important; }
+/* Midnight Charcoal Typography */
+.text-charcoal { color: #2B2D33 !important; }
+.text-charcoal-muted { color: #5C5E66 !important; }
+.text-charcoal-light { color: #7E808A !important; }
 
-.bg-cream { background-color: #faf9f6 !important; }
-.bg-cream-dark { background-color: #f1f5f9 !important; }
-.bg-cream-accent { background-color: #e2e8f0 !important; }
-.text-cream { color: #faf9f6 !important; }
+.bg-cream { background-color: #FAF8F2 !important; }
+.bg-cream-dark { background-color: #F0EAE0 !important; }
+.bg-cream-accent { background-color: #E5DFD3 !important; }
+.text-cream { color: #FAF8F2 !important; }
 
-/* Outlined & Ghost Buttons: Clean Platinum/White with Gradient Glow */
+/* Outlined & Ghost Buttons */
 .btn-outline-gold,
 .btn-outline-gradient {
   background-color: transparent !important;
-  color: #ffffff !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
+  color: #4B2A7B !important;
+  border: 1.5px solid #4B2A7B !important;
   font-weight: 600 !important;
   letter-spacing: 0.03em;
   transition: all 0.25s ease-in-out;
 }
 .btn-outline-gold:hover,
 .btn-outline-gradient:hover {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.3) 0%, rgba(126, 34, 206, 0.35) 100%) !important;
-  border-color: rgba(255, 255, 255, 0.8) !important;
+  background: #4B2A7B !important;
+  border-color: #4B2A7B !important;
   color: #ffffff !important;
   transform: translateY(-1px);
 }
 
 .btn-ghost-light {
   background-color: transparent !important;
-  color: #faf9f6 !important;
-  border: 1.5px solid rgba(250, 249, 246, 0.4) !important;
+  color: #FAF8F2 !important;
+  border: 1.5px solid rgba(250, 248, 242, 0.4) !important;
   font-weight: 600 !important;
   letter-spacing: 0.03em;
   transition: all 0.25s ease-in-out;
 }
 .btn-ghost-light:hover {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(126, 34, 206, 0.25) 100%) !important;
+  background: rgba(75, 42, 123, 0.35) !important;
   border-color: #ffffff !important;
   color: #ffffff !important;
 }
 
 /* Shadows & Elevations */
 .legal-card-shadow {
-  box-shadow: 0 10px 30px -10px rgba(23, 11, 30, 0.08), 0 2px 6px -2px rgba(23, 11, 30, 0.04);
+  box-shadow: 0 10px 30px -10px rgba(43, 45, 51, 0.08), 0 2px 6px -2px rgba(43, 45, 51, 0.04);
 }
 .legal-card-hover {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 .legal-card-hover:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px -12px rgba(23, 11, 30, 0.16), 0 0 0 1px rgba(198, 160, 82, 0.35);
+  box-shadow: 0 20px 40px -12px rgba(43, 45, 51, 0.14), 0 0 0 1px rgba(75, 42, 123, 0.35);
 }
 
-.gold-glow {
-  box-shadow: 0 0 25px rgba(198, 160, 82, 0.25);
+.gold-glow,
+.purple-glow {
+  box-shadow: 0 0 25px rgba(75, 42, 123, 0.25);
 }
 
-.gold-border-glow {
-  border-color: rgba(198, 160, 82, 0.6);
-  box-shadow: 0 0 20px rgba(198, 160, 82, 0.2);
+.gold-border-glow,
+.purple-border-glow {
+  border-color: rgba(75, 42, 123, 0.6);
+  box-shadow: 0 0 20px rgba(75, 42, 123, 0.2);
 }
 
 /* Pattern Backgrounds */
 .pattern-plum-grid {
-  background-image: radial-gradient(rgba(198, 160, 82, 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(75, 42, 123, 0.15) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
@@ -417,69 +477,69 @@
 
 /* Aurora UI Glassmorphism & Surface Classes */
 .aurora-glass {
-  background: rgba(32, 15, 43, 0.65) !important;
+  background: rgba(58, 31, 96, 0.7) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(198, 160, 82, 0.25) !important;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(216, 199, 240, 0.25) !important;
+  box-shadow: 0 8px 32px 0 rgba(43, 45, 51, 0.25), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1) !important;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .aurora-glass:hover {
-  background: rgba(38, 18, 51, 0.8) !important;
-  border-color: rgba(198, 160, 82, 0.55) !important;
-  box-shadow: 0 12px 40px 0 rgba(198, 160, 82, 0.22), inset 0 1px 2px 0 rgba(229, 199, 119, 0.25) !important;
+  background: rgba(75, 42, 123, 0.8) !important;
+  border-color: rgba(216, 199, 240, 0.5) !important;
+  box-shadow: 0 12px 40px 0 rgba(75, 42, 123, 0.25), inset 0 1px 2px 0 rgba(233, 213, 255, 0.25) !important;
 }
 
 .aurora-glass-light {
-  background: rgba(255, 255, 255, 0.88) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(198, 160, 82, 0.25) !important;
-  box-shadow: 0 8px 30px 0 rgba(23, 11, 30, 0.06) !important;
+  border: 1px solid rgba(75, 42, 123, 0.15) !important;
+  box-shadow: 0 8px 30px 0 rgba(43, 45, 51, 0.06) !important;
 }
 
 .aurora-text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #f5e4b8 35%, #e5c777 70%, #c6a052 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #FAF8F2 35%, #D8C7F0 70%, #4B2A7B 100%);
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
 }
 
 .aurora-text-violet {
-  background: linear-gradient(135deg, #e5c777 0%, #c6a052 40%, #c084fc 80%, #ffffff 100%);
+  background: linear-gradient(135deg, #FAF8F2 0%, #D8C7F0 40%, #7044A5 80%, #4B2A7B 100%);
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
 }
 
 .aurora-pill {
-  background: linear-gradient(135deg, rgba(198, 160, 82, 0.18) 0%, rgba(121, 40, 202, 0.2) 100%) !important;
-  border: 1px solid rgba(198, 160, 82, 0.4) !important;
-  box-shadow: 0 0 20px rgba(198, 160, 82, 0.18) !important;
+  background: linear-gradient(135deg, rgba(75, 42, 123, 0.15) 0%, rgba(58, 31, 96, 0.25) 100%) !important;
+  border: 1px solid rgba(75, 42, 123, 0.35) !important;
+  box-shadow: 0 0 20px rgba(75, 42, 123, 0.15) !important;
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
 }
 
 .aurora-badge {
-  background: linear-gradient(135deg, rgba(34, 18, 43, 0.85) 0%, rgba(67, 32, 86, 0.75) 100%);
-  border: 1px solid rgba(198, 160, 82, 0.4);
-  box-shadow: 0 0 25px rgba(121, 40, 202, 0.25);
+  background: linear-gradient(135deg, rgba(75, 42, 123, 0.85) 0%, rgba(58, 31, 96, 0.85) 100%);
+  border: 1px solid rgba(216, 199, 240, 0.4);
+  box-shadow: 0 0 25px rgba(75, 42, 123, 0.25);
   backdrop-filter: blur(12px);
 }
 
 .glass-plum {
-  background: rgba(34, 18, 43, 0.75);
+  background: rgba(58, 31, 96, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(198, 160, 82, 0.25);
+  border: 1px solid rgba(216, 199, 240, 0.25);
 }
 
 .glass-ivory {
-  background: rgba(250, 249, 246, 0.85);
+  background: rgba(250, 248, 242, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(198, 160, 82, 0.2);
+  border: 1px solid rgba(75, 42, 123, 0.15);
 }
 
 /* Interactive 3D Perspective Container */
@@ -487,39 +547,40 @@
   perspective: 1000px;
 }
 
-/* Gold Admin Scrollbar for Mobile Tabs & Tables */
-.gold-scrollbar {
+/* Purple Admin Scrollbar for Mobile Tabs & Tables */
+.gold-scrollbar,
+.purple-scrollbar {
   overflow-x: auto !important;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  scrollbar-color: #b8935a #0e0517;
+  scrollbar-color: #4B2A7B #FAF8F2;
 }
 
-.gold-scrollbar::-webkit-scrollbar {
+.gold-scrollbar::-webkit-scrollbar,
+.purple-scrollbar::-webkit-scrollbar {
   height: 7px;
   width: 7px;
   display: block !important;
 }
 
-.gold-scrollbar::-webkit-scrollbar-track {
-  background: #0e0517;
+.gold-scrollbar::-webkit-scrollbar-track,
+.purple-scrollbar::-webkit-scrollbar-track {
+  background: #FAF8F2;
   border-radius: 9999px;
-  border: 1px solid rgba(184, 147, 90, 0.2);
+  border: 1px solid #E5DFD3;
   margin: 0 4px;
 }
 
-.gold-scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #b8935a 0%, #dcc280 50%, #b8935a 100%);
+.gold-scrollbar::-webkit-scrollbar-thumb,
+.purple-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #4B2A7B 0%, #7044A5 50%, #4B2A7B 100%);
   border-radius: 9999px;
-  border: 1px solid rgba(30, 13, 51, 0.6);
+  border: 1px solid #FAF8F2;
 }
 
-.gold-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(90deg, #cfa76f 0%, #f3efe6 50%, #cfa76f 100%);
-}
-
-.gold-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(90deg, #cfa76f 0%, #f3efe6 50%, #cfa76f 100%);
+.gold-scrollbar::-webkit-scrollbar-thumb:hover,
+.purple-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #3A1F60;
 }
 
 

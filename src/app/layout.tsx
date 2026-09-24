@@ -63,7 +63,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[#faf9f6] text-[#231f20] flex flex-col font-sans selection:bg-[#c6a052] selection:text-[#170b1e]">
+      <body className="min-h-screen bg-[#FAF8F2] text-[#2B2D33] flex flex-col font-sans selection:bg-[#4B2A7B] selection:text-white">
         <Header />
         <main className="flex-1">
           {children}
@@ -74,9 +74,9 @@ export default function RootLayout({
           position="bottom-left"
           toastOptions={{
             style: {
-              background: '#170b1e',
-              color: '#faf9f6',
-              border: '1px solid #c6a052',
+              background: '#FAF8F2',
+              color: '#2B2D33',
+              border: '1px solid #4B2A7B',
               borderRadius: '12px',
               fontFamily: 'var(--font-inter)',
             },

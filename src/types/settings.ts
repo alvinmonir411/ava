@@ -64,6 +64,13 @@ export interface GallerySectionSettings {
   items: GalleryItem[];
 }
 
+export interface SectionVisibilitySettings {
+  showGallery?: boolean;
+  showRecognition?: boolean;
+  showFirmOverview?: boolean;
+  showArticles?: boolean;
+}
+
 export interface FirmSettings {
   companyName: string;
   qualificationTitle: string;
@@ -78,6 +85,7 @@ export interface FirmSettings {
   aboutPrincipal: AboutPrincipalSettings;
   recognition: RecognitionContentSettings;
   gallery: GallerySectionSettings;
+  sections?: SectionVisibilitySettings;
 }
 
 export const DEFAULT_GALLERY_ITEMS: GalleryItem[] = [
@@ -88,7 +96,7 @@ export const DEFAULT_GALLERY_ITEMS: GalleryItem[] = [
     title: 'High Court Advocate & Solicitor',
     subtitle: 'High Court of Malaya (Admitted 2011)',
     badge: 'Senior Trial Counsel',
-    description: 'Admitted to the High Court of Malaya on 11th November 2011 with 15 years of courtroom practice experience across trial advocacy, corporate litigation, and dispute resolution.',
+    description: 'Admitted to the High Court of Malaya on 11th November 2011, practising since 11 November 2011 across courtroom trial advocacy, corporate litigation, and dispute resolution.',
   },
   {
     id: '2',
@@ -131,7 +139,7 @@ export const DEFAULT_GALLERY_ITEMS: GalleryItem[] = [
 export const DEFAULT_FIRM_SETTINGS: FirmSettings = {
   companyName: 'Low Wah Chin & Co.',
   qualificationTitle: 'Advocates & Solicitors',
-  barCouncilNumber: 'Member of the Malaysian Bar Council No. BC/L/2019',
+  barCouncilNumber: 'Member of the Malaysian Bar Council',
   phone: '+60 17-548 3157',
   email: 'lwclegal5@gmail.com',
   streetAddress: 'Colony @ KLCC, Level 1, Vipod Residences, 6 Jalan Kia Peng, 50450 Kuala Lumpur',
@@ -163,7 +171,7 @@ export const DEFAULT_FIRM_SETTINGS: FirmSettings = {
     lawyerPhoto: '/lawyer-portrait-4.jpg',
     lawyerName: 'Low Wah Chin (Ava Rachel)',
     lawyerChinese: '劉華晶',
-    quote: '“I am an Advocate & Solicitor Malaysia of 15 years in practice since 11th November 2011.”',
+    quote: '“I am an Advocate & Solicitor Malaysia. Practising since 11 November 2011.”',
     bioParagraph1: 'Founded by senior advocate Low Wah Chin (Ava Rachel) 劉華晶, Messrs. Low Wah Chin & Co. provides commanding courtroom advocacy, precise contract drafting, and strategic corporate risk guidance. Her legal foundation was honed across premier Malaysian institutions including Shook Lin & Bok, Azim, Tunku Farik & Wong, and Murali B. Pillai & Associates.',
     bioParagraph2: 'In addition to private trial practice, Ms. Low served ~9 months at KNM Group Berhad as In-House Legal Counsel, managing corporate risk, cross-border engineering, procurement, and construction (EPC) agreements, and international commercial transactions.',
     corePractices: 'Laws of Contract · Commercial Disputes · Tort & Negligence · Family & Divorce · Property Conveyancing · Corporate Advisory & MOUs · Wills & Estate Distribution · High Court Litigation',
@@ -179,14 +187,20 @@ export const DEFAULT_FIRM_SETTINGS: FirmSettings = {
     stat1Label: 'Bar Certified',
     stat2Value: 'Top 10',
     stat2Label: 'KL Law Firms',
-    stat3Value: '15 Yrs',
-    stat3Label: 'Practice Experience',
+    stat3Value: '2011',
+    stat3Label: 'Practising Since 11 Nov',
   },
   gallery: {
     sectionTitle: 'Portraits & Chambers Leadership Gallery',
     sectionSubtitle: 'Principal Counsel Low Wah Chin (Ava Rachel) 劉華晶',
     sectionBadge: 'Advocate & Solicitor • Lincoln’s Inn Barrister',
     items: DEFAULT_GALLERY_ITEMS,
+  },
+  sections: {
+    showGallery: false,
+    showRecognition: false,
+    showFirmOverview: false,
+    showArticles: false,
   },
 };
 

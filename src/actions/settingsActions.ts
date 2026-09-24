@@ -64,6 +64,10 @@ export async function getFirmSettings(): Promise<FirmSettings> {
               ? parsed.gallery.items
               : DEFAULT_FIRM_SETTINGS.gallery.items,
         },
+        sections: {
+          ...DEFAULT_FIRM_SETTINGS.sections,
+          ...(parsed.sections || {}),
+        },
       };
       return memorySettings as FirmSettings;
     }
@@ -116,6 +120,11 @@ export async function updateAdminSettingsAction(
         ...current.gallery,
         ...(newSettings.gallery || {}),
         items: newSettings.gallery?.items ?? current.gallery.items,
+      },
+      sections: {
+        ...DEFAULT_FIRM_SETTINGS.sections,
+        ...(current.sections || {}),
+        ...(newSettings.sections || {}),
       },
     };
 

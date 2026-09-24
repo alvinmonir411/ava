@@ -1,12 +1,18 @@
 {
   "companyName": "Low Wah Chin & Co.",
   "qualificationTitle": "Advocates & Solicitors",
-  "barCouncilNumber": "Member of the Malaysian Bar Council No. BC/L/2019",
+  "barCouncilNumber": "Member of the Malaysian Bar Council",
   "phone": "+60 17-548 3157",
   "email": "lwclegal5@gmail.com",
   "streetAddress": "Colony @ KLCC, Level 1, Vipod Residences, 6 Jalan Kia Peng, 50450 Kuala Lumpur",
   "operatingHours": "Monday – Friday: 9:00 AM – 5:30 PM (Sat & Sun Closed)",
   "googleMapsUrl": "https://maps.google.com/?q=Colony+at+KLCC+Vipod+Residences",
+  "sections": {
+    "showGallery": false,
+    "showRecognition": false,
+    "showFirmOverview": false,
+    "showArticles": false
+  },
   "heroImages": {
     "homeHeroImage": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2000&q=85",
     "aboutHeroImage": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=85",

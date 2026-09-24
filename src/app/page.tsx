@@ -2,45 +2,64 @@ import React from 'react';
 import Hero from '@/components/sections/Hero';
 import AboutPrincipal from '@/components/sections/AboutPrincipal';
 import PracticeAreasDark from '@/components/sections/PracticeAreasDark';
+import GoogleReviewsSection from '@/components/sections/GoogleReviewsSection';
 import RecognitionSection from '@/components/sections/RecognitionSection';
 import PartnerGallery from '@/components/common/PartnerGallery';
-import GoogleReviewsSection from '@/components/sections/GoogleReviewsSection';
 import FirmOverview from '@/components/sections/FirmOverview';
+import HomeArticlesSection from '@/components/sections/HomeArticlesSection';
 import ContactSection from '@/components/sections/ContactSection';
 import JsonLd from '@/components/common/JsonLd';
 import { getLegalServiceSchema } from '@/lib/metadata';
 import { getFirmSettings } from '@/actions/settingsActions';
+import { getArticles } from '@/db';
 
 export default async function HomePage() {
   const legalServiceSchema = getLegalServiceSchema();
   const settings = await getFirmSettings();
+  const articles = await getArticles();
+
+  const showRecognition = settings.sections?.showRecognition ?? false;
+  const showGallery = settings.sections?.showGallery ?? false;
+  const showFirmOverview = settings.sections?.showFirmOverview ?? false;
+  const showArticles = settings.sections?.showArticles ?? false;
 
   return (
     <>
       <JsonLd data={legalServiceSchema} />
 
-      {/* 1. Hero Section (Full-width Dark with dynamic admin-managed background) */}
+      {/* 1. Hero Section (Ivory background, client-specified palette) */}
       <Hero bgImage={settings.heroImages?.homeHeroImage} content={settings.heroContent} />
 
-      {/* 2. About the Principal Lawyer (Light Two-Column) */}
+      {/* 2. About the Principal Lawyer */}
       <AboutPrincipal content={settings.aboutPrincipal} />
 
-      {/* 3. "Tradition of Talent" / Practice Areas Section (Full-width Dark) */}
+      {/* 3. Practice Areas Section */}
       <PracticeAreasDark />
 
-      {/* 4. Recognition / Press Mention Section (Light Two-Column) */}
-      <RecognitionSection content={settings.recognition} />
-
-      {/* 5. Portrait & Chambers Leadership Gallery (Interactive 5-Photo Showcase) */}
-      <PartnerGallery gallery={settings.gallery} isDark={true} />
-
-      {/* 6. Google Reviews & Client Trust (Full-width Dark 5.0 Star Section) */}
+      {/* 4. Testimonials (Compact Google Reviews & Client Trust) */}
       <GoogleReviewsSection />
 
-      {/* 7. Firm Overview / "Grow Your Vision" Style Section (Light Two-Column) */}
-      <FirmOverview />
+      {/* Dashboard Toggleable Section: "Best Law Firms" Feature (Hidden by default) */}
+      {showRecognition && (
+        <RecognitionSection content={settings.recognition} />
+      )}
 
-      {/* 8. Contact Section (Light Two-Column with SMTP Form) */}
+      {/* Dashboard Toggleable Section: Portraits & Leadership Gallery (Hidden by default) */}
+      {showGallery && (
+        <PartnerGallery gallery={settings.gallery} isDark={false} />
+      )}
+
+      {/* Dashboard Toggleable Section: Firm Overview & Quick Facts (Hidden by default) */}
+      {showFirmOverview && (
+        <FirmOverview />
+      )}
+
+      {/* Dashboard Toggleable Section: Latest Legal Articles (Hidden by default) */}
+      {showArticles && (
+        <HomeArticlesSection articles={articles} />
+      )}
+
+      {/* 5. Contact Section */}
       <ContactSection />
     </>
   );

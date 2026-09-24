@@ -32,7 +32,7 @@ export default function SiteFooter() {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-[#070e1e] via-[#0d1636] to-[#1a0c2e] text-[#faf9f6] border-t border-white/10 pt-16 pb-8">
+    <footer className="bg-[#3A1F60] text-[#FAF8F2] border-t border-[#4B2A7B] pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 4-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10">
@@ -50,7 +50,7 @@ export default function SiteFooter() {
               <p className="font-serif text-sm font-semibold text-white/90 mt-1">
                 Messrs. Low Wah Chin & Co.
               </p>
-              <p className="text-[10px] uppercase font-sans tracking-[0.25em] text-indigo-300 font-semibold mt-0.5">
+              <p className="text-[10px] uppercase font-sans tracking-[0.25em] text-purple-300 font-semibold mt-0.5">
                 Advocates & Solicitors • High Court of Malaya
               </p>
             </Link>
@@ -68,7 +68,7 @@ export default function SiteFooter() {
               href="https://share.google/4f6BOdPxefdpTafG3"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 p-2.5 bg-gradient-to-r from-[#0F1F3D]/90 via-[#18183d]/90 to-[#241038]/90 rounded-lg border border-purple-500/30 hover:border-purple-400 transition-colors group"
+              className="inline-flex items-center gap-2 p-2.5 bg-[#3A1F60]/80 rounded-lg border border-purple-400/30 hover:border-purple-300 transition-colors group"
             >
               <span className="text-amber-400 font-bold text-xs">★ 5.0 Rating</span>
               <span className="text-white/20">•</span>
@@ -84,7 +84,7 @@ export default function SiteFooter() {
 
           {/* Column 2: Quick Links (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider border-b border-white/10 pb-2">
+            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider border-b border-purple-900/30 pb-2">
               Quick Links
             </h4>
             <ul className="space-y-2 text-xs text-white/75 font-light">
@@ -100,7 +100,7 @@ export default function SiteFooter() {
 
           {/* Column 3: Practices Directory (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider border-b border-white/10 pb-2">
+            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider border-b border-purple-900/30 pb-2">
               Practice Disciplines
             </h4>
             <ul className="space-y-1.5 text-xs text-white/75 font-light">
@@ -116,31 +116,31 @@ export default function SiteFooter() {
 
           {/* Column 4: Contact Chambers (3 cols) */}
           <div className="lg:col-span-3 space-y-3 text-xs">
-            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider border-b border-white/10 pb-2">
+            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider border-b border-purple-900/30 pb-2">
               Chambers Access
             </h4>
             <div className="space-y-3 text-white/80 font-light">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
+                <MapPin className="w-4 h-4 text-purple-300 mt-0.5 shrink-0" />
                 <span>
                   Colony @ KLCC, Level 1, Vipod Residences,<br />
                   6 Jalan Kia Peng, 50450 Kuala Lumpur
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-indigo-400 shrink-0" />
+                <Phone className="w-4 h-4 text-purple-300 shrink-0" />
                 <a href="tel:+60175483157" className="text-white hover:text-purple-300 font-medium">
                   +60 17-548 3157
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-purple-400 shrink-0" />
+                <Mail className="w-4 h-4 text-purple-300 shrink-0" />
                 <a href="mailto:lwclegal5@gmail.com" className="text-white hover:text-purple-300 font-medium">
                   lwclegal5@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Clock className="w-4 h-4 text-blue-400 shrink-0" />
+                <Clock className="w-4 h-4 text-purple-300 shrink-0" />
                 <span>Mon – Fri: 9:00 AM – 5:30 PM</span>
               </div>
             </div>
@@ -150,7 +150,7 @@ export default function SiteFooter() {
         {/* Sub-Footer Copyright Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/60 font-light">
           <p>
-            © {currentYear} Messrs. Low Wah Chin & Co. (LWCCO). All rights reserved. Bar Council Malaya Registration: BC/L/2019.
+            © {currentYear} Messrs. Low Wah Chin & Co. (LWCCO). All rights reserved. Member of the Malaysian Bar Council.
           </p>
           <div className="flex items-center gap-4">
             <span>Privileged & Confidential</span>

@@ -173,14 +173,14 @@ export default function ConsultationForm({
 
   if (isSubmitted) {
     return (
-      <div className={`bg-white p-8 sm:p-10 rounded-2xl border-2 border-[#c6a052]/50 shadow-2xl text-center ${className}`}>
-        <div className="w-16 h-16 bg-[#c6a052]/15 text-[#9d7835] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#c6a052]/30">
-          <CheckCircle className="w-8 h-8 text-[#c6a052]" />
+      <div className={`bg-white p-8 sm:p-10 rounded-2xl border-2 border-[#4B2A7B]/40 shadow-2xl text-center ${className}`}>
+        <div className="w-16 h-16 bg-[#4B2A7B]/10 text-[#4B2A7B] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#4B2A7B]/20">
+          <CheckCircle className="w-8 h-8 text-[#4B2A7B]" />
         </div>
-        <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#22122b] mb-3">
+        <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#2B2D33] mb-3">
           Consultation Request Submitted
         </h3>
-        <p className="text-[#595355] text-base leading-relaxed max-w-md mx-auto mb-6">
+        <p className="text-[#2B2D33]/80 text-base leading-relaxed max-w-md mx-auto mb-6">
           Thank you for reaching out to Messrs. Low, Wah Chin & Co. Our principal advocate will review your brief with strict confidentiality within one business day.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -191,7 +191,7 @@ export default function ConsultationForm({
           />
           <button
             onClick={() => setIsSubmitted(false)}
-            className="px-5 py-3 rounded-lg border border-[#22122b]/30 text-[#22122b] font-semibold text-sm hover:bg-[#f3efe6] transition-colors"
+            className="px-5 py-3 rounded-lg border border-[#2B2D33]/30 text-[#2B2D33] font-semibold text-sm hover:bg-[#FAF8F2] transition-colors"
           >
             Submit Another Request
           </button>
@@ -201,16 +201,16 @@ export default function ConsultationForm({
   }
 
   return (
-    <div className={`bg-white p-5 sm:p-8 lg:p-10 rounded-2xl border border-[#c6a052]/30 shadow-2xl ${className}`}>
-      <div className="mb-5 pb-5 border-b border-[#f3efe6]">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c6a052]/15 text-[#9d7835] border border-[#c6a052]/30 text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider mb-2">
-          <Shield className="w-3.5 h-3.5 text-[#c6a052]" />
+    <div className={`bg-white p-5 sm:p-8 lg:p-10 rounded-2xl border border-[#E5DFD3] shadow-2xl ${className}`}>
+      <div className="mb-5 pb-5 border-b border-[#E5DFD3]">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4B2A7B]/10 text-[#4B2A7B] border border-[#4B2A7B]/20 text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider mb-2">
+          <Shield className="w-3.5 h-3.5 text-[#4B2A7B]" />
           <span>Privileged & Confidential</span>
         </div>
-        <h3 className="font-serif text-xl sm:text-3xl font-bold text-[#22122b] leading-tight">
+        <h3 className="font-serif text-xl sm:text-3xl font-bold text-[#2B2D33] leading-tight">
           Schedule Legal Consultation
         </h3>
-        <p className="text-[#595355] text-xs sm:text-base mt-1.5 leading-relaxed">
+        <p className="text-[#2B2D33]/80 text-xs sm:text-base mt-1.5 leading-relaxed">
           Submit your brief for confidential partner-level review under Malaysian law.
         </p>
       </div>
@@ -218,7 +218,7 @@ export default function ConsultationForm({
       <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
           <div>
-            <label htmlFor="firstName" className="block text-xs sm:text-sm font-semibold text-[#22122b] mb-1">
+            <label htmlFor="firstName" className="block text-xs sm:text-sm font-semibold text-[#2B2D33] mb-1">
               First Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -227,7 +227,7 @@ export default function ConsultationForm({
               name="firstName"
               required
               placeholder="e.g. John"
-              className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#c6a052] focus:border-[#c6a052] transition-all"
+              className="w-full px-3.5 py-2.5 rounded-lg border border-[#E5DFD3] bg-white text-[#2B2D33] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#4B2A7B] focus:border-[#4B2A7B] transition-all"
             />
             {errors.firstName && (
               <p className="text-red-500 text-xs mt-1">{errors.firstName[0]}</p>
@@ -235,7 +235,7 @@ export default function ConsultationForm({
           </div>
 
           <div>
-            <label htmlFor="lastName" className="block text-xs sm:text-sm font-semibold text-[#22122b] mb-1">
+            <label htmlFor="lastName" className="block text-xs sm:text-sm font-semibold text-[#2B2D33] mb-1">
               Last Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -244,7 +244,7 @@ export default function ConsultationForm({
               name="lastName"
               required
               placeholder="e.g. Tan"
-              className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#c6a052] focus:border-[#c6a052] transition-all"
+              className="w-full px-3.5 py-2.5 rounded-lg border border-[#E5DFD3] bg-white text-[#2B2D33] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#4B2A7B] focus:border-[#4B2A7B] transition-all"
             />
             {errors.lastName && (
               <p className="text-red-500 text-xs mt-1">{errors.lastName[0]}</p>
@@ -254,7 +254,7 @@ export default function ConsultationForm({
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
           <div>
-            <label htmlFor="email" className="block text-xs sm:text-sm font-semibold text-[#22122b] mb-1">
+            <label htmlFor="email" className="block text-xs sm:text-sm font-semibold text-[#2B2D33] mb-1">
               Email Address <span className="text-red-500">*</span>
             </label>
             <input
@@ -263,7 +263,7 @@ export default function ConsultationForm({
               name="email"
               required
               placeholder="e.g. client@example.com"
-              className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition-all"
+              className="w-full px-3.5 py-2.5 rounded-lg border border-[#E5DFD3] bg-white text-[#2B2D33] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#4B2A7B] focus:border-[#4B2A7B] transition-all"
             />
             {errors.email && (
               <p className="text-red-500 text-xs mt-1">{errors.email[0]}</p>
@@ -271,7 +271,7 @@ export default function ConsultationForm({
           </div>
 
           <div>
-            <label htmlFor="phone" className="block text-xs sm:text-sm font-semibold text-[#22122b] mb-1">
+            <label htmlFor="phone" className="block text-xs sm:text-sm font-semibold text-[#2B2D33] mb-1">
               Contact / WhatsApp Phone <span className="text-red-500">*</span>
             </label>
             <input
@@ -280,7 +280,7 @@ export default function ConsultationForm({
               name="phone"
               required
               placeholder="e.g. +60 12-345 6789"
-              className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition-all"
+              className="w-full px-3.5 py-2.5 rounded-lg border border-[#E5DFD3] bg-white text-[#2B2D33] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#4B2A7B] focus:border-[#4B2A7B] transition-all"
             />
             {errors.phone && (
               <p className="text-red-500 text-xs mt-1">{errors.phone[0]}</p>
@@ -290,7 +290,7 @@ export default function ConsultationForm({
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
           <div>
-            <label htmlFor="practiceArea" className="block text-xs sm:text-sm font-semibold text-[#22122b] mb-1">
+            <label htmlFor="practiceArea" className="block text-xs sm:text-sm font-semibold text-[#2B2D33] mb-1">
               Practice Discipline / Matter Type <span className="text-red-500">*</span>
             </label>
             <select
@@ -299,7 +299,7 @@ export default function ConsultationForm({
               required
               value={selectedPractice}
               onChange={(e) => setSelectedPractice(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition-all font-medium"
+              className="w-full px-3.5 py-2.5 rounded-lg border border-[#E5DFD3] bg-white text-[#2B2D33] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#4B2A7B] focus:border-[#4B2A7B] transition-all font-medium"
             >
               <option value="" disabled>Select Practice Area</option>
               <optgroup label="Primary Malaysian Practice Disciplines (9 Core Areas)">
@@ -322,7 +322,7 @@ export default function ConsultationForm({
           </div>
 
           <div>
-            <label htmlFor="preferredDate" className="block text-xs sm:text-sm font-semibold text-[#22122b] mb-1">
+            <label htmlFor="preferredDate" className="block text-xs sm:text-sm font-semibold text-[#2B2D33] mb-1">
               Preferred Date / Urgency
             </label>
             <input
@@ -330,13 +330,13 @@ export default function ConsultationForm({
               id="preferredDate"
               name="preferredDate"
               placeholder="e.g. Urgent / This Week"
-              className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition-all"
+              className="w-full px-3.5 py-2.5 rounded-lg border border-[#E5DFD3] bg-white text-[#2B2D33] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#4B2A7B] focus:border-[#4B2A7B] transition-all"
             />
           </div>
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-xs sm:text-sm font-semibold text-[#22122b] mb-1">
+          <label htmlFor="message" className="block text-xs sm:text-sm font-semibold text-[#2B2D33] mb-1">
             Summary of Your Legal Matter <span className="text-red-500">*</span>
           </label>
           <textarea
@@ -345,7 +345,7 @@ export default function ConsultationForm({
             rows={3}
             required
             placeholder="Please provide key facts, parties involved, relevant dates, and desired outcome..."
-            className="w-full px-3.5 py-2.5 rounded-lg border border-[#e8e1d5] bg-[#faf9f6] text-[#231f20] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition-all resize-y"
+            className="w-full px-3.5 py-2.5 rounded-lg border border-[#E5DFD3] bg-white text-[#2B2D33] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#4B2A7B] focus:border-[#4B2A7B] transition-all resize-y"
           ></textarea>
           {errors.message && (
             <p className="text-red-500 text-xs mt-1">{errors.message[0]}</p>
@@ -371,19 +371,19 @@ export default function ConsultationForm({
             )}
           </button>
 
-          <div className="flex items-center justify-center gap-2 text-[11px] sm:text-xs text-[#595355]">
-            <Shield className="w-4 h-4 text-indigo-600 shrink-0" />
+          <div className="flex items-center justify-center gap-2 text-[11px] sm:text-xs text-[#2B2D33]/70">
+            <Shield className="w-4 h-4 text-[#4B2A7B] shrink-0" />
             <span>100% Confidential Legal Privilege</span>
           </div>
         </div>
       </form>
 
-      <div className="mt-6 pt-5 border-t border-[#f3efe6] flex flex-col sm:flex-row items-center justify-between gap-3.5 bg-[#faf9f6] p-3.5 sm:p-4 rounded-xl border border-[#e8e1d5]">
+      <div className="mt-6 pt-5 border-t border-[#E5DFD3] flex flex-col sm:flex-row items-center justify-between gap-3.5 bg-[#FAF8F2] p-3.5 sm:p-4 rounded-xl border border-[#E5DFD3]">
         <div className="flex items-center gap-3 text-center sm:text-left">
-          <PhoneCall className="w-4 h-4 text-indigo-600 shrink-0 hidden sm:block" />
+          <PhoneCall className="w-4 h-4 text-[#4B2A7B] shrink-0 hidden sm:block" />
           <div className="text-xs">
-            <span className="font-bold text-[#22122b] block">Prefer Direct Conversation?</span>
-            <span className="text-[#595355]">Call our KLCC chambers at +60 17-548 3157</span>
+            <span className="font-bold text-[#2B2D33] block">Prefer Direct Conversation?</span>
+            <span className="text-[#2B2D33]/80">Call our KLCC chambers at +60 17-548 3157</span>
           </div>
         </div>
         <WhatsAppButton

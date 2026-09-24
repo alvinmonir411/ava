@@ -89,13 +89,13 @@ export default async function IndividualPracticePage({ params }: Props) {
       />
 
       {/* 1. Main Practice Content Layout (Light Section) */}
-      <section className="py-20 lg:py-28 bg-[#f8fafc] text-[#0F1F3D] border-b border-slate-200">
+      <section className="py-20 lg:py-28 bg-[#FAF8F2] text-[#2B2D33] border-b border-[#E5DFD3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Column: In-depth Legal Content (8 cols) */}
             <div className="lg:col-span-8 space-y-10">
               {/* Featured Practice Photo Banner in thin frame */}
-              <div className="relative h-64 sm:h-80 w-full rounded-lg overflow-hidden border border-slate-200 bg-[#0F1F3D] shadow-sm">
+              <div className="relative h-64 sm:h-80 w-full rounded-lg overflow-hidden border border-[#E5DFD3] bg-[#FAF8F2] shadow-sm">
                 <Image
                   src={practice.heroImage}
                   alt={`${practice.title} Legal Counsel Kuala Lumpur`}
@@ -104,28 +104,28 @@ export default async function IndividualPracticePage({ params }: Props) {
                   sizes="(max-width: 1024px) 100vw, 65vw"
                   className="object-cover object-center brightness-95"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#070E1C]/90 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded bg-[#0F1F3D]/90 border border-white/20 text-[#faf7fc] flex items-center justify-between">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2B2D33]/60 via-[#2B2D33]/15 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded bg-white/95 border border-[#E5DFD3] text-[#2B2D33] flex items-center justify-between shadow-md">
                   <div>
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-purple-200 block">
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#4B2A7B] block">
                       Advocates & Solicitors • High Court of Malaya
                     </span>
-                    <span className="font-serif text-xs sm:text-sm font-bold text-white">
+                    <span className="font-serif text-xs sm:text-sm font-bold text-[#2B2D33]">
                       Messrs. Low Wah Chin & Co. — {practice.title}
                     </span>
                   </div>
-                  <span className="hidden sm:inline-block px-2.5 py-0.5 rounded bg-white/10 text-white border border-white/15 text-xs font-semibold">
+                  <span className="hidden sm:inline-block px-2.5 py-0.5 rounded bg-[#FAF8F2] text-[#4B2A7B] border border-[#E5DFD3] text-xs font-semibold">
                     Kuala Lumpur Chambers
                   </span>
                 </div>
               </div>
 
               {/* Comprehensive Overview */}
-              <div className="bg-white p-6 sm:p-8 rounded-lg border border-slate-200 shadow-xs">
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#0F1F3D] mb-4">
+              <div className="bg-white p-6 sm:p-8 rounded-lg border border-[#E5DFD3] shadow-xs">
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#2B2D33] mb-4">
                   Overview & Legal Representation
                 </h2>
-                <div className="prose text-slate-700 leading-relaxed space-y-4 text-sm sm:text-base font-normal">
+                <div className="prose text-[#2B2D33]/80 leading-relaxed space-y-4 text-sm sm:text-base font-normal">
                   {practice.fullDescription.split('\n\n').map((paragraph, pIdx) => (
                     <p key={pIdx} className="leading-relaxed">
                       {paragraph}
@@ -136,24 +136,24 @@ export default async function IndividualPracticePage({ params }: Props) {
 
               {/* Malaysian Statutory & Regulatory Framework */}
               {practice.statutoryFramework && practice.statutoryFramework.length > 0 && (
-                <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-[#070e1e] via-[#0d1738] to-[#1c0c30] text-[#faf7fc] border border-white/15 shadow-sm">
-                  <div className="flex items-center gap-2 text-purple-200 text-xs font-bold uppercase tracking-wider mb-2">
-                    <BookOpen className="w-4 h-4 text-purple-300" />
+                <div className="p-6 sm:p-8 rounded-lg bg-white text-[#2B2D33] border border-[#E5DFD3] shadow-xs">
+                  <div className="flex items-center gap-2 text-[#4B2A7B] text-xs font-bold uppercase tracking-wider mb-2">
+                    <BookOpen className="w-4 h-4 text-[#4B2A7B]" />
                     <span>Governing Laws & Malaysian Statutory Framework</span>
                   </div>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#2B2D33] mb-2">
                     Statutory Authorities & Precedential Grounding
                   </h3>
-                  <p className="text-xs text-[#faf7fc]/75 mb-5">
+                  <p className="text-xs text-[#2B2D33]/75 mb-5">
                     Our legal briefs, applications, and advisory in this discipline are grounded in the following Malaysian statutes and authoritative precedents:
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {practice.statutoryFramework.map((statute, sIdx) => (
                       <div
                         key={sIdx}
-                        className="p-3 rounded bg-white/5 border border-white/15 flex items-start gap-2.5 text-xs text-white/90"
+                        className="p-3 rounded bg-[#FAF8F2] border border-[#E5DFD3] flex items-start gap-2.5 text-xs text-[#2B2D33]"
                       >
-                        <Scale className="w-4 h-4 text-purple-300 shrink-0 mt-0.5" />
+                        <Scale className="w-4 h-4 text-[#4B2A7B] shrink-0 mt-0.5" />
                         <span className="font-medium">{statute}</span>
                       </div>
                     ))}
@@ -162,15 +162,15 @@ export default async function IndividualPracticePage({ params }: Props) {
               )}
 
               {/* What We Handle Breakdown */}
-              <div className="p-6 sm:p-8 rounded-lg bg-white border border-slate-200 space-y-5 shadow-xs">
-                <h3 className="font-serif text-2xl font-bold text-[#0F1F3D]">
+              <div className="p-6 sm:p-8 rounded-lg bg-white border border-[#E5DFD3] space-y-5 shadow-xs">
+                <h3 className="font-serif text-2xl font-bold text-[#2B2D33]">
                   What We Handle in This Practice Discipline
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   {practice.whatWeHandle.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 bg-[#f8fafc] p-3.5 rounded border border-slate-200">
-                      <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
-                      <span className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
+                    <div key={idx} className="flex items-start gap-2.5 bg-[#FAF8F2] p-3.5 rounded border border-[#E5DFD3]">
+                      <CheckCircle2 className="w-4 h-4 text-[#4B2A7B] shrink-0 mt-0.5" />
+                      <span className="text-xs sm:text-sm text-[#2B2D33] font-medium leading-relaxed">
                         {item}
                       </span>
                     </div>
@@ -180,35 +180,35 @@ export default async function IndividualPracticePage({ params }: Props) {
 
               {/* Procedural Pathway Timeline */}
               {practice.proceduralTimeline && practice.proceduralTimeline.length > 0 && (
-                <div className="p-6 sm:p-8 rounded-lg bg-white border border-slate-200 shadow-xs space-y-5">
-                  <div className="flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-wider">
-                    <Compass className="w-4 h-4 text-indigo-600" />
+                <div className="p-6 sm:p-8 rounded-lg bg-white border border-[#E5DFD3] shadow-xs space-y-5">
+                  <div className="flex items-center gap-2 text-[#4B2A7B] text-xs font-bold uppercase tracking-wider">
+                    <Compass className="w-4 h-4 text-[#4B2A7B]" />
                     <span>Litigation Pathway & Matter Progression</span>
                   </div>
-                  <h3 className="font-serif text-2xl font-bold text-[#0F1F3D]">
+                  <h3 className="font-serif text-2xl font-bold text-[#2B2D33]">
                     How We Progress Your Matter
                   </h3>
                   <div className="space-y-3">
                     {practice.proceduralTimeline.map((item, tIdx) => (
                       <div
                         key={tIdx}
-                        className="flex items-start gap-3.5 p-3.5 rounded bg-[#f8fafc] border border-slate-200"
+                        className="flex items-start gap-3.5 p-3.5 rounded bg-[#FAF8F2] border border-[#E5DFD3]"
                       >
-                        <div className="w-7 h-7 rounded bg-indigo-600 text-white font-serif font-bold text-xs flex items-center justify-center shrink-0 border border-indigo-400">
+                        <div className="w-7 h-7 rounded bg-[#4B2A7B] text-white font-serif font-bold text-xs flex items-center justify-center shrink-0 border border-purple-400">
                           {item.step || tIdx + 1}
                         </div>
                         <div className="flex-1 text-xs">
                           <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
-                            <h4 className="font-serif font-bold text-sm text-[#0F1F3D]">
+                            <h4 className="font-serif font-bold text-sm text-[#2B2D33]">
                               {item.title}
                             </h4>
                             {item.duration && (
-                              <span className="text-[10px] font-semibold text-indigo-600 bg-white px-2 py-0.5 rounded border border-slate-200">
+                              <span className="text-[10px] font-semibold text-[#4B2A7B] bg-white px-2 py-0.5 rounded border border-[#E5DFD3]">
                                 ⏱ {item.duration}
                               </span>
                             )}
                           </div>
-                          <p className="text-slate-600 leading-relaxed">
+                          <p className="text-[#2B2D33]/70 leading-relaxed">
                             {item.description}
                           </p>
                         </div>
@@ -220,12 +220,12 @@ export default async function IndividualPracticePage({ params }: Props) {
 
               {/* Frequently Asked Questions */}
               {practice.faqs && practice.faqs.length > 0 && (
-                <div className="p-6 sm:p-8 rounded-lg bg-white border border-slate-200 shadow-xs space-y-4">
-                  <div className="flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-wider">
-                    <HelpCircle className="w-4 h-4 text-indigo-600" />
+                <div className="p-6 sm:p-8 rounded-lg bg-white border border-[#E5DFD3] shadow-xs space-y-4">
+                  <div className="flex items-center gap-2 text-[#4B2A7B] text-xs font-bold uppercase tracking-wider">
+                    <HelpCircle className="w-4 h-4 text-[#4B2A7B]" />
                     <span>Common Questions</span>
                   </div>
-                  <h3 className="font-serif text-2xl font-bold text-[#0F1F3D]">
+                  <h3 className="font-serif text-2xl font-bold text-[#2B2D33]">
                     Frequently Asked Questions ({practice.title})
                   </h3>
                   <FaqAccordion items={practice.faqs} />
@@ -241,14 +241,14 @@ export default async function IndividualPracticePage({ params }: Props) {
               )}
 
               {/* Direct WhatsApp Callout */}
-              <div className="p-6 bg-white rounded-lg border border-slate-200 shadow-xs space-y-3">
-                <span className="text-[10px] uppercase font-bold tracking-wider text-indigo-600 block">
+              <div className="p-6 bg-white rounded-lg border border-[#E5DFD3] shadow-xs space-y-3">
+                <span className="text-[10px] uppercase font-bold tracking-wider text-[#4B2A7B] block">
                   Quick Legal Inquiry
                 </span>
-                <h4 className="font-serif text-lg font-bold text-[#0F1F3D]">
+                <h4 className="font-serif text-lg font-bold text-[#2B2D33]">
                   Consult with Principal Counsel
                 </h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-xs text-[#2B2D33]/70 leading-relaxed">
                   Have an urgent question regarding {practice.title}? Connect directly with our chambers.
                 </p>
                 <div className="pt-1">
@@ -261,8 +261,8 @@ export default async function IndividualPracticePage({ params }: Props) {
               </div>
 
               {/* All Practice Areas Quick Nav */}
-              <div className="p-5 bg-white rounded-lg border border-slate-200 space-y-3 shadow-xs">
-                <h4 className="font-serif text-sm font-bold text-[#0F1F3D] uppercase tracking-wider border-b border-slate-200 pb-2">
+              <div className="p-5 bg-white rounded-lg border border-[#E5DFD3] space-y-3 shadow-xs">
+                <h4 className="font-serif text-sm font-bold text-[#2B2D33] uppercase tracking-wider border-b border-[#E5DFD3] pb-2">
                   Other Practice Disciplines
                 </h4>
                 <ul className="space-y-1.5 text-xs">
@@ -270,8 +270,8 @@ export default async function IndividualPracticePage({ params }: Props) {
                     <li key={p.slug}>
                       <Link
                         href={`/practices/${p.slug}`}
-                        className={`block py-1 hover:text-indigo-600 transition-colors line-clamp-1 ${
-                          p.slug === practice.slug ? 'font-bold text-indigo-600' : 'text-slate-600'
+                        className={`block py-1 hover:text-[#4B2A7B] transition-colors line-clamp-1 ${
+                          p.slug === practice.slug ? 'font-bold text-[#4B2A7B]' : 'text-[#2B2D33]/70'
                         }`}
                       >
                         • {p.title}
@@ -285,18 +285,18 @@ export default async function IndividualPracticePage({ params }: Props) {
         </div>
       </section>
 
-      {/* 2. Consultation Booking (Alternating Dark Section) */}
-      <section id="consultation-box" className="py-20 bg-gradient-to-br from-[#070e1e] via-[#0d1738] to-[#1c0c30] text-white border-t border-white/10">
+      {/* 2. Consultation Booking */}
+      <section id="consultation-box" className="py-20 bg-[#FAF8F2] text-[#2B2D33] border-t border-[#E5DFD3]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#2B2D33] mb-2">
               Book a Consultation on {practice.title}
             </h3>
-            <p className="text-xs sm:text-sm text-[#faf7fc]/75">
+            <p className="text-xs sm:text-sm text-[#2B2D33]/75">
               All communications are strictly protected by Legal Professional Privilege.
             </p>
           </div>
-          <div className="bg-white text-[#0F1F3D] p-6 sm:p-8 rounded-lg shadow-xl border border-slate-200">
+          <div className="bg-white text-[#2B2D33] p-6 sm:p-8 rounded-lg shadow-xl border border-[#E5DFD3]">
             <ConsultationForm defaultPracticeArea={practice.title} />
           </div>
         </div>

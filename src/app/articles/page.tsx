@@ -42,15 +42,15 @@ export default async function ArticlesPage() {
       />
 
       {/* Main Articles Listing (Light Section) */}
-      <section className="py-20 lg:py-28 bg-[#faf7fc] text-[#1e0d33] border-b border-[#ebdff5]">
+      <section className="py-20 lg:py-28 bg-[#FAF8F2] text-[#2B2D33] border-b border-[#E5DFD3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Principal Author & Editorial Leadership Banner */}
-          <div className="mb-16 p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-lg">
+          <div className="mb-16 p-6 sm:p-8 bg-white border border-[#E5DFD3] rounded-2xl shadow-sm">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
               {/* Photo Frame */}
               <div className="md:col-span-4 lg:col-span-3 flex justify-center">
-                <div className="relative w-48 h-56 sm:w-52 sm:h-64 rounded-xl overflow-hidden border-2 border-indigo-400 shadow-md bg-[#120720] group">
+                <div className="relative w-48 h-56 sm:w-52 sm:h-64 rounded-xl overflow-hidden border-2 border-[#4B2A7B] shadow-md bg-[#FAF8F2] group">
                   <Image
                     src="/lawyer-portrait-3.jpg"
                     alt="Low Wah Chin (Ava Rachel) 劉華晶 Principal Legal Author"
@@ -58,8 +58,8 @@ export default async function ArticlesPage() {
                     sizes="(max-width: 768px) 192px, 208px"
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#120720]/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-2 left-2 right-2 text-center text-[#faf7fc] text-[10px] font-mono bg-[#1e0d33]/90 py-0.5 rounded border border-white/20">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2B2D33]/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-2 left-2 right-2 text-center text-[#4B2A7B] text-[10px] font-mono bg-white/95 py-0.5 rounded border border-[#E5DFD3] shadow-xs font-semibold">
                     Principal Legal Author
                   </div>
                 </div>
@@ -67,23 +67,23 @@ export default async function ArticlesPage() {
 
               {/* Author Details & Bio */}
               <div className="md:col-span-8 lg:col-span-9 space-y-3 text-center md:text-left">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-[11px] font-bold uppercase tracking-wider">
-                  <Scale className="w-3.5 h-3.5 text-indigo-600" />
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#4B2A7B]/10 border border-[#4B2A7B]/20 text-[#4B2A7B] text-[11px] font-bold uppercase tracking-wider">
+                  <Scale className="w-3.5 h-3.5 text-[#4B2A7B]" />
                   <span>Senior Counsel Commentary</span>
                 </div>
                 
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1e0d33]">
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#2B2D33]">
                   Legal Commentary by Low Wah Chin (Ava Rachel) 劉華晶
                 </h3>
                 
-                <p className="text-xs sm:text-sm text-[#594d63] leading-relaxed max-w-3xl">
+                <p className="text-xs sm:text-sm text-[#2B2D33]/80 leading-relaxed max-w-3xl">
                   Lincoln’s Inn Barrister & Advocate & Solicitor of the High Court of Malaya. Delivering authoritative analysis on Malaysian jurisprudence, corporate commercial contract structuring, conveyancing regulations, and courtroom dispute precedents.
                 </p>
 
                 <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
                   <Link
                     href="/our-team"
-                    className="btn-gradient-royal px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 shadow-sm"
+                    className="bg-[#4B2A7B] hover:bg-[#3A1F60] text-white px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 shadow-sm transition-colors"
                   >
                     <span>View Principal Profile</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -97,8 +97,8 @@ export default async function ArticlesPage() {
           {/* Featured Article Spotlight */}
           {featuredArticle && (
             <div className="mb-16">
-              <div className="flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-[0.2em] mb-4">
-                <Sparkles className="w-4 h-4 text-indigo-600" />
+              <div className="flex items-center gap-2 text-[#4B2A7B] text-xs font-bold uppercase tracking-[0.2em] mb-4">
+                <Sparkles className="w-4 h-4 text-[#4B2A7B]" />
                 <span>Featured Publication</span>
               </div>
               <ArticleCard article={featuredArticle} featured />
@@ -107,14 +107,14 @@ export default async function ArticlesPage() {
 
           {/* All Articles Section */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-[0.2em] mb-2">
-              <Award className="w-3.5 h-3.5 text-indigo-600" />
+            <div className="inline-flex items-center gap-2 text-[#4B2A7B] text-xs font-bold uppercase tracking-[0.2em] mb-2">
+              <Award className="w-3.5 h-3.5 text-[#4B2A7B]" />
               <span>All Publications</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1e0d33]">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2B2D33]">
               Recent Legal Commentary & Guides
             </h2>
-            <p className="text-xs sm:text-sm text-[#594d63] mt-2 font-light">
+            <p className="text-xs sm:text-sm text-[#2B2D33]/80 mt-2 font-light">
               Explore our library of statutory guides and legal analyses for Malaysian citizens, property buyers, and businesses.
             </p>
           </div>

@@ -24,29 +24,29 @@ export default function SectionHeading({
       {badge && (
         <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase mb-3.5 shadow-sm ${
           light 
-            ? 'bg-[#c6a052]/20 text-[#e5c777] border border-[#c6a052]/40' 
-            : 'bg-[#c6a052]/15 text-[#9d7835] border border-[#c6a052]/30'
+            ? 'bg-purple-900/60 text-purple-200 border border-purple-400/40' 
+            : 'bg-[#4B2A7B]/10 text-[#4B2A7B] border border-[#4B2A7B]/20'
         }`}>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#c6a052]" />
+          <span className={`w-1.5 h-1.5 rounded-full ${light ? 'bg-purple-300' : 'bg-[#4B2A7B]'}`} />
           <span>{badge}</span>
         </div>
       )}
       <h2 className={`font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] ${
-        light ? 'text-[#faf9f6]' : 'text-[#22122b]'
+        light ? 'text-[#FAF8F2]' : 'text-[#2B2D33]'
       }`}>
         {title}
       </h2>
       {subtitle && (
         <p className={`mt-4 text-base sm:text-lg leading-relaxed font-normal ${
-          light ? 'text-[#faf9f6]/85 font-light' : 'text-[#595355]'
+          light ? 'text-[#FAF8F2]/85 font-light' : 'text-[#2B2D33]/75'
         }`}>
           {subtitle}
         </p>
       )}
       <div className={`mt-6 flex items-center gap-2 ${isCenter ? 'justify-center' : ''}`}>
-        <div className="h-[2px] w-12 bg-gradient-to-r from-[#c6a052] to-[#e5c777]" />
-        <div className="w-1.5 h-1.5 rounded-full bg-[#c6a052]" />
-        <div className="h-[2px] w-6 bg-[#c6a052]/40" />
+        <div className="h-[2px] w-12 bg-gradient-to-r from-[#4B2A7B] to-[#6A3CA8]" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#4B2A7B]" />
+        <div className="h-[2px] w-6 bg-[#4B2A7B]/40" />
       </div>
     </div>
   );

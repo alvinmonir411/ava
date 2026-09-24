@@ -38,13 +38,13 @@ export default function SectionDivider({
       <div
         className={`h-[1px] flex-1 max-w-xs sm:max-w-md bg-gradient-to-r ${
           isLight
-            ? 'from-transparent via-[#c6a052]/40 to-[#c6a052]/80'
-            : 'from-transparent via-[#c6a052]/30 to-[#c6a052]/70'
+            ? 'from-transparent via-[#4B2A7B]/30 to-[#4B2A7B]/80'
+            : 'from-transparent via-purple-400/30 to-purple-400/70'
         }`}
       />
       <span
         className={`px-3 sm:px-4 text-xs sm:text-sm font-serif ${
-          isLight ? 'text-[#c6a052]' : 'text-[#e5c777]'
+          isLight ? 'text-[#4B2A7B]' : 'text-purple-300'
         } select-none tracking-widest`}
       >
         {renderGlyph()}
@@ -52,8 +52,8 @@ export default function SectionDivider({
       <div
         className={`h-[1px] flex-1 max-w-xs sm:max-w-md bg-gradient-to-l ${
           isLight
-            ? 'from-transparent via-[#c6a052]/40 to-[#c6a052]/80'
-            : 'from-transparent via-[#c6a052]/30 to-[#c6a052]/70'
+            ? 'from-transparent via-[#4B2A7B]/30 to-[#4B2A7B]/80'
+            : 'from-transparent via-purple-400/30 to-purple-400/70'
         }`}
       />
     </div>

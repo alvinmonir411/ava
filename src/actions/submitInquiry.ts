@@ -85,20 +85,20 @@ export async function submitInquiry(prevState: unknown, formData: FormData): Pro
           replyTo: data.email,
           subject: `[New Legal Consultation Request] ${data.practiceArea} - ${fullName}`,
           html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #B8935A; border-radius: 8px;">
-              <h2 style="color: #0F1F3D; border-bottom: 2px solid #B8935A; padding-bottom: 8px;">New Consultation Request — LWCCO</h2>
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #E5DFD3; border-radius: 8px; background-color: #FFFFFF;">
+              <h2 style="color: #4B2A7B; border-bottom: 2px solid #4B2A7B; padding-bottom: 8px;">New Consultation Request — LWCCO</h2>
               <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-                <tr><td style="padding: 8px; font-weight: bold; color: #0F1F3D; width: 35%;">Client Name:</td><td style="padding: 8px;">${fullName}</td></tr>
-                <tr><td style="padding: 8px; font-weight: bold; color: #0F1F3D;">Email:</td><td style="padding: 8px;"><a href="mailto:${data.email}">${data.email}</a></td></tr>
-                <tr><td style="padding: 8px; font-weight: bold; color: #0F1F3D;">Phone:</td><td style="padding: 8px;"><a href="tel:${data.phone}">${data.phone}</a></td></tr>
-                <tr><td style="padding: 8px; font-weight: bold; color: #0F1F3D;">Practice Area:</td><td style="padding: 8px; color: #B8935A; font-weight: bold;">${data.practiceArea}</td></tr>
-                <tr><td style="padding: 8px; font-weight: bold; color: #0F1F3D;">Preferred Date:</td><td style="padding: 8px;">${data.preferredDate || 'Not specified'}</td></tr>
+                <tr><td style="padding: 8px; font-weight: bold; color: #2B2D33; width: 35%;">Client Name:</td><td style="padding: 8px; color: #2B2D33;">${fullName}</td></tr>
+                <tr><td style="padding: 8px; font-weight: bold; color: #2B2D33;">Email:</td><td style="padding: 8px;"><a href="mailto:${data.email}" style="color: #4B2A7B;">${data.email}</a></td></tr>
+                <tr><td style="padding: 8px; font-weight: bold; color: #2B2D33;">Phone:</td><td style="padding: 8px;"><a href="tel:${data.phone}" style="color: #4B2A7B;">${data.phone}</a></td></tr>
+                <tr><td style="padding: 8px; font-weight: bold; color: #2B2D33;">Practice Area:</td><td style="padding: 8px; color: #4B2A7B; font-weight: bold;">${data.practiceArea}</td></tr>
+                <tr><td style="padding: 8px; font-weight: bold; color: #2B2D33;">Preferred Date:</td><td style="padding: 8px; color: #2B2D33;">${data.preferredDate || 'Not specified'}</td></tr>
               </table>
-              <div style="margin-top: 20px; padding: 15px; background-color: #FAF8F4; border-left: 4px solid #B8935A; border-radius: 4px;">
-                <h4 style="margin: 0 0 8px 0; color: #0F1F3D;">Client Message / Details:</h4>
-                <p style="margin: 0; white-space: pre-wrap; color: #2B2B2B;">${data.message}</p>
+              <div style="margin-top: 20px; padding: 15px; background-color: #FAF8F2; border-left: 4px solid #4B2A7B; border-radius: 4px;">
+                <h4 style="margin: 0 0 8px 0; color: #2B2D33;">Client Message / Details:</h4>
+                <p style="margin: 0; white-space: pre-wrap; color: #2B2D33;">${data.message}</p>
               </div>
-              <p style="margin-top: 20px; font-size: 12px; color: #777;">Received via Messrs. Low Wah Chin & Co. (LWCCO) Law Firm Website.</p>
+              <p style="margin-top: 20px; font-size: 12px; color: #666;">Received via Messrs. Low Wah Chin & Co. (LWCCO) Law Firm Website.</p>
             </div>
           `,
         };

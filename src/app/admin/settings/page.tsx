@@ -14,6 +14,7 @@ import {
   HeroContentSettings,
   AboutPrincipalSettings,
   RecognitionContentSettings,
+  SectionVisibilitySettings,
 } from '@/types/settings';
 import AdminHeader from '@/components/admin/AdminHeader';
 import ImageUploadButton from '@/components/admin/ImageUploadButton';
@@ -88,8 +89,8 @@ const PRESET_PORTRAITS = [
 export default function AdminSettingsPage() {
   const [settings, setSettings] = useState<FirmSettings | null>(null);
   const [activeTab, setActiveTab] = useState<
-    'gallery' | 'hero' | 'about' | 'recognition' | 'heroes' | 'firm'
-  >('gallery');
+    'sections' | 'gallery' | 'hero' | 'about' | 'recognition' | 'heroes' | 'firm'
+  >('sections');
   const [isPending, startTransition] = useTransition();
   const [savedSuccess, setSavedSuccess] = useState(false);
   const tabsRef = useRef<HTMLDivElement>(null);
@@ -224,6 +225,25 @@ export default function AdminSettingsPage() {
   };
 
   // Gallery modification handlers
+  const handleToggleSection = (field: keyof SectionVisibilitySettings) => {
+    if (!settings) return;
+    const currentSections: SectionVisibilitySettings = settings.sections || {
+      showGallery: false,
+      showRecognition: false,
+      showFirmOverview: false,
+      showArticles: false,
+    };
+    const updated = {
+      ...currentSections,
+      [field]: !currentSections[field],
+    };
+    setSettings({
+      ...settings,
+      sections: updated,
+    });
+    toast.info(`Updated section: ${field} is now ${updated[field] ? 'Visible on homepage' : 'Hidden from homepage'}. Click Save to publish.`);
+  };
+
   const handleGalleryHeaderChange = (field: 'sectionTitle' | 'sectionSubtitle' | 'sectionBadge', value: string) => {
     if (!settings) return;
     setSettings({
@@ -322,7 +342,7 @@ export default function AdminSettingsPage() {
 
   if (!settings) {
     return (
-      <div className="p-8 text-center text-white/50 text-xs">
+      <div className="p-8 text-center text-[#2B2D33]/60 text-xs">
         Loading firm configuration, gallery and website settings...
       </div>
     );
@@ -382,21 +402,21 @@ export default function AdminSettingsPage() {
 
       <div className="p-4 sm:p-6 lg:p-8 max-w-6xl w-full mx-auto space-y-6">
         {savedSuccess && (
-          <div className="p-3.5 sm:p-4 bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 text-xs font-bold text-center rounded-2xl animate-in fade-in shadow-lg">
+          <div className="p-3.5 sm:p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold text-center rounded-2xl animate-in fade-in shadow-xs">
             ✓ All Website Content and Changes Published Live Successfully!
           </div>
         )}
 
-        {/* Tab Selector with Left/Right Buttons and Custom Gold Scrollbar */}
+        {/* Tab Selector with Left/Right Buttons and Custom Scrollbar */}
         <div className="space-y-2">
-          <div className="flex items-center justify-between text-xs text-[#CFA76F] font-semibold px-1">
+          <div className="flex items-center justify-between text-xs text-[#4B2A7B] font-semibold px-1">
             <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#B8935A] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#4B2A7B] animate-pulse" />
               Website Settings Category:
             </span>
-            <div className="flex items-center gap-1 text-[11px] text-white/60">
+            <div className="flex items-center gap-1 text-[11px] text-[#2B2D33]/60">
               <span>Scroll tabs</span>
-              <ChevronRight className="w-3.5 h-3.5 text-[#CFA76F]" />
+              <ChevronRight className="w-3.5 h-3.5 text-[#4B2A7B]" />
             </div>
           </div>
 
@@ -405,19 +425,20 @@ export default function AdminSettingsPage() {
             <button
               type="button"
               onClick={() => scrollTabs('left')}
-              className="absolute -left-3 z-10 p-2 rounded-xl bg-[#0F1F3D]/95 hover:bg-[#B8935A] text-[#CFA76F] hover:text-[#0A1529] border border-[#B8935A]/50 shadow-xl backdrop-blur-md transition-all active:scale-95 hidden md:flex items-center justify-center cursor-pointer"
+              className="absolute -left-3 z-10 p-2 rounded-xl bg-white/95 hover:bg-[#4B2A7B] text-[#4B2A7B] hover:text-white border border-[#E5DFD3] hover:border-[#4B2A7B] shadow-md backdrop-blur-md transition-all active:scale-95 hidden md:flex items-center justify-center cursor-pointer"
               title="Scroll Tabs Left"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
 
-            {/* Scrollable Container with Gold Scrollbar */}
+            {/* Scrollable Container with Subtle Scrollbar */}
             <div
               ref={tabsRef}
               onScroll={checkTabsScroll}
-              className="flex items-center gap-2.5 p-2.5 bg-[#0A1529] border border-[#B8935A]/35 rounded-2xl w-full overflow-x-auto gold-scrollbar pb-3.5 md:px-5 scroll-smooth"
+              className="flex items-center gap-2.5 p-2.5 bg-white border border-[#E5DFD3] rounded-2xl w-full overflow-x-auto pb-3.5 md:px-5 scroll-smooth shadow-xs"
             >
               {[
+                { id: 'sections' as const, label: 'Homepage Sections', icon: Layers },
                 { id: 'gallery' as const, label: `Portrait Gallery (${settings.gallery?.items?.length || 5})`, icon: Camera },
                 { id: 'hero' as const, label: 'Hero & Headlines', icon: Building2 },
                 { id: 'about' as const, label: 'About Principal Lawyer', icon: User },
@@ -435,8 +456,8 @@ export default function AdminSettingsPage() {
                     onClick={() => handleSelectTab(tab.id)}
                     className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 whitespace-nowrap ${
                       isActive
-                        ? 'bg-gradient-to-r from-[#B8935A] via-[#CFA76F] to-[#967440] text-[#0A1529] font-extrabold shadow-lg shadow-[#B8935A]/20 ring-1 ring-[#DCC280]'
-                        : 'text-white/75 hover:text-white hover:bg-[#0F1F3D] border border-transparent hover:border-[#B8935A]/25'
+                        ? 'bg-[#4B2A7B] hover:bg-[#3A1F60] text-white shadow-xs'
+                        : 'text-[#2B2D33]/70 hover:text-[#2B2D33] hover:bg-[#FAF8F2] border border-transparent hover:border-[#E5DFD3]'
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -450,26 +471,26 @@ export default function AdminSettingsPage() {
             <button
               type="button"
               onClick={() => scrollTabs('right')}
-              className="absolute -right-3 z-10 p-2 rounded-xl bg-[#0F1F3D]/95 hover:bg-[#B8935A] text-[#CFA76F] hover:text-[#0A1529] border border-[#B8935A]/50 shadow-xl backdrop-blur-md transition-all active:scale-95 hidden md:flex items-center justify-center cursor-pointer"
+              className="absolute -right-3 z-10 p-2 rounded-xl bg-white/95 hover:bg-[#4B2A7B] text-[#4B2A7B] hover:text-white border border-[#E5DFD3] hover:border-[#4B2A7B] shadow-md backdrop-blur-md transition-all active:scale-95 hidden md:flex items-center justify-center cursor-pointer"
               title="Scroll Tabs Right"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
 
-          {/* Luxury Visual Scroll Bar Indicator & Mobile Quick Scroll Chevrons */}
+          {/* Visual Scroll Bar Indicator & Mobile Quick Scroll Chevrons */}
           <div className="px-1 pt-1 flex items-center gap-2.5">
             <button
               type="button"
               onClick={() => scrollTabs('left')}
-              className="p-1.5 rounded-lg bg-[#0A1529] border border-[#B8935A]/30 text-[#CFA76F] hover:bg-[#B8935A] hover:text-[#0A1529] transition-all cursor-pointer shadow-sm active:scale-90"
+              className="p-1.5 rounded-lg bg-white border border-[#E5DFD3] text-[#4B2A7B] hover:bg-[#FAF8F2] hover:text-[#3A1F60] transition-all cursor-pointer shadow-xs active:scale-90"
               title="Scroll Tabs Left"
             >
               <ChevronLeft className="w-3.5 h-3.5" />
             </button>
-            <div className="flex-1 bg-[#060D1A] h-2 rounded-full overflow-hidden border border-[#B8935A]/30 relative shadow-inner">
+            <div className="flex-1 bg-[#FAF8F2] h-2 rounded-full overflow-hidden border border-[#E5DFD3] relative shadow-inner">
               <div
-                className="h-full bg-gradient-to-r from-[#B8935A] via-[#DCC280] to-[#B8935A] rounded-full transition-all duration-150 shadow-sm"
+                className="h-full bg-[#4B2A7B] rounded-full transition-all duration-150 shadow-xs"
                 style={{
                   width: '35%',
                   marginLeft: `${Math.min(65, (scrollProgress / 100) * 65)}%`,
@@ -479,7 +500,7 @@ export default function AdminSettingsPage() {
             <button
               type="button"
               onClick={() => scrollTabs('right')}
-              className="p-1.5 rounded-lg bg-[#0A1529] border border-[#B8935A]/30 text-[#CFA76F] hover:bg-[#B8935A] hover:text-[#0A1529] transition-all cursor-pointer shadow-sm active:scale-90"
+              className="p-1.5 rounded-lg bg-white border border-[#E5DFD3] text-[#4B2A7B] hover:bg-[#FAF8F2] hover:text-[#3A1F60] transition-all cursor-pointer shadow-xs active:scale-90"
               title="Scroll Tabs Right"
             >
               <ChevronRight className="w-3.5 h-3.5" />
@@ -488,19 +509,197 @@ export default function AdminSettingsPage() {
         </div>
 
         <form onSubmit={handleSave} className="space-y-6">
+          {/* TAB 0: HOMEPAGE SECTIONS CONTROL */}
+          {activeTab === 'sections' && (
+            <div className="bg-white border border-[#E5DFD3] rounded-3xl p-6 sm:p-8 shadow-xs space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#E5DFD3] pb-4">
+                <div>
+                  <div className="flex items-center gap-2 text-[#4B2A7B] text-xs font-bold uppercase tracking-wider mb-1">
+                    <Layers className="w-4 h-4" />
+                    <span>Homepage Layout Simplification</span>
+                  </div>
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#2B2D33]">
+                    Homepage Section Controls
+                  </h3>
+                  <p className="text-xs text-[#2B2D33]/70 mt-1">
+                    Control which sections appear on the homepage. Core sections (Hero, About, Practice Areas, Testimonials, Contact) remain active by default. Supplementary sections are hidden by default and toggleable below.
+                  </p>
+                </div>
+              </div>
+
+              {/* Core Active Sections Callout */}
+              <div className="p-4 bg-[#FAF8F2] border border-[#E5DFD3] rounded-2xl">
+                <span className="text-[11px] font-bold text-[#4B2A7B] uppercase tracking-wider block mb-2">
+                  Active Core Sections (Permanent on Homepage)
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs font-semibold text-[#2B2D33]">
+                  <div className="flex items-center gap-1.5 p-2.5 bg-white rounded-lg border border-[#E5DFD3]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#4B2A7B]" />
+                    <span>1. Hero</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 p-2.5 bg-white rounded-lg border border-[#E5DFD3]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#4B2A7B]" />
+                    <span>2. About</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 p-2.5 bg-white rounded-lg border border-[#E5DFD3]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#4B2A7B]" />
+                    <span>3. Practice Areas</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 p-2.5 bg-white rounded-lg border border-[#E5DFD3]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#4B2A7B]" />
+                    <span>4. Testimonials</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 p-2.5 bg-white rounded-lg border border-[#E5DFD3]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#4B2A7B]" />
+                    <span>5. Contact</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Toggleable Sections List */}
+              <div className="space-y-4 pt-2">
+                <h4 className="font-serif text-sm font-bold text-[#2B2D33]">
+                  Toggleable Supplementary Sections (Hidden by Default)
+                </h4>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* 1. Portraits Gallery */}
+                  <div className="p-5 rounded-2xl border border-[#E5DFD3] bg-white hover:border-[#4B2A7B]/40 transition-colors shadow-xs flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-serif text-sm font-bold text-[#2B2D33]">
+                          Portraits & Leadership Gallery
+                        </span>
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                          settings.sections?.showGallery ? 'bg-emerald-100 text-emerald-800' : 'bg-[#FAF8F2] text-[#2B2D33]/60 border border-[#E5DFD3]'
+                        }`}>
+                          {settings.sections?.showGallery ? 'Visible on Homepage' : 'Hidden (Default)'}
+                        </span>
+                      </div>
+                      <p className="text-xs text-[#2B2D33]/70 leading-relaxed mb-4">
+                        Interactive 5-photo showcase highlighting Principal Counsel Low Wah Chin across court dress and chambers milestones.
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleToggleSection('showGallery')}
+                      className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-2 ${
+                        settings.sections?.showGallery
+                          ? 'bg-[#4B2A7B] text-white hover:bg-[#3A1F60]'
+                          : 'bg-[#FAF8F2] border border-[#E5DFD3] text-[#2B2D33] hover:border-[#4B2A7B]'
+                      }`}
+                    >
+                      <span>{settings.sections?.showGallery ? 'Hide from Homepage' : 'Enable on Homepage'}</span>
+                    </button>
+                  </div>
+
+                  {/* 2. Best Law Firms Feature */}
+                  <div className="p-5 rounded-2xl border border-[#E5DFD3] bg-white hover:border-[#4B2A7B]/40 transition-colors shadow-xs flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-serif text-sm font-bold text-[#2B2D33]">
+                          &ldquo;Best Law Firms&rdquo; Feature
+                        </span>
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                          settings.sections?.showRecognition ? 'bg-emerald-100 text-emerald-800' : 'bg-[#FAF8F2] text-[#2B2D33]/60 border border-[#E5DFD3]'
+                        }`}>
+                          {settings.sections?.showRecognition ? 'Visible on Homepage' : 'Hidden (Default)'}
+                        </span>
+                      </div>
+                      <p className="text-xs text-[#2B2D33]/70 leading-relaxed mb-4">
+                        Trusted Malaysia editorial feature highlighting the firm’s top 10 ranking and accreditation stats.
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleToggleSection('showRecognition')}
+                      className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-2 ${
+                        settings.sections?.showRecognition
+                          ? 'bg-[#4B2A7B] text-white hover:bg-[#3A1F60]'
+                          : 'bg-[#FAF8F2] border border-[#E5DFD3] text-[#2B2D33] hover:border-[#4B2A7B]'
+                      }`}
+                    >
+                      <span>{settings.sections?.showRecognition ? 'Hide from Homepage' : 'Enable on Homepage'}</span>
+                    </button>
+                  </div>
+
+                  {/* 3. Firm Overview & Quick Facts */}
+                  <div className="p-5 rounded-2xl border border-[#E5DFD3] bg-white hover:border-[#4B2A7B]/40 transition-colors shadow-xs flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-serif text-sm font-bold text-[#2B2D33]">
+                          Firm Overview & Quick Facts
+                        </span>
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                          settings.sections?.showFirmOverview ? 'bg-emerald-100 text-emerald-800' : 'bg-[#FAF8F2] text-[#2B2D33]/60 border border-[#E5DFD3]'
+                        }`}>
+                          {settings.sections?.showFirmOverview ? 'Visible on Homepage' : 'Hidden (Default)'}
+                        </span>
+                      </div>
+                      <p className="text-xs text-[#2B2D33]/70 leading-relaxed mb-4">
+                        Strategic overview highlighting firm foundation, Colony @ KLCC location map, and regulatory practice background.
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleToggleSection('showFirmOverview')}
+                      className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-2 ${
+                        settings.sections?.showFirmOverview
+                          ? 'bg-[#4B2A7B] text-white hover:bg-[#3A1F60]'
+                          : 'bg-[#FAF8F2] border border-[#E5DFD3] text-[#2B2D33] hover:border-[#4B2A7B]'
+                      }`}
+                    >
+                      <span>{settings.sections?.showFirmOverview ? 'Hide from Homepage' : 'Enable on Homepage'}</span>
+                    </button>
+                  </div>
+
+                  {/* 4. Latest Legal Articles */}
+                  <div className="p-5 rounded-2xl border border-[#E5DFD3] bg-white hover:border-[#4B2A7B]/40 transition-colors shadow-xs flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-serif text-sm font-bold text-[#2B2D33]">
+                          Latest Legal Insights & Articles
+                        </span>
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                          settings.sections?.showArticles ? 'bg-emerald-100 text-emerald-800' : 'bg-[#FAF8F2] text-[#2B2D33]/60 border border-[#E5DFD3]'
+                        }`}>
+                          {settings.sections?.showArticles ? 'Visible on Homepage' : 'Hidden (Default)'}
+                        </span>
+                      </div>
+                      <p className="text-xs text-[#2B2D33]/70 leading-relaxed mb-4">
+                        Highlights the 3 latest legal insights, conveyancing breakdowns, and litigation guides directly on the homepage.
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleToggleSection('showArticles')}
+                      className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-2 ${
+                        settings.sections?.showArticles
+                          ? 'bg-[#4B2A7B] text-white hover:bg-[#3A1F60]'
+                          : 'bg-[#FAF8F2] border border-[#E5DFD3] text-[#2B2D33] hover:border-[#4B2A7B]'
+                      }`}
+                    >
+                      <span>{settings.sections?.showArticles ? 'Hide from Homepage' : 'Enable on Homepage'}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* TAB 1: PORTRAIT GALLERY & LEADERSHIP */}
           {activeTab === 'gallery' && (
-            <div className="bg-[#0A1529] border border-[#B8935A]/30 rounded-3xl p-6 sm:p-8 shadow-xl space-y-8">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#B8935A]/20 pb-4">
+            <div className="bg-white border border-[#E5DFD3] rounded-3xl p-6 sm:p-8 shadow-xs space-y-8">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#E5DFD3] pb-4">
                 <div>
-                  <div className="flex items-center gap-2 text-[#CFA76F] text-xs font-bold uppercase tracking-wider mb-1">
+                  <div className="flex items-center gap-2 text-[#4B2A7B] text-xs font-bold uppercase tracking-wider mb-1">
                     <Sparkles className="w-4 h-4" />
                     <span>Live Website Portrait Showcase</span>
                   </div>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#2B2D33]">
                     Portraits & Chambers Leadership Gallery
                   </h3>
-                  <p className="text-xs text-white/70 mt-1">
+                  <p className="text-xs text-[#2B2D33]/70 mt-1">
                     Upload new photos directly with Cloudinary, or select from presets. Manage titles, badges, and descriptions shown in the public interactive gallery.
                   </p>
                 </div>
@@ -509,7 +708,7 @@ export default function AdminSettingsPage() {
                   <button
                     type="button"
                     onClick={handleResetGalleryDefaults}
-                    className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#0F1F3D] hover:bg-[#1B2F57] text-[#CFA76F] border border-[#B8935A]/30 transition-colors flex items-center gap-1.5 cursor-pointer"
+                    className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#FAF8F2] hover:bg-[#FAF8F2]/80 text-[#2B2D33] border border-[#E5DFD3] transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
                   >
                     <RefreshCw className="w-3.5 h-3.5" />
                     <span>Reset Defaults</span>
@@ -517,7 +716,7 @@ export default function AdminSettingsPage() {
                   <button
                     type="button"
                     onClick={handleAddGalleryCard}
-                    className="btn-brass px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md cursor-pointer"
+                    className="bg-[#4B2A7B] hover:bg-[#3A1F60] text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-xs cursor-pointer transition-colors"
                   >
                     <Plus className="w-3.5 h-3.5" />
                     <span>Add New Photo Card</span>
@@ -526,15 +725,15 @@ export default function AdminSettingsPage() {
               </div>
 
               {/* Section Header Text Inputs */}
-              <div className="bg-[#0F1F3D] border border-[#B8935A]/25 rounded-2xl p-5 space-y-4">
-                <h4 className="font-serif text-sm font-bold text-white border-b border-white/10 pb-2 flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-[#CFA76F]" />
+              <div className="bg-[#FAF8F2] border border-[#E5DFD3] rounded-2xl p-5 space-y-4">
+                <h4 className="font-serif text-sm font-bold text-[#2B2D33] border-b border-[#E5DFD3] pb-2 flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-[#4B2A7B]" />
                   <span>Gallery Section Title & Badges</span>
                 </h4>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Section Badge Label
                     </label>
                     <input
@@ -543,12 +742,12 @@ export default function AdminSettingsPage() {
                       value={settings.gallery?.sectionBadge || ''}
                       onChange={(e) => handleGalleryHeaderChange('sectionBadge', e.target.value)}
                       placeholder="e.g. Advocate & Solicitor • Lincoln’s Inn Barrister"
-                      className="w-full px-3 py-2 bg-[#0A1529] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Main Section Title
                     </label>
                     <input
@@ -557,12 +756,12 @@ export default function AdminSettingsPage() {
                       value={settings.gallery?.sectionTitle || ''}
                       onChange={(e) => handleGalleryHeaderChange('sectionTitle', e.target.value)}
                       placeholder="e.g. Portraits & Chambers Leadership Gallery"
-                      className="w-full px-3 py-2 bg-[#0A1529] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Section Subtitle
                     </label>
                     <input
@@ -571,7 +770,7 @@ export default function AdminSettingsPage() {
                       value={settings.gallery?.sectionSubtitle || ''}
                       onChange={(e) => handleGalleryHeaderChange('sectionSubtitle', e.target.value)}
                       placeholder="e.g. Principal Counsel Low Wah Chin (Ava Rachel) 劉華晶"
-                      className="w-full px-3 py-2 bg-[#0A1529] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
                 </div>
@@ -580,10 +779,10 @@ export default function AdminSettingsPage() {
               {/* Individual Portrait Cards List */}
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#CFA76F]">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#4B2A7B]">
                     Gallery Cards ({settings.gallery.items.length})
                   </span>
-                  <span className="text-[11px] text-white/50">
+                  <span className="text-[11px] text-[#2B2D33]/60">
                     Upload new photos, use 1-click photo selectors, or use arrow buttons to reorder
                   </span>
                 </div>
@@ -592,18 +791,18 @@ export default function AdminSettingsPage() {
                   {settings.gallery.items.map((item, idx) => (
                     <div
                       key={item.id || idx}
-                      className="bg-[#0F1F3D] border-2 border-[#B8935A]/30 rounded-2xl p-5 shadow-lg space-y-4 hover:border-[#B8935A]/60 transition-all"
+                      className="bg-[#FAF8F2] border border-[#E5DFD3] rounded-2xl p-5 shadow-xs space-y-4 hover:border-[#4B2A7B]/40 transition-all"
                     >
                       {/* Card Header & Controls */}
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E5DFD3] pb-3">
                         <div className="flex items-center gap-2.5">
-                          <span className="w-6 h-6 rounded-full bg-[#B8935A] text-[#0F1F3D] text-xs font-bold flex items-center justify-center">
+                          <span className="w-6 h-6 rounded-full bg-[#4B2A7B] text-white text-xs font-bold flex items-center justify-center">
                             {idx + 1}
                           </span>
-                          <h4 className="font-serif text-base font-bold text-white">
+                          <h4 className="font-serif text-base font-bold text-[#2B2D33]">
                             {item.title || `Portrait Card #${idx + 1}`}
                           </h4>
-                          <span className="text-[10px] uppercase font-bold text-[#CFA76F] bg-[#0A1529] px-2 py-0.5 rounded border border-[#B8935A]/30">
+                          <span className="text-[10px] uppercase font-bold text-[#4B2A7B] bg-white px-2 py-0.5 rounded border border-[#E5DFD3]">
                             {item.badge || 'Badge'}
                           </span>
                         </div>
@@ -613,7 +812,7 @@ export default function AdminSettingsPage() {
                             type="button"
                             disabled={idx === 0}
                             onClick={() => handleMoveGalleryCard(idx, 'up')}
-                            className="p-1.5 rounded-lg bg-[#0A1529] text-white/70 hover:text-white disabled:opacity-30 transition-colors"
+                            className="p-1.5 rounded-lg bg-white border border-[#E5DFD3] text-[#2B2D33]/70 hover:text-[#2B2D33] disabled:opacity-30 transition-colors shadow-xs"
                             title="Move Card Up"
                           >
                             <ArrowUp className="w-4 h-4" />
@@ -622,7 +821,7 @@ export default function AdminSettingsPage() {
                             type="button"
                             disabled={idx === settings.gallery.items.length - 1}
                             onClick={() => handleMoveGalleryCard(idx, 'down')}
-                            className="p-1.5 rounded-lg bg-[#0A1529] text-white/70 hover:text-white disabled:opacity-30 transition-colors"
+                            className="p-1.5 rounded-lg bg-white border border-[#E5DFD3] text-[#2B2D33]/70 hover:text-[#2B2D33] disabled:opacity-30 transition-colors shadow-xs"
                             title="Move Card Down"
                           >
                             <ArrowDown className="w-4 h-4" />
@@ -630,7 +829,7 @@ export default function AdminSettingsPage() {
                           <button
                             type="button"
                             onClick={() => handleRemoveGalleryCard(idx)}
-                            className="p-1.5 rounded-lg bg-rose-950/60 text-rose-300 hover:bg-rose-900 border border-rose-500/30 transition-colors ml-2"
+                            className="p-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 border border-rose-200 transition-colors ml-2 shadow-xs"
                             title="Delete Card"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -641,7 +840,7 @@ export default function AdminSettingsPage() {
                       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
                         {/* Thumbnail Preview & Upload Controls (4 cols) */}
                         <div className="md:col-span-4 lg:col-span-4 space-y-3">
-                          <div className="relative h-56 sm:h-64 w-full rounded-xl overflow-hidden border-2 border-[#B8935A]/40 bg-[#0A1529] group">
+                          <div className="relative h-56 sm:h-64 w-full rounded-xl overflow-hidden border-2 border-[#E5DFD3] bg-[#3A1F60] group">
                             <Image
                               src={item.src || '/lawyer-portrait-1.jpg'}
                               alt={item.alt || item.title}
@@ -649,10 +848,10 @@ export default function AdminSettingsPage() {
                               sizes="(max-width: 768px) 100vw, 250px"
                               className="object-cover object-top filter brightness-95 group-hover:scale-105 transition-transform duration-500"
                             />
-                            <div className="absolute top-2 left-2 px-2 py-0.5 rounded bg-[#0A1529]/90 border border-[#B8935A]/40 text-[9px] font-bold uppercase text-[#CFA76F]">
+                            <div className="absolute top-2 left-2 px-2 py-0.5 rounded bg-white/95 border border-[#E5DFD3] text-[9px] font-bold uppercase text-[#4B2A7B]">
                               {item.badge}
                             </div>
-                            <div className="absolute bottom-2 left-2 right-2 p-1.5 bg-[#0A1529]/90 border border-[#B8935A]/30 rounded text-[10px] text-white text-center truncate">
+                            <div className="absolute bottom-2 left-2 right-2 p-1.5 bg-white/95 border border-[#E5DFD3] rounded text-[10px] text-[#2B2D33] text-center truncate">
                               {item.title}
                             </div>
                           </div>
@@ -669,7 +868,7 @@ export default function AdminSettingsPage() {
 
                           {/* Quick Preset Picker for this card */}
                           <div className="space-y-1 pt-1">
-                            <span className="text-[10px] font-bold uppercase tracking-wider text-[#CFA76F] block">
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-[#4B2A7B] block">
                               Or 1-Click Select Built-in Photo:
                             </span>
                             <div className="flex flex-col gap-1">
@@ -680,8 +879,8 @@ export default function AdminSettingsPage() {
                                   onClick={() => handleGalleryItemChange(idx, 'src', p.url)}
                                   className={`text-left px-2 py-1 rounded text-[10px] truncate transition-colors ${
                                     item.src === p.url
-                                      ? 'bg-[#B8935A] text-[#0F1F3D] font-bold'
-                                      : 'bg-[#0A1529] text-white/70 hover:text-white border border-white/10'
+                                      ? 'bg-[#4B2A7B] text-white font-bold shadow-xs'
+                                      : 'bg-white text-[#2B2D33]/70 hover:text-[#2B2D33] border border-[#E5DFD3] hover:border-[#4B2A7B]/40'
                                   }`}
                                 >
                                   {p.name}
@@ -694,7 +893,7 @@ export default function AdminSettingsPage() {
                         {/* Fields Form (8 cols) */}
                         <div className="md:col-span-8 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                           <div className="sm:col-span-2">
-                            <label className="block font-bold text-white/80 mb-1">
+                            <label className="block font-bold text-[#2B2D33]/80 mb-1">
                               Photo URL (Auto-filled on upload)
                             </label>
                             <input
@@ -703,12 +902,12 @@ export default function AdminSettingsPage() {
                               value={item.src}
                               onChange={(e) => handleGalleryItemChange(idx, 'src', e.target.value)}
                               placeholder="e.g. https://res.cloudinary.com/... or /lawyer-hero.jpg"
-                              className="w-full px-3 py-2 bg-[#0A1529] border border-[#B8935A]/30 rounded-lg text-white font-mono focus:outline-none focus:border-[#CFA76F]"
+                              className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] font-mono placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                             />
                           </div>
 
                           <div>
-                            <label className="block font-bold text-white/80 mb-1">
+                            <label className="block font-bold text-[#2B2D33]/80 mb-1">
                               Card Title
                             </label>
                             <input
@@ -717,12 +916,12 @@ export default function AdminSettingsPage() {
                               value={item.title}
                               onChange={(e) => handleGalleryItemChange(idx, 'title', e.target.value)}
                               placeholder="e.g. Courtroom Trial Advocate"
-                              className="w-full px-3 py-2 bg-[#0A1529] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                              className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                             />
                           </div>
 
                           <div>
-                            <label className="block font-bold text-white/80 mb-1">
+                            <label className="block font-bold text-[#2B2D33]/80 mb-1">
                               Card Badge (Pill Label)
                             </label>
                             <input
@@ -731,12 +930,12 @@ export default function AdminSettingsPage() {
                               value={item.badge}
                               onChange={(e) => handleGalleryItemChange(idx, 'badge', e.target.value)}
                               placeholder="e.g. Senior Trial Counsel"
-                              className="w-full px-3 py-2 bg-[#0A1529] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                              className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                             />
                           </div>
 
                           <div className="sm:col-span-2">
-                            <label className="block font-bold text-white/80 mb-1">
+                            <label className="block font-bold text-[#2B2D33]/80 mb-1">
                               Card Subtitle
                             </label>
                             <input
@@ -745,12 +944,12 @@ export default function AdminSettingsPage() {
                               value={item.subtitle}
                               onChange={(e) => handleGalleryItemChange(idx, 'subtitle', e.target.value)}
                               placeholder="e.g. Appellate & High Court of Malaya Representation"
-                              className="w-full px-3 py-2 bg-[#0A1529] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                              className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                             />
                           </div>
 
                           <div className="sm:col-span-2">
-                            <label className="block font-bold text-white/80 mb-1">
+                            <label className="block font-bold text-[#2B2D33]/80 mb-1">
                               Lightbox Modal Full Description
                             </label>
                             <textarea
@@ -758,7 +957,7 @@ export default function AdminSettingsPage() {
                               value={item.description || ''}
                               onChange={(e) => handleGalleryItemChange(idx, 'description', e.target.value)}
                               placeholder="Detailed credentials narrative displayed in the expanded full-screen lightbox..."
-                              className="w-full px-3 py-2 bg-[#0A1529] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                              className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                             />
                           </div>
                         </div>
@@ -772,29 +971,29 @@ export default function AdminSettingsPage() {
 
           {/* TAB 2: HERO & HEADLINES */}
           {activeTab === 'hero' && (
-            <div className="bg-[#0A1529] border border-[#B8935A]/30 rounded-3xl p-6 sm:p-8 shadow-xl space-y-8">
-              <div className="border-b border-[#B8935A]/20 pb-4">
-                <div className="flex items-center gap-2 text-[#CFA76F] text-xs font-bold uppercase tracking-wider mb-1">
+            <div className="bg-white border border-[#E5DFD3] rounded-3xl p-6 sm:p-8 shadow-xs space-y-8">
+              <div className="border-b border-[#E5DFD3] pb-4">
+                <div className="flex items-center gap-2 text-[#4B2A7B] text-xs font-bold uppercase tracking-wider mb-1">
                   <Building2 className="w-4 h-4" />
                   <span>Homepage Hero Header Content</span>
                 </div>
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#2B2D33]">
                   Hero Headline, Tagline & Lawyer Portrait
                 </h3>
-                <p className="text-xs text-white/70 mt-1">
+                <p className="text-xs text-[#2B2D33]/70 mt-1">
                   Modify the central firm titles, motto quote, bar badge, and upload or choose the prominent lawyer portrait displayed on the top of the homepage.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 {/* Left Side: Live Portrait Card Preview, Upload & Selector (5 cols) */}
-                <div className="lg:col-span-5 bg-[#0F1F3D] border border-[#B8935A]/25 rounded-2xl p-5 space-y-4">
-                  <h4 className="font-serif text-sm font-bold text-white flex items-center gap-2 border-b border-white/10 pb-2">
-                    <Camera className="w-4 h-4 text-[#CFA76F]" />
+                <div className="lg:col-span-5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-2xl p-5 space-y-4">
+                  <h4 className="font-serif text-sm font-bold text-[#2B2D33] flex items-center gap-2 border-b border-[#E5DFD3] pb-2">
+                    <Camera className="w-4 h-4 text-[#4B2A7B]" />
                     <span>Hero Lawyer Portrait Preview</span>
                   </h4>
 
-                  <div className="relative h-80 w-full rounded-xl overflow-hidden border-2 border-[#B8935A]/40 bg-[#0A1529]">
+                  <div className="relative h-80 w-full rounded-xl overflow-hidden border-2 border-[#E5DFD3] bg-[#3A1F60]">
                     <Image
                       src={settings.heroContent?.heroLawyerPhoto || '/hero_image.jpeg'}
                       alt="Hero Lawyer Portrait Preview"
@@ -802,15 +1001,15 @@ export default function AdminSettingsPage() {
                       sizes="(max-width: 768px) 100vw, 350px"
                       className="object-cover object-[center_15%]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1529]/90 via-transparent to-transparent" />
-                    <div className="absolute bottom-2 left-2 right-2 p-2 bg-[#0A1529]/90 border border-[#B8935A]/30 rounded-lg text-center">
-                      <p className="font-serif text-xs font-bold text-white">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#2B2D33]/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-2 left-2 right-2 p-2 bg-white/95 border border-[#E5DFD3] rounded-lg text-center shadow-xs">
+                      <p className="font-serif text-xs font-bold text-[#2B2D33]">
                         {settings.heroContent?.heroLawyerName || 'Low Wah Chin'}
                         {settings.heroContent?.heroLawyerChinese && (
-                          <span className="text-[#CFA76F] ml-1">({settings.heroContent.heroLawyerChinese})</span>
+                          <span className="text-[#4B2A7B] ml-1">({settings.heroContent.heroLawyerChinese})</span>
                         )}
                       </p>
-                      <p className="text-[10px] text-[#CFA76F]">
+                      <p className="text-[10px] text-[#4B2A7B] font-medium">
                         {settings.heroContent?.heroLawyerTitle || 'Managing Partner'}
                       </p>
                     </div>
@@ -826,8 +1025,8 @@ export default function AdminSettingsPage() {
                     />
                   </div>
 
-                  <div className="space-y-1.5 pt-1 border-t border-white/10">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#CFA76F] block">
+                  <div className="space-y-1.5 pt-1 border-t border-[#E5DFD3]">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#4B2A7B] block">
                       Or 1-Click Select Photo Preset:
                     </span>
                     <div className="flex flex-col gap-1">
@@ -838,8 +1037,8 @@ export default function AdminSettingsPage() {
                           onClick={() => handleHeroContentChange('heroLawyerPhoto', p.url)}
                           className={`text-left px-2.5 py-1.5 rounded text-xs truncate transition-colors ${
                             settings.heroContent?.heroLawyerPhoto === p.url
-                              ? 'bg-[#B8935A] text-[#0F1F3D] font-bold'
-                              : 'bg-[#0A1529] text-white/75 hover:text-white border border-white/10'
+                              ? 'bg-[#4B2A7B] text-white font-bold shadow-xs'
+                              : 'bg-white text-[#2B2D33]/75 hover:text-[#2B2D33] border border-[#E5DFD3] hover:border-[#4B2A7B]/40'
                           }`}
                         >
                           {p.name}
@@ -852,7 +1051,7 @@ export default function AdminSettingsPage() {
                 {/* Right Side: Inputs (7 cols) */}
                 <div className="lg:col-span-7 space-y-4 text-xs">
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Firm Title (Main Headline)
                     </label>
                     <input
@@ -861,12 +1060,12 @@ export default function AdminSettingsPage() {
                       value={settings.heroContent?.firmName || ''}
                       onChange={(e) => handleHeroContentChange('firmName', e.target.value)}
                       placeholder="e.g. Messrs. Low Wah Chin & Co."
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Firm Subtitle
                     </label>
                     <input
@@ -875,12 +1074,12 @@ export default function AdminSettingsPage() {
                       value={settings.heroContent?.firmSubtitle || ''}
                       onChange={(e) => handleHeroContentChange('firmSubtitle', e.target.value)}
                       placeholder="e.g. Advocates & Solicitors"
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Official Motto / Quote
                     </label>
                     <input
@@ -889,12 +1088,12 @@ export default function AdminSettingsPage() {
                       value={settings.heroContent?.motto || ''}
                       onChange={(e) => handleHeroContentChange('motto', e.target.value)}
                       placeholder="e.g. “Passion & Duty, Integrity & Care — To the Point.”"
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Established Pill Badge Label
                     </label>
                     <input
@@ -903,13 +1102,13 @@ export default function AdminSettingsPage() {
                       value={settings.heroContent?.establishedBadge || ''}
                       onChange={(e) => handleHeroContentChange('establishedBadge', e.target.value)}
                       placeholder="e.g. Advocates & Solicitors • High Court of Malaya"
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-white/10">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-[#E5DFD3]">
                     <div>
-                      <label className="block font-bold text-white/80 mb-1">
+                      <label className="block font-bold text-[#2B2D33]/80 mb-1">
                         Lawyer Display Name
                       </label>
                       <input
@@ -918,12 +1117,12 @@ export default function AdminSettingsPage() {
                         value={settings.heroContent?.heroLawyerName || ''}
                         onChange={(e) => handleHeroContentChange('heroLawyerName', e.target.value)}
                         placeholder="e.g. Low Wah Chin (Ava Rachel)"
-                        className="w-full px-3 py-2 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                        className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-bold text-white/80 mb-1">
+                      <label className="block font-bold text-[#2B2D33]/80 mb-1">
                         Lawyer Chinese Name
                       </label>
                       <input
@@ -931,12 +1130,12 @@ export default function AdminSettingsPage() {
                         value={settings.heroContent?.heroLawyerChinese || ''}
                         onChange={(e) => handleHeroContentChange('heroLawyerChinese', e.target.value)}
                         placeholder="e.g. 劉華晶"
-                        className="w-full px-3 py-2 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                        className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-bold text-white/80 mb-1">
+                      <label className="block font-bold text-[#2B2D33]/80 mb-1">
                         Lawyer Professional Title
                       </label>
                       <input
@@ -945,12 +1144,12 @@ export default function AdminSettingsPage() {
                         value={settings.heroContent?.heroLawyerTitle || ''}
                         onChange={(e) => handleHeroContentChange('heroLawyerTitle', e.target.value)}
                         placeholder="e.g. Managing Partner & Principal Legal Practitioner"
-                        className="w-full px-3 py-2 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                        className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-bold text-white/80 mb-1">
+                      <label className="block font-bold text-[#2B2D33]/80 mb-1">
                         Lawyer Subtitle / Credentials
                       </label>
                       <input
@@ -959,7 +1158,7 @@ export default function AdminSettingsPage() {
                         value={settings.heroContent?.heroLawyerSub || ''}
                         onChange={(e) => handleHeroContentChange('heroLawyerSub', e.target.value)}
                         placeholder="e.g. Lincoln’s Inn Barrister (London) • Malayan Bar (2011)"
-                        className="w-full px-3 py-2 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                        className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                       />
                     </div>
                   </div>
@@ -970,29 +1169,29 @@ export default function AdminSettingsPage() {
 
           {/* TAB 3: ABOUT PRINCIPAL LAWYER */}
           {activeTab === 'about' && (
-            <div className="bg-[#0A1529] border border-[#B8935A]/30 rounded-3xl p-6 sm:p-8 shadow-xl space-y-8">
-              <div className="border-b border-[#B8935A]/20 pb-4">
-                <div className="flex items-center gap-2 text-[#CFA76F] text-xs font-bold uppercase tracking-wider mb-1">
+            <div className="bg-white border border-[#E5DFD3] rounded-3xl p-6 sm:p-8 shadow-xs space-y-8">
+              <div className="border-b border-[#E5DFD3] pb-4">
+                <div className="flex items-center gap-2 text-[#4B2A7B] text-xs font-bold uppercase tracking-wider mb-1">
                   <User className="w-4 h-4" />
                   <span>About Principal Counsel Section</span>
                 </div>
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#2B2D33]">
                   Principal Lawyer Bio, Quotes & Experience
                 </h3>
-                <p className="text-xs text-white/70 mt-1">
+                <p className="text-xs text-[#2B2D33]/70 mt-1">
                   Upload portrait or select preset, customize the narrative bio, quote ribbon, benchmark law practice experience, and core practice areas.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 {/* Photo, Upload & Quick Picker (4 cols) */}
-                <div className="lg:col-span-4 bg-[#0F1F3D] border border-[#B8935A]/25 rounded-2xl p-5 space-y-4">
-                  <h4 className="font-serif text-sm font-bold text-white flex items-center gap-2 border-b border-white/10 pb-2">
-                    <Camera className="w-4 h-4 text-[#CFA76F]" />
+                <div className="lg:col-span-4 bg-[#FAF8F2] border border-[#E5DFD3] rounded-2xl p-5 space-y-4">
+                  <h4 className="font-serif text-sm font-bold text-[#2B2D33] flex items-center gap-2 border-b border-[#E5DFD3] pb-2">
+                    <Camera className="w-4 h-4 text-[#4B2A7B]" />
                     <span>About Section Portrait</span>
                   </h4>
 
-                  <div className="relative h-72 w-full rounded-xl overflow-hidden border-2 border-[#B8935A]/40 bg-[#0A1529]">
+                  <div className="relative h-72 w-full rounded-xl overflow-hidden border-2 border-[#E5DFD3] bg-[#3A1F60]">
                     <Image
                       src={settings.aboutPrincipal?.lawyerPhoto || '/lawyer-portrait-2.jpg'}
                       alt="About Principal Photo"
@@ -1012,8 +1211,8 @@ export default function AdminSettingsPage() {
                     />
                   </div>
 
-                  <div className="space-y-1.5 pt-1 border-t border-white/10">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#CFA76F] block">
+                  <div className="space-y-1.5 pt-1 border-t border-[#E5DFD3]">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#4B2A7B] block">
                       Or 1-Click Select Photo Preset:
                     </span>
                     <div className="flex flex-col gap-1">
@@ -1024,8 +1223,8 @@ export default function AdminSettingsPage() {
                           onClick={() => handleAboutChange('lawyerPhoto', p.url)}
                           className={`text-left px-2.5 py-1.5 rounded text-xs truncate transition-colors ${
                             settings.aboutPrincipal?.lawyerPhoto === p.url
-                              ? 'bg-[#B8935A] text-[#0F1F3D] font-bold'
-                              : 'bg-[#0A1529] text-white/75 hover:text-white border border-white/10'
+                              ? 'bg-[#4B2A7B] text-white font-bold shadow-xs'
+                              : 'bg-white text-[#2B2D33]/75 hover:text-[#2B2D33] border border-[#E5DFD3] hover:border-[#4B2A7B]/40'
                           }`}
                         >
                           {p.name}
@@ -1039,7 +1238,7 @@ export default function AdminSettingsPage() {
                 <div className="lg:col-span-8 space-y-4 text-xs">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-bold text-white/80 mb-1">
+                      <label className="block font-bold text-[#2B2D33]/80 mb-1">
                         Section Tag Label
                       </label>
                       <input
@@ -1048,12 +1247,12 @@ export default function AdminSettingsPage() {
                         value={settings.aboutPrincipal?.sectionTag || ''}
                         onChange={(e) => handleAboutChange('sectionTag', e.target.value)}
                         placeholder="e.g. Principal Counsel"
-                        className="w-full px-3 py-2 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                        className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-bold text-white/80 mb-1">
+                      <label className="block font-bold text-[#2B2D33]/80 mb-1">
                         Section Main Title
                       </label>
                       <input
@@ -1062,12 +1261,12 @@ export default function AdminSettingsPage() {
                         value={settings.aboutPrincipal?.sectionTitle || ''}
                         onChange={(e) => handleAboutChange('sectionTitle', e.target.value)}
                         placeholder="e.g. About"
-                        className="w-full px-3 py-2 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                        className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-bold text-white/80 mb-1">
+                      <label className="block font-bold text-[#2B2D33]/80 mb-1">
                         Lawyer Full Name
                       </label>
                       <input
@@ -1076,12 +1275,12 @@ export default function AdminSettingsPage() {
                         value={settings.aboutPrincipal?.lawyerName || ''}
                         onChange={(e) => handleAboutChange('lawyerName', e.target.value)}
                         placeholder="e.g. Low Wah Chin (Ava Rachel)"
-                        className="w-full px-3 py-2 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                        className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-bold text-white/80 mb-1">
+                      <label className="block font-bold text-[#2B2D33]/80 mb-1">
                         Lawyer Chinese Name
                       </label>
                       <input
@@ -1089,13 +1288,13 @@ export default function AdminSettingsPage() {
                         value={settings.aboutPrincipal?.lawyerChinese || ''}
                         onChange={(e) => handleAboutChange('lawyerChinese', e.target.value)}
                         placeholder="e.g. 劉華晶"
-                        className="w-full px-3 py-2 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                        className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Featured Quote / Practice Motto
                     </label>
                     <input
@@ -1103,13 +1302,13 @@ export default function AdminSettingsPage() {
                       required
                       value={settings.aboutPrincipal?.quote || ''}
                       onChange={(e) => handleAboutChange('quote', e.target.value)}
-                      placeholder="e.g. “I am an Advocate & Solicitor Malaysia of 15 years in practice since 11th November 2011.”"
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      placeholder="e.g. “I am an Advocate & Solicitor Malaysia. Practising since 11 November 2011.”"
+                      className="w-full px-3.5 py-2.5 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Bio Narrative (Paragraph 1 - Benchmark Practices & Founding)
                     </label>
                     <textarea
@@ -1118,12 +1317,12 @@ export default function AdminSettingsPage() {
                       value={settings.aboutPrincipal?.bioParagraph1 || ''}
                       onChange={(e) => handleAboutChange('bioParagraph1', e.target.value)}
                       placeholder="Founded by senior advocate Low Wah Chin (Ava Rachel)..."
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Bio Narrative (Paragraph 2 - Corporate In-House Counsel & Risk)
                     </label>
                     <textarea
@@ -1132,12 +1331,12 @@ export default function AdminSettingsPage() {
                       value={settings.aboutPrincipal?.bioParagraph2 || ''}
                       onChange={(e) => handleAboutChange('bioParagraph2', e.target.value)}
                       placeholder="In addition to private trial practice, Ms. Low served 1 year at KNM Group Berhad as In-House Legal Counsel..."
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Core Practice Areas List (Summary)
                     </label>
                     <input
@@ -1146,7 +1345,7 @@ export default function AdminSettingsPage() {
                       value={settings.aboutPrincipal?.corePractices || ''}
                       onChange={(e) => handleAboutChange('corePractices', e.target.value)}
                       placeholder="e.g. Laws of Contract · Commercial Disputes · Tort & Negligence · Family & Divorce..."
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
                 </div>
@@ -1156,16 +1355,16 @@ export default function AdminSettingsPage() {
 
           {/* TAB 4: RECOGNITION & PRESS ACCOLADES */}
           {activeTab === 'recognition' && (
-            <div className="bg-[#0A1529] border border-[#B8935A]/30 rounded-3xl p-6 sm:p-8 shadow-xl space-y-8">
-              <div className="border-b border-[#B8935A]/20 pb-4">
-                <div className="flex items-center gap-2 text-[#CFA76F] text-xs font-bold uppercase tracking-wider mb-1">
+            <div className="bg-white border border-[#E5DFD3] rounded-3xl p-6 sm:p-8 shadow-xs space-y-8">
+              <div className="border-b border-[#E5DFD3] pb-4">
+                <div className="flex items-center gap-2 text-[#4B2A7B] text-xs font-bold uppercase tracking-wider mb-1">
                   <Award className="w-4 h-4" />
                   <span>Trusted Malaysia & Press Recognition</span>
                 </div>
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#2B2D33]">
                   Accolades, Editorial Commendations & Stats
                 </h3>
-                <p className="text-xs text-white/70 mt-1">
+                <p className="text-xs text-[#2B2D33]/70 mt-1">
                   Manage the editorial recommendation text, star rating, quotes, and the 3 key credential metrics shown on the home page.
                 </p>
               </div>
@@ -1173,7 +1372,7 @@ export default function AdminSettingsPage() {
               <div className="space-y-5 text-xs">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Badge Label
                     </label>
                     <input
@@ -1182,12 +1381,12 @@ export default function AdminSettingsPage() {
                       value={settings.recognition?.badgeLabel || ''}
                       onChange={(e) => handleRecognitionChange('badgeLabel', e.target.value)}
                       placeholder="e.g. Official Editorial Selection"
-                      className="w-full px-3 py-2 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Rating Text
                     </label>
                     <input
@@ -1196,12 +1395,12 @@ export default function AdminSettingsPage() {
                       value={settings.recognition?.ratingText || ''}
                       onChange={(e) => handleRecognitionChange('ratingText', e.target.value)}
                       placeholder="e.g. 5.0 Star Commendation"
-                      className="w-full px-3 py-2 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Main Section Title
                     </label>
                     <input
@@ -1210,13 +1409,13 @@ export default function AdminSettingsPage() {
                       value={settings.recognition?.title || ''}
                       onChange={(e) => handleRecognitionChange('title', e.target.value)}
                       placeholder="e.g. Best Law Firms in Kuala Lumpur"
-                      className="w-full px-3 py-2 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-lg text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block font-bold text-white/80 mb-1">
+                  <label className="block font-bold text-[#2B2D33]/80 mb-1">
                     Recognition Subheading Quote Ribbon
                   </label>
                   <input
@@ -1225,13 +1424,13 @@ export default function AdminSettingsPage() {
                     value={settings.recognition?.quote || ''}
                     onChange={(e) => handleRecognitionChange('quote', e.target.value)}
                     placeholder="e.g. “Thank You Trusted Malaysia. We are honored to be recommended on your site.”"
-                    className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                    className="w-full px-3.5 py-2.5 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Editorial Review (Paragraph 1)
                     </label>
                     <textarea
@@ -1240,12 +1439,12 @@ export default function AdminSettingsPage() {
                       value={settings.recognition?.paragraph1 || ''}
                       onChange={(e) => handleRecognitionChange('paragraph1', e.target.value)}
                       placeholder="Messrs. Low Wah Chin & Co. Advocates & Solicitors is a firm that provides high-quality legal services..."
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1">
                       Editorial Review (Paragraph 2)
                     </label>
                     <textarea
@@ -1254,73 +1453,73 @@ export default function AdminSettingsPage() {
                       value={settings.recognition?.paragraph2 || ''}
                       onChange={(e) => handleRecognitionChange('paragraph2', e.target.value)}
                       placeholder="They are highly commended to be professional and thorough in every case..."
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-white border border-[#E5DFD3] rounded-xl text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                     />
                   </div>
                 </div>
 
                 {/* 3 Metric Stat Blocks */}
-                <div className="pt-4 border-t border-white/10 space-y-3">
-                  <h4 className="font-serif text-sm font-bold text-white flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-[#CFA76F]" />
+                <div className="pt-4 border-t border-[#E5DFD3] space-y-3">
+                  <h4 className="font-serif text-sm font-bold text-[#2B2D33] flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-[#4B2A7B]" />
                     <span>3 Key Statistical Badges</span>
                   </h4>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {/* Stat 1 */}
-                    <div className="p-3.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl space-y-2">
-                      <span className="text-[10px] font-bold uppercase text-[#CFA76F] block">Stat #1</span>
+                    <div className="p-3.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl space-y-2">
+                      <span className="text-[10px] font-bold uppercase text-[#4B2A7B] block">Stat #1</span>
                       <input
                         type="text"
                         value={settings.recognition?.stat1Value || ''}
                         onChange={(e) => handleRecognitionChange('stat1Value', e.target.value)}
                         placeholder="e.g. 100%"
-                        className="w-full px-2.5 py-1.5 bg-[#0A1529] border border-white/10 rounded text-white font-bold text-sm"
+                        className="w-full px-2.5 py-1.5 bg-white border border-[#E5DFD3] rounded text-[#2B2D33] font-bold text-sm focus:outline-none focus:border-[#4B2A7B]"
                       />
                       <input
                         type="text"
                         value={settings.recognition?.stat1Label || ''}
                         onChange={(e) => handleRecognitionChange('stat1Label', e.target.value)}
                         placeholder="e.g. Bar Certified"
-                        className="w-full px-2.5 py-1.5 bg-[#0A1529] border border-white/10 rounded text-white/80 text-xs"
+                        className="w-full px-2.5 py-1.5 bg-white border border-[#E5DFD3] rounded text-[#2B2D33]/80 text-xs focus:outline-none focus:border-[#4B2A7B]"
                       />
                     </div>
 
                     {/* Stat 2 */}
-                    <div className="p-3.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl space-y-2">
-                      <span className="text-[10px] font-bold uppercase text-[#CFA76F] block">Stat #2</span>
+                    <div className="p-3.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl space-y-2">
+                      <span className="text-[10px] font-bold uppercase text-[#4B2A7B] block">Stat #2</span>
                       <input
                         type="text"
                         value={settings.recognition?.stat2Value || ''}
                         onChange={(e) => handleRecognitionChange('stat2Value', e.target.value)}
                         placeholder="e.g. Top 10"
-                        className="w-full px-2.5 py-1.5 bg-[#0A1529] border border-white/10 rounded text-white font-bold text-sm"
+                        className="w-full px-2.5 py-1.5 bg-white border border-[#E5DFD3] rounded text-[#2B2D33] font-bold text-sm focus:outline-none focus:border-[#4B2A7B]"
                       />
                       <input
                         type="text"
                         value={settings.recognition?.stat2Label || ''}
                         onChange={(e) => handleRecognitionChange('stat2Label', e.target.value)}
                         placeholder="e.g. KL Law Firms"
-                        className="w-full px-2.5 py-1.5 bg-[#0A1529] border border-white/10 rounded text-white/80 text-xs"
+                        className="w-full px-2.5 py-1.5 bg-white border border-[#E5DFD3] rounded text-[#2B2D33]/80 text-xs focus:outline-none focus:border-[#4B2A7B]"
                       />
                     </div>
 
                     {/* Stat 3 */}
-                    <div className="p-3.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl space-y-2">
-                      <span className="text-[10px] font-bold uppercase text-[#CFA76F] block">Stat #3</span>
+                    <div className="p-3.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl space-y-2">
+                      <span className="text-[10px] font-bold uppercase text-[#4B2A7B] block">Stat #3</span>
                       <input
                         type="text"
                         value={settings.recognition?.stat3Value || ''}
                         onChange={(e) => handleRecognitionChange('stat3Value', e.target.value)}
-                        placeholder="e.g. 15 Yrs"
-                        className="w-full px-2.5 py-1.5 bg-[#0A1529] border border-white/10 rounded text-white font-bold text-sm"
+                        placeholder="e.g. 2011"
+                        className="w-full px-2.5 py-1.5 bg-white border border-[#E5DFD3] rounded text-[#2B2D33] font-bold text-sm focus:outline-none focus:border-[#4B2A7B]"
                       />
                       <input
                         type="text"
                         value={settings.recognition?.stat3Label || ''}
                         onChange={(e) => handleRecognitionChange('stat3Label', e.target.value)}
-                        placeholder="e.g. Practice Experience"
-                        className="w-full px-2.5 py-1.5 bg-[#0A1529] border border-white/10 rounded text-white/80 text-xs"
+                        placeholder="e.g. Practising Since 11 Nov"
+                        className="w-full px-2.5 py-1.5 bg-white border border-[#E5DFD3] rounded text-[#2B2D33]/80 text-xs focus:outline-none focus:border-[#4B2A7B]"
                       />
                     </div>
                   </div>
@@ -1331,16 +1530,16 @@ export default function AdminSettingsPage() {
 
           {/* TAB 5: HERO SECTION IMAGES */}
           {activeTab === 'heroes' && (
-            <div className="bg-[#0A1529] border border-[#B8935A]/30 rounded-3xl p-6 sm:p-8 shadow-xl space-y-8">
-              <div className="border-b border-[#B8935A]/20 pb-4">
-                <div className="flex items-center gap-2 text-[#CFA76F] text-xs font-bold uppercase tracking-wider mb-1">
+            <div className="bg-white border border-[#E5DFD3] rounded-3xl p-6 sm:p-8 shadow-xs space-y-8">
+              <div className="border-b border-[#E5DFD3] pb-4">
+                <div className="flex items-center gap-2 text-[#4B2A7B] text-xs font-bold uppercase tracking-wider mb-1">
                   <Sparkles className="w-4 h-4" />
                   <span>Fully Visible Hero Backgrounds</span>
                 </div>
-                <h3 className="font-serif text-xl font-bold text-white">
+                <h3 className="font-serif text-xl font-bold text-[#2B2D33]">
                   Hero Section Images Across Every Page
                 </h3>
-                <p className="text-xs text-white/70 mt-1">
+                <p className="text-xs text-[#2B2D33]/70 mt-1">
                   Upload custom background images with Cloudinary, customize the image URL, or select from curated presets below.
                 </p>
               </div>
@@ -1353,16 +1552,16 @@ export default function AdminSettingsPage() {
                   return (
                     <div
                       key={sec.key}
-                      className="bg-[#0F1F3D] border border-[#B8935A]/25 rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-4 hover:border-[#B8935A]/50 transition-all"
+                      className="bg-[#FAF8F2] border border-[#E5DFD3] rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-4 hover:border-[#4B2A7B]/40 transition-all shadow-xs"
                     >
                       <div>
                         {/* Section Header */}
                         <div className="flex items-start justify-between gap-2 mb-2">
                           <div>
-                            <h4 className="font-serif text-sm font-bold text-white">
+                            <h4 className="font-serif text-sm font-bold text-[#2B2D33]">
                               {sec.label}
                             </h4>
-                            <span className="text-[10px] text-[#CFA76F] font-mono">
+                            <span className="text-[10px] text-[#4B2A7B] font-mono">
                               Route: {sec.pageRoute}
                             </span>
                           </div>
@@ -1370,19 +1569,19 @@ export default function AdminSettingsPage() {
                             href={sec.pageRoute}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-1.5 rounded-lg bg-[#0A1529] text-[#CFA76F] hover:bg-[#B8935A] hover:text-[#0F1F3D] transition-colors"
+                            className="p-1.5 rounded-lg bg-white text-[#4B2A7B] hover:bg-[#4B2A7B] hover:text-white border border-[#E5DFD3] transition-colors shadow-xs"
                             title="Preview Page"
                           >
                             <ExternalLink className="w-3.5 h-3.5" />
                           </a>
                         </div>
 
-                        <p className="text-[11px] text-white/60 mb-3">
+                        <p className="text-[11px] text-[#2B2D33]/60 mb-3">
                           {sec.description}
                         </p>
 
                         {/* Live Image Preview Thumbnail */}
-                        <div className="relative h-36 w-full rounded-xl overflow-hidden border border-[#B8935A]/40 bg-[#0A1529] mb-3 group">
+                        <div className="relative h-36 w-full rounded-xl overflow-hidden border border-[#E5DFD3] bg-[#FAF8F2] mb-3 group">
                           <Image
                             src={currentUrl}
                             alt={sec.label}
@@ -1390,12 +1589,12 @@ export default function AdminSettingsPage() {
                             sizes="(max-width: 768px) 100vw, 400px"
                             className="object-cover object-center group-hover:scale-105 transition-transform duration-500 brightness-95"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1529]/90 via-transparent to-transparent" />
-                          <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-[10px] text-white/90">
-                            <span className="bg-[#0A1529]/80 px-2 py-0.5 rounded border border-[#B8935A]/30 truncate max-w-[200px]">
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#2B2D33]/60 via-transparent to-transparent" />
+                          <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-[10px] text-white">
+                            <span className="bg-white/90 text-[#2B2D33] px-2 py-0.5 rounded border border-[#E5DFD3] truncate max-w-[200px]">
                               Preview: Active Banner
                             </span>
-                            <span className="text-[#CFA76F] font-bold">100% Visible</span>
+                            <span className="text-white font-bold bg-[#4B2A7B]/90 px-1.5 py-0.5 rounded text-[9px]">100% Visible</span>
                           </div>
                         </div>
 
@@ -1411,7 +1610,7 @@ export default function AdminSettingsPage() {
 
                         {/* Image URL Input */}
                         <div>
-                          <label className="block text-[11px] font-bold text-white/80 mb-1">
+                          <label className="block text-[11px] font-bold text-[#2B2D33]/80 mb-1">
                             Background Image URL
                           </label>
                           <input
@@ -1420,14 +1619,14 @@ export default function AdminSettingsPage() {
                             value={currentUrl}
                             onChange={(e) => handleHeroImageChange(sec.key, e.target.value)}
                             placeholder="https://images.unsplash.com/... or https://res.cloudinary.com/..."
-                            className="w-full px-3 py-2 bg-[#0A1529] border border-[#B8935A]/30 rounded-lg text-xs text-white focus:outline-none focus:border-[#CFA76F]"
+                            className="w-full px-3 py-2 bg-white border border-[#E5DFD3] rounded-lg text-xs text-[#2B2D33] placeholder:text-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B]"
                           />
                         </div>
                       </div>
 
                       {/* Quick Presets Picker */}
-                      <div className="pt-2 border-t border-white/5">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#CFA76F] block mb-1.5">
+                      <div className="pt-2 border-t border-[#E5DFD3]">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#4B2A7B] block mb-1.5">
                           Or Select Curated Preset:
                         </span>
                         <div className="flex flex-wrap gap-1.5">
@@ -1438,8 +1637,8 @@ export default function AdminSettingsPage() {
                               onClick={() => handleHeroImageChange(sec.key, preset.url)}
                               className={`px-2 py-1 rounded text-[10px] transition-colors ${
                                 currentUrl === preset.url
-                                  ? 'bg-[#B8935A] text-[#0F1F3D] font-bold shadow-xs'
-                                  : 'bg-[#0A1529] text-white/70 hover:text-white border border-white/10 hover:border-[#B8935A]/40'
+                                  ? 'bg-[#4B2A7B] text-white font-bold shadow-xs'
+                                  : 'bg-white text-[#2B2D33]/70 hover:text-[#2B2D33] border border-[#E5DFD3] hover:border-[#4B2A7B]/40'
                               }`}
                             >
                               {preset.name}
@@ -1456,17 +1655,17 @@ export default function AdminSettingsPage() {
 
           {/* TAB 6: FIRM PROFILE & CONTACTS */}
           {activeTab === 'firm' && (
-            <div className="bg-[#0A1529] border border-[#B8935A]/30 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
+            <div className="bg-white border border-[#E5DFD3] rounded-3xl p-6 sm:p-8 shadow-xs space-y-6">
               {/* Section 1: Firm Legal Identity */}
               <div className="space-y-4">
-                <h3 className="font-serif text-base font-bold text-white border-b border-[#B8935A]/20 pb-3 flex items-center gap-2">
-                  <Scale className="w-4 h-4 text-[#CFA76F]" />
+                <h3 className="font-serif text-base font-bold text-[#2B2D33] border-b border-[#E5DFD3] pb-3 flex items-center gap-2">
+                  <Scale className="w-4 h-4 text-[#4B2A7B]" />
                   <span>Firm Legal Identity</span>
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                   <div>
-                    <label className="block font-bold text-white/80 mb-1.5">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1.5">
                       Primary Company Name
                     </label>
                     <input
@@ -1476,12 +1675,12 @@ export default function AdminSettingsPage() {
                       onChange={(e) =>
                         setSettings({ ...settings, companyName: e.target.value })
                       }
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-[#2B2D33] focus:outline-none focus:border-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1.5">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1.5">
                       Firm Qualification Title
                     </label>
                     <input
@@ -1491,14 +1690,14 @@ export default function AdminSettingsPage() {
                       onChange={(e) =>
                         setSettings({ ...settings, qualificationTitle: e.target.value })
                       }
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-[#2B2D33] focus:outline-none focus:border-[#4B2A7B]"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-white/80 mb-1.5">
-                    Malaysian Bar Council Registration Number
+                  <label className="block text-xs font-bold text-[#2B2D33]/80 mb-1.5">
+                    Malaysian Bar Council Membership
                   </label>
                   <input
                     type="text"
@@ -1507,21 +1706,21 @@ export default function AdminSettingsPage() {
                     onChange={(e) =>
                       setSettings({ ...settings, barCouncilNumber: e.target.value })
                     }
-                    className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-xs text-white focus:outline-none focus:border-[#CFA76F]"
+                    className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-xs text-[#2B2D33] focus:outline-none focus:border-[#4B2A7B]"
                   />
                 </div>
               </div>
 
               {/* Section 2: Contact Numbers & Email */}
-              <div className="space-y-4 pt-4 border-t border-[#B8935A]/20">
-                <h3 className="font-serif text-base font-bold text-white border-b border-[#B8935A]/20 pb-3 flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-[#CFA76F]" />
+              <div className="space-y-4 pt-4 border-t border-[#E5DFD3]">
+                <h3 className="font-serif text-base font-bold text-[#2B2D33] border-b border-[#E5DFD3] pb-3 flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-[#4B2A7B]" />
                   <span>Contact Channels</span>
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                   <div>
-                    <label className="block font-bold text-white/80 mb-1.5">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1.5">
                       Primary Phone / WhatsApp Line
                     </label>
                     <input
@@ -1531,12 +1730,12 @@ export default function AdminSettingsPage() {
                       onChange={(e) =>
                         setSettings({ ...settings, phone: e.target.value })
                       }
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-[#2B2D33] focus:outline-none focus:border-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1.5">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1.5">
                       Official Email Address
                     </label>
                     <input
@@ -1546,22 +1745,22 @@ export default function AdminSettingsPage() {
                       onChange={(e) =>
                         setSettings({ ...settings, email: e.target.value })
                       }
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-[#2B2D33] focus:outline-none focus:border-[#4B2A7B]"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Section 3: Office Address & Operating Hours */}
-              <div className="space-y-4 pt-4 border-t border-[#B8935A]/20">
-                <h3 className="font-serif text-base font-bold text-white border-b border-[#B8935A]/20 pb-3 flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-[#CFA76F]" />
+              <div className="space-y-4 pt-4 border-t border-[#E5DFD3]">
+                <h3 className="font-serif text-base font-bold text-[#2B2D33] border-b border-[#E5DFD3] pb-3 flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-[#4B2A7B]" />
                   <span>Chambers Location & Hours</span>
                 </h3>
 
                 <div className="space-y-4 text-xs">
                   <div>
-                    <label className="block font-bold text-white/80 mb-1.5">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1.5">
                       Full Head Office Address
                     </label>
                     <textarea
@@ -1571,12 +1770,12 @@ export default function AdminSettingsPage() {
                       onChange={(e) =>
                         setSettings({ ...settings, streetAddress: e.target.value })
                       }
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-[#2B2D33] focus:outline-none focus:border-[#4B2A7B]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-white/80 mb-1.5">
+                    <label className="block font-bold text-[#2B2D33]/80 mb-1.5">
                       Operating Hours Declaration
                     </label>
                     <input
@@ -1586,7 +1785,7 @@ export default function AdminSettingsPage() {
                       onChange={(e) =>
                         setSettings({ ...settings, operatingHours: e.target.value })
                       }
-                      className="w-full px-3.5 py-2.5 bg-[#0F1F3D] border border-[#B8935A]/30 rounded-xl text-white focus:outline-none focus:border-[#CFA76F]"
+                      className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-[#2B2D33] focus:outline-none focus:border-[#4B2A7B]"
                     />
                   </div>
                 </div>
@@ -1595,16 +1794,16 @@ export default function AdminSettingsPage() {
           )}
 
           {/* Sticky Save Bar */}
-          <div className="p-4 bg-[#0A1529] border-2 border-[#B8935A]/40 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xl sticky bottom-4 z-20 backdrop-blur-md">
-            <div className="text-xs text-white/80 flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#CFA76F] shrink-0" />
+          <div className="p-4 bg-white/95 border-2 border-[#4B2A7B]/40 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xl sticky bottom-4 z-20 backdrop-blur-md">
+            <div className="text-xs text-[#2B2D33]/80 flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-[#4B2A7B] shrink-0" />
               <span>All updates publish instantly across the live website upon saving.</span>
             </div>
 
             <button
               type="submit"
               disabled={isPending}
-              className="btn-brass w-full sm:w-auto px-8 py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md disabled:opacity-50 cursor-pointer"
+              className="bg-[#4B2A7B] hover:bg-[#3A1F60] text-white w-full sm:w-auto px-8 py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md disabled:opacity-50 cursor-pointer transition-colors"
             >
               <Save className="w-4 h-4" />
               <span>{isPending ? 'Updating & Publishing...' : 'Save & Publish Changes'}</span>

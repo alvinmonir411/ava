@@ -40,27 +40,27 @@ export default async function FaqPage() {
       />
 
       {/* Main FAQ Section (Light Section) */}
-      <section className="py-20 lg:py-28 bg-[#faf9f6] text-[#231f20] border-b border-[#e5e7eb]">
+      <section className="py-20 lg:py-28 bg-[#FAF8F2] text-[#2B2D33] border-b border-[#E5DFD3]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a2332]">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#2B2D33]">
               General Legal FAQ
             </h2>
-            <p className="text-xs sm:text-sm text-[#4b5563] mt-2 font-light">
+            <p className="text-xs sm:text-sm text-[#2B2D33]/75 mt-2 font-light">
               Click on any question below to view the detailed explanation under Malaysian statutory law.
             </p>
           </div>
 
-          <div className="bg-white p-6 sm:p-8 rounded-lg border border-slate-200 shadow-xs">
+          <div className="bg-white p-6 sm:p-8 rounded-xl border border-[#E5DFD3] shadow-xs">
             <FaqAccordion items={GENERAL_FAQS} />
           </div>
 
           {/* Inquiry Callout Card */}
-          <div className="mt-12 p-8 rounded-lg bg-white border border-slate-200 shadow-xs text-center">
-            <h3 className="font-serif text-xl font-bold text-[#1a2332] mb-2">
+          <div className="mt-12 p-8 rounded-xl bg-white border border-[#E5DFD3] shadow-xs text-center">
+            <h3 className="font-serif text-xl font-bold text-[#2B2D33] mb-2">
               Have a Specific Legal Question Not Listed Here?
             </h3>
-            <p className="text-xs sm:text-sm text-[#4b5563] mb-6 max-w-lg mx-auto">
+            <p className="text-xs sm:text-sm text-[#2B2D33]/80 mb-6 max-w-lg mx-auto">
               Every legal circumstance has unique facts. Connect directly with Ms. Ava Rachel Low for tailored advice.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -71,7 +71,7 @@ export default async function FaqPage() {
               />
               <a
                 href="tel:+60175483157"
-                className="btn-gradient-royal px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 shadow-sm"
+                className="bg-[#4B2A7B] hover:bg-[#3A1F60] text-white px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 shadow-sm transition-colors"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>Call +60 17-548 3157</span>
@@ -81,18 +81,18 @@ export default async function FaqPage() {
         </div>
       </section>
 
-      {/* Consultation Form (Dark Section) */}
-      <section className="py-20 bg-gradient-to-br from-[#070e1e] via-[#0d1738] to-[#1c0c30] text-white border-t border-white/10">
+      {/* Consultation Form */}
+      <section className="py-20 bg-[#FAF8F2] text-[#2B2D33] border-t border-[#E5DFD3]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#2B2D33] mb-2">
               Request a Legal Consultation
             </h3>
-            <p className="text-xs text-[#faf9f6]/75">
+            <p className="text-xs text-[#2B2D33]/80">
               Strictly confidential communications protected by Legal Professional Privilege.
             </p>
           </div>
-          <div className="bg-white text-[#231f20] p-6 sm:p-8 rounded-lg shadow-xl">
+          <div className="bg-white text-[#2B2D33] p-6 sm:p-8 rounded-xl shadow-xl border border-[#E5DFD3]">
             <ConsultationForm />
           </div>
         </div>

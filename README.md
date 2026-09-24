@@ -232,7 +232,7 @@ The application is deployed on Vercel with automatic continuous integration:
 ## ⚖️ Legal & Chambers Information
 
 * **Firm Name:** Messrs. Low Wah Chin & Co. (Advocates & Solicitors)
-* **Bar Council Registration:** No. BC/L/2019
+* **Bar Council Status:** Member of the Malaysian Bar Council
 * **Principal Counsel:** Ava Rachel Low (*Advocate & Solicitor, High Court of Malaya • Barrister-at-Law, Lincoln’s Inn, London*)
 * **Chambers Address:** Level 1, Colony @ KLCC, Vipod Residences, 6 Jalan Kia Peng, 50450 Kuala Lumpur, Malaysia
 * **Telephone / WhatsApp:** +60 17-548 3157

@@ -15,37 +15,37 @@ export default function GoogleReviewsSection() {
   const displayedReviews = showAll ? filteredReviews : filteredReviews.slice(0, 6);
 
   return (
-    <section id="reviews" className="py-20 lg:py-28 bg-gradient-to-br from-[#070e1e] via-[#0d1738] to-[#1c0c30] text-[#faf9f6] border-b border-white/10 relative overflow-hidden">
+    <section id="reviews" className="py-20 lg:py-28 bg-[#FAF8F2] text-[#2B2D33] border-b border-[#E5DFD3] relative overflow-hidden">
       {/* Subtle Background Pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(rgba(255,255,255,0.15)_1px,transparent_1px)] [background-size:24px_24px]" 
+        className="absolute inset-0 opacity-[0.025] pointer-events-none bg-[radial-gradient(#4B2A7B_1px,transparent_1px)] [background-size:24px_24px]" 
         aria-hidden="true" 
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
-          <div className="inline-flex items-center gap-2 text-white text-xs font-bold uppercase tracking-[0.2em] bg-gradient-to-r from-[#0F1F3D]/90 via-[#1E1B4B]/90 to-[#2E1065]/90 px-3.5 py-1.5 rounded-full border border-purple-500/40 shadow-sm backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 text-[#4B2A7B] text-xs font-bold uppercase tracking-[0.2em] bg-white px-3.5 py-1.5 rounded-full border border-[#D8C7F0] shadow-xs">
             <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
             <span>Verified Client Testimonials</span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2B2D33] tracking-tight">
             5.0-Star Legal Advocacy & Client Trust
           </h2>
 
-          <p className="text-sm sm:text-base text-white/80 leading-relaxed font-light">
+          <p className="text-sm sm:text-base text-[#2B2D33]/80 leading-relaxed font-light">
             Real feedback from individuals, corporations, and international clients represented by principal counsel Low Wah Chin (Ava Rachel) 劉華晶 at Messrs. Low Wah Chin & Co.
           </p>
         </div>
 
         {/* Google Score & Chambers Trust Card */}
-        <div className="bg-gradient-to-r from-[#070e1e] via-[#101538] to-[#1e0c33] border border-white/15 rounded-xl p-5 sm:p-8 mb-12 shadow-2xl">
+        <div className="bg-white border border-[#E5DFD3] rounded-xl p-5 sm:p-8 mb-12 shadow-sm">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
             {/* Left: 5.0 Rating Display */}
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-left">
               {/* Google G Logo Badge */}
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-2.5 sm:p-3 flex items-center justify-center shadow-md shrink-0">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#FAF8F2] border border-[#E5DFD3] p-2.5 sm:p-3 flex items-center justify-center shadow-xs shrink-0">
                 <svg className="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 24 24">
                   <path
                     fill="#4285F4"
@@ -68,7 +68,7 @@ export default function GoogleReviewsSection() {
 
               <div>
                 <div className="flex items-center justify-center sm:justify-start gap-2">
-                  <span className="font-serif text-3xl sm:text-5xl font-bold text-white">
+                  <span className="font-serif text-3xl sm:text-5xl font-bold text-[#2B2D33]">
                     {GOOGLE_REVIEWS_META.rating.toFixed(1)}
                   </span>
                   <div className="flex flex-col items-start">
@@ -77,15 +77,15 @@ export default function GoogleReviewsSection() {
                         <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <span className="text-[10px] sm:text-xs text-white/70 uppercase tracking-widest mt-1 font-semibold">
+                    <span className="text-[10px] sm:text-xs text-[#2B2D33]/70 uppercase tracking-widest mt-1 font-semibold">
                       34 Google Reviews · 100% 5-Star
                     </span>
                   </div>
                 </div>
-                <p className="text-xs text-white/80 mt-2 line-clamp-1">
+                <p className="text-xs text-[#2B2D33]/80 mt-2 line-clamp-1">
                   {GOOGLE_REVIEWS_META.business_name}
                 </p>
-                <p className="text-[10.5px] sm:text-[11px] text-purple-200 font-mono mt-0.5">
+                <p className="text-[10.5px] sm:text-[11px] text-[#4B2A7B] font-mono mt-0.5">
                   Colony @ KLCC, 6 Jalan Kia Peng, 50450 Kuala Lumpur
                 </p>
               </div>
@@ -97,7 +97,7 @@ export default function GoogleReviewsSection() {
                 href={GOOGLE_REVIEWS_META.review_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gradient-royal w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-bold text-xs sm:text-sm shadow-lg group text-center"
+                className="bg-[#4B2A7B] hover:bg-[#3A1F60] text-white w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-bold text-xs sm:text-sm shadow-md group text-center transition-colors"
               >
                 <span>Write a Review on Google</span>
                 <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
@@ -107,10 +107,10 @@ export default function GoogleReviewsSection() {
                 href={GOOGLE_REVIEWS_META.google_maps_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline-gold w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-semibold text-xs sm:text-sm text-center"
+                className="border border-[#E5DFD3] hover:border-[#4B2A7B] hover:text-[#4B2A7B] text-[#2B2D33] bg-white w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-semibold text-xs sm:text-sm text-center transition-colors shadow-xs"
               >
                 <span>View on Google Maps</span>
-                <ExternalLink className="w-3.5 h-3.5 text-purple-300 shrink-0" />
+                <ExternalLink className="w-3.5 h-3.5 text-[#4B2A7B] shrink-0" />
               </a>
             </div>
           </div>
@@ -127,8 +127,8 @@ export default function GoogleReviewsSection() {
               }}
               className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-gradient-to-r from-[#2563eb] via-[#6366f1] to-[#7e22ce] text-white font-bold shadow-md'
-                  : 'bg-white/5 text-white/80 hover:bg-white/10 hover:text-white border border-white/10'
+                  ? 'bg-[#4B2A7B] hover:bg-[#3A1F60] text-white font-bold shadow-xs border border-[#4B2A7B]'
+                  : 'bg-white text-[#2B2D33]/70 hover:bg-[#FAF8F2] hover:text-[#2B2D33] border border-[#E5DFD3]'
               }`}
             >
               {cat}
@@ -141,7 +141,7 @@ export default function GoogleReviewsSection() {
           {displayedReviews.map((rev) => (
             <div
               key={rev.id}
-              className="bg-[#0F1F3D]/60 border border-white/10 hover:border-purple-400/50 rounded-lg p-6 flex flex-col justify-between transition-all duration-300 shadow-lg relative group backdrop-blur-xs"
+              className="bg-white border border-[#E5DFD3] hover:border-[#4B2A7B] rounded-lg p-6 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md relative group"
             >
               <div>
                 {/* Header: Stars & Date (Stars kept gold) */}
@@ -151,40 +151,40 @@ export default function GoogleReviewsSection() {
                       <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <span className="text-[11px] text-white/60 font-mono">
+                  <span className="text-[11px] text-[#2B2D33]/60 font-mono">
                     {rev.relative_time_description}
                   </span>
                 </div>
 
                 {/* Highlight Badge */}
                 {rev.highlight && (
-                  <div className="mb-3.5 inline-block text-[11px] font-semibold text-purple-200 bg-purple-950/40 px-2.5 py-1 rounded border border-purple-500/30">
+                  <div className="mb-3.5 inline-block text-[11px] font-semibold text-[#4B2A7B] bg-[#FAF8F2] px-2.5 py-1 rounded border border-[#D8C7F0]">
                     &ldquo;{rev.highlight}&rdquo;
                   </div>
                 )}
 
                 {/* Review Text */}
-                <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light italic mb-4">
+                <p className="text-xs sm:text-sm text-[#2B2D33]/85 leading-relaxed font-light italic mb-4">
                   &ldquo;{rev.text}&rdquo;
                 </p>
 
                 {/* Original Language note */}
                 {rev.original_language && (
-                  <p className="text-[10px] text-purple-300/70 mb-3 font-mono">
+                  <p className="text-[10px] text-[#4B2A7B]/70 mb-3 font-mono">
                     • Translated by Google ({rev.original_language})
                   </p>
                 )}
 
                 {/* Owner Reply Box (if present) */}
                 {rev.owner_response && (
-                  <div className="mt-4 p-3 bg-white/5 rounded border-l-2 border-indigo-500 text-xs space-y-1">
-                    <div className="flex items-center justify-between text-[11px] font-semibold text-purple-200">
+                  <div className="mt-4 p-3 bg-[#FAF8F2] rounded border-l-2 border-[#4B2A7B] text-xs space-y-1">
+                    <div className="flex items-center justify-between text-[11px] font-semibold text-[#4B2A7B]">
                       <span>Response from LWCCO (Owner)</span>
-                      <span className="text-[10px] text-white/50 font-mono">
+                      <span className="text-[10px] text-[#2B2D33]/50 font-mono">
                         {rev.owner_response.relative_time_description}
                       </span>
                     </div>
-                    <p className="text-xs text-white/80 italic">
+                    <p className="text-xs text-[#2B2D33]/80 italic">
                       &ldquo;{rev.owner_response.text}&rdquo;
                     </p>
                   </div>
@@ -192,56 +192,56 @@ export default function GoogleReviewsSection() {
               </div>
 
               {/* Reviewer Meta Footer */}
-              <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+              <div className="pt-4 mt-4 border-t border-[#E5DFD3] flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-purple-950/60 border border-white/15 flex items-center justify-center font-serif text-xs font-bold text-white">
+                  <div className="w-8 h-8 rounded-full bg-[#FAF8F2] border border-[#E5DFD3] flex items-center justify-center font-serif text-xs font-bold text-[#4B2A7B]">
                     {rev.author_name.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="font-serif font-bold text-white text-xs sm:text-sm flex items-center gap-1.5">
-                    <span>{rev.author_name}</span>
-                    <span title="Verified Google Review">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#34A853]" />
-                    </span>
-                  </h4>
-                  {rev.author_badge && (
-                    <p className="text-[10px] text-white/60 font-medium">
-                      {rev.author_badge}
-                    </p>
-                  )}
+                    <h4 className="font-serif font-bold text-[#2B2D33] text-xs sm:text-sm flex items-center gap-1.5">
+                      <span>{rev.author_name}</span>
+                      <span title="Verified Google Review">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#34A853]" />
+                      </span>
+                    </h4>
+                    {rev.author_badge && (
+                      <p className="text-[10px] text-[#2B2D33]/60 font-medium">
+                        {rev.author_badge}
+                      </p>
+                    )}
+                  </div>
                 </div>
+
+                <span className="text-[10px] font-semibold text-[#2B2D33]/70 bg-[#FAF8F2] px-2 py-0.5 rounded border border-[#E5DFD3]">
+                  Google Maps
+                </span>
               </div>
-
-              <span className="text-[10px] font-semibold text-white/70 bg-white/5 px-2 py-0.5 rounded border border-white/10">
-                Google Maps
-              </span>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* Toggle / View All / Read on Google CTA */}
-      <div className="mt-12 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
-        {filteredReviews.length > 6 && (
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="px-6 py-3 rounded-lg bg-white/5 text-[#faf9f6] border border-white/20 text-xs sm:text-sm font-semibold hover:bg-white/10 transition-colors cursor-pointer"
+        {/* Toggle / View All / Read on Google CTA */}
+        <div className="mt-12 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
+          {filteredReviews.length > 6 && (
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="px-6 py-3 rounded-lg bg-white text-[#2B2D33] border border-[#E5DFD3] text-xs sm:text-sm font-semibold hover:bg-[#FAF8F2] transition-colors cursor-pointer shadow-xs"
+            >
+              {showAll ? `Show Less (${filteredReviews.length})` : `Show All ${filteredReviews.length} Reviews`}
+            </button>
+          )}
+
+          <a
+            href={GOOGLE_REVIEWS_META.review_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#4B2A7B] hover:bg-[#3A1F60] text-white inline-flex items-center gap-2 px-6 py-3 rounded-lg text-xs sm:text-sm font-bold shadow-md group transition-colors"
           >
-            {showAll ? `Show Less (${filteredReviews.length})` : `Show All ${filteredReviews.length} Reviews`}
-          </button>
-        )}
-
-        <a
-          href={GOOGLE_REVIEWS_META.review_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-gradient-royal inline-flex items-center gap-2 px-6 py-3 rounded-lg text-xs sm:text-sm font-bold shadow-lg group"
-        >
-          <span>Read All 34+ Reviews on Google Maps</span>
-          <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-        </a>
+            <span>Read All 34+ Reviews on Google Maps</span>
+            <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
 }

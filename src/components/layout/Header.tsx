@@ -51,7 +51,7 @@ export default function Header() {
 
       {/* 2. Main Nav: Crisp Off-White Background, Sits Below Utility Bar */}
       <nav
-        className={`w-full bg-white text-[#0F1F3D] transition-all duration-200 border-b border-gray-200 ${
+        className={`w-full bg-white text-[#2B2D33] transition-all duration-200 border-b border-gray-200 ${
           isScrolled ? 'py-3 shadow-md' : 'py-4'
         }`}
       >
@@ -59,14 +59,14 @@ export default function Header() {
           {/* Left: Firm Name / Logo as Text Wordmark (Serif, Letter-spaced) */}
           <Link href="/" className="flex flex-col group">
             <div className="flex items-baseline gap-2">
-              <span className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.14em] sm:tracking-[0.2em] text-[#0F1F3D] group-hover:text-indigo-700 transition-colors">
+              <span className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.14em] sm:tracking-[0.2em] text-[#2B2D33] group-hover:text-[#4B2A7B] transition-colors">
                 LWCCO
               </span>
-              <span className="text-xs font-serif italic text-indigo-900 font-medium hidden sm:inline">
+              <span className="text-xs font-serif italic text-[#4B2A7B] font-medium hidden sm:inline">
                 Messrs. Low Wah Chin & Co.
               </span>
             </div>
-            <span className="text-[8.5px] sm:text-[10px] uppercase font-sans tracking-[0.2em] sm:tracking-[0.25em] text-[#556987] font-medium -mt-0.5">
+            <span className="text-[8.5px] sm:text-[10px] uppercase font-sans tracking-[0.2em] sm:tracking-[0.25em] text-[#5C5E66] font-medium -mt-0.5">
               Advocates & Solicitors
             </span>
           </Link>
@@ -90,14 +90,14 @@ export default function Header() {
                       href={link.href}
                       className={`relative py-1 text-sm font-medium tracking-wide transition-colors flex items-center gap-1 ${
                         isActive
-                          ? 'text-[#0F1F3D] font-bold'
-                          : 'text-[#334155] hover:text-indigo-600'
+                          ? 'text-[#4B2A7B] font-bold'
+                          : 'text-[#2B2D33] hover:text-[#4B2A7B]'
                       }`}
                     >
                       <span>{link.label}</span>
-                      <ChevronDown className="w-3.5 h-3.5 text-indigo-600 transition-transform duration-200 group-hover:rotate-180" />
+                      <ChevronDown className="w-3.5 h-3.5 text-[#4B2A7B] transition-transform duration-200 group-hover:rotate-180" />
                       {isActive && (
-                        <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#2563eb] via-[#6366f1] to-[#7e22ce] rounded-full" />
+                        <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#4B2A7B] rounded-full" />
                       )}
                     </Link>
 
@@ -109,7 +109,7 @@ export default function Header() {
                           : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-indigo-600 px-3 py-1.5 border-b border-slate-100 mb-2">
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#4B2A7B] px-3 py-1.5 border-b border-slate-100 mb-2">
                         Core Practice Areas
                       </div>
                       <div className="space-y-1">
@@ -117,7 +117,7 @@ export default function Header() {
                           <Link
                             key={pIdx}
                             href={p.href}
-                            className="block px-3 py-2 rounded-lg text-xs font-medium text-[#0F1F3D] hover:bg-slate-50 hover:text-indigo-600 transition-colors"
+                            className="block px-3 py-2 rounded-lg text-xs font-medium text-[#2B2D33] hover:bg-[#FAF8F2] hover:text-[#4B2A7B] transition-colors"
                           >
                             {p.label}
                           </Link>
@@ -126,7 +126,7 @@ export default function Header() {
                       <div className="pt-2 mt-2 border-t border-slate-100 px-3">
                         <Link
                           href="/practices"
-                          className="text-xs text-indigo-600 hover:text-[#0F1F3D] font-semibold flex items-center justify-between"
+                          className="text-xs text-[#4B2A7B] hover:text-[#3A1F60] font-semibold flex items-center justify-between"
                         >
                           <span>View All Practice Disciplines</span>
                           <span>→</span>
@@ -143,13 +143,13 @@ export default function Header() {
                   href={link.href}
                   className={`relative py-1 text-sm font-medium tracking-wide transition-colors ${
                     isActive
-                      ? 'text-[#0F1F3D] font-bold'
-                      : 'text-[#334155] hover:text-indigo-600'
+                      ? 'text-[#4B2A7B] font-bold'
+                      : 'text-[#2B2D33] hover:text-[#4B2A7B]'
                   }`}
                 >
                   <span>{link.label}</span>
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#2563eb] via-[#6366f1] to-[#7e22ce] rounded-full" />
+                    <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#4B2A7B] rounded-full" />
                   )}
                 </Link>
               );
@@ -169,7 +169,7 @@ export default function Header() {
             <a
               href="tel:+60175483157"
               aria-label="Call LWCCO"
-              className="p-2 rounded-lg bg-gray-100 text-[#0F1F3D] border border-gray-200"
+              className="p-2 rounded-lg bg-gray-100 text-[#2B2D33] border border-gray-200"
             >
               <Phone className="w-4 h-4" />
             </a>
@@ -177,7 +177,7 @@ export default function Header() {
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Navigation Menu"
-              className="p-2 rounded-lg bg-gray-100 text-[#0F1F3D] border border-gray-200 focus:outline-none cursor-pointer"
+              className="p-2 rounded-lg bg-gray-100 text-[#2B2D33] border border-gray-200 focus:outline-none cursor-pointer"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -201,7 +201,7 @@ export default function Header() {
                           href={link.href}
                           onClick={() => setMobileMenuOpen(false)}
                           className={`text-sm font-serif font-bold ${
-                            isActive ? 'text-indigo-600' : 'text-[#0F1F3D]'
+                            isActive ? 'text-[#4B2A7B]' : 'text-[#2B2D33]'
                           }`}
                         >
                           {link.label}
@@ -209,7 +209,7 @@ export default function Header() {
                         <button
                           type="button"
                           onClick={() => setPracticesDropdownOpen(!practicesDropdownOpen)}
-                          className="p-1 rounded bg-white text-[#0F1F3D] border border-slate-200 text-xs"
+                          className="p-1 rounded bg-white text-[#2B2D33] border border-slate-200 text-xs"
                         >
                           <ChevronDown className={`w-4 h-4 transition-transform ${practicesDropdownOpen ? 'rotate-180' : ''}`} />
                         </button>
@@ -221,7 +221,7 @@ export default function Header() {
                               key={pIdx}
                               href={p.href}
                               onClick={() => setMobileMenuOpen(false)}
-                              className="block py-1.5 px-2 text-xs text-slate-700 hover:text-indigo-600"
+                              className="block py-1.5 px-2 text-xs text-slate-700 hover:text-[#4B2A7B]"
                             >
                               • {p.label}
                             </Link>
@@ -239,8 +239,8 @@ export default function Header() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`flex items-center justify-between px-3.5 py-2.5 rounded-lg text-sm font-medium transition-all ${
                       isActive
-                        ? 'bg-gradient-to-r from-[#0F1F3D] via-[#1E1B4B] to-[#2E1065] text-white font-bold'
-                        : 'text-[#0F1F3D] hover:bg-slate-100'
+                        ? 'bg-[#4B2A7B] text-white font-bold'
+                        : 'text-[#2B2D33] hover:bg-[#FAF8F2]'
                     }`}
                   >
                     <span>{link.label}</span>
