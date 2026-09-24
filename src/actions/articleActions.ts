@@ -1,11 +1,12 @@
-'use server';
+﻿'use server';
 
 import { db } from '@/db';
 import { articles } from '@/db/schema';
 import { ARTICLES_DATA } from '@/db/seedData';
 import { Article } from '@/types';
 import { eq, desc } from 'drizzle-orm';
-import { revalidatePath } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
+import { unstable_cache } from 'next/cache';
 
 let runtimeArticles: Article[] = [...ARTICLES_DATA];
 
@@ -54,9 +55,11 @@ export async function saveArticleAction(articleData: Partial<Article>): Promise<
           })
           .where(eq(articles.id, articleData.id));
 
+        revalidateTag('articles', 'max');
         revalidatePath('/articles');
         if (articleData.slug) revalidatePath(`/articles/${articleData.slug}`);
         revalidatePath('/admin/articles');
+        revalidatePath('/');
         return { success: true, article: articleData as Article };
       } else {
         // Insert in DB
@@ -89,8 +92,10 @@ export async function saveArticleAction(articleData: Partial<Article>): Promise<
             published_at: r.published_at.toISOString(),
             cover_image_url: r.cover_image_url || undefined,
           };
+          revalidateTag('articles', 'max');
           revalidatePath('/articles');
           revalidatePath('/admin/articles');
+          revalidatePath('/');
           return { success: true, article: newArt };
         }
       }
@@ -145,7 +150,10 @@ export async function deleteArticleAction(id: string | number): Promise<{ succes
     }
   }
   runtimeArticles = runtimeArticles.filter((a) => String(a.id) !== String(id));
+  revalidateTag('articles', 'max');
   revalidatePath('/articles');
   revalidatePath('/admin/articles');
+  revalidatePath('/');
   return { success: true };
 }
+

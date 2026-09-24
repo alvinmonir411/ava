@@ -1,6 +1,7 @@
-'use server';
+﻿'use server';
 
-import { revalidatePath } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
+import { unstable_cache } from 'next/cache';
 import fs from 'fs';
 import path from 'path';
 import { eq } from 'drizzle-orm';
@@ -36,6 +37,7 @@ export type {
   GalleryItem,
 };
 
+// In-memory fallback for serverless cold starts
 let memorySettings: FirmSettings | null = null;
 
 function getSettingsFilePath(): string {
@@ -95,7 +97,8 @@ function mergeSettingsWithDefaults(data: Partial<FirmSettings>): FirmSettings {
   };
 }
 
-export async function getFirmSettings(): Promise<FirmSettings> {
+// â”€â”€â”€ Raw DB/file fetch (no cache) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+async function fetchSettingsRaw(): Promise<FirmSettings> {
   // 1. Prioritize Neon DB
   if (db) {
     try {
@@ -106,22 +109,24 @@ export async function getFirmSettings(): Promise<FirmSettings> {
         .limit(1);
 
       if (records.length > 0 && records[0].value) {
-        memorySettings = mergeSettingsWithDefaults(records[0].value as Partial<FirmSettings>);
-        return memorySettings;
+        const merged = mergeSettingsWithDefaults(records[0].value as Partial<FirmSettings>);
+        memorySettings = merged;
+        return merged;
       }
     } catch (err) {
-      console.warn('Neon DB settings query failed, falling back to static firmSettings.json:', err);
+      console.warn('Neon DB settings query failed, falling back to firmSettings.json:', err);
     }
   }
 
-  // 2. Fallback to read-only firmSettings.json default file
+  // 2. Fallback to read-only firmSettings.json
   try {
     const filePath = getSettingsFilePath();
     if (fs.existsSync(filePath)) {
       const fileData = fs.readFileSync(filePath, 'utf-8');
       const parsed = JSON.parse(fileData);
-      memorySettings = mergeSettingsWithDefaults(parsed);
-      return memorySettings;
+      const merged = mergeSettingsWithDefaults(parsed);
+      memorySettings = merged;
+      return merged;
     }
   } catch (err) {
     console.error('Error reading fallback firmSettings.json:', err);
@@ -131,10 +136,28 @@ export async function getFirmSettings(): Promise<FirmSettings> {
   return memorySettings;
 }
 
-export async function getAdminSettingsAction(): Promise<FirmSettings> {
-  return getFirmSettings();
+// â”€â”€â”€ Cached version with tag 'firm-settings' â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// revalidateTag('firm-settings', 'max') instantly invalidates this on save
+const getCachedSettings = unstable_cache(
+  async () => fetchSettingsRaw(),
+  ['firm-settings'],
+  {
+    tags: ['firm-settings'],
+    revalidate: 3600, // fallback: max 1 hour stale even if tag not busted
+  }
+);
+
+// â”€â”€â”€ Public API used by all pages â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+export async function getFirmSettings(): Promise<FirmSettings> {
+  return getCachedSettings();
 }
 
+export async function getAdminSettingsAction(): Promise<FirmSettings> {
+  // Admin panel always reads fresh from DB (no cache)
+  return fetchSettingsRaw();
+}
+
+// â”€â”€â”€ Save + instant revalidate â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export async function updateAdminSettingsAction(
   newSettings: Partial<FirmSettings>
 ): Promise<{ success: boolean; settings: FirmSettings; message?: string }> {
@@ -148,7 +171,7 @@ export async function updateAdminSettingsAction(
       };
     }
 
-    const current = await getFirmSettings();
+    const current = await fetchSettingsRaw();
     const updated: FirmSettings = {
       ...current,
       ...newSettings,
@@ -200,7 +223,7 @@ export async function updateAdminSettingsAction(
 
     memorySettings = updated;
 
-    // Persist to Neon DB
+    // â”€â”€ Persist to Neon DB â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     if (db) {
       try {
         await db
@@ -229,15 +252,34 @@ export async function updateAdminSettingsAction(
       console.warn('DATABASE_URL not configured. Settings updated in memory only.');
     }
 
-    // Revalidate all pages so updates are immediately visible live
-    revalidatePath('/', 'layout');
+    // â”€â”€ Instantly bust the cache so all public pages get fresh data â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    revalidateTag('firm-settings', 'max');
+
+    // â”€â”€ Also revalidate every public route so Next.js re-renders them â”€â”€â”€â”€â”€â”€â”€
+    revalidatePath('/', 'layout');   // bust shared layout (header, footer)
     revalidatePath('/');
     revalidatePath('/about');
     revalidatePath('/our-team');
-    revalidatePath('/practices');
-    revalidatePath('/articles');
-    revalidatePath('/faq');
     revalidatePath('/contact');
+    revalidatePath('/faq');
+    revalidatePath('/articles');
+    revalidatePath('/practices');
+    revalidatePath('/practices/legal-advice-consultation');
+    revalidatePath('/practices/property-conveyancing');
+    revalidatePath('/practices/family-divorce');
+    revalidatePath('/practices/dispute-resolution-claims');
+    revalidatePath('/practices/will-estate-distribution');
+    revalidatePath('/practices/company-matters-agreements');
+    revalidatePath('/practices/bodily-injury-claims');
+    revalidatePath('/practices/medical-negligence-claims');
+    revalidatePath('/practices/letter-writing-lods');
+    revalidatePath('/practices/employment-labour-claims');
+    revalidatePath('/practices/defamation-claims-justification');
+    revalidatePath('/practices/contractor-negligence-claims');
+    revalidatePath('/practices/small-claims-assistance');
+    revalidatePath('/practices/tenancy-agreement-disputes');
+    revalidatePath('/practices/debt-recovery-winding-up');
+    revalidatePath('/practices/real-estate-conveyancing');
     revalidatePath('/admin/settings');
 
     return { success: true, settings: updated, message: 'All website settings and content updated successfully!' };
@@ -246,6 +288,4 @@ export async function updateAdminSettingsAction(
     return { success: false, settings: memorySettings || DEFAULT_FIRM_SETTINGS, message: 'Failed to update settings.' };
   }
 }
-
-
 

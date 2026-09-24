@@ -1,11 +1,11 @@
-'use server';
+﻿'use server';
 
 import { db } from '@/db';
 import { testimonials } from '@/db/schema';
 import { TESTIMONIALS_DATA } from '@/db/seedData';
 import { Testimonial } from '@/types';
 import { eq, desc } from 'drizzle-orm';
-import { revalidatePath } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
 
 let runtimeTestimonials: Testimonial[] = [...TESTIMONIALS_DATA];
 
@@ -48,7 +48,9 @@ export async function saveTestimonialAction(item: Partial<Testimonial>): Promise
           })
           .where(eq(testimonials.id, item.id));
 
+        revalidateTag('testimonials', 'max');
         revalidatePath('/');
+        revalidatePath('/about');
         revalidatePath('/admin/testimonials');
         return { success: true, testimonial: item as Testimonial };
       } else {
@@ -76,7 +78,9 @@ export async function saveTestimonialAction(item: Partial<Testimonial>): Promise
             source: t.source,
             published_at: t.published_at.toISOString(),
           };
+          revalidateTag('testimonials', 'max');
           revalidatePath('/');
+          revalidatePath('/about');
           revalidatePath('/admin/testimonials');
           return { success: true, testimonial: newT };
         }
@@ -128,7 +132,10 @@ export async function deleteTestimonialAction(id: string | number): Promise<{ su
     }
   }
   runtimeTestimonials = runtimeTestimonials.filter((t) => String(t.id) !== String(id));
+  revalidateTag('testimonials', 'max');
   revalidatePath('/');
+  revalidatePath('/about');
   revalidatePath('/admin/testimonials');
   return { success: true };
 }
+
