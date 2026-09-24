@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect, useTransition } from 'react';
 import {
@@ -82,7 +82,7 @@ export default function AdminTestimonialsPage() {
         }
       />
 
-      <div className="p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto space-y-6">
+      <div className="p-4 sm:p-6 lg:p-8 max-w-[1800px] w-full mx-auto space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t) => (
             <div
@@ -112,7 +112,7 @@ export default function AdminTestimonialsPage() {
                     {t.client_name}
                   </strong>
                   <span className="text-[11px] text-[#4B2A7B] font-medium block">
-                    {t.title} • {t.location}
+                    {t.title} â€¢ {t.location}
                   </span>
                 </div>
 
@@ -205,7 +205,7 @@ export default function AdminTestimonialsPage() {
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#2B2D33] mb-1">Star Rating (1–5)</label>
+                  <label className="block font-bold text-[#2B2D33] mb-1">Star Rating (1â€“5)</label>
                   <select
                     value={editingTestimonial.rating || 5}
                     onChange={(e) =>
@@ -213,9 +213,9 @@ export default function AdminTestimonialsPage() {
                     }
                     className="w-full px-3 py-2 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-[#2B2D33] focus:outline-none focus:border-[#4B2A7B]"
                   >
-                    <option value={5}>5 Stars ★★★★★</option>
-                    <option value={4}>4 Stars ★★★★</option>
-                    <option value={3}>3 Stars ★★★</option>
+                    <option value={5}>5 Stars â˜…â˜…â˜…â˜…â˜…</option>
+                    <option value={4}>4 Stars â˜…â˜…â˜…â˜…</option>
+                    <option value={3}>3 Stars â˜…â˜…â˜…</option>
                   </select>
                 </div>
               </div>
@@ -316,3 +316,4 @@ export default function AdminTestimonialsPage() {
     </div>
   );
 }
+

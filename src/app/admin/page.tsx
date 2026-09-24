@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { isAuthenticated } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import { getInquiriesAction } from '@/actions/inquiryActions';
@@ -49,7 +49,7 @@ export default async function AdminDashboardPage() {
         }
       />
 
-      <div className="p-6 sm:p-8 space-y-8 max-w-7xl w-full mx-auto">
+      <div className="p-6 sm:p-8 space-y-8 max-w-[1800px] w-full mx-auto">
         {/* Top KPI Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {/* Card 1: Total Leads */}
@@ -215,7 +215,7 @@ export default async function AdminDashboardPage() {
                       </p>
 
                       <div className="flex items-center justify-between text-[11px] text-[#2B2D33]/50 pt-2 border-t border-[#E5DFD3]">
-                        <span>{inquiry.phone} • {inquiry.email}</span>
+                        <span>{inquiry.phone} â€¢ {inquiry.email}</span>
                         <span>{new Date(inquiry.created_at).toLocaleDateString('en-MY')}</span>
                       </div>
                     </div>
@@ -325,7 +325,7 @@ export default async function AdminDashboardPage() {
                 Low Wah Chin & Co.
               </h4>
               <p className="text-xs text-[#2B2D33]/80 leading-relaxed font-light">
-                Advocates & Solicitors • Member of the Malaysian Bar Council. Head office located at Colony @ KLCC, Vipod Residences, Kuala Lumpur.
+                Advocates & Solicitors â€¢ Member of the Malaysian Bar Council. Head office located at Colony @ KLCC, Vipod Residences, Kuala Lumpur.
               </p>
               <div className="pt-2">
                 <Link
@@ -344,3 +344,4 @@ export default async function AdminDashboardPage() {
     </div>
   );
 }
+

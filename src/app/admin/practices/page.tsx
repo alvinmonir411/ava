@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect, useRef, useTransition } from 'react';
 import { getAdminPracticesAction, updatePracticeAreaAction } from '@/actions/practiceActions';
@@ -175,13 +175,13 @@ export default function AdminPracticesPage() {
         subtitle="Manage descriptions, hero photography, scope checklists, and FAQs across all 18 legal disciplines."
       />
 
-      <div className="p-6 sm:p-8 max-w-7xl w-full mx-auto space-y-10">
+      <div className="p-6 sm:p-8 max-w-[1800px] w-full mx-auto space-y-10">
         {/* Section 1: Core Practice Disciplines (Top 6) */}
         <div className="space-y-4">
           <div className="flex items-center justify-between border-b border-[#E5DFD3] pb-3">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-[#4B2A7B]">
-                Priority Section (1–6)
+                Priority Section (1â€“6)
               </span>
               <h2 className="font-serif text-xl font-bold text-[#2B2D33]">
                 Core Practice Disciplines (6)
@@ -258,7 +258,7 @@ export default function AdminPracticesPage() {
           <div className="flex items-center justify-between border-b border-[#E5DFD3] pb-3">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-[#4B2A7B]">
-                Secondary Scope (7–18)
+                Secondary Scope (7â€“18)
               </span>
               <h2 className="font-serif text-xl font-bold text-[#2B2D33]">
                 Specialized Service Offerings & Scope (12)
@@ -418,7 +418,7 @@ export default function AdminPracticesPage() {
             <form onSubmit={handleSave} className="flex-1 overflow-y-auto p-5 sm:p-6 space-y-6">
               {savedSuccess && (
                 <div className="p-3.5 bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-bold text-center rounded-xl animate-in fade-in shadow-xs">
-                  ✓ Practice Area Content Updated & Published Live Successfully!
+                  âœ“ Practice Area Content Updated & Published Live Successfully!
                 </div>
               )}
 
@@ -451,7 +451,7 @@ export default function AdminPracticesPage() {
                         onChange={(e) =>
                           setEditingPractice({ ...editingPractice, chineseTitle: e.target.value })
                         }
-                        placeholder="e.g. 合同起草与商业咨询"
+                        placeholder="e.g. åˆåŒèµ·è‰ä¸Žå•†ä¸šå’¨è¯¢"
                         className="w-full px-3.5 py-2.5 bg-[#FAF8F2] border border-[#E5DFD3] rounded-xl text-xs text-[#2B2D33] placeholder-[#2B2D33]/40 focus:outline-none focus:border-[#4B2A7B] focus:ring-1 focus:ring-[#4B2A7B]"
                       />
                     </div>
@@ -819,3 +819,4 @@ export default function AdminPracticesPage() {
     </div>
   );
 }
+

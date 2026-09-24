@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect, useTransition } from 'react';
 import {
@@ -103,7 +103,7 @@ export default function AdminArticlesPage() {
         }
       />
 
-      <div className="p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto space-y-6">
+      <div className="p-4 sm:p-6 lg:p-8 max-w-[1800px] w-full mx-auto space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {articles.map((article) => (
             <div
@@ -204,7 +204,7 @@ export default function AdminArticlesPage() {
 
             {savedSuccess && (
               <div className="p-3 bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-bold text-center rounded-xl animate-in fade-in">
-                ✓ Article Saved Successfully!
+                âœ“ Article Saved Successfully!
               </div>
             )}
 
@@ -364,7 +364,7 @@ export default function AdminArticlesPage() {
 
             <div className="p-3.5 rounded-xl bg-[#FAF8F2] border border-[#E5DFD3] text-xs space-y-1">
               <p className="text-[#2B2D33] font-bold">{articleToDelete.title}</p>
-              <p className="text-[#4B2A7B]">{articleToDelete.category} • {articleToDelete.author}</p>
+              <p className="text-[#4B2A7B]">{articleToDelete.category} â€¢ {articleToDelete.author}</p>
             </div>
 
             <div className="flex items-center justify-end gap-3 pt-2">
@@ -391,3 +391,4 @@ export default function AdminArticlesPage() {
     </div>
   );
 }
+

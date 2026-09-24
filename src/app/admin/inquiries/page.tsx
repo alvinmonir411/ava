@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect, useTransition } from 'react';
 import {
@@ -149,7 +149,7 @@ export default function AdminInquiriesPage() {
         }
       />
 
-      <div className="p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto space-y-6">
+      <div className="p-4 sm:p-6 lg:p-8 max-w-[1800px] w-full mx-auto space-y-6">
         {/* Controls Bar: Search & Status Filters */}
         <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#E5DFD3] flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center shadow-xs">
           {/* Search Box */}
@@ -239,7 +239,7 @@ export default function AdminInquiriesPage() {
                             {inquiry.name}
                           </strong>
                           <div className="text-[11px] text-[#2B2D33]/60 space-y-0.5 mt-0.5">
-                            <span>{inquiry.phone}</span> • <span>{inquiry.email}</span>
+                            <span>{inquiry.phone}</span> â€¢ <span>{inquiry.email}</span>
                           </div>
                         </td>
 
@@ -344,7 +344,7 @@ export default function AdminInquiriesPage() {
             <div className="p-3.5 rounded-xl bg-[#FAF8F2] border border-[#E5DFD3] text-xs space-y-1">
               <p className="text-[#2B2D33] font-bold">{inquiryToDelete.name}</p>
               <p className="text-[#4B2A7B] font-semibold">{inquiryToDelete.practice_area}</p>
-              <p className="text-[#2B2D33]/60">{inquiryToDelete.phone} • {inquiryToDelete.email}</p>
+              <p className="text-[#2B2D33]/60">{inquiryToDelete.phone} â€¢ {inquiryToDelete.email}</p>
             </div>
 
             <div className="flex items-center justify-end gap-3 pt-2">
@@ -476,3 +476,4 @@ export default function AdminInquiriesPage() {
     </div>
   );
 }
+
