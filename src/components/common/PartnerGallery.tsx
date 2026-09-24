@@ -204,7 +204,7 @@ export default function PartnerGallery({
 
                 <div className="pt-3 border-t border-[#E5DFD3] flex items-center justify-between text-xs text-[#2B2D33]/60">
                   <span>Messrs. Low Wah Chin & Co. • Advocates & Solicitors</span>
-                  <span className="font-sans text-[#4B2A7B] font-semibold">Member of the Malaysian Bar Council</span>
+                  <span className="font-sans text-[#4B2A7B] font-semibold">Member of Malaysia Bar Council</span>
                 </div>
               </div>
             </div>

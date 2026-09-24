@@ -1,4 +1,11 @@
-import { pgTable, serial, text, timestamp, integer, varchar } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text, timestamp, integer, varchar, jsonb } from 'drizzle-orm/pg-core';
+
+export const siteSettings = pgTable('site_settings', {
+  key: text('key').primaryKey(),
+  value: jsonb('value').notNull(),
+  updated_at: timestamp('updated_at').defaultNow().notNull(),
+});
+
 
 export const inquiries = pgTable('inquiries', {
   id: serial('id').primaryKey(),

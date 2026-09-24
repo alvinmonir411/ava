@@ -66,7 +66,7 @@ export default function FirmOverview() {
                 <Globe className="w-4 h-4 text-[#4B2A7B] mt-0.5 shrink-0" />
                 <div>
                   <strong className="text-[#2B2D33] block">Bar Membership & Jurisdiction</strong>
-                  <span className="text-[#2B2D33]/70">High Court of Malaya • Member of the Malaysian Bar Council</span>
+                  <span className="text-[#2B2D33]/70">High Court of Malaya • Member of Malaysia Bar Council</span>
                 </div>
               </div>
             </div>

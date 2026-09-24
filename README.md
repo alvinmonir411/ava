@@ -5,7 +5,7 @@
 [![PostgreSQL](https://img.shields.io/badge/Database-Neon%20Serverless%20Postgres-00E599?style=for-the-badge&logo=postgresql)](https://neon.tech)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Google Rating](https://img.shields.io/badge/Google%20Rating-5.0%20%E2%98%85%20(34%2B%20Reviews)-4285F4?style=for-the-badge&logo=google)](https://share.google/4f6BOdPxefdpTafG3)
-[![Bar Council](https://img.shields.io/badge/Bar%20Council-BC%2FL%2F2019-navy?style=for-the-badge)](https://www.malaysianbar.org.my/)
+[![Bar Council](https://img.shields.io/badge/Bar%20Council-Member%20Malaysian%20Bar-purple?style=for-the-badge)](https://www.malaysianbar.org.my/)
 
 > **Messrs. Low Wah Chin & Co. (Advocates & Solicitors)** is an elite legal practice headquartered at **Colony @ KLCC, Vipod Residences, Kuala Lumpur**. Led by **Ava Rachel Low** (*Barrister-at-Law, Lincoln's Inn, London • Advocate & Solicitor of the High Court of Malaya*), the firm delivers partner-led legal counsel across conveyancing, corporate law, matrimonial matters, medical negligence, bodily injury claims, and high-stakes dispute resolution.
 
@@ -65,7 +65,7 @@ The platform features dedicated, SEO-optimized individual practice pages with st
 * **Legal Articles CMS (`/admin/articles`)**: Complete rich-text publishing, editing, draft staging, and previewing of legal insights and landmark case analyses.
 * **Client Reviews & Accolades Manager (`/admin/testimonials`)**: Manage featured client reviews, star ratings, and media features.
 * **Practice Area CMS (`/admin/practices`)**: Dynamically update service scope checklists, statutory guides, FAQs, hero imagery, and descriptions.
-* **Firm Profile & Settings (`/admin/settings`)**: Configure Malaysian Bar Council registration number, phone numbers, email, and KLCC chambers coordinates.
+* **Firm Profile & Settings (`/admin/settings`)**: Configure Malaysian Bar Council membership details, phone numbers, email, and KLCC chambers coordinates.
 
 ### 2. ⭐ Google Verified Reviews & Recognition Engine
 * **Interactive Category Filtering**: Filter verified reviews across *Visa & Immigration, Wills & Estate Distribution, Accident & Injury, Commercial & Letter Writing, Fraud & Legal Advice, and Bilingual / Chinese Counsel*.

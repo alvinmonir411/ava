@@ -43,7 +43,7 @@ export default function TopUtilityBar() {
           <span className="text-[#2B2D33]/20 hidden md:inline">•</span>
           <span className="text-[#4B2A7B] font-semibold hidden md:flex items-center gap-1">
             <ShieldCheck className="w-3.5 h-3.5 text-[#4B2A7B] shrink-0" />
-            <span>Member of the Malaysian Bar Council</span>
+            <span>Member of Malaysia Bar Council</span>
           </span>
         </div>
       </div>

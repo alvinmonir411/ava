@@ -67,7 +67,7 @@ export default function Hero({
               </div>
               <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white border border-[#E5DFD3] shadow-xs">
                 <CheckCircle2 className="w-4 h-4 text-[#4B2A7B] shrink-0" />
-                <span>Member of the Malaysian Bar Council</span>
+                <span>Member of Malaysia Bar Council</span>
               </div>
               <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white border border-[#E5DFD3] shadow-xs">
                 <CheckCircle2 className="w-4 h-4 text-[#4B2A7B] shrink-0" />
@@ -85,11 +85,11 @@ export default function Hero({
                 href="/contact"
                 className="bg-[#4B2A7B] hover:bg-[#3A1F60] text-white w-full sm:w-auto px-8 py-3.5 rounded-lg text-xs sm:text-sm font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-md hover:scale-[1.02] transition-transform"
               >
-                <span>Schedule Consultation</span>
+                <span>{c.ctaButtonText || 'Schedule Consultation'}</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               
-              <WhatsAppButton variant="compact" label="Inquire on WhatsApp" />
+              <WhatsAppButton variant="compact" label={c.whatsappButtonText || 'Inquire on WhatsApp'} />
             </div>
 
           </div>

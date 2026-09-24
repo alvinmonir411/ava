@@ -14,8 +14,8 @@ export default function TrustBar({ className = '' }: TrustBarProps) {
     },
     {
       icon: Landmark,
-      title: 'Member of the Bar',
-      subtitle: 'Malaysian Bar Council',
+      title: 'Malaysian Bar',
+      subtitle: 'Member of the Malaysian Bar Council',
     },
     {
       icon: Award,

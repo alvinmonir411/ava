@@ -150,7 +150,7 @@ export default function SiteFooter() {
         {/* Sub-Footer Copyright Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/60 font-light">
           <p>
-            © {currentYear} Messrs. Low Wah Chin & Co. (LWCCO). All rights reserved. Member of the Malaysian Bar Council.
+            © {currentYear} Messrs. Low Wah Chin & Co. (LWCCO). All rights reserved. Member of Malaysia Bar Council.
           </p>
           <div className="flex items-center gap-4">
             <span>Privileged & Confidential</span>

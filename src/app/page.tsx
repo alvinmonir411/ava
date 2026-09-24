@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '@/components/sections/Hero';
 import AboutPrincipal from '@/components/sections/AboutPrincipal';
 import PracticeAreasDark from '@/components/sections/PracticeAreasDark';
+import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import GoogleReviewsSection from '@/components/sections/GoogleReviewsSection';
 import RecognitionSection from '@/components/sections/RecognitionSection';
 import PartnerGallery from '@/components/common/PartnerGallery';
@@ -18,6 +19,7 @@ export default async function HomePage() {
   const settings = await getFirmSettings();
   const articles = await getArticles();
 
+  const showWhyChooseUs = settings.sections?.showWhyChooseUs ?? true;
   const showRecognition = settings.sections?.showRecognition ?? false;
   const showGallery = settings.sections?.showGallery ?? false;
   const showFirmOverview = settings.sections?.showFirmOverview ?? false;
@@ -36,7 +38,12 @@ export default async function HomePage() {
       {/* 3. Practice Areas Section */}
       <PracticeAreasDark />
 
-      {/* 4. Testimonials (Compact Google Reviews & Client Trust) */}
+      {/* 4. Why Choose Us Section */}
+      {showWhyChooseUs && (
+        <WhyChooseUs content={settings.whyChooseUs} />
+      )}
+
+      {/* 5. Testimonials (Compact Google Reviews & Client Trust) */}
       <GoogleReviewsSection />
 
       {/* Dashboard Toggleable Section: "Best Law Firms" Feature (Hidden by default) */}

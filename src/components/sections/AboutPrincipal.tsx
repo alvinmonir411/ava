@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Award, GraduationCap, ArrowRight, CheckCircle2, Landmark, Scale, Briefcase } from 'lucide-react';
+import { Award, GraduationCap, ArrowRight, CheckCircle2, Landmark, Scale } from 'lucide-react';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
 import { AboutPrincipalSettings, DEFAULT_FIRM_SETTINGS } from '@/types/settings';
 
@@ -92,14 +92,25 @@ export default function AboutPrincipal({ content }: AboutPrincipalProps) {
 
               {/* Institutional Pedigree Summary */}
               <div className="pt-2 border-t border-gray-100 text-xs text-[#5C5E66] space-y-1.5">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#4B2A7B] shrink-0" />
-                  <span>Benchmark Practice: Shook Lin & Bok • Azim, Tunku Farik & Wong</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#4B2A7B] shrink-0" />
-                  <span>Corporate In-House: ~9 Months Legal Counsel at KNM Group Berhad</span>
-                </div>
+                {c.pastExperienceHighlights && c.pastExperienceHighlights.length > 0 ? (
+                  c.pastExperienceHighlights.map((exp, idx) => (
+                    <div key={idx} className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#4B2A7B] shrink-0" />
+                      <span>{exp}</span>
+                    </div>
+                  ))
+                ) : (
+                  <>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#4B2A7B] shrink-0" />
+                      <span>{c.pastExperienceItem1 || 'Benchmark Practice: Shook Lin & Bok • Azim, Tunku Farik & Wong'}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#4B2A7B] shrink-0" />
+                      <span>{c.pastExperienceItem2 || 'Corporate In-House: ~9 Months Legal Counsel at KNM Group Berhad'}</span>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>

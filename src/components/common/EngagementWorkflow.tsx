@@ -136,7 +136,7 @@ export default function EngagementWorkflow() {
             </div>
 
             <div className="flex items-center gap-2 text-xs font-semibold text-[#4B2A7B]">
-              <span>Bar Council Compliant</span>
+              <span>Member of the Malaysian Bar Council</span>
               <span>•</span>
               <span>Fixed & Staged Structures</span>
             </div>

@@ -51,7 +51,9 @@ export default async function OurTeamPage() {
 
   const credentials = leader.credentials || TEAM_MEMBERS_DATA[0].credentials;
   const careerHistory = leader.careerHistory || TEAM_MEMBERS_DATA[0].careerHistory || [];
-  const detailedCareer = leader.detailedCareerHistory || TEAM_MEMBERS_DATA[0].detailedCareerHistory || [];
+  const detailedCareer = (settings.careerHistory && settings.careerHistory.length > 0)
+    ? settings.careerHistory
+    : (leader.detailedCareerHistory || TEAM_MEMBERS_DATA[0].detailedCareerHistory || []);
   const educationHistory = leader.educationHistory || TEAM_MEMBERS_DATA[0].educationHistory || [];
   const earlyCareer = leader.earlyCareerAndInternships || TEAM_MEMBERS_DATA[0].earlyCareerAndInternships || [];
   const activities = leader.activitiesAndAchievements || TEAM_MEMBERS_DATA[0].activitiesAndAchievements || [];
@@ -223,7 +225,7 @@ export default async function OurTeamPage() {
                   Fearless Courtroom Advocacy Grounded in Deliberate Preparation
                 </h1>
                 <div className="p-4 bg-white border-l-4 border-[#4B2A7B] rounded-r-lg border border-[#E5DFD3] text-xs sm:text-sm text-[#2B2D33] font-medium leading-relaxed shadow-xs">
-                  <strong>Low Wah Chin (Ava Rachel) 劉華晶</strong> brings Fifteen (15) years of practice experience since her admission in 2011 across civil, insurance, company, family & divorce, medical negligence, personal injury, property conveyancing, and will & estate distribution law practice with established Malaysian benchmark firms, ~9 months as In-House Legal Counsel with listed multinational KNM Group Berhad, and sole proprietorship practice.
+                  <strong>Low Wah Chin (Ava Rachel) 劉華晶</strong> has been practising since 11 November 2011 across civil, insurance, company, family & divorce, medical negligence, personal injury, property conveyancing, and will & estate distribution law practice with established Malaysian benchmark firms, ~9 months as In-House Legal Counsel with listed multinational KNM Group Berhad, and sole proprietorship practice.
                 </div>
                 <div className="space-y-4 text-sm sm:text-base text-[#2B2D33]/80 leading-relaxed pt-2">
                   {bioParagraphs.map((para: string, idx: number) => (

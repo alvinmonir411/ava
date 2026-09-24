@@ -41,7 +41,7 @@ export default function FounderPhilosophy() {
                       </p>
                     </div>
                     <span className="text-[10px] font-mono font-bold text-[#4B2A7B] bg-[#FAF8F2] px-2.5 py-1 rounded border border-[#D8C7F0]">
-                      Member of the Malaysian Bar Council
+                      Member of Malaysia Bar Council
                     </span>
                   </div>
                 </div>
