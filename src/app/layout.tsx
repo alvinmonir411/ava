@@ -42,7 +42,12 @@ export const metadata: Metadata = {
   authors: [{ name: 'Low Wah Chin (Ava Rachel)' }],
   creator: 'Messrs. Low Wah Chin & Co.',
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/Loo.jpg' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+    shortcut: '/Loo.jpg',
+    apple: '/Loo.jpg',
   },
 };
 

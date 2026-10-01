@@ -247,7 +247,7 @@ export function getArticleSchema(article: {
       name: SITE_CONFIG.name,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_CONFIG.url}/favicon.ico`,
+        url: `${SITE_CONFIG.url}/Loo.jpg`,
       },
     },
     mainEntityOfPage: {
