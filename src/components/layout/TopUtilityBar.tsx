@@ -3,8 +3,8 @@ import { Phone, Mail, Clock, ShieldCheck } from 'lucide-react';
 
 export default function TopUtilityBar() {
   return (
-    <div className="bg-[#FAF8F2] text-[#2B2D33]/80 text-xs py-2 px-3 sm:px-6 lg:px-8 border-b border-[#E5DFD3]">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-1.5 sm:gap-2 text-center sm:text-left">
+    <div className="bg-[#FAF8F2] text-[#2B2D33]/80 text-xs py-2 px-3 sm:px-6 lg:px-8 border-b border-[#E5DFD3] min-h-[56px] sm:min-h-[38px] flex items-center">
+      <div className="max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-1.5 sm:gap-2 text-center sm:text-left">
         {/* Left: Phone + Email */}
         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1 text-[11px] sm:text-xs tracking-wide">
           <a

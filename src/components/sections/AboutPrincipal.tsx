@@ -40,8 +40,8 @@ export default function AboutPrincipal({ content }: AboutPrincipalProps) {
                   src={c.lawyerPhoto || '/lawyer-portrait-4.jpg'}
                   alt={`${c.lawyerName || 'Low Wah Chin (Ava Rachel)'} ${c.lawyerChinese || '劉華晶'} Managing Partner Messrs. Low Wah Chin & Co.`}
                   fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 420px"
+                  sizes="(max-width: 640px) 360px, (max-width: 1024px) 420px, 420px"
+                  quality={85}
                   className="object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2B2D33]/60 via-[#2B2D33]/15 to-transparent" />

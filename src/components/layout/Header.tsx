@@ -51,7 +51,7 @@ export default function Header() {
 
       {/* 2. Main Nav: Crisp Off-White Background, Sits Below Utility Bar */}
       <nav
-        className={`w-full bg-white text-[#2B2D33] transition-all duration-200 border-b border-gray-200 ${
+        className={`w-full bg-white text-[#2B2D33] transition-all duration-200 border-b border-gray-200 min-h-[64px] sm:min-h-[72px] flex items-center ${
           isScrolled ? 'py-3 shadow-md' : 'py-4'
         }`}
       >

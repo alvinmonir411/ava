@@ -11,12 +11,16 @@ const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
   display: 'swap',
+  adjustFontFallback: true,
+  preload: true,
 });
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
+  adjustFontFallback: true,
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -43,11 +47,11 @@ export const metadata: Metadata = {
   creator: 'Messrs. Low Wah Chin & Co.',
   icons: {
     icon: [
-      { url: '/Loo.jpg' },
       { url: '/favicon.ico', sizes: 'any' },
+      { url: '/Loo.jpg', sizes: '512x512', type: 'image/jpeg' },
     ],
-    shortcut: '/Loo.jpg',
-    apple: '/Loo.jpg',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
 };
 

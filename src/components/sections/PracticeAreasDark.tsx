@@ -46,12 +46,13 @@ export default function PracticeAreasDark() {
   return (
     <section className="relative py-24 lg:py-32 bg-[#FAF8F2] text-[#2B2D33] overflow-hidden border-b border-[#E5DFD3]">
       {/* Subtle architectural background image with ivory overlay */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80"
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=60"
           alt="Messrs. Low Wah Chin & Co. Kuala Lumpur Architecture"
           fill
           sizes="100vw"
+          quality={50}
           className="object-cover object-center opacity-5 brightness-95"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F2] via-[#FAF8F2]/90 to-[#FAF8F2]" />

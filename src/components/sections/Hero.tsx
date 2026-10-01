@@ -11,7 +11,7 @@ interface HeroProps {
 }
 
 export default function Hero({
-  bgImage = 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2000&q=85',
+  bgImage = 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=70',
   content,
 }: HeroProps) {
   const c = content || DEFAULT_FIRM_SETTINGS.heroContent;
@@ -19,13 +19,13 @@ export default function Hero({
   return (
     <section className="relative w-full min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center bg-[#FAF8F2] text-[#2B2D33] overflow-hidden py-12 sm:py-16 lg:py-20 border-b border-[#E5DFD3]">
       {/* Background with ivory tone */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
           src={bgImage}
           alt="Messrs. Low Wah Chin & Co. Advocates & Solicitors Kuala Lumpur Courtroom"
           fill
-          priority
           sizes="100vw"
+          quality={60}
           className="object-cover object-center opacity-10 brightness-95"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F2] via-[#FAF8F2]/90 to-[#FAF8F2]" />
@@ -89,7 +89,7 @@ export default function Hero({
                 <ArrowRight className="w-4 h-4" />
               </Link>
               
-              <WhatsAppButton variant="compact" label={c.whatsappButtonText || 'Inquire on WhatsApp'} />
+              <WhatsAppButton variant="compact" label={c.whatsappButtonText || 'Inquire on WhatsApp'} className="w-full sm:w-auto" />
             </div>
 
           </div>
@@ -111,7 +111,8 @@ export default function Hero({
                   alt={`${c.heroLawyerName} Advocate & Solicitor Messrs. Low Wah Chin & Co.`}
                   fill
                   priority
-                  sizes="(max-width: 1024px) 100vw, 380px"
+                  sizes="(max-width: 640px) 360px, (max-width: 1024px) 380px, 380px"
+                  quality={85}
                   className="object-cover object-[center_15%] filter brightness-100 contrast-105 group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2B2D33]/60 via-transparent to-transparent" />
